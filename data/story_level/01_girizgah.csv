@@ -1,0 +1,2 @@
+kayit_id,satir_no,boy,bolum_tipi,karakter_1,karakter_1_id,karakter_1_tipi,karakter_2,karakter_2_id,karakter_2_tipi,iliski_ham,iliski_turu,katman,agirlik,kutupluluk,yonluluk,cikarma_yontemi,not,ham_satir,kaynak_notu,source_file
+DKR0001,2.0,Girizgah,girizgah,Dede Korkut,dede_korkut,kişi,Bayat Boyu,bayat_boyu,grup,bayat boyu,kimlik/unvan,kimlik,2,nötr,yönlü,açık_ilişki,,Dede korkut - bayat boyu,ham_okuma_notu; araştırmacı tarafından standartlaştırıldı,01_girizgah.csv
