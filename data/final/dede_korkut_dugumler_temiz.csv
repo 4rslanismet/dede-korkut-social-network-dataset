@@ -1,0 +1,334 @@
+dugum_id,dugum_adi,dugum_tipi,toplam_gorunum,edge_gorunumu,event_gorunumu,boy_sayisi
+100_kafir,100 Kafir,kişi,2,2,0,2
+16_asker_ve_uruz,16 Asker ve Uruz,grup,1,0,1,1
+16_bin_kafir,16 Bin Kafir,kişi,1,1,0,1
+24_sancak_beyi,24 Sancak Beyi,grup,2,2,0,1
+300_akinci,300 Akıncı,kişi,1,1,0,1
+300_asker,300 Asker,grup,2,2,0,2
+300_kafir,300 Kafir,kişi,11,11,0,2
+40_askeri,40 Askeri,grup,1,1,0,1
+40_ince_belli_kiz,40 Ince Belli Kız,kişi,3,3,0,3
+40_yigit,40 Yiğit,grup,1,1,0,1
+6_kafir,6 Kafir,kişi,1,1,0,1
+60_kafir,60 Kafir,kişi,1,1,0,1
+600_kafir,600 Kafir,kişi,7,7,0,3
+adsiz_kisi_uruz_kurtarma_boyu,Adsız Kişi (Uruz Kurtarma Boyu),kişi,5,5,0,1
+ak_melik,Ak Melik,kişi,1,1,0,1
+ak_saka_kalesi_casuslari,Ak Saka Kalesi Casusları,grup,1,1,0,1
+ak_sakalli_aruz_koca,Ak Sakallı Aruz Koca,kişi,1,1,0,1
+alp_eren,Alp Eren,kişi,3,3,0,1
+alp_rustem,Alp Rüstem,kişi,4,4,0,3
+alplar_basi_kazan,Alplar Başı Kazan,kişi,1,1,0,1
+alti_bey_oglu,Altı Bey Oğlu,kişi,1,1,0,1
+anne_ve_babasi,Anne ve Babası,grup,3,3,0,3
+annesi,Annesi,kişi,4,4,0,2
+aruz,Aruz,kişi,24,24,0,2
+aruz_emen,Aruz Emen,kişi,1,0,1,1
+aruz_koca,Aruz Koca,kişi,10,10,0,2
+aruz_ve_dis_oguz_beyleri,Aruz ve Dış Oğuz Beyleri,grup,2,2,0,1
+aruzun_habercisi,Aruzun Habercisi,kişi,1,1,0,1
+arsin_oglu_direk_tekfur,Arşın Oğlu Direk Tekfur,kişi,7,7,0,1
+askerler,Askerler,grup,1,1,0,1
+aslan,Aslan,hayvan,2,2,0,2
+aslan_yatagi,Aslan Yatağı,nesne/doğa,1,1,0,1
+at_agizli_aruz,At Ağızlı Aruz,kişi,1,1,0,1
+at_agizli_aruz_koca,At Ağızlı Aruz Koca,kişi,2,2,0,1
+azrail,Azrail,mitolojik/ilahi,9,9,0,1
+agac,Ağaç,nesne/doğa,1,1,0,1
+bamsi_beyrek,Bamsı Beyrek,kişi,69,65,4,4
+bamsi_ve_bamsinin_40_yigidi,Bamsı ve Bamsının 40 Yiğidi,grup,1,1,0,1
+bamsinin_40_yigidi,Bamsı'nın 40 Yiğidi,grup,1,0,1,1
+bamsinin_anne_babasi,Bamsı'nın Anne Babası,grup,2,1,1,1
+bamsinin_haberi_gelince,Bamsı'nın Haberi Gelince,kişi,1,1,0,1
+bamsinin_haberi_gelince_siyah_giyme_yas_tutma,Bamsı'nın Haberi Gelince Siyah Giyme Yas Tutma,kişi,1,1,0,1
+bamsinin_kiz_kardesleri,Bamsı'nın Kız Kardeşleri,grup,1,0,1,1
+bamsinin_naibi,Bamsı'nın Naibi,kişi,1,1,0,1
+banu_cicek,Banu Çiçek,kişi,13,10,3,1
+basat,Basat,kişi,30,27,3,2
+basatin_annesi,Basat'ın Annesi,kişi,1,1,0,1
+bayat_boyu,Bayat Boyu,grup,1,1,0,1
+bayburd_hisarindaki_kafirler,Bayburd Hisarındaki Kafirler,grup,1,1,0,1
+bayburt_hisari_beyi,Bayburt Hisarı Beyi,kişi,1,1,0,1
+bayburt_hisrasi_melikinin_kizi,Bayburt Hisrası Meliki'nin Kızı,kişi,1,1,0,1
+bayindir_han,Bayındır Han,kişi,37,36,1,7
+bayindir_han_kazan,Bayındır Han Kazan,kişi,1,1,0,1
+bayindir_hanin_adamlari,Bayındır Han'ın Adamları,grup,1,1,0,1
+bas_acik,Baş Açık,kişi,1,1,0,1
+begil,Begil,kişi,29,26,3,1
+begilin_adamlari,Begil'in Adamları,grup,1,1,0,1
+begil_in_adamlari,Begil'in Adamları,grup,1,1,0,1
+begilin_atini,Begilin Atını,hayvan,1,0,1,1
+begilin_beyleri,Begilin Beyleri,grup,1,0,1,1
+begilin_casusu,Begilin Casusu,kişi,1,1,0,1
+begilin_hismi_ve_kavmi,Begilin Hısmı ve Kavmi,grup,1,1,0,1
+begilin_karisi,Begilin Karısı,kişi,6,6,0,1
+beyerek,Beyerek,kişi,1,1,0,1
+beyler_bamsi_beyrek_boyu,Beyler (Bamsı Beyrek Boyu),grup,6,5,1,1
+beyler_basat_boyu,Beyler (Basat Boyu),grup,2,2,0,1
+beyler_begil_boyu,Beyler (Begil Boyu),grup,5,4,1,1
+beyler_ev_yagmasi_boyu,Beyler (Ev Yağması Boyu),grup,1,1,0,1
+beyler_uruz_kurtarma_boyu,Beyler (Uruz Kurtarma Boyu),grup,4,4,0,1
+beyler_uruz_tutsak_boyu,Beyler (Uruz Tutsak Boyu),grup,2,2,0,1
+beyler_ve_beyrek,Beyler ve Beyrek,grup,1,1,0,1
+beyrek_solen_yemegini_doktu,Beyrek Şölen Yemeğini Döktü,kişi,1,0,1,1
+beyrekin_40_adami,Beyrek'in 40 Adamı,grup,1,1,0,1
+beyrekin_40_yigidi,Beyrek'in 40 Yiğidi,grup,3,3,0,2
+beyrek_in_40_yoldaslari,Beyrek'in 40 Yoldaşları,grup,1,1,0,1
+beyrekin_adamlari,Beyrek'in Adamları,grup,1,1,0,1
+beyrekin_ailesi,Beyrek'in Ailesi,kişi,1,0,1,1
+beyrekin_anne_babasi,Beyrek'in Anne Babası,grup,2,2,0,2
+beyrekin_buyuk_kiz_kardesi,Beyrek'in Büyük Kız Kardeşi,kişi,2,2,0,1
+beyrekin_kayin_babasi_kara_gone,"Beyrek'in Kayın Babası, Kara Göne",kişi,1,1,0,1
+beyrekin_kucuk_kiz_kardesi,Beyrek'in Küçük Kız Kardeşi,kişi,1,1,0,1
+beyrekin_yedi_kiz_kardesi,Beyrek'in Yedi Kız Kardeşi,kişi,1,1,0,1
+beyrekin_yoldaslari,Beyrek'in Yoldaşları,grup,1,1,0,1
+beyrek_yigenek_kazan_kara_budak_deli_dundar_uruz,"Beyrek, Yigenek, Kazan, Kara Budak, Deli Dündar, Uruz",kişi,1,0,1,1
+bezirganlar,Bezirganlar,grup,9,7,2,1
+bezirganlarin_buyugu_pay_purenin_oglu,Bezirganların Büyüğü Pay Püre'nin Oğlu,grup,1,0,1,1
+boyu_uzun_burla_hatun_ve_40_ince_belli_kiz,Boyu Uzun Burla Hatun ve 40 Ince Belli Kız,grup,1,1,0,1
+boga,Boğa,hayvan,1,1,0,1
+bogayi_getiren_kafirler,Boğayı Getiren Kafirler,grup,1,0,1,1
+bogazca_fatma,Boğazça Fatma,kişi,2,2,0,1
+bogac,Boğaç,kişi,6,6,0,1
+bogac_han,Boğaç Han,kişi,2,2,0,1
+bogac_ve_bogacin_40_adami,Boğaç ve Boğaç'ın 40 Adamı,grup,1,1,0,1
+bogacin_40_adami,Boğaç'ın 40 Adamı,grup,1,1,0,1
+bogacuk_melik,Boğaçuk Melik,kişi,1,1,0,1
+burla_hatun,Burla Hatun,kişi,14,13,1,3
+bugacuk_melik,Buğaçuk Melik,kişi,1,1,0,1
+biyigi_kanli_bugduz_emen,Bıyığı Kanlı Bügdüz Emen,kişi,1,1,0,1
+cebrail,Cebrail,kişi,2,2,0,2
+cilasun_yigitler_ve_kara_budak,Cilasun Yiğitler ve Kara Budak,grup,1,1,0,1
+cilasun_yigitleri_ve_deli_dundar,Cilasun Yiğitleri ve Deli Dündar,grup,1,1,0,1
+dadi,Dadı,kişi,1,1,0,1
+dadi_ve_diger_kizlar,Dadı ve Diğer Kızlar,grup,1,1,0,1
+dadilar,Dadılar,grup,1,1,0,1
+dayalar,Dayalar,grup,1,1,0,1
+dede_korkut,Dede Korkut,kişi,24,24,0,5
+deli_budak,Deli Budak,kişi,1,1,0,1
+deli_dumrul,Deli Dumrul,kişi,9,8,1,1
+deli_durmrul,Deli Durmrul,kişi,1,1,0,1
+deli_dundar,Deli Dündar,kişi,4,4,0,3
+deli_karcar,Deli Karçar,kişi,11,10,1,1
+demir_donlu_mamak,Demir Donlu Mamak,kişi,1,1,0,1
+demir_guci,Demir Güci,kişi,2,2,0,1
+deve,Deve,hayvan,1,1,0,1
+deyis,Deyiş,nesne/doğa,2,2,0,1
+dire,Dire,kişi,1,1,0,1
+direk_tekfur,Direk Tekfur,kişi,2,2,0,1
+dirse_han,Dirse Han,kişi,13,12,1,1
+dirse_hanin_40_adami,Dirse Han'ın 40 Adamı,grup,11,9,2,1
+dirse_hanin_karisi,Dirse Han'ın Karısı,kişi,7,7,0,1
+doksan_tumen_oguz,Doksan Tümen Oğuz,grup,1,1,0,1
+dokuz_kafir_kizi,Dokuz Kafir Kızı,kişi,1,0,1,1
+dokuz_tumen_oguz,Dokuz Tümen Oğuz,grup,1,1,0,1
+dua,Dua,nesne/doğa,1,0,1,1
+duha_koca,Duha Koca,kişi,3,3,0,1
+dumrul,Dumrul,kişi,9,9,0,1
+dumrulun_40_adami,Dumrul'un 40 Adamı,grup,1,1,0,1
+dumrulun_annesi,Dumrul'un Annesi,kişi,2,2,0,1
+dumrulun_karisi,Dumrul'un Karısı,kişi,2,2,0,1
+donebilmez_dulek_evren,Dönebilmez Dülek Evren,kişi,4,4,0,2
+donebilmez_dulerk_evren,Dönebilmez Dülerk Evren,kişi,1,1,0,1
+duzen,Düzen,kişi,2,1,1,2
+duzen_oglu_alp_rustem,Düzen Oğlu Alp Rüstem,kişi,4,3,1,2
+duzmurd_kalesi_tekfuru_arsin,Düzmürd Kalesi Tekfuru Arşın,kişi,1,1,0,1
+dis_oguz,Dış Oğuz,grup,1,1,0,1
+dis_oguz_agalari,Dış Oğuz Ağaları,grup,1,1,0,1
+dis_oguz_beyleri,Dış Oğuz Beyleri,grup,10,9,1,1
+dis_oguz_beyleri_ve_deli_dundar,Dış Oğuz Beyleri ve Deli Dündar,grup,2,2,0,2
+egrek,Egrek,kişi,20,19,1,1
+egrek_ve_300_akinci,Egrek ve 300 Akıncı,grup,2,1,1,1
+egrek_ve_segrek,Egrek ve Segrek,grup,1,1,0,1
+egreke_yol_gosterdi,Egreke Yol Gösterdi,kişi,1,1,0,1
+emen,Emen,kişi,9,7,2,3
+emren,Emren,kişi,16,16,0,1
+ense_koca_oglu_okcu,Ense Koca Oğlu Okçu,kişi,1,1,0,1
+evnuk_kalesi_kafirleri,Evnük Kalesi Kafirleri,grup,2,2,0,1
+eylik_koca,Eylik Koca,kişi,1,1,0,1
+eylik_koca_donebilmez_dulek_evren,Eylik Koca Dönebilmez Dülek Evren,kişi,1,1,0,1
+eylik_koca_oglu_saru_kulmas,Eylik Koca Oğlu Saru Kulmaş,kişi,1,1,0,1
+gelen_diger_dadilar,Gelen Diğer Dadılar,grup,1,1,0,1
+haberci,Haberci,kişi,3,3,0,2
+han_afsar,Han Afşar,kişi,1,1,0,1
+hekimler,Hekimler,grup,1,1,0,1
+hizir,Hızır,mitolojik/ilahi,1,1,0,1
+imrahor,Imrahor,kişi,1,1,0,1
+ic_oguz_beyleri_dis_oguz_beyleri_pay_pure_bey_kara_budak_uruz_bey_yigenek_salur_kazan_pay_bicen,"Iç Oğuz Beyleri, Dış Oğuz Beyleri, Pay Püre Bey, Kara Budak, Uruz, Bey Yigenek, Salur Kazan, Pay Biçen",grup,1,1,0,1
+ic_oguz_ve_kazan,Iç Oğuz ve Kazan,grup,1,1,0,1
+kadinlar,Kadınlar,grup,2,2,0,1
+kafir,Kafir,kişi,9,9,0,5
+kafir_askeri,Kafir Askeri,kişi,1,1,0,1
+kafir_beyinin_kizi,Kafir Beyi'nin Kızı,kişi,3,3,0,1
+kafir_eri,Kafir Eri,kişi,1,1,0,1
+kafir_gozcusu,Kafir Gözcüsü,kişi,1,1,0,1
+kafir_ordusu,Kafir Ordusu,kişi,1,1,0,1
+kafirin_40_atlisi,Kafirin 40 Atlısı,kişi,1,1,0,1
+kafirin_casusu,Kafirin Casusu,kişi,1,1,0,1
+kafirin_causu,Kafirin Causu,kişi,1,1,0,1
+kafirin_sancagini_kilicladi,Kafirin Sancağını Kılıçladı,kişi,1,1,0,1
+kafirin_sagina_saldirdilar,Kafirin Sağına Saldırdılar,kişi,1,1,0,1
+kafirin_soluna_saldirdilar,Kafirin Soluna Saldırdılar,kişi,1,1,0,1
+kafirler_bamsi_beyrek_boyu,Kafirler (Bamsı Beyrek Boyu),grup,1,1,0,1
+kafirler_ev_yagmasi_boyu,Kafirler (Ev Yağması Boyu),grup,10,10,0,1
+kafirler_kan_turali_boyu,Kafirler (Kan Turalı Boyu),grup,1,1,0,1
+kafirler_segrek_boyu,Kafirler (Segrek Boyu),grup,7,7,0,1
+kafirler_uruz_kurtarma_boyu,Kafirler (Uruz Kurtarma Boyu),grup,13,9,4,1
+kafirler_uruz_tutsak_boyu,Kafirler (Uruz Tutsak Boyu),grup,6,6,0,1
+kafirlere,Kafirlere,grup,1,1,0,1
+kafirlerin_sag_cenahi,Kafirlerin Sağ Cenahı,grup,1,1,0,1
+kalenin_sigir_cobani,Kalenin Sığır Çobanı,kişi,1,1,0,1
+kaleye_hucum_edenler,Kaleye Hücum Edenler,grup,1,1,0,1
+kam_gan,Kam Gan,kişi,4,4,0,4
+kan_turali,Kan Turalı,kişi,24,24,0,1
+kan_turali_ve_40_adami,Kan Turalı ve 40 Adamı,grup,2,0,2,1
+kan_turali_ve_adamlari,Kan Turalı ve Adamları,grup,1,1,0,1
+kan_turali_ve_selcen_hatun,Kan Turalı ve Selcen Hatun,grup,2,2,0,1
+kan_turalinin_adamlari,Kan Turalı'nın Adamları,grup,3,3,0,1
+kan_turalinin40_adami,Kan Turalı'nın40 Adamı,grup,1,0,1,1
+kan_turalinin_40_adami,Kan Turalının 40 Adamı,grup,1,1,0,1
+kan_turalinin_anne_babasi,Kan Turalının Anne Babası,grup,3,3,0,1
+kan_turaliyi_gorunce_ona_tutuluyor_keske_babam_beni_buna_verse,Kan Turalıyı Görünce Ona Tutuluyor Keşke Babam Beni Buna Verse,kişi,1,1,0,1
+kanli_koca,Kanlı Koca,kişi,12,8,4,1
+kapcak_melik,Kapçak Melik,kişi,1,1,0,1
+kapici,Kapıcı,kişi,1,1,0,1
+kara_arslan_melik,Kara Arslan Melik,kişi,1,1,0,1
+kara_budak,Kara Budak,kişi,10,10,0,5
+kara_budak_kazan_oglu_uruz_beyler_basi_yigenek_gaflet_koca_oglu_sir_semseddin_deli_karcar_dugunde_ok_atarlar,"Kara Budak, Kazan Oğlu Uruz, Beyler Başı Yigenek, Gaflet Koca Oğlu Şir Şemseddin, Deli Karçar, Düğünde Ok Atarlar",grup,1,1,0,1
+kara_gone,Kara Göne,kişi,5,5,0,4
+kara_gone_oglu_kara_budak,Kara Göne Oğlu Kara Budak,kişi,1,1,0,1
+kara_gone_ve_askerler,Kara Göne ve Askerler,grup,1,0,1,1
+kara_gone_ve_askerleri,Kara Göne ve Askerleri,grup,2,2,0,1
+kara_gone_deli_dundar_kara_budak,"Kara Göne, Deli Dündar, Kara Budak",kişi,1,1,0,1
+kara_tekfur,Kara Tekfur,kişi,2,2,0,2
+kara_tekfurun_casusu,Kara Tekfurun Casusu,kişi,1,1,0,1
+kara_tuken_melik,Kara Tüken Melik,kişi,2,2,0,2
+kara_cekur,Kara Çekür,kişi,1,1,0,1
+karavas,Karavaş,kişi,2,2,0,1
+karacuk_coban,Karaçuk Çoban,kişi,9,9,0,1
+karacuk_cobanin_kara_kopegi,Karaçuk Çoban'ın Kara Köpeği,hayvan,1,1,0,1
+karisi,Karısı,kişi,5,5,0,1
+karisina,Karısına,kişi,1,1,0,1
+kayin_ata_kayin_anasi,Kayın Ata - Kayın Anası,kişi,1,1,0,1
+kazan_kardesi_kara_gone_kiyan_selcuk_oglu_deli_dundar_gaflet_koca_oglu_sir_semseddin_beyrek_kazilik_koca_oglu_bey_yigenek_dor_boyun_oksayan_deli_dundar_bin_kavim_baslari_duger_bin_bugduz_baslari_emen_dokuz_koca_baslari_aruz_kazanin_beyleri,"Kazan Kardeşi Kara Göne, Kıyan Selçuk Oğlu Deli Dündar, Gaflet Koca Oğlu Şir Şemseddin, Beyrek, Kazılık Koca Oğlu Bey Yigenek, Dör Boyun Okşayan Deli Dündar, Bin Kavim Başları Düger, Bin Bügdüz Başları Emen, Dokuz Koca Başları Aruz, Kazan'ın Beyleri",grup,1,1,0,1
+kazan_ve_askerleri,Kazan ve Askerleri,grup,1,1,0,1
+kazan_ve_bayindir_han,Kazan ve Bayındır Han,grup,1,1,0,1
+kazan_ve_beyler,Kazan ve Beyler,grup,1,1,0,1
+kazan_ve_karacuk_coban,Kazan ve Karaçuk Çoban,grup,1,1,0,1
+kazanin_adamlari,Kazan'ın Adamları,grup,2,2,0,1
+kazanin_adami,Kazan'ın Adamı,grup,1,1,0,1
+kazanin_evi,Kazan'ın Evi,kişi,1,1,0,1
+kazanin_kardesi_kara_gone,Kazan'ın Kardeşi Kara Göne,kişi,2,2,0,2
+kazanin_karicuk_anasi,Kazan'ın Karıçuk Anası,kişi,1,1,0,1
+kazan_uruz_ve_askerler,"Kazan, Uruz ve Askerler",grup,1,0,1,1
+kazan_uruz_ve_askerleri,"Kazan, Uruz ve Askerleri",grup,1,1,0,1
+kazanin_askerleri,Kazanın Askerleri,grup,3,2,1,2
+kazilik_koca,Kazılık Koca,kişi,9,7,2,1
+kazilik_koca_oglu_bey_yigenek,Kazılık Koca Oğlu Bey Yigenek,kişi,1,1,0,1
+kesisler,Keşişler,grup,1,1,0,1
+kocalar,Kocalar,grup,5,5,0,1
+konur_koca_sari_coban,Konur Koca Sarı Çoban,kişi,1,0,1,1
+kurt,Kurt,hayvan,1,1,0,1
+koprunun_yanina_konan_oba,Köprünün Yanına Konan Oba,grup,1,0,1,1
+kilbas,Kılbaş,kişi,10,10,0,1
+kilbas_ve_kara_gone,Kılbaş ve Kara Göne,grup,2,2,0,1
+kirk_kinuk,Kırk Kınuk,kişi,1,1,0,1
+kisirca_yenge,Kısırca Yenge,kişi,3,3,0,1
+kiyan_guci,Kıyan Güci,kişi,2,2,0,1
+kiyan_oglu_deli_dundar,Kıyan Oğlu Deli Dündar,kişi,1,1,0,1
+kiyan_selcuk,Kıyan Selçuk,kişi,3,1,2,2
+kiyan_selcuk_oglu_deli_dundar,Kıyan Selçuk Oğlu Deli Dündar,kişi,2,2,0,2
+kiyan_selcik,Kıyan Selçık,kişi,1,1,0,1
+lala_kilbas,Lala Kılbaş,kişi,7,7,0,1
+meclis,Meclis,grup,1,1,0,1
+nesne,Nesne,kişi,3,3,0,1
+oba,Oba,grup,1,1,0,1
+oynadigi_oglanlar,Oynadığı Oğlanlar,kişi,1,1,0,1
+ozan,Ozan,kişi,1,1,0,1
+oglu_ve_40_adami,Oğlu ve 40 Adamı,grup,1,1,0,1
+oglunu_veren_kadin,Oğlunu Veren Kadın,kişi,2,1,1,1
+oguz,Oğuz,grup,6,6,0,1
+oguz_askerleri,Oğuz Askerleri,grup,2,2,0,1
+oguz_beyleri,Oğuz Beyleri,grup,6,5,1,2
+oguz_han,Oğuz Han,kişi,2,2,0,1
+oguz_hanin_likcisi,Oğuz Han'ın Lıkçısı,kişi,1,1,0,1
+pay_picen_bey,Pay Piçen Bey,kişi,1,1,0,1
+pay_pure,Pay Püre,kişi,8,6,2,1
+pay_pure_bey,Pay Püre Bey,kişi,4,4,0,1
+pay_pure_beyin_ordusu,Pay Püre Bey'in Ordusu,grup,1,1,0,1
+pay_purenin_oglu,Pay Püre'nin Oğlu,kişi,2,2,0,1
+paypure,Paypüre,kişi,1,1,0,1
+peri,Peri,kişi,1,1,0,1
+peri_kizi,Peri Kızı,mitolojik/ilahi,2,2,0,1
+peygamber_sahabesi_kanli_bugduz_emen,Peygamber Sahabesi Kanlı Bügdüz Emen,kişi,1,1,0,1
+saht_oldu,Saht Oldu,kişi,1,1,0,1
+salur_kazan,Salur Kazan,kişi,162,156,6,9
+sari_coban,Sarı Çoban,kişi,2,2,0,1
+segerk,Segerk,kişi,1,1,0,1
+segrek,Segrek,kişi,25,23,2,1
+segrekin_karisi,Segrekin Karısı,kişi,2,1,1,1
+selcen_hatun,Selcen Hatun,kişi,11,9,2,1
+serhat_beylerinden_ulak,Serhat Beylerinden Ulak,grup,1,1,0,1
+su,Su,nesne/doğa,1,1,0,1
+tanri,Tanrı,mitolojik/ilahi,13,13,0,4
+tatyan_kalesi_casuslari,Tatyan Kalesi Casusları,grup,1,1,0,1
+tekfur_begil_boyu,Tekfur (Begil Boyu),kişi,11,11,0,1
+tekfur_kan_turali_boyu,Tekfur (Kan Turalı Boyu),kişi,13,11,2,1
+tekfur_segrek_boyu,Tekfur (Segrek Boyu),kişi,7,6,1,1
+tekfur_uruz_kurtarma_boyu,Tekfur (Uruz Kurtarma Boyu),kişi,12,12,0,1
+tekfur_uruz_tutsak_boyu,Tekfur (Uruz Tutsak Boyu),kişi,2,2,0,1
+tekfur_ve_100_kafir,Tekfur ve 100 Kafir,grup,1,1,0,1
+tekfur_ve_sokli_melik,Tekfur ve Şökli Melik,grup,1,1,0,1
+tekfurun,Tekfurun,kişi,1,1,0,1
+tekfurun_adamlari,Tekfurun Adamları,grup,5,5,0,2
+tekfurun_askerleri,Tekfurun Askerleri,grup,4,4,0,2
+tekfurun_beyleri,Tekfurun Beyleri,grup,6,6,0,1
+tekfurun_casusu,Tekfurun Casusu,kişi,2,2,0,2
+tekfurun_kardesinin_oglu,Tekfurun Kardeşinin Oğlu,kişi,2,2,0,1
+tekfurun_karisi,Tekfurun Karısı,kişi,7,6,1,1
+tekfurun_cevresi,Tekfurun Çevresi,grup,1,0,1,1
+tepegoz,Tepegöz,mitolojik/ilahi,29,28,1,1
+tepegozden_sikayetci_olan_ana_babalar,Tepegözden Şikayetçi Olan Ana Babalar,mitolojik/ilahi,1,1,0,1
+tepegozun_peri_annesi,Tepegözün Peri Annesi,mitolojik/ilahi,1,1,0,1
+ters_uzamis,Ters Uzamış,kişi,4,4,0,2
+trabzon_tekfuru,Trabzon Tekfuru,kişi,3,2,1,2
+turkistan,Türkistan,yer/coğrafya,3,3,0,2
+ulas,Ulaş,kişi,2,2,0,2
+uruz,Uruz,kişi,30,29,1,4
+uruz_ve_300_asker,Uruz ve 300 Asker,grup,1,1,0,1
+uruz_ve_uruzun_40_askeri,Uruz ve Uruzun 40 Askeri,grup,1,1,0,1
+uruzun_40_askeri,Uruz'un 40 Askeri,grup,1,1,0,1
+uruzun_sag_yaninda_yer_gosterdi_cubbe_giydirdi,"Uruz'un Sağ Yanında Yer Gösterdi, Cübbe Giydirdi",kişi,1,1,0,1
+uruz_kara_gone_ve_at_agizli_aruz,"Uruz, Kara Göne ve At Ağızlı Aruz",grup,1,0,1,1
+uruzun_40_adamini_sehit_ettiler,Uruzun 40 Adamını Şehit Ettiler,grup,1,1,0,1
+uruzun_annesi,Uruzun Annesi,kişi,2,2,0,1
+ustalar,Ustalar,grup,2,2,0,1
+usun_koca,Uşun Koca,kişi,3,3,0,1
+usun_koca_oglu,Uşun Koca Oğlu,kişi,1,1,0,1
+usun_koca_oglunun_2_kardesi,Uşun Koca Oğlu'nun 2 Kardeşi,kişi,1,1,0,1
+usun_koca_ve_karisi,Uşun Koca ve Karısı,grup,3,2,1,1
+usun_kocanin_buyuk,Uşun Kocanın Büyük,kişi,1,1,0,1
+usun_kocanin_kucuk,Uşun Kocanın Küçük,kişi,1,1,0,1
+yalanci_oglu_yaltacuk,Yalançı Oğlu Yaltaçuk,kişi,9,7,2,1
+yarar_kocalar,Yarar Kocalar,grup,1,1,0,1
+yasli_kadin,Yaşlı Kadın,kişi,2,1,1,1
+yedi_basli_ejderha,Yedi Başlı Ejderha,mitolojik/ilahi,4,4,0,1
+yedi_kafir_beyi,Yedi Kafir Beyi,kişi,1,1,0,1
+yedi_yigit,Yedi Yiğit,grup,1,1,0,1
+yigenek,Yigenek,kişi,11,11,0,2
+yigenek_ve_sancak_beyleri,Yigenek ve Sancak Beyleri,grup,1,1,0,1
+yigit,Yiğit,grup,1,1,0,1
+yoldaslari,Yoldaşları,grup,1,1,0,1
+yurt,Yurt,nesne/doğa,1,1,0,1
+yuz_bin_kafir,Yüz Bin Kâfir,grup,1,1,0,1
+zindanci,Zindancı,kişi,1,1,0,1
+cekisen_oksuzle_diger_cocugu_ayirig_tokat_atti,Çekişen Öksüzle Diğer Çocuğu Ayırığ Tokat Attı,kişi,1,1,0,1
+cevresindekiler,Çevresindekiler,grup,5,4,1,4
+coban,Çoban,kişi,2,1,1,1
+cobanlar,Çobanlar,kişi,1,1,0,1
+oksuz_cocuk,Öksüz Çocuk,kişi,3,3,0,1
+ic_oguz,İç Oğuz,grup,1,1,0,1
+ic_oguz_beyleri,İç Oğuz Beyleri,grup,3,3,0,2
+sir_semseddin,Şir Şemseddin,kişi,1,1,0,1
+sokli_melik,Şökli Melik,kişi,8,8,0,2
+sokli_melik_ve_adamlari,Şökli Melik ve Adamları,grup,1,1,0,1

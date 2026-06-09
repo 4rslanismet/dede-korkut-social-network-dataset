@@ -1,0 +1,15 @@
+source_file,edge_kaydi,event_kaydi,dugum_sayisi
+01_girizgah.csv,1,0.0,2
+02_dirse_han_oglu_bogac_han_boyu.csv,23,3.0,15
+03_salur_kazanin_evinin_yagmalandigi.csv,51,0.0,48
+04_kam_purenin_oglu_bamsi_beyrek_boyu.csv,107,21.0,76
+05_kazan_bey_oglu_uruz_beyin_tutsak_oldugu_boy.csv,40,6.0,39
+06_duha_koca_oglu_deli_dumrul.csv,22,2.0,13
+07_kanli_koca_oglu_kan_turali_boyu.csv,40,12.0,26
+08_kazilik_koca_oglu_yigenek_boyu.csv,24,4.0,19
+09_basatin_tepegozu_oldurdugu_boy.csv,65,9.0,43
+10_begil_oglu_emrenin_boyu.csv,59,6.0,35
+11_usun_koca_oglu_seyrek_boyu.csv,54,7.0,32
+12_salur_kazanin_tutsak_olup_oglu_uruzun_kurtardigi_boy.csv,67,13.0,34
+13_ic_oguza_dis_oguzun_asi_olup_beyreki_oldurdugu.csv,39,2.0,22
+14_salur_kazanin_yedi_basli_ejderhayi_oldurmesi_boyu.csv,36,0.0,20
