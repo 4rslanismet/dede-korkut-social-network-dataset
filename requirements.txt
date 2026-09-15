@@ -2,3 +2,13 @@ pandas
 numpy
 openpyxl
 pyarrow
+networkx
+python-igraph
+leidenalg
+scipy
+matplotlib
+plotly
+scikit-learn
+statsmodels
+pyyaml
+pytest
