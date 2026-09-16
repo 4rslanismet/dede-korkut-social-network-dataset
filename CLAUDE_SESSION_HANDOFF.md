@@ -24,7 +24,7 @@
 - signed/directed network analysis (**yapıldı**)
 - multilayer/versatility analysis (**yapıldı**)
 - narrative-order + dynamic centrality analysis (**yapıldı**)
-- null models (**Faz 7, şimdi başlıyor**), sensitivity analysis, structural robustness (**yapılmadı**)
+- null models (**yapıldı**, bkz. aşağı), sensitivity analysis, structural robustness (**Faz 8, şimdi başlıyor**)
 - academic figures/tables (**yapılmadı**)
 - interactive GitHub Pages portal (**yapılmadı**)
 - reproducibility/evidence package (kısmen: `reports/`, `validation/`)
@@ -200,6 +200,20 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 
 ---
 
+## PHASE 7 — NULL MODELS / STATISTICAL VALIDATION ✅ TAMAMLANDI
+
+**Scriptler:** [`src/null_models.py`](src/null_models.py), [`src/null_models_fdr.py`](src/null_models_fdr.py) → **Rapor:** [`reports/07_null_models_report.md`](reports/07_null_models_report.md)
+
+**Yöntem (DEC-008):** `networkx.double_edge_swap` (degree-preserving randomizasyon, `n_swaps=10×n_edges`), 9 ağ (G0,G1,G2,G3,G4,G5,G6,G7,G8 — G9_directed hariç, yönlü null model henüz yok), 4 metrik (clustering, transitivity, degree assortativity, Louvain modularity), FAST (n=100, 29 sn) ve FULL (n=1000, config'ten, ~4dk35sn) mod. 36 test → Benjamini-Hochberg FDR (α=0.05).
+
+**En önemli doğrulanmış sonuç:** Test edilen 7/9 ağın (G0,G1,G2,G4,G6,G7,G8) modularity'si, FDR-düzeltmeli olarak rastgele ağdan **istatistiksel olarak anlamlı derecede yüksek** — Faz 6'daki community yapısı yalnızca derece dağılımının yan ürünü değil, gerçek ek bir sinyal. Clustering G0/G1/G2/G4'te, transitivity yalnızca G1'de doğrulandı.
+
+**KRİTİK DÜZELTME:** Faz 5'in "tüm ağlarda disassortative (negatif degree assortativity)" bulgusu **FDR düzeltmesinden sonra hiçbir ağda anlamlı çıkmadı** — bu iddia geri çekildi, `reports/04_05_network_construction_and_descriptive_report.md`'e düzeltme notu eklendi. G3_kinship'in 4 metriğinin tamamı rastgeleden ayırt edilemiyor (tam null sonuç, gizlenmedi).
+
+**Açık kalan iş (Faz 7 kapsamı dışında bırakıldı, backlog):** G9_directed için yönlü-uyumlu null model yok; dev-bileşen-only modularity testi yapılmadı; motif/triad null karşılaştırması yapılmadı.
+
+---
+
 ## KNOWN DATA / PROVENANCE LIMITATIONS (henüz çözülmedi, "çözülmüş" gibi gösterilmiyor)
 
 1. **Raw source lineage eksik** — hangi Dede Korkut edisyonunun/transkripsiyonunun kodlandığı belli değil (`validation/source_edition_metadata_required.md`).
@@ -211,7 +225,9 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 7. **17 alias çakışması ve 73 "stale alias target" kaydı çözülmedi** — `needs_manual_validation` olarak açık bırakıldı, `validation/HUMAN_REVIEW_QUEUE.csv`'de.
 8. Community partition'ın **anlamlı** kısmı yalnızca 261-node'luk dev bileşen içindir; 23 bileşenli graf otomatik olarak trivial "tek-node community"lere yol açar — **bu artık `reports/06_advanced_network_analysis_report.md` §1.4'te açıkça belgelendi**, ama community sonuçları kullanılan her yeni yerde (Faz 11 figürleri, web portal) bu uyarı tekrarlanmalı.
 9. Signed structural balance analizi veri yetersizliği (13 üçgen < 15 eşik) nedeniyle "not_applicable" — ek relation kodlaması gelmeden tekrar denenmemeli.
-10. Directed triadic census, ağın seyrekliği nedeniyle ezici çoğunlukla "003" (bağlantısız) tipte — null model karşılaştırması (Faz 7) olmadan motif-tipi yorum yapılmamalı.
+10. Directed triadic census, ağın seyrekliği nedeniyle ezici çoğunlukla "003" (bağlantısız) tipte — motif-tipi yorum için null model karşılaştırması henüz yapılmadı (G9_directed'e uygun yönlü null model Faz 7 kapsamına alınmadı, backlog'da).
+11. **Faz 5'in "disassortative network" bulgusu Faz 7'de geri çekildi** — degree assortativity, 9 ağın hiçbirinde FDR-düzeltmeli null modelden anlamlı şekilde farklı değil. Negatif değerler muhtemelen derece dağılımının kendisinden kaynaklanıyor.
+12. Modularity/community yapısının (Faz 6) 7/9 ağda null modelden anlamlı yüksek olduğu doğrulandı — ama bu, 23-bileşen artefaktını (§8 yukarı) çözmüyor, yalnızca genel modularity sinyalinin rastgele olmadığını gösteriyor.
 
 ---
 
@@ -219,32 +235,31 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 
 ```text
 CURRENT STATUS:
-PHASES 1-6 COMPLETE
+PHASES 1-7 COMPLETE
 
 NEXT PHASE:
-PHASE 7 — NULL MODELS / STATISTICAL VALIDATION
+PHASE 8 — SENSITIVITY / ROBUSTNESS ANALYSIS
 
-PHASES 1-6 ARE COMPLETE. DO NOT RESTART THEM UNLESS VALIDATION REVEALS A REAL ERROR.
+PHASES 1-7 ARE COMPLETE. DO NOT RESTART THEM UNLESS VALIDATION REVEALS A REAL ERROR.
 ```
 
 ---
 
-## PHASE 7 — NEXT WORK
+## PHASE 8 — NEXT WORK
 
-1. `src/null_models.py` yaz: `config/analysis.yaml` → `null_models.n_random` (1000) ve `null_models.model` (`configuration_model`) kullanarak degree-preserving randomizasyon.
-2. Uygun network'lerde (öncelik: `G0_full`, `G1_person_only`, `G2_core_social`; anlamlıysa `G9_directed`) clustering, transitivity, degree assortativity, modularity (Leiden, resolution=1.0) için observed vs random ensemble karşılaştırması: `random_mean`, `random_std`, `z_score`, `percentile`, `empirical_p`.
-3. Motif/triad enrichment yalnızca örneklem yeterliyse (bkz. Faz 6 §3.1 uyarısı — G9 triadic census'ta çoğu kategori çok düşük sayıda, dikkatli olunmalı).
-4. FAST mode (`n_random` küçük, örn. 100) geliştirme sırasında, FULL mode (`n_random=1000`, config'teki değer) final sonuçlar için.
-5. Seed `config/analysis.yaml::seed` (42) + her random deneme için türetilmiş alt-seed'ler kaydedilsin, raporlanabilir olsun.
-6. Uygun olmayan kombinasyon varsa (örn. çok küçük/seyrek bir alt-ağda anlamlı z-score üretilemiyorsa) `not_applicable` olarak işaretle.
+1. `src/sensitivity.py` yaz: `config/analysis.yaml::sensitivity.variants` listesindeki karşılaştırmaları uygula — person+group vs person-only (G0 vs G1 zaten var, kullan), weighted vs unweighted (G10 vs G11 zaten var), all-relations vs core-social (G0 vs G2 zaten var), explicit vs explicit+inferred (`cikarma_yontemi` alanına göre yeni bir filtre gerekiyor — henüz yok), group included/excluded (G1 zaten "excluded" karşılığı), girizgah included/excluded (S01 hariç tutularak yeniden hesapla).
+2. Her varyant çifti için **centrality stability**: Spearman correlation, Kendall tau, top-k overlap (`outputs/tables/centrality_*.csv` dosyaları zaten var, bunları temel al).
+3. Structural robustness (Faz 9 ile birleştirilebilir ama madde 30/31 ayrı ele alınmalı): random/degree/betweenness-targeted node removal, giant component/connectivity eğrileri (`config/analysis.yaml::robustness`).
+4. Sonuçları `reports/08_sensitivity_robustness_report.md`'ye yaz — hangi merkeziyet sonuçlarının network tanımına duyarlı olduğunu, hangilerinin kararlı kaldığını açıkça göster.
+5. `not_applicable` gerektiren bir karşılaştırma varsa (ör. explicit-only ağ çok küçükse) belirt.
 
 ---
 
-## REMAINING MASTER PLAN AFTER PHASE 6
+## REMAINING MASTER PLAN AFTER PHASE 7
 
 Tam liste `docs/MASTER_PROMPT.md`'de; öncelik sırası (proje sahibinin verdiği faz numaralandırmasıyla, kendi phase raporu numaralandırmamızdan farklı olabilir — önemli olan iş sırası):
 
-- **PHASE 7 — Null Models / Statistical Validation:** `config/analysis.yaml`'daki `null_models.n_random=1000`, `configuration_model` randomizasyonu; clustering/transitivity/assortativity/modularity/motif için observed vs random_mean/std/z-score/percentile/empirical-p. Henüz `src/null_models.py` yok.
+- ~~**PHASE 7 — Null Models / Statistical Validation**~~ ✅ **TAMAMLANDI** — bkz. yukarı.
 - **PHASE 8 — Sensitivity / Robustness:** person+group vs person-only, weighted vs unweighted, all vs core-social, explicit vs explicit+inferred, group included/excluded, girizgah included/excluded; centrality stability (Spearman, Kendall tau, top-k overlap). `config/analysis.yaml` → `sensitivity.variants` zaten tanımlı. Henüz `src/sensitivity.py` yok.
 - **PHASE 9 — Structural Robustness:** random/degree/betweenness-targeted node removal, giant component/connectivity eğrileri. `config/analysis.yaml` → `robustness` zaten tanımlı. Henüz `src/robustness.py` yok.
 - **PHASE 10 — Motif/Triad (yalnızca uygunsa):** null modellerle motif enrichment.
@@ -273,14 +288,15 @@ Gerçek dosya adlarıyla, okuma sırasına göre:
 5. `reports/01_repository_audit.md`
 6. `reports/02_data_quality_report.md`
 7. `reports/03_canonical_dataset_report.md`
-8. `reports/04_05_network_construction_and_descriptive_report.md`
+8. `reports/04_05_network_construction_and_descriptive_report.md` (§ assortativity düzeltme notuna dikkat)
 9. `reports/06_advanced_network_analysis_report.md`
-10. `docs/network_models.md`
-11. `docs/decision_log.md`
-12. `data/processed/*.csv` (canonical dataset — özellikle `nodes.csv`, `relations_event_level.csv`, `relations_aggregated.csv`, `relation_taxonomy.csv`)
-13. `src/networks.py` (network tanımlarının tek kaynağı — `NETWORK_DEFINITIONS`)
-14. `src/communities.py`, `src/signed_and_directed.py`, `src/multilayer.py`, `src/narrative_order.py` (Faz 6 kodu, referans için)
-15. `project_state.json` (makine-okunabilir özet)
+10. `reports/07_null_models_report.md`
+11. `docs/network_models.md`
+12. `docs/decision_log.md`
+13. `data/processed/*.csv` (canonical dataset — özellikle `nodes.csv`, `relations_event_level.csv`, `relations_aggregated.csv`, `relation_taxonomy.csv`)
+14. `src/networks.py` (network tanımlarının tek kaynağı — `NETWORK_DEFINITIONS`)
+15. `src/communities.py`, `src/signed_and_directed.py`, `src/multilayer.py`, `src/narrative_order.py`, `src/null_models.py`, `src/null_models_fdr.py` (Faz 6-7 kodu, referans için)
+16. `project_state.json` (makine-okunabilir özet)
 
 ---
 

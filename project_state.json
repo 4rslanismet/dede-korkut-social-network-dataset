@@ -2,22 +2,22 @@
   "project": "Dede Korkut Digital Humanities & Network Science Project (DKNN)",
   "repository": "4rslanismet/dede-korkut-social-network-dataset",
   "branch": "claude-dk-rebuild",
-  "last_commit_before_this_update": "6775488",
-  "last_updated": "2026-09-16T10:10:39+03:00",
-  "completed_phases": [1, 2, 3, 4, 5, 6],
-  "current_phase": 7,
+  "last_commit_before_this_update": "798bb8b",
+  "last_updated": "2026-09-16T10:22:37+03:00",
+  "completed_phases": [1, 2, 3, 4, 5, 6, 7],
+  "current_phase": 8,
   "current_phase_status": "not_started",
   "current_phase_completed_subtasks": [],
   "current_phase_remaining_subtasks": [
-    "create_src_null_models_py",
-    "degree_preserving_randomization_ensemble",
-    "observed_vs_random_comparison_clustering_transitivity_assortativity_modularity",
-    "z_score_percentile_empirical_p_per_metric",
-    "fast_vs_full_mode",
-    "write_phase7_report_reports_07",
-    "commit_phase7"
+    "create_src_sensitivity_py",
+    "explicit_vs_explicit_plus_inferred_variant",
+    "girizgah_included_vs_excluded_variant",
+    "centrality_stability_spearman_kendall_topk",
+    "structural_robustness_random_degree_betweenness_removal",
+    "write_phase8_report_reports_08",
+    "commit_phase8"
   ],
-  "next_task": "create_null_models_py_and_run_fast_mode_first",
+  "next_task": "create_sensitivity_py_reusing_existing_G0_G1_G2_G10_G11_variants",
   "validation_status_last_known": "WARNING (see outputs/validation/summary.json; no FAIL-level/blocking issues)",
   "important_reports": [
     "CLAUDE_SESSION_HANDOFF.md",
@@ -30,6 +30,7 @@
     "reports/03_canonical_dataset_report.md",
     "reports/04_05_network_construction_and_descriptive_report.md",
     "reports/06_advanced_network_analysis_report.md",
+    "reports/07_null_models_report.md",
     "config/analysis.yaml"
   ],
   "verified_headline_numbers": {
@@ -61,7 +62,15 @@
     "directed_triadic_census_G9": {"n_003_disconnected": 1719566, "n_300_fully_connected": 1, "note": "overwhelmingly sparse; motif interpretation requires Phase 7 null model comparison"},
     "multilayer_top_versatility": {"canonical_name": "Salur Kazan", "n_active_layers": 7, "participation_coefficient": 0.765615},
     "narrative_order_coverage": {"stories_analyzed": 13, "stories_not_applicable": 1, "not_applicable_reason": "S01 Girizgah has only 1 relation record, below the 6-row window threshold"},
-    "dynamic_centrality_top6_final_cumulative": {"salur_kazan": 156, "bamsi_beyrek": 64, "bayindir_han": 36, "uruz": 29, "tepegoz": 28, "basat": 27}
+    "dynamic_centrality_top6_final_cumulative": {"salur_kazan": 156, "bamsi_beyrek": 64, "bayindir_han": 36, "uruz": 29, "tepegoz": 28, "basat": 27},
+    "null_model_validation": {
+      "method": "double_edge_swap, n_random=1000 (full mode), seed=42, BH-FDR alpha=0.05",
+      "tests_total": 36,
+      "tests_significant_after_fdr": 12,
+      "validated_findings": "modularity significantly above random in 7/9 networks (G0,G1,G2,G4,G6,G7,G8); clustering significant in G0/G1/G2/G4; transitivity significant only in G1",
+      "retracted_finding": "degree assortativity NOT significant in any of the 9 networks after FDR correction - the earlier 'disassortative network' descriptive claim from Phase 5 is retracted",
+      "null_finding": "G3_kinship: all 4 metrics indistinguishable from random (p>=0.45)"
+    }
   },
   "known_warnings": [
     "story_level (633 rows) vs final edges+events (713 rows): +80 undocumented row-count gap across 11/14 stories",
@@ -74,7 +83,10 @@
     "directed triadic census overwhelmingly sparse (003 dominates) - needs Phase 7 null-model comparison before any motif-level interpretation",
     "S03 narrative-order windowing undercounts distinct nodes by 1 (47 vs 48) due to 2 rows with missing satir_no - documented, not fixed",
     "tests/ directory does not exist yet - no automated tests written",
-    "no null models, sensitivity analysis, or structural robustness testing done yet - all Phase 5/6 centrality, community, and versatility findings remain preliminary",
+    "Phase 5's 'disassortative network' claim (negative degree assortativity) was retracted in Phase 7 - not statistically significant after FDR correction in any of 9 tested networks",
+    "G9_directed has no null model comparison yet (double_edge_swap is undirected-only) - directed triadic census interpretation remains purely descriptive",
+    "23-connected-component artifact in G2_core_social's community count is now documented (reports/06 sec 1.4) but not resolved (giant-component-only re-test not done)",
+    "no sensitivity analysis or structural robustness testing done yet - all centrality/community/versatility rankings remain untested against alternative network construction choices",
     "no web portal, paper package, or thesis package started yet"
   ],
   "environment": {

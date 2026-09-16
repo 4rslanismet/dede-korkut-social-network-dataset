@@ -1,68 +1,79 @@
 # CURRENT PROJECT STATUS
 
-PHASES 1-6 COMPLETE AND COMMITTED.
+PHASES 1-7 COMPLETE AND COMMITTED.
 
 NEXT:
-PHASE 7 — NULL MODELS / STATISTICAL VALIDATION
+PHASE 8 — SENSITIVITY / ROBUSTNESS ANALYSIS
 
 ## Start by reading (in this order)
 
 1. `CLAUDE_SESSION_HANDOFF.md` — full state, verified numbers, what's done vs. not
 2. `docs/MASTER_PROMPT.md` — the original 147-item project specification
-3. `reports/06_advanced_network_analysis_report.md` — Phase 6 results (community detection,
-   signed/directed, multilayer, narrative-order/dynamic centrality)
-4. `config/analysis.yaml` — `null_models.n_random` (1000), `null_models.model`
-   (`configuration_model`), `seed` (42)
-5. `docs/network_models.md`, `docs/decision_log.md`
+3. `reports/07_null_models_report.md` — Phase 7 results, especially §3.3 (the assortativity
+   finding was retracted after FDR correction — don't re-introduce it as fact)
+4. `config/analysis.yaml` — `sensitivity.variants` (already listed) and `robustness` sections
+5. `docs/network_models.md`, `docs/decision_log.md` (DEC-001 through DEC-008)
 
-**Do not rebuild Phases 1-6.** Everything through Phase 6 (repository audit, validation,
-canonical dataset, G0-G11 network construction, descriptive metrics, community detection,
-signed/directed analysis, multilayer profile, narrative-order/dynamic centrality) is done and
-verified — re-derive numbers from the actual files if you need to check something, but don't
-re-run the pipeline from scratch.
+**Do not rebuild Phases 1-7.** The canonical dataset, G0-G11 networks, descriptive metrics,
+community/signed/directed/multilayer/narrative-order analysis, and null-model validation are all
+done and verified. Build on `outputs/tables/centrality_*.csv` and the G0-G11 graph objects
+(`src/networks.py::build_all_networks()`) rather than recomputing them.
 
-## First task — Phase 7: Null Models / Statistical Validation
+## First task — Phase 8: Sensitivity Analysis
 
-1. Create `src/null_models.py`. For the primary network variants (start with `G0_full`,
-   `G1_person_only`, `G2_core_social`; add `G9_directed` if a directed-appropriate null model is
-   used), generate a degree-preserving randomized ensemble (`networkx`'s configuration-model-style
-   double-edge-swap on a copy of the graph, or `nx.random_reference`/`nx.expected_degree_graph`
-   equivalent — pick one, document the choice as a new DEC-### entry in `docs/decision_log.md`).
-2. For each network, compare **observed vs. random ensemble** on: clustering coefficient,
-   transitivity, degree assortativity, modularity (Leiden, resolution=1.0, same seed as Phase 6).
-   Report `observed`, `random_mean`, `random_std`, `z_score`, `percentile`, `empirical_p` for each.
-3. Use `config/analysis.yaml::null_models.n_random` (1000) for the full run. Add a `--fast` mode
-   (e.g. n_random=100 or a CLI/env override) for development so iteration doesn't require waiting
-   on 1000 randomizations every time — document which mode produced which numbers in the report.
-4. `config/analysis.yaml::seed` (42) must seed everything; record the seed in the output.
-5. If a metric/network combination is not statistically meaningful (e.g. too few edges/triangles
-   for a stable null distribution — see Phase 6's own precedent with the 13-triangle signed-balance
-   case), mark it `not_applicable` with a stated reason. Do not force a z-score out of a
-   degenerate distribution.
-6. Write `reports/07_null_models_report.md` with the same rigor as Phase 6's report (observed
-   numbers, what's descriptive vs. statistically validated, limitations).
-7. Update `CLAUDE_SESSION_HANDOFF.md`, `NEXT_TASK.md`, `project_state.json`, and
-   `docs/decision_log.md` (if new methodological decisions were made), then commit:
-   `Complete Phase 7 null models and statistical validation`
+Several of the required comparisons already exist as network variants — reuse them rather than
+rebuilding:
+- person+group vs person-only -> `G0_full` vs `G1_person_only` (already built)
+- weighted vs unweighted -> `G10_weighted` vs `G11_unweighted` (already built, identical structure
+  by construction - note in the report that this comparison is currently a no-op because both
+  variants use the same edge set; if a genuinely different unweighted construction is wanted,
+  that needs a new variant)
+- all relations vs core-social -> `G0_full` vs `G2_core_social` (already built)
+- group included vs excluded -> same as person-only vs person+group above
 
-## Then continue in master-plan order (see CLAUDE_SESSION_HANDOFF.md → "REMAINING MASTER PLAN")
+Still need to be built in `src/sensitivity.py`:
+- explicit vs explicit+inferred: filter `relations_event_level.csv` by
+  `extraction_method == 'açık_ilişki'` (596/628 rows) vs. all rows (628) — build two new graph
+  variants for this filter, following the same pattern as `src/networks.py::NETWORK_DEFINITIONS`.
+- girizgah included vs excluded: filter out `story_id == 'S01'` — check whether this changes
+  anything (S01 has only 1 relation, so the practical effect may be negligible; still worth
+  running to have a documented, N/A-if-trivial result rather than assuming).
 
-PHASE 8 sensitivity -> PHASE 9 structural robustness -> PHASE 10 motif/triad (only if
-methodologically sound) -> PHASE 11 figures -> PHASE 12 tables -> PHASE 13 inter-annotator
-infrastructure -> PHASE 14 reproducibility/pipeline -> PHASE 15 web portal -> PHASE 16 website
-validation -> PHASE 17 documentation -> PHASE 18 paper package -> PHASE 19 thesis package ->
-PHASE 20 final validation/release -> PHASE 21 final reports.
+For every pair of variants:
+1. Compute centrality (degree, betweenness, pagerank at minimum — reuse `src/metrics.py`'s
+   `centrality_profile()` function) on both.
+2. Compare rankings: Spearman correlation, Kendall's tau, and top-k overlap (k=10 and k=20) on
+   the actor set common to both variants.
+3. Write `reports/08_sensitivity_robustness_report.md`: which centrality conclusions are stable
+   across variants, which are not. Frame stable results as "robust to this modeling choice", not
+   as newly "confirmed important."
 
-Update the three checkpoint files + decision log after each completed phase and commit locally.
+## Then also this phase: Structural Robustness (sections 30-31)
+
+Using `config/analysis.yaml::robustness` (removal_strategies: random/high_degree/high_betweenness,
+n_random_trials=100): on `G0_full` (or `G2_core_social`), remove nodes incrementally under each
+strategy and track largest-component size, number of components, and average path length (on the
+giant component) as a function of fraction removed. Call this **structural robustness**, not
+"narrative resilience" (explicit naming rule in the master prompt, section 31).
+
+## Then continue in master-plan order
+
+PHASE 9 (if not folded into 8) -> PHASE 10 motif/triad (only if methodologically sound, see
+Phase 6/7's sparse-triad caveats) -> PHASE 11 figures -> PHASE 12 tables -> PHASE 13
+inter-annotator infrastructure -> PHASE 14 reproducibility/pipeline -> PHASE 15 web portal ->
+PHASE 16 website validation -> PHASE 17 documentation -> PHASE 18 paper package -> PHASE 19
+thesis package -> PHASE 20 final validation/release -> PHASE 21 final reports.
+
+Update `CLAUDE_SESSION_HANDOFF.md`, `NEXT_TASK.md`, `project_state.json`, and
+`docs/decision_log.md` after each completed phase, then commit locally.
 
 ## Rules that must not be relaxed
 
 - Never invent unsupported data, metadata, or academic findings.
-- Centrality ≠ literary importance — always frame centrality/community/bridge results as
-  preliminary/structural, pending the statistical validation this phase is building.
-- If an analysis can't be meaningfully run on this data (too sparse, too few cases), mark it
-  `not_applicable` with a stated reason — do not force a number out of it (Phase 6 already set
-  this precedent with the signed-balance and multilayer analyses).
-- `data/raw/` and `data/final/` stay untouched. All new work lives under `data/processed/`,
-  `data/derived/`, `outputs/`, `docs/`, `reports/`.
+- Centrality ≠ literary importance.
+- If an analysis can't be meaningfully run (too sparse, too few cases), mark `not_applicable`
+  with a stated reason.
+- `data/raw/` and `data/final/` stay untouched.
 - No merge/push to `main`. No force-push. Local commits on `claude-dk-rebuild` only.
+- Degree assortativity is **not** a validated finding (Phase 7) — do not cite it as fact in new
+  reports without re-deriving/re-checking.

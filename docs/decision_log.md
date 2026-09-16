@@ -77,4 +77,19 @@ Bu dosya, projede alınan geri döndürülemez veya yorumlayıcı metodolojik ka
 
 **Rationale:** Kimlik/unvan/epitet ilişkileri (`SEMANTIC` ailesi) gerçek sosyal etkileşim değil — bunları community detection'a dahil etmek yapay olarak "aynı unvanı taşıyanlar" gibi anlamsız kümeler yaratabilirdi. `G0_full` yerine `G2_core_social` kullanmak madde 21'in "gerçek sosyal etkileşim" vurgusuyla uyumlu.
 
-**Status:** Uygulandı (Faz 6, `src/communities.py`). **Not:** graf 23 bağlantısız bileşenden oluşuyor; bu, community sayısını (33) yapay olarak şişiriyor çünkü her izole bileşen otomatik olarak ayrı bir "community" oluyor. Bu nüans `reports/06_advanced_network_analysis_report.md` yazılırken açıkça belirtilmeli (henüz yazılmadı, bkz. `CLAUDE_SESSION_HANDOFF.md`).
+**Status:** Uygulandı (Faz 6, `src/communities.py`). **Not:** graf 23 bağlantısız bileşenden oluşuyor; bu, community sayısını (33) yapay olarak şişiriyor çünkü her izole bileşen otomatik olarak ayrı bir "community" oluyor. Bu nüans artık `reports/06_advanced_network_analysis_report.md` §1.4'te açıkça belgelendi.
+
+---
+
+### DEC-008
+**Question:** Null model (degree-preserving randomization) için hangi yöntem kullanılmalı, hangi metrikler karşılaştırılmalı, ve hangi ağlar bu karşılaştırma için çok küçük/seyrek sayılmalı?
+
+**Decision:**
+- Randomizasyon: `networkx.double_edge_swap`, her ağın basit (ağırlıksız) kopyası üzerinde, `n_swaps = 10 × n_edges`. Bu, tam derece dizisini koruyan configuration-model eşdeğeridir.
+- Karşılaştırılan metrikler: average clustering, transitivity, degree assortativity, Louvain modularity (seed=42).
+- Minimum eşik: 20 edge'den az olan ağlar `not_applicable` sayılır (`MIN_EDGES_FOR_NULL_COMPARISON=20` — bu değer veriden türetilmedi, kod içinde açıkça sabit ve gerekçeli).
+- Çoklu test düzeltmesi: Benjamini-Hochberg FDR (α=0.05, `config/analysis.yaml::multiple_testing`), 9 ağ × 4 metrik = 36 test üzerinde.
+
+**Rationale:** `double_edge_swap`, networkx'te en yaygın ve iyi test edilmiş degree-preserving randomizasyon yöntemidir; `configuration_model`'in çoklu-kenar/self-loop sadeleştirme adımlarını gerektirmez. Louvain (Leiden yerine) ensemble genelinde tutarlılık ve hız için seçildi — Faz 6'da Leiden ile yüksek uyum (ARI=0.899) zaten gösterilmişti. 36 testin çoğu (24/36) tek tek p<0.05 sınırına yakın/altında çıkabilirdi; FDR düzeltmesi olmadan yanlış-pozitif riski yüksek olurdu (madde 112 kuralı).
+
+**Status:** Uygulandı (Faz 7, `src/null_models.py`, `src/null_models_fdr.py`). **Önemli sonuç:** FDR düzeltmesi sonrası degree assortativity hiçbir ağda anlamlı çıkmadı — Faz 5'in "disassortative network" betimlemesi geri çekildi (bkz. `reports/07_null_models_report.md` §3.3, `reports/04_05_network_construction_and_descriptive_report.md`'e düzeltme notu eklendi). **Açık kalan iş:** G9_directed için yönlü-uyumlu bir null model henüz uygulanmadı; dev-bileşen-only modularity testi ve motif/triad null karşılaştırması da yapılmadı — bunlar gelecekteki iyileştirmeler olarak not edildi, mevcut Faz 7 kapsamının dışında bırakıldı.

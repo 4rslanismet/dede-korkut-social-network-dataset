@@ -30,7 +30,8 @@ Story-level networkler (14 boy) ve actor×story bipartite network (311 aktör ×
 `outputs/statistics/corpus_network_metrics.csv`: her network için density, clustering, transitivity, degree assortativity, diameter/avg-shortest-path/eccentricity (dev bileşen üzerinde), max k-core, (G9 için) reciprocity hesaplandı.
 
 **Öne çıkan bulgular:**
-- Tüm varyantlarda **degree assortativity negatif** (-0.11 ile -0.33 arası) → network **disassortative**: yüksek dereceli aktörler düşük dereceli aktörlere bağlanma eğiliminde (hub-and-spoke yapı, epik anlatılarda beklenen bir örüntü — merkezi kahramanlar çok sayıda ikincil karaktere bağlanıyor).
+- Tüm varyantlarda **degree assortativity negatif** (-0.11 ile -0.33 arası) → betimleyici olarak hub-and-spoke yapıya işaret ediyor (yüksek dereceli aktörler düşük dereceli aktörlere bağlanma eğiliminde).
+  > **DÜZELTME (Faz 7, bkz. [`reports/07_null_models_report.md`](07_null_models_report.md) §3.3):** Null-model karşılaştırması bu gözlemin **istatistiksel olarak sağlam olmadığını** gösterdi — 9 ağın hiçbirinde degree assortativity, Benjamini-Hochberg FDR düzeltmesinden sonra rastgele (degree-preserving) ağdan anlamlı şekilde farklı değil. "Disassortative" ifadesi geri çekilmiştir; negatif değerler büyük ölçüde derece dağılımının kendisinden kaynaklanıyor olabilir, ek bir yapısal sinyal olarak kullanılmamalıdır.
 - `G9_directed` reciprocity = **0.358** — yönlü ilişkilerin yaklaşık üçte biri karşılıklı.
 - Max k-core tüm ana varyantlarda düşük (1–3) → yoğun, sıkı-bağlı bir çekirdek yerine dallanan/ağaç-benzeri bir yapı.
 
