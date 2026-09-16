@@ -108,3 +108,14 @@ Bu dosya, projede alınan geri döndürülemez veya yorumlayıcı metodolojik ka
 **Rationale:** Rank-correlation tabanlı karşılaştırma, "hangi network tanımı doğru" sorusundan kaçınıp "bu karar sıralamayı ne kadar değiştiriyor" sorusuna odaklanıyor — madde 30'un istediği tam olarak bu. Betweenness'i her adımda yeniden hesaplamak (311 node için ~300 kez tam betweenness hesaplama) gereksiz maliyetli olduğundan periyodik yeniden hesaplama tercih edildi; sonuç degree-targeted'e çok yakın çıktı (%1.9 vs %3.9 eşiği), bu yaklaşımın sonucu ciddi çarpıtmadığını düşündürüyor.
 
 **Status:** Uygulandı (Faz 8, `src/sensitivity.py`, `src/robustness.py`). **Bulgu:** Person+group vs person-only, test edilen 6 çift arasında sıralamaları en çok değiştiren karar (Spearman ρ=0.887-0.926); girizgah ve core-social filtrelemesi ihmal edilebilir etkiye sahip (ρ=1.000). Ağ, rastgele node kaybına dayanıklı (dev bileşen %50 altına düşmek için ~%25 rastgele kaldırma gerekiyor) ama hedefli saldırıya kırılgan (~%2-4 hedefli kaldırma yeterli) — klasik "robust yet fragile" örüntüsü, "structural robustness" olarak adlandırıldı, "narrative resilience" olarak değil (madde 31 kuralı).
+
+---
+
+### DEC-010
+**Question:** G9_directed'in triadic census'u (Faz 6) için null model tabanlı motif/enrichment analizi (madde 32) yapılmalı mı?
+
+**Decision:** **Hayır — "not_applicable" olarak işaretlendi.** Kapalı triad kategorilerinin (030T+030C+120D+120U+120C+210+300) toplamı yalnızca **44** — toplam 1.774.630 triad'ın %0.0025'i, ve bireysel kategoriler tek haneli sayılara sahip (300: 1, 030C: 2, 120D: 3, vb.). Ayrıca bu networkx sürümünde (3.6.1) yönlü ağlar için hazır bir `directed_double_edge_swap` yok; `directed_configuration_model` kullanmak self-loop/multi-edge sadeleştirmesi gerektiriyor ve tam derece korumasını bozabiliyor.
+
+**Rationale:** Hem örneklem büyüklüğü hem de uygun bir yönlü null model altyapısının maliyeti göz önüne alındığında, bu analiz Faz 6/7'nin kendi emsaliyle (13 üçgen → not_applicable, eşik 15) tutarlı bir şekilde atlandı. Madde 32 zaten "küçük networklerde aşırı istatistiksel yorum yapma" diyor — 44 örnek üzerinden 7 farklı motif kategorisi için z-score üretmek yanıltıcı olurdu.
+
+**Status:** Atlandı, gerekçeli. Gelecekte (backlog) uygun bir yönlü randomizasyon yöntemi (elle yazılmış directed double-edge-swap) eklenirse, yalnızca **toplam kapalı-triad sayısı** (44) tek bir null karşılaştırmasıyla test edilebilir — kategori bazlı değil.

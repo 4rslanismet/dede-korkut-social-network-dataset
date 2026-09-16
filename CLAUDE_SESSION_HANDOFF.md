@@ -230,6 +230,18 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 
 ---
 
+## PHASE 9-12 — MOTIF DECISION, FIGURES, TABLES ✅ TAMAMLANDI
+
+**Scriptler:** [`src/visualization.py`](src/visualization.py), [`src/export_tables.py`](src/export_tables.py) → **Rapor:** [`reports/09_12_figures_tables_report.md`](reports/09_12_figures_tables_report.md)
+
+- **Faz 9-10 (motif/triad):** Atlandı, gerekçeli (DEC-010) — kapalı triad sayısı yalnızca 44/1.77M, uygun yönlü null model altyapısı yok.
+- **Faz 11 (figures):** 8 öncelikli figür (F02, F03, F06, F07, F15, F16, F17, F18) PNG+SVG olarak `outputs/figures/` altında üretildi. F06'da 23-bileşen uyarısı doğrudan altyazıda. Kalan figürler (F01, F04-F05, F08-F14) backlog'da, düşük öncelik.
+- **Faz 12 (tables):** T01-T11'in tamamı `outputs/tables/publication/` altında CSV+LaTeX olarak üretildi. **T08 (story similarity) kısmi** — yalnızca ham shared-actor projeksiyonu var, madde 17'nin tam benzerlik metrik seti (Jaccard/cosine/vb.) henüz hesaplanmadı.
+
+**Yeni bağımlılık:** `jinja2` eklendi (`requirements.txt`) — pandas 3.0'da `to_latex()` için gerekli.
+
+---
+
 ## KNOWN DATA / PROVENANCE LIMITATIONS (henüz çözülmedi, "çözülmüş" gibi gösterilmiyor)
 
 1. **Raw source lineage eksik** — hangi Dede Korkut edisyonunun/transkripsiyonunun kodlandığı belli değil (`validation/source_edition_metadata_required.md`).
@@ -246,6 +258,9 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 12. Modularity/community yapısının (Faz 6) 7/9 ağda null modelden anlamlı yüksek olduğu doğrulandı — ama bu, 23-bileşen artefaktını (§8 yukarı) çözmüyor, yalnızca genel modularity sinyalinin rastgele olmadığını gösteriyor.
 13. Faz 8 sensitivity: **person+group vs person-only** en büyük sıralama farkını yaratan modelleme kararı (ρ=0.887-0.926); PageRank, ağırlık şemasına (`agirlik`, semantiği hâlâ belirsiz — madde 36) en duyarlı metrik (ρ=0.849). Bu iki nokta, gelecekte "en önemli karakter" tartışması yapılırken **hangi network varyantının kullanıldığının açıkça belirtilmesi gerektiğini** gösteriyor.
 14. Structural robustness yalnızca `G0_full` üzerinde çalıştırıldı, ortalama path length eğrisi hesaplanmadı (yalnızca dev bileşen boyutu) — gelecekteki bir iyileştirme.
+15. Motif/triad null karşılaştırması atlandı (DEC-010, veri yetersizliği: 44/1.77M kapalı triad).
+16. **Story similarity (madde 17) tamamlanmadı** — yalnızca ham shared-actor bipartite projeksiyonu var (`outputs/matrices/story_projection_shared_actors.csv`, `outputs/tables/publication/T08_story_similarity.csv`); actor Jaccard, weighted Jaccard, cosine, relation-profile similarity, layer-composition similarity, hierarchical clustering **henüz hesaplanmadı**. Bu, F10/F11 figürlerinin de neden üretilmediğini açıklıyor.
+17. F01, F04-F05, F08-F14 figürleri (madde 48'in tam listesi) henüz üretilmedi — düşük öncelikli backlog.
 
 ---
 
@@ -253,21 +268,21 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 
 ```text
 CURRENT STATUS:
-PHASES 1-8 COMPLETE
+PHASES 1-12 COMPLETE (9-10 skipped with documented rationale, DEC-010)
 
 NEXT PHASE:
-PHASE 9/10 — MOTIF/TRIAD (only if methodologically sound) THEN PHASE 11 — FIGURES
+PHASE 13 — INTER-ANNOTATOR INFRASTRUCTURE, THEN PHASE 14 — REPRODUCIBILITY/PIPELINE
 
-PHASES 1-8 ARE COMPLETE. DO NOT RESTART THEM UNLESS VALIDATION REVEALS A REAL ERROR.
+PHASES 1-12 ARE COMPLETE. DO NOT RESTART THEM UNLESS VALIDATION REVEALS A REAL ERROR.
 ```
 
 ---
 
-## PHASE 9-10 / 11 — NEXT WORK
+## PHASE 13-14 — NEXT WORK
 
-1. **Motif/triad (Faz 9-10):** G9_directed'in triadic census'u zaten var (Faz 6) ama null model karşılaştırması yok — ağın seyrekliği (baskın "003" kategorisi) göz önüne alındığında, bu ancak dikkatli bir tasarımla (ör. yalnızca kapalı triad kategorilerinin (030T/030C/120*/210/300) toplam sayısını null ensemble ile karşılaştırmak) anlamlı olabilir. Yeterli örneklem yoksa `not_applicable` de.
-2. **Publication Figures (Faz 11, madde 48, F01-F18 hedefi):** `src/visualization.py` yaz. Öncelik: F02 (corpus full network), F03 (person-only), F06 (community structure — 23-bileşen uyarısıyla birlikte), F07 (centrality comparison), F15 (null-model dağılımları), F16 (sensitivity correlation matrix), F18 (robustness eğrileri) — bunlar zaten hesaplanmış veriye sahip, doğrudan görselleştirilebilir. Hairball'dan kaçın (madde 47): weighted edge opacity, degree-bazlı node boyutu, seçici etiketleme.
-3. **Publication Tables (Faz 12, madde 49, T01-T11):** CSV zaten çoğunlukla mevcut (`outputs/tables/`, `outputs/statistics/`) — LaTeX formatına da dönüştür.
+1. **Inter-annotator infrastructure (Faz 13, madde 37-38):** `validation/inter_annotator_sample.csv` (stratified sample: farklı story/relation type/layer/explicit-inferred) ve `docs/inter_annotator_protocol.md` oluştur. **Gerçek ikinci coder olmadan Cohen's kappa/Krippendorff's alpha değeri üretme** — yalnızca hesaplama scripti hazırla (`src/inter_annotator_stats.py`, ikinci coder verisi geldiğinde çalıştırılabilir).
+2. **Reproducibility/Pipeline (Faz 14):** `run_pipeline.py` (madde 75, 14 adım sırayla), `tests/` (madde 79 — schema/ID/edge endpoint/deterministic output testleri), hash manifest (`outputs/manifest_sha256.csv`, madde 81), `requirements-lock.txt` (`pip freeze` çıktısı).
+3. Bu iki fazın ardından Faz 15 (Web Portal) — büyük bir iş, ayrı bir oturum/uzun çalışma bloğu gerektirebilir.
 
 ---
 
@@ -307,7 +322,8 @@ Gerçek dosya adlarıyla, okuma sırasına göre:
 9. `reports/06_advanced_network_analysis_report.md`
 10. `reports/07_null_models_report.md`
 11. `reports/08_sensitivity_robustness_report.md`
-12. `docs/network_models.md`
+12. `reports/09_12_figures_tables_report.md`
+13. `docs/network_models.md`
 12. `docs/decision_log.md`
 13. `data/processed/*.csv` (canonical dataset — özellikle `nodes.csv`, `relations_event_level.csv`, `relations_aggregated.csv`, `relation_taxonomy.csv`)
 14. `src/networks.py` (network tanımlarının tek kaynağı — `NETWORK_DEFINITIONS`)
