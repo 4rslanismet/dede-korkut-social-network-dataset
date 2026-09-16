@@ -119,3 +119,17 @@ Bu dosya, projede alınan geri döndürülemez veya yorumlayıcı metodolojik ka
 **Rationale:** Hem örneklem büyüklüğü hem de uygun bir yönlü null model altyapısının maliyeti göz önüne alındığında, bu analiz Faz 6/7'nin kendi emsaliyle (13 üçgen → not_applicable, eşik 15) tutarlı bir şekilde atlandı. Madde 32 zaten "küçük networklerde aşırı istatistiksel yorum yapma" diyor — 44 örnek üzerinden 7 farklı motif kategorisi için z-score üretmek yanıltıcı olurdu.
 
 **Status:** Atlandı, gerekçeli. Gelecekte (backlog) uygun bir yönlü randomizasyon yöntemi (elle yazılmış directed double-edge-swap) eklenirse, yalnızca **toplam kapalı-triad sayısı** (44) tek bir null karşılaştırmasıyla test edilebilir — kategori bazlı değil.
+
+---
+
+### DEC-011
+**Question:** Inter-annotator örneklemi nasıl seçilmeli; pipeline orkestrasyonu (`run_pipeline.py`) nasıl tasarlanmalı?
+
+**Decision:**
+- Örneklem: `(relation_family_top, extraction_method)` üzerinden stratifiye, hedef 70 satır, seed=42. Kör değerlendirme için `coder1_*` sütunlarının ikinci kodlayıcıya verilmeden önce gizlenmesi gerektiği protokolde açıkça belirtildi.
+- `inter_annotator_stats.py`, `coder2_*` sütunları boşsa **kesinlikle** bir kappa/alpha değeri üretmeyip `not_applicable` döndürüyor — bu davranış test edildi.
+- `run_pipeline.py`, her aşamayı ayrı bir `subprocess` olarak çalıştırıyor (import yerine) — script'lerin `if __name__=="__main__"` bloklarını ve kendi `argparse` arayüzlerini (ör. `null_models.py --fast`) bozmadan yeniden kullanmayı sağlıyor. Her aşama `logs/`'a ayrı log yazıyor, ilk hatada durup PASS/FAIL özeti veriyor.
+
+**Rationale:** Stratifiye örnekleme, madde 37'nin "farklı story/relation type/layer/explicit-inferred" şartını karşılıyor. `not_applicable` davranışı, madde 38'in "gerçek ikinci annotator sonucu olmadan değer üretme" kuralının doğrudan uygulanması. Subprocess-tabanlı orkestrasyon, mevcut script'leri yeniden yazmadan (DRY) tek bir giriş noktası sağlıyor.
+
+**Status:** Uygulandı (Faz 13-14). `run_pipeline.py --all` (FULL mode, `--fast` olmadan) bu oturumda uçtan uca test edilmedi — yalnızca `--stage audit`, `--stage hash_manifest`, `--all --validate-only` doğrulandı. Her aşama zaten Faz 1-12'de ayrı ayrı çalıştırılıp doğrulanmıştı.

@@ -242,6 +242,17 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 
 ---
 
+## PHASE 13-14 — INTER-ANNOTATOR & REPRODUCIBILITY ✅ TAMAMLANDI
+
+**Rapor:** [`reports/13_14_reproducibility_report.md`](reports/13_14_reproducibility_report.md)
+
+- **Faz 13:** `validation/inter_annotator_sample.csv` (70 satır, stratifiye, seed=42, 14/14 boy temsilli), `docs/inter_annotator_protocol.md`, `src/inter_annotator_stats.py` (Cohen's kappa + Krippendorff's alpha'ya hazır ama **ikinci kodlayıcı verisi olmadan `not_applicable` döndürüyor** — test edildi, sahte değer üretmiyor).
+- **Faz 14:** `run_pipeline.py` (19 aşama, `--all`/`--stage`/`--fast`/`--validate-only`, `logs/`'a log yazıyor), `tests/` (**18 test, 18/18 PASS** — şema, aggregation, network inşası, determinizm), `outputs/manifest_sha256.csv` (192 dosya), `requirements-lock.txt` (42 paket), `.github/workflows/validate.yml` (CI: pytest + validate-only, ağır aşamalar CI dışında).
+
+**Önemli:** `run_pipeline.py --all` (FULL mode) bu oturumda **uçtan uca test edilmedi** — yalnızca `--stage audit`, `--stage hash_manifest`, `--all --validate-only` doğrulandı. Her aşama zaten Faz 1-12'de ayrı ayrı çalıştırılmıştı, bu yüzden risk düşük ama tam bir `--all` çalıştırması (~10-15 dk) henüz yapılmadı — yeni oturum isterse bunu doğrulayabilir.
+
+---
+
 ## KNOWN DATA / PROVENANCE LIMITATIONS (henüz çözülmedi, "çözülmüş" gibi gösterilmiyor)
 
 1. **Raw source lineage eksik** — hangi Dede Korkut edisyonunun/transkripsiyonunun kodlandığı belli değil (`validation/source_edition_metadata_required.md`).
@@ -261,6 +272,9 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 15. Motif/triad null karşılaştırması atlandı (DEC-010, veri yetersizliği: 44/1.77M kapalı triad).
 16. **Story similarity (madde 17) tamamlanmadı** — yalnızca ham shared-actor bipartite projeksiyonu var (`outputs/matrices/story_projection_shared_actors.csv`, `outputs/tables/publication/T08_story_similarity.csv`); actor Jaccard, weighted Jaccard, cosine, relation-profile similarity, layer-composition similarity, hierarchical clustering **henüz hesaplanmadı**. Bu, F10/F11 figürlerinin de neden üretilmediğini açıklıyor.
 17. F01, F04-F05, F08-F14 figürleri (madde 48'in tam listesi) henüz üretilmedi — düşük öncelikli backlog.
+18. Inter-annotator kappa/alpha hesaplanamadı (gerçek ikinci kodlayıcı yok, beklenen durum) — `not_applicable`.
+19. `run_pipeline.py --all` (FULL mode, `--fast` olmadan) uçtan uca test edilmedi.
+20. Web portal, website validation, documentation (data dictionary/relation codebook/methodology/limitations), paper/thesis package, final validation/release raporları **henüz hiç başlamadı**.
 
 ---
 
@@ -268,21 +282,47 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 
 ```text
 CURRENT STATUS:
-PHASES 1-12 COMPLETE (9-10 skipped with documented rationale, DEC-010)
+PHASES 1-14 COMPLETE (9-10 skipped with documented rationale, DEC-010)
 
 NEXT PHASE:
-PHASE 13 — INTER-ANNOTATOR INFRASTRUCTURE, THEN PHASE 14 — REPRODUCIBILITY/PIPELINE
+PHASE 15 — WEB PORTAL (large, may need a dedicated session/long work block)
 
-PHASES 1-12 ARE COMPLETE. DO NOT RESTART THEM UNLESS VALIDATION REVEALS A REAL ERROR.
+PHASES 1-14 ARE COMPLETE. DO NOT RESTART THEM UNLESS VALIDATION REVEALS A REAL ERROR.
 ```
 
 ---
 
-## PHASE 13-14 — NEXT WORK
+## PHASE 15 — NEXT WORK (Web Portal — large)
 
-1. **Inter-annotator infrastructure (Faz 13, madde 37-38):** `validation/inter_annotator_sample.csv` (stratified sample: farklı story/relation type/layer/explicit-inferred) ve `docs/inter_annotator_protocol.md` oluştur. **Gerçek ikinci coder olmadan Cohen's kappa/Krippendorff's alpha değeri üretme** — yalnızca hesaplama scripti hazırla (`src/inter_annotator_stats.py`, ikinci coder verisi geldiğinde çalıştırılabilir).
-2. **Reproducibility/Pipeline (Faz 14):** `run_pipeline.py` (madde 75, 14 adım sırayla), `tests/` (madde 79 — schema/ID/edge endpoint/deterministic output testleri), hash manifest (`outputs/manifest_sha256.csv`, madde 81), `requirements-lock.txt` (`pip freeze` çıktısı).
-3. Bu iki fazın ardından Faz 15 (Web Portal) — büyük bir iş, ayrı bir oturum/uzun çalışma bloğu gerektirebilir.
+Master prompt sections 50-72. Build a static GitHub Pages site under `docs/` (relative paths only,
+no local path hardcoding — section 104). Priority order:
+
+1. `src/build_site_data.py`: export machine-readable JSON for the site from existing outputs —
+   `docs/data/project_summary.json` (real counts: 14 stories, 332 actors, 628 relations, etc. —
+   pull from `data/processed/`, `outputs/statistics/`, never hardcode), `docs/data/actor_metrics.json`,
+   `docs/data/story_metrics.json`, `docs/data/network_summary.json` (section 108).
+2. Home page: title, live metric cards (from the JSON, not hardcoded), small reproducibility
+   status panel (section 129: "Dataset Validation: PASS", pipeline reproducible, etc. — pull from
+   `outputs/validation/summary.json` and `project_state.json`).
+3. Navbar (section 52): Home, Dataset, Methodology, Network Explorer, Stories, Characters, Layers,
+   Communities, Similarity, Analysis, Evidence, Downloads, Reproduce, About.
+4. Network Explorer: Cytoscape.js (loaded from cdnjs per this environment's CSP), reading from a
+   JSON export of G0_full/G1_person_only/G2_core_social (`outputs/networks/*_edges.csv` /
+   `*_nodes.csv` already exist as source data). Filters: story, actor type, layer, relation type,
+   polarity, directionality, community. Node/edge detail panels showing only genuinely computed
+   metrics (no placeholders).
+5. Per-story pages (14) and per-character pages (start with the ~20 actors in T04) generated from
+   templates + the JSON data, not hand-written per page.
+6. Community page: use numeric community IDs (`Community 1`, `Community 2`, ...) — **never**
+   invented cultural/sociological names (rule already enforced elsewhere in this project). Must
+   carry the 23-connected-component caveat (Phase 6 §1.4).
+7. Downloads page: link to `data/processed/*.csv`, `outputs/networks/*.graphml`/`.gexf`,
+   `outputs/tables/publication/*.csv`.
+8. Reproduce page: the actual `git clone` / `pip install -r requirements.txt` / `python
+   run_pipeline.py --all` commands.
+9. Required disclaimer (section 134) somewhere visible: network metrics are structural
+   representations, not complete literary judgments about character importance.
+10. Then Phase 16 (website validation: broken links, missing JSON/figures, invalid paths).
 
 ---
 
@@ -323,7 +363,8 @@ Gerçek dosya adlarıyla, okuma sırasına göre:
 10. `reports/07_null_models_report.md`
 11. `reports/08_sensitivity_robustness_report.md`
 12. `reports/09_12_figures_tables_report.md`
-13. `docs/network_models.md`
+13. `reports/13_14_reproducibility_report.md`
+14. `docs/network_models.md`
 12. `docs/decision_log.md`
 13. `data/processed/*.csv` (canonical dataset — özellikle `nodes.csv`, `relations_event_level.csv`, `relations_aggregated.csv`, `relation_taxonomy.csv`)
 14. `src/networks.py` (network tanımlarının tek kaynağı — `NETWORK_DEFINITIONS`)

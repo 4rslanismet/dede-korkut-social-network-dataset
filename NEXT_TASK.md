@@ -1,77 +1,76 @@
 # CURRENT PROJECT STATUS
 
-PHASES 1-12 COMPLETE AND COMMITTED (repository audit through publication figures/tables;
-Phase 9-10 motif/triad analysis explicitly skipped with documented rationale, DEC-010).
+PHASES 1-14 COMPLETE AND COMMITTED (repository audit through reproducibility pipeline; Phase
+9-10 motif/triad analysis explicitly skipped with documented rationale, DEC-010).
 
 NEXT:
-PHASE 13 — INTER-ANNOTATOR INFRASTRUCTURE, THEN PHASE 14 — REPRODUCIBILITY/PIPELINE
+PHASE 15 — WEB PORTAL (large; may warrant a dedicated session)
 
 ## Start by reading
 
-1. `CLAUDE_SESSION_HANDOFF.md` — full state
-2. `docs/MASTER_PROMPT.md` sections 37-38 (inter-annotator), 73-81 (pipeline/tests/hash manifest)
-3. `docs/decision_log.md` (DEC-001 through DEC-010)
-4. `reports/09_12_figures_tables_report.md` — most recent work
+1. `CLAUDE_SESSION_HANDOFF.md` — full state, especially the "PHASE 15 — NEXT WORK" section
+2. `docs/MASTER_PROMPT.md` sections 50-72 (web portal requirements in full)
+3. `docs/network_models.md`, `docs/decision_log.md` (DEC-001 through DEC-011)
+4. `reports/13_14_reproducibility_report.md`
 
-**Do not rebuild Phases 1-12.**
+**Do not rebuild Phases 1-14.** All analysis is done; this phase is about presenting it.
 
-## Task A — Phase 13: Inter-Annotator Infrastructure
+## Task: Build the GitHub Pages site under docs/
 
-1. Build a stratified sample from `data/processed/relations_event_level.csv`: vary across
-   story_id, standard_relation, layer, and extraction_method (explicit vs inferred). ~50-80 rows
-   is reasonable. Write `validation/inter_annotator_sample.csv` with columns: relation_id, actor_1,
-   actor_2, raw_evidence, coder1_relation, coder2_relation, coder1_layer, coder2_layer,
-   coder1_polarity, coder2_polarity, agreement, notes (coder1_* pre-filled from the existing data,
-   coder2_* and agreement left blank for a human to fill in).
-2. Write `docs/inter_annotator_protocol.md` describing how a second coder should use the sample.
-3. Write `src/inter_annotator_stats.py` with Cohen's kappa and Krippendorff's alpha computation
-   ready to run once real second-coder data exists — but do NOT invent or simulate second-coder
-   data, and do NOT report a kappa/alpha value now. The script should refuse to run meaningfully
-   until `coder2_*` columns are actually filled in.
+1. **Data export layer first**: `src/build_site_data.py` producing `docs/data/*.json` from
+   existing outputs (never hardcode a number the site displays - pull from
+   `data/processed/nodes.csv`, `outputs/statistics/corpus_network_metrics.csv`,
+   `outputs/validation/summary.json`, `project_state.json`, etc.).
+2. **Home page**: title "Dede Korkut Narrative Networks", metric cards from the JSON (stories,
+   actors, relations, narrative events, relation layers), reproducibility status panel (section
+   129), required disclaimer (section 134: network metrics are structural, not literary
+   judgments).
+3. **Navbar** (section 52, exact list): Home, Dataset, Methodology, Network Explorer, Stories,
+   Characters, Layers, Communities, Similarity, Analysis, Evidence, Downloads, Reproduce, About.
+4. **Network Explorer**: Cytoscape.js (via cdnjs), fed by `outputs/networks/G0_full_edges.csv` /
+   `_nodes.csv` (and other variants) converted to Cytoscape JSON by the data-export script. Filters
+   per section 56. Node/edge detail panels show only real computed fields (section 57-58) - no
+   placeholder text.
+5. **Community page**: numeric community labels only (`Community 1`, `Community 2`, ...) - never
+   invent cultural names. Must state the 23-connected-component caveat.
+6. **Per-story and per-character pages**: generate from templates + JSON, not hand-authored per
+   page. Start with the actors already in `outputs/tables/publication/T04_centrality_results.csv`.
+7. **Downloads page**: link to the real files under `data/processed/`, `outputs/networks/`,
+   `outputs/tables/publication/`.
+8. **Reproduce page**: real commands (`git clone ...`, `pip install -r requirements.txt`,
+   `python run_pipeline.py --all`).
+9. Site must use relative paths only (section 104) - test by opening `docs/index.html` directly
+   from the filesystem, not just via a server.
 
-## Task B — Phase 14: Reproducibility / Pipeline
+## Then Phase 16: Website Validation
 
-1. `run_pipeline.py` at repo root, orchestrating the 14 steps already implemented across
-   `src/*.py` in order (audit -> validate -> entity_resolution -> build_canonical ->
-   build_networks -> story_networks -> metrics -> communities -> signed_and_directed ->
-   multilayer -> narrative_order -> null_models -> null_models_fdr -> sensitivity -> robustness
-   -> visualization -> export_tables). Support `--stage <name>` and `--all` per section 119.
-2. `tests/` directory with pytest tests covering: canonical schema (node_id uniqueness, edge
-   endpoint referential integrity), deterministic outputs (same seed -> same result for at least
-   one stochastic step, e.g. community detection), and aggregation correctness (relations_aggregated
-   row count matches expectations from relations_event_level).
-3. Hash manifest: `outputs/manifest_sha256.csv` listing SHA-256 of every file under `data/final/`,
-   `data/processed/`, and key `outputs/` files.
-4. `requirements-lock.txt`: exact pinned versions (`pip freeze` from `.venv`).
-5. Update `CLAUDE_SESSION_HANDOFF.md`, `NEXT_TASK.md`, `project_state.json`,
-   `docs/decision_log.md`, commit: `Complete phase 13-14 inter-annotator infrastructure and reproducibility pipeline`
+Check for broken links, missing JSON/images, invalid generated pages, JS/data loading errors
+(open in the built-in browser and check the console).
 
 ## Then continue in master-plan order
 
-PHASE 15 web portal (large - `docs/` GitHub Pages site, Cytoscape.js network explorer, per-story
-and per-character pages, all navbar sections from master prompt section 52) -> PHASE 16 website
-validation -> PHASE 17 documentation (data dictionary, relation codebook, methodology,
-limitations, architecture diagram) -> PHASE 18 paper package -> PHASE 19 thesis package ->
-PHASE 20 final validation/release -> PHASE 21 final reports (FINAL_REBUILD_REPORT,
-EXECUTIVE_SUMMARY, RELEASE_CHECKLIST).
+PHASE 17 documentation (data dictionary, relation codebook, methodology.md, limitations.md,
+architecture diagram) -> PHASE 18 paper package -> PHASE 19 thesis package -> PHASE 20 final
+validation/release (cross-check README/paper/thesis/canonical numbers for consistency) -> PHASE 21
+final reports (FINAL_REBUILD_REPORT.md, EXECUTIVE_SUMMARY.md, RELEASE_CHECKLIST.md).
 
-## Known gaps carried forward (do not silently "fix" without re-reading the relevant report)
+## Known gaps carried forward
 
-- Story similarity (section 17: Jaccard/cosine/etc.) not yet computed - only raw shared-actor
-  bipartite projection exists. Needed before F10/F11 figures and a complete T08 table.
-- Figures F01, F04-F05, F08-F14 not yet produced (low priority backlog).
-- G9_directed has no null-model comparison (double_edge_swap is undirected-only).
-- Degree assortativity is NOT a validated finding (Phase 7 retraction) - don't cite as fact.
-- Any community-structure figure/table for G2_core_social must carry the 23-connected-component
-  caveat.
+- Story similarity (section 17) not fully computed - blocks a complete Similarity page; either
+  compute it first or clearly mark that page as partial.
+- Figures F01, F04-F05, F08-F14 not yet produced.
+- Degree assortativity is NOT a validated finding (Phase 7 retraction).
+- Any community-structure content must carry the 23-connected-component caveat.
+- No `docs/methodology.md`, `docs/limitations.md`, `docs/data_dictionary.md`,
+  `docs/relation_codebook.md` yet - the Methodology/Evidence pages will need this content, so
+  consider whether to pull Phase 17 documentation forward if the web portal needs it as source
+  text.
 - When writing git commit messages with PowerShell, avoid embedded double quotes in `-m`
-  arguments (native command-line quoting can mis-split them) - write the message to a temp file
-  and use `git commit -F <file>` instead.
+  arguments - use `git commit -F <tempfile>` instead.
 
 ## Rules that must not be relaxed
 
-- Never invent unsupported data, metadata, academic findings, or second-annotator agreement
-  statistics.
+- Never invent unsupported data, metadata, academic findings, or agreement statistics.
 - Centrality ≠ literary importance.
 - Mark `not_applicable` rather than forcing a result on insufficient data.
 - `data/raw/` and `data/final/` stay untouched.
