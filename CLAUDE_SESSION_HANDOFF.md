@@ -22,8 +22,9 @@
 - story similarity (henüz yapılmadı)
 - community detection (Leiden/Louvain — **yapıldı**, bkz. aşağı)
 - signed/directed network analysis (**yapıldı**)
-- narrative-order analysis (**script yazıldı, henüz çalıştırılmadı/doğrulanmadı**)
-- null models, sensitivity analysis, structural robustness (**yapılmadı**)
+- multilayer/versatility analysis (**yapıldı**)
+- narrative-order + dynamic centrality analysis (**yapıldı**)
+- null models (**Faz 7, şimdi başlıyor**), sensitivity analysis, structural robustness (**yapılmadı**)
 - academic figures/tables (**yapılmadı**)
 - interactive GitHub Pages portal (**yapılmadı**)
 - reproducibility/evidence package (kısmen: `reports/`, `validation/`)
@@ -161,9 +162,9 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 
 ---
 
-## PHASE 6 — ADVANCED NETWORK ANALYSIS (KISMEN TAMAMLANDI, HENÜZ COMMIT EDİLMEDİ)
+## PHASE 6 — ADVANCED NETWORK ANALYSIS ✅ TAMAMLANDI
 
-**ÖNEMLİ:** Önceki oturum, context/kullanım limiti nedeniyle kesintiye uğramadan hemen önce Faz 6'nın bir kısmını **zaten çalıştırmıştı**. Bu checkpoint sırasında `git status` bunu doğruladı: aşağıdaki dosyalar diskte **mevcut ve çalıştırılmış**, ama bu checkpoint commit'i ile birlikte ilk kez git'e ekleniyor.
+**Rapor:** [`reports/06_advanced_network_analysis_report.md`](reports/06_advanced_network_analysis_report.md)
 
 ### Tamamlanan ve gerçek sonuçlarla doğrulanan alt-adımlar:
 
@@ -187,11 +188,15 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 - 7 gözlenen layer: akrabalık, iletişim, kimlik, mekân, olay, otorite, çatışma.
 - En çok layer'da aktif: **Salur Kazan (7/7 layer, participation coefficient 0.766)**, sonra Dede Korkut (6), Aruz/Uruz/Bayındır Han/vb. (5).
 
-### HENÜZ YAPILMAYAN / TAMAMLANMAMIŞ Faz 6 parçaları:
+**5. Narrative-Order Analysis ✅** — [`src/narrative_order.py`](src/narrative_order.py) çalıştırıldı ve doğrulandı
+- S01 (Girizgah) `not_applicable` (1 kayıt, eşik: 6); diğer 13 boy için early/middle/late pencere üretildi (`outputs/tables/narrative_order_windows.csv`).
+- İç tutarlılık kontrolü: 12/13 boyda `cumulative_distinct_nodes`, Faz 4'ün bağımsız story-level node sayılarıyla birebir eşleşti; S03'te küçük bir sapma (47 vs 48) 2 eksik `satir_no` kaydıyla açıklandı.
+- Çoğu boyda çatışma yoğunluğu early→late arttı (istatistiksel test yok, yalnızca betimleyici).
 
-- **Narrative-Order Analysis** — [`src/narrative_order.py`](src/narrative_order.py) **yazıldı ama hiç çalıştırılmadı**. Beklenen çıktılar (`outputs/tables/narrative_order_windows.csv`, `outputs/tables/dynamic_centrality_trajectory.csv`) **diskte yok**. Bu script'in mantığı: her boy için `satir_no`'ya göre early/middle/late pencere; en az 6 geçerli `satir_no`'lu satır olmayan boy'lar `not_applicable` olarak işaretleniyor. Yeni oturumun **ilk pratik işi** bu script'i çalıştırıp sonucu doğrulamak olmalı (`python src/narrative_order.py`), sonra Faz 6 raporunu tamamlamak.
-- **Dynamic Centrality** — aynı script içinde `dynamic_centrality_trajectory()` fonksiyonu yazıldı (corpus-order'a göre top-6 karakterin kümülatif degree'si), henüz çalıştırılıp doğrulanmadı.
-- **Faz 6 özet raporu** (`reports/06_advanced_network_analysis_report.md`) **henüz yazılmadı** — yukarıdaki tüm gerçek sayılarla yazılmalı.
+**6. Dynamic Centrality (exploratory) ✅** — aynı script, `outputs/tables/dynamic_centrality_trajectory.csv`
+- Top-6 karakterin corpus-order'a göre kümülatif ilişki-örneği sayısı. Salur Kazan (156, çok-boylu) ve Bamsı Beyrek (64) corpus-çapında tekrar ederken, Tepegöz (28) ve Basat (27) neredeyse tamamen tek boyda (S09) yoğunlaşmış — "yüksek toplam derece" ile "corpus-çapında yaygınlık" arasındaki farkın somut kanıtı.
+
+**Faz 6 özet raporu tamamlandı:** [`reports/06_advanced_network_analysis_report.md`](reports/06_advanced_network_analysis_report.md) — yukarıdaki tüm alt-adımları, 23-bileşen/trivial-community uyarısını (§1.4), HITS sonuçlarını ve descriptive-vs-exploratory sınıflandırma tablosunu (§7) içeriyor.
 
 ---
 
@@ -204,7 +209,9 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 5. **Collective/group aktörlerin (125/332 node) network metrikleri üzerindeki etkisi henüz test edilmedi** — Faz 8 (person-only vs person+group sensitivity) bekliyor.
 6. **Inferred ilişkilerin (cikarma_yontemi≠açık_ilişki, 32/628 satır) etkisi henüz test edilmedi** — Faz 8 bekliyor.
 7. **17 alias çakışması ve 73 "stale alias target" kaydı çözülmedi** — `needs_manual_validation` olarak açık bırakıldı, `validation/HUMAN_REVIEW_QUEUE.csv`'de.
-8. Community partition'ın **anlamlı** kısmı yalnızca 261-node'luk dev bileşen içindir; 23 bileşenli graf otomatik olarak trivial "tek-node community"lere yol açar — bu ayrım henüz hiçbir raporda açıkça yazılmadı (yeni oturumun Faz 6 raporunda ele alması gerekiyor).
+8. Community partition'ın **anlamlı** kısmı yalnızca 261-node'luk dev bileşen içindir; 23 bileşenli graf otomatik olarak trivial "tek-node community"lere yol açar — **bu artık `reports/06_advanced_network_analysis_report.md` §1.4'te açıkça belgelendi**, ama community sonuçları kullanılan her yeni yerde (Faz 11 figürleri, web portal) bu uyarı tekrarlanmalı.
+9. Signed structural balance analizi veri yetersizliği (13 üçgen < 15 eşik) nedeniyle "not_applicable" — ek relation kodlaması gelmeden tekrar denenmemeli.
+10. Directed triadic census, ağın seyrekliği nedeniyle ezici çoğunlukla "003" (bağlantısız) tipte — null model karşılaştırması (Faz 7) olmadan motif-tipi yorum yapılmamalı.
 
 ---
 
@@ -212,26 +219,24 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 
 ```text
 CURRENT STATUS:
-PHASES 1-5 COMPLETE AND COMMITTED (commit 3840993)
-PHASE 6 PARTIALLY COMPLETE ON DISK, NOT YET COMMITTED (bu checkpoint ile commit ediliyor)
+PHASES 1-6 COMPLETE
 
 NEXT PHASE:
-PHASE 6 — ADVANCED NETWORK ANALYSIS (bitirme)
+PHASE 7 — NULL MODELS / STATISTICAL VALIDATION
 
-PHASES 1-5 ARE COMPLETE. DO NOT RESTART THEM UNLESS VALIDATION REVEALS A REAL ERROR.
-PHASE 6 community/signed/directed/multilayer sub-steps ARE ALREADY DONE — DO NOT RE-RUN THEM
-BLINDLY, first check whether outputs/tables/ and outputs/statistics/ files already exist and
-are fresh (compare against data/processed/ file timestamps / git log).
+PHASES 1-6 ARE COMPLETE. DO NOT RESTART THEM UNLESS VALIDATION REVEALS A REAL ERROR.
 ```
 
 ---
 
-## PHASE 6 — NEXT WORK (kalan, önceliklendirilmiş)
+## PHASE 7 — NEXT WORK
 
-1. **`python src/narrative_order.py` çalıştır**, çıktıyı doğrula, sonuçları not al.
-2. `reports/06_advanced_network_analysis_report.md` yaz — yukarıdaki TÜM gerçek sayılarla (community detection, signed, directed, multilayer, narrative-order), 23-bileşen/trivial-community uyarısını dahil ederek.
-3. HITS sonuçlarını (`outputs/tables/centrality_G9_directed.csv` içinde zaten var) Faz 6 raporuna dahil et — ayrı hesaplama gerekmiyor.
-4. Commit: "Complete Phase 6 advanced network analysis (community detection, signed/directed/multilayer/narrative-order)".
+1. `src/null_models.py` yaz: `config/analysis.yaml` → `null_models.n_random` (1000) ve `null_models.model` (`configuration_model`) kullanarak degree-preserving randomizasyon.
+2. Uygun network'lerde (öncelik: `G0_full`, `G1_person_only`, `G2_core_social`; anlamlıysa `G9_directed`) clustering, transitivity, degree assortativity, modularity (Leiden, resolution=1.0) için observed vs random ensemble karşılaştırması: `random_mean`, `random_std`, `z_score`, `percentile`, `empirical_p`.
+3. Motif/triad enrichment yalnızca örneklem yeterliyse (bkz. Faz 6 §3.1 uyarısı — G9 triadic census'ta çoğu kategori çok düşük sayıda, dikkatli olunmalı).
+4. FAST mode (`n_random` küçük, örn. 100) geliştirme sırasında, FULL mode (`n_random=1000`, config'teki değer) final sonuçlar için.
+5. Seed `config/analysis.yaml::seed` (42) + her random deneme için türetilmiş alt-seed'ler kaydedilsin, raporlanabilir olsun.
+6. Uygun olmayan kombinasyon varsa (örn. çok küçük/seyrek bir alt-ağda anlamlı z-score üretilemiyorsa) `not_applicable` olarak işaretle.
 
 ---
 
@@ -269,12 +274,13 @@ Gerçek dosya adlarıyla, okuma sırasına göre:
 6. `reports/02_data_quality_report.md`
 7. `reports/03_canonical_dataset_report.md`
 8. `reports/04_05_network_construction_and_descriptive_report.md`
-9. `docs/network_models.md`
-10. `docs/decision_log.md`
-11. `data/processed/*.csv` (canonical dataset — özellikle `nodes.csv`, `relations_event_level.csv`, `relations_aggregated.csv`, `relation_taxonomy.csv`)
-12. `src/networks.py` (network tanımlarının tek kaynağı — `NETWORK_DEFINITIONS`)
-13. `src/communities.py`, `src/signed_and_directed.py`, `src/multilayer.py`, `src/narrative_order.py` (Faz 6 kodu)
-14. `project_state.json` (makine-okunabilir özet)
+9. `reports/06_advanced_network_analysis_report.md`
+10. `docs/network_models.md`
+11. `docs/decision_log.md`
+12. `data/processed/*.csv` (canonical dataset — özellikle `nodes.csv`, `relations_event_level.csv`, `relations_aggregated.csv`, `relation_taxonomy.csv`)
+13. `src/networks.py` (network tanımlarının tek kaynağı — `NETWORK_DEFINITIONS`)
+14. `src/communities.py`, `src/signed_and_directed.py`, `src/multilayer.py`, `src/narrative_order.py` (Faz 6 kodu, referans için)
+15. `project_state.json` (makine-okunabilir özet)
 
 ---
 
