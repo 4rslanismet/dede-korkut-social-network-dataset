@@ -253,6 +253,21 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 
 ---
 
+## PHASE 15-16 — WEB PORTAL & WEBSITE VALIDATION ✅ TAMAMLANDI
+
+**Scriptler:** [`src/build_site_data.py`](src/build_site_data.py), [`src/build_site.py`](src/build_site.py), [`src/site_layout.py`](src/site_layout.py), [`docs/assets/explorer.js`](docs/assets/explorer.js), [`src/validate_site.py`](src/validate_site.py) → **Rapor:** [`reports/15_16_web_portal_report.md`](reports/15_16_web_portal_report.md)
+
+- **363 HTML dosyası** üretildi: 14 statik sayfa (madde 52'nin tam nav listesi) + 14 boy sayfası + **332 karakter sayfası (tüm canonical aktörler, yalnızca top-N değil)**.
+- Network Explorer (Cytoscape.js, cdnjs): 3 varyant (G0/G1/G2), arama, 3 layout, node/edge detay paneli — tarayıcıda canlı test edildi ve çalıştığı doğrulandı.
+- **KRİTİK DÜZELTME (DEC-012):** İlk taslak `../outputs/...`/`../data/...`/`../reports/...` gibi repo-root-göreli yollar kullanıyordu — bu GitHub Pages'te (yalnızca `docs/` yayınlanır) 404 verirdi. **Bu hata yalnızca gerçek bir HTTP sunucusuyla test edilerek yakalandı** (`file://` önizlemesi statik snapshot olduğu için göstermedi). Çözüm: `copy_assets()` gerekli dosyaları build sırasında `docs/` içine kopyalıyor.
+- **KRİTİK DÜZELTME (DEC-012):** 1 node'un 239 karakterlik `node_id`'si Windows dosya yolu sınırını aşıp site build'ini çökertti. `safe_filename()` ile çözüldü (yalnızca dosya adı, veri değil).
+- **YENİ VERİ BULGUSU (DEC-013):** Website inşası sırasında **5 "birleştirilmiş çoklu-aktör node"** keşfedildi (ör. tek bir node'un `canonical_name`'i "Beyrek, Yigenek, Kazan, Kara Budak, Deli Dündar, Uruz" gibi virgülle ayrılmış 6 farklı karakter adı içeriyor). Faz 2'nin otomatik testlerinden hiçbirini ihlal etmediği için önceden yakalanmamıştı. Otomatik düzeltilmedi — `validation/HUMAN_REVIEW_QUEUE.csv`'ye HR0076-HR0080 olarak eklendi (80 madde, önceki 75'ten).
+- `src/validate_site.py` (Faz 16): tüm dahili linkleri/asset'leri/JSON dosyalarını tarıyor. İlk çalıştırma: 85 kırık link. Düzeltme sonrası: **363/363 dosya PASS, 0 sorun** (`outputs/validation/site_validation_report.json`).
+
+**Ders (yeni oturum için önemli):** Site değişiklikleri **her zaman gerçek bir HTTP sunucusuyla** (`python -m http.server`, `docs/` kökünden) test edilmeli, `file://` önizlemesiyle değil — ikincisi harici CSS/JS/fetch çağrılarını göstermez ve path hatalarını gizler.
+
+---
+
 ## KNOWN DATA / PROVENANCE LIMITATIONS (henüz çözülmedi, "çözülmüş" gibi gösterilmiyor)
 
 1. **Raw source lineage eksik** — hangi Dede Korkut edisyonunun/transkripsiyonunun kodlandığı belli değil (`validation/source_edition_metadata_required.md`).
@@ -274,7 +289,10 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 17. F01, F04-F05, F08-F14 figürleri (madde 48'in tam listesi) henüz üretilmedi — düşük öncelikli backlog.
 18. Inter-annotator kappa/alpha hesaplanamadı (gerçek ikinci kodlayıcı yok, beklenen durum) — `not_applicable`.
 19. `run_pipeline.py --all` (FULL mode, `--fast` olmadan) uçtan uca test edilmedi.
-20. Web portal, website validation, documentation (data dictionary/relation codebook/methodology/limitations), paper/thesis package, final validation/release raporları **henüz hiç başlamadı**.
+20. ~~Web portal, website validation~~ ✅ tamamlandı (Faz 15-16). Documentation (data dictionary/relation codebook/methodology/limitations), paper/thesis package, final validation/release raporları **henüz hiç başlamadı**.
+21. **Website inşası sırasında 5 yeni "birleştirilmiş çoklu-aktör node" bulundu** (DEC-013, `validation/HUMAN_REVIEW_QUEUE.csv` HR0076-HR0080) — Faz 2'nin otomatik testlerini geçmişti ama içerik/anlamsal bir kalite sorunu. Düzeltilmedi, açık.
+22. Site yalnızca 3 network varyantını (G0/G1/G2) Explorer'da sunuyor; G3-G11 export edilmedi. Similarity sayfası kısmi (madde 17 tamamlanmadı). TR/EN dil altyapısı yok. Mobil/erişilebilirlik sistematik test edilmedi.
+23. Site henüz GitHub'a push edilmedi / gerçek Pages URL'sinde deploy edilmedi — yalnızca yerel `python -m http.server` ile test edildi.
 
 ---
 
@@ -282,64 +300,58 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 
 ```text
 CURRENT STATUS:
-PHASES 1-14 COMPLETE (9-10 skipped with documented rationale, DEC-010)
+PHASES 1-16 COMPLETE (9-10 skipped with documented rationale, DEC-010)
 
 NEXT PHASE:
-PHASE 15 — WEB PORTAL (large, may need a dedicated session/long work block)
+PHASE 17 — DOCUMENTATION (data dictionary, relation codebook, methodology.md, limitations.md,
+architecture diagram, DATASET_CARD.md, CITATION.cff, CHANGELOG.md, CONTRIBUTING.md)
 
-PHASES 1-14 ARE COMPLETE. DO NOT RESTART THEM UNLESS VALIDATION REVEALS A REAL ERROR.
+PHASES 1-16 ARE COMPLETE. DO NOT RESTART THEM UNLESS VALIDATION REVEALS A REAL ERROR.
 ```
 
 ---
 
-## PHASE 15 — NEXT WORK (Web Portal — large)
+## PHASE 17 — NEXT WORK (Documentation)
 
-Master prompt sections 50-72. Build a static GitHub Pages site under `docs/` (relative paths only,
-no local path hardcoding — section 104). Priority order:
+Master prompt sections 83-90, 100-101. All content-source data already exists (schemas in
+`data/processed/*.csv`, relation types in `relation_taxonomy.csv`, methodology decisions in
+`docs/decision_log.md`, limitations already enumerated throughout this handoff) — this phase is
+mostly synthesis/writing, not new analysis.
 
-1. `src/build_site_data.py`: export machine-readable JSON for the site from existing outputs —
-   `docs/data/project_summary.json` (real counts: 14 stories, 332 actors, 628 relations, etc. —
-   pull from `data/processed/`, `outputs/statistics/`, never hardcode), `docs/data/actor_metrics.json`,
-   `docs/data/story_metrics.json`, `docs/data/network_summary.json` (section 108).
-2. Home page: title, live metric cards (from the JSON, not hardcoded), small reproducibility
-   status panel (section 129: "Dataset Validation: PASS", pipeline reproducible, etc. — pull from
-   `outputs/validation/summary.json` and `project_state.json`).
-3. Navbar (section 52): Home, Dataset, Methodology, Network Explorer, Stories, Characters, Layers,
-   Communities, Similarity, Analysis, Evidence, Downloads, Reproduce, About.
-4. Network Explorer: Cytoscape.js (loaded from cdnjs per this environment's CSP), reading from a
-   JSON export of G0_full/G1_person_only/G2_core_social (`outputs/networks/*_edges.csv` /
-   `*_nodes.csv` already exist as source data). Filters: story, actor type, layer, relation type,
-   polarity, directionality, community. Node/edge detail panels showing only genuinely computed
-   metrics (no placeholders).
-5. Per-story pages (14) and per-character pages (start with the ~20 actors in T04) generated from
-   templates + the JSON data, not hand-written per page.
-6. Community page: use numeric community IDs (`Community 1`, `Community 2`, ...) — **never**
-   invented cultural/sociological names (rule already enforced elsewhere in this project). Must
-   carry the 23-connected-component caveat (Phase 6 §1.4).
-7. Downloads page: link to `data/processed/*.csv`, `outputs/networks/*.graphml`/`.gexf`,
-   `outputs/tables/publication/*.csv`.
-8. Reproduce page: the actual `git clone` / `pip install -r requirements.txt` / `python
-   run_pipeline.py --all` commands.
-9. Required disclaimer (section 134) somewhere visible: network metrics are structural
-   representations, not complete literary judgments about character importance.
-10. Then Phase 16 (website validation: broken links, missing JSON/figures, invalid paths).
+1. `docs/data_dictionary.md` (section 83): every column of every `data/processed/*.csv`, with
+   field/type/meaning/allowed values/nullability/source.
+2. `docs/relation_codebook.md` (section 84): each of the 17 relation types (from
+   `data/processed/relation_taxonomy.csv`) with definition/parent family/directionality/polarity
+   expectations/examples (pull real examples from `relations_event_level.csv`).
+3. `docs/methodology.md` (section 85): should be detailed enough to be the technical source for a
+   thesis methods section — expand `methodology.html`'s content considerably, cite every DEC-XXX.
+4. `docs/limitations.md` (section 86): consolidate every limitation already scattered across this
+   handoff and the reports/*.md files into one document (source edition gap, single coder, group
+   actors, inferred relations, edge weighting, narrative-order ≠ time, projection artifacts, entity
+   resolution uncertainty including the 5 concatenated-node issue from Phase 15, interpretation limits).
+5. `DATASET_CARD.md`, `CITATION.cff` (placeholder author/publication metadata, don't invent), `CHANGELOG.md`
+   (legacy v3 → this rebuild), `CONTRIBUTING.md` (rules for adding new relation annotations).
+6. Architecture diagram (section 101) — SVG/PNG of the data flow, can adapt the ASCII diagram
+   already in `methodology.html`.
+7. README.md redesign (section 100) — this is the REPOSITORY root README, not the site; needs
+   project overview/features/dataset snapshot/structure/methodology/reproducibility/website/citation/license.
 
 ---
 
-## REMAINING MASTER PLAN AFTER PHASE 8
+## REMAINING MASTER PLAN AFTER PHASE 16
 
 Tam liste `docs/MASTER_PROMPT.md`'de; öncelik sırası (proje sahibinin verdiği faz numaralandırmasıyla, kendi phase raporu numaralandırmamızdan farklı olabilir — önemli olan iş sırası):
 
-- ~~**PHASE 7 — Null Models / Statistical Validation**~~ ✅ **TAMAMLANDI** — bkz. yukarı.
-- ~~**PHASE 8 — Sensitivity / Robustness**~~ ✅ **TAMAMLANDI** — `src/sensitivity.py`, `src/robustness.py`, `reports/08_sensitivity_robustness_report.md`. Bkz. yukarı.
-- **PHASE 10 — Motif/Triad (yalnızca uygunsa):** null modellerle motif enrichment.
-- **PHASE 11 — Publication Figures (F01-F18 hedefi, master prompt madde 48):** henüz `src/visualization.py` yok, `outputs/figures/` boş.
-- **PHASE 12 — Publication Tables (T01-T11, madde 49):** CSV + LaTeX. Henüz yok.
-- **PHASE 13 — Inter-Annotator Infrastructure:** `validation/inter_annotator_sample.csv`, `docs/inter_annotator_protocol.md` — gerçek ikinci coder olmadan agreement değeri **üretilmeyecek**, sadece altyapı hazırlanacak.
-- **PHASE 14 — Reproducibility/Pipeline:** `run_pipeline.py` (henüz yok), `tests/` (henüz yok), hash manifest (`outputs/manifest_sha256.csv`, henüz yok), `requirements-lock.txt` (henüz yok).
-- **PHASE 15 — Web Portal:** `docs/` altında GitHub Pages sitesi (Home/Dataset/Methodology/Network Explorer/Stories/Characters/Layers/Communities/Similarity/Analysis/Evidence/Downloads/Reproduce/About). Henüz hiç başlanmadı — `docs/` şu an sadece `network_models.md`, `README_v2.md`, `README_v3.md`, `MASTER_PROMPT.md` içeriyor.
-- **PHASE 16 — Website Validation:** henüz N/A (site yok).
-- **PHASE 17 — Documentation:** `docs/data_dictionary.md`, `docs/relation_codebook.md`, `docs/methodology.md`, `docs/limitations.md` — **hiçbiri henüz yazılmadı** (network_models.md hariç). `DATASET_CARD.md`, `CITATION.cff`, `CHANGELOG.md`, `CONTRIBUTING.md` — **hiçbiri henüz yok**.
+- ~~**PHASE 7 — Null Models / Statistical Validation**~~ ✅ **TAMAMLANDI**
+- ~~**PHASE 8 — Sensitivity / Robustness**~~ ✅ **TAMAMLANDI**
+- ~~**PHASE 9-10 — Motif/Triad**~~ ✅ **Atlandı, gerekçeli (DEC-010)**
+- ~~**PHASE 11 — Publication Figures**~~ ✅ **TAMAMLANDI** (8/18 figür, backlog'da kalanlar var)
+- ~~**PHASE 12 — Publication Tables**~~ ✅ **TAMAMLANDI** (T01-T11, T08 kısmi)
+- ~~**PHASE 13 — Inter-Annotator Infrastructure**~~ ✅ **TAMAMLANDI** (altyapı hazır, gerçek agreement değeri yok — beklenen)
+- ~~**PHASE 14 — Reproducibility/Pipeline**~~ ✅ **TAMAMLANDI** (`run_pipeline.py`, `tests/`, hash manifest, lock file)
+- ~~**PHASE 15 — Web Portal**~~ ✅ **TAMAMLANDI** (363 HTML dosyası, bkz. yukarı)
+- ~~**PHASE 16 — Website Validation**~~ ✅ **TAMAMLANDI** (363/363 PASS)
+- **PHASE 17 — Documentation:** `docs/data_dictionary.md`, `docs/relation_codebook.md`, `docs/methodology.md` (genişletilmiş), `docs/limitations.md` — **hiçbiri henüz yazılmadı** (`network_models.md`, `decision_log.md`, `MASTER_PROMPT.md`, `inter_annotator_protocol.md` hariç, onlar zaten var). `DATASET_CARD.md`, `CITATION.cff`, `CHANGELOG.md`, `CONTRIBUTING.md` — **hiçbiri henüz yok**. Kök `README.md` de bu fazda yeniden tasarlanmalı (madde 100).
 - **PHASE 18 — Paper Package:** `paper/` dizini **henüz yok**.
 - **PHASE 19 — Thesis Package:** `thesis/` dizini **henüz yok**.
 - **PHASE 20 — Final Validation/Release:** tüm sayıların (README, paper, thesis, canonical data) tutarlılığı henüz kontrol edilmedi (bu sistematik kontrol henüz yapılmadı çünkü paper/thesis/website henüz yok).
@@ -364,7 +376,8 @@ Gerçek dosya adlarıyla, okuma sırasına göre:
 11. `reports/08_sensitivity_robustness_report.md`
 12. `reports/09_12_figures_tables_report.md`
 13. `reports/13_14_reproducibility_report.md`
-14. `docs/network_models.md`
+14. `reports/15_16_web_portal_report.md`
+15. `docs/network_models.md`
 12. `docs/decision_log.md`
 13. `data/processed/*.csv` (canonical dataset — özellikle `nodes.csv`, `relations_event_level.csv`, `relations_aggregated.csv`, `relation_taxonomy.csv`)
 14. `src/networks.py` (network tanımlarının tek kaynağı — `NETWORK_DEFINITIONS`)

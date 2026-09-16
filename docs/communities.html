@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Communities — Dede Korkut Narrative Networks</title>
+<meta name="description" content="Community detection results and the connected-component caveat.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap brand-row">
+    <div>
+      <a class="brand" href="index.html">Dede Korkut Narrative Networks</a><br>
+      <span class="subtitle">A reproducible multilayer network analysis of characters and relations in the Book of Dede Korkut</span>
+    </div>
+  </div>
+  <nav class="main-nav"><div class="wrap"><a href="index.html">Home</a>
+<a href="dataset.html">Dataset</a>
+<a href="methodology.html">Methodology</a>
+<a href="explorer.html">Network Explorer</a>
+<a href="stories.html">Stories</a>
+<a href="characters.html">Characters</a>
+<a href="layers.html">Layers</a>
+<a href="communities.html" class="active">Communities</a>
+<a href="similarity.html">Similarity</a>
+<a href="analysis.html">Analysis</a>
+<a href="evidence.html">Evidence</a>
+<a href="downloads.html">Downloads</a>
+<a href="reproduce.html">Reproduce</a>
+<a href="about.html">About</a></div></nav>
+</header>
+<main class="wrap">
+
+<h1>Communities</h1>
+<div class="disclaimer">Communities are labeled with plain numeric IDs only — no cultural or
+sociological names are assigned to them.</div>
+
+<h2>⚠️ Read this before interpreting community counts</h2>
+<p>The <code>G2_core_social</code> network has <strong>23 connected components</strong>. Modularity
+algorithms assign each disconnected component to its own community by construction, so a large
+share of the raw community count below is a graph-fragmentation artifact, not meaningful social
+clustering. The only community structure worth interpreting substantively is <strong>within the
+261-node giant component</strong>. Full discussion: <a href="analysis.html">Analysis</a> and
+<code>reports/06_advanced_network_analysis_report.md</code> §1.4.</p>
+
+<h2>Leiden vs Louvain</h2>
+<div class="card-grid">
+  <div class="metric-card"><span class="value">33</span><span class="label">Leiden communities</span></div>
+  <div class="metric-card"><span class="value">0.695</span><span class="label">Leiden modularity</span></div>
+  <div class="metric-card"><span class="value">34</span><span class="label">Louvain communities</span></div>
+  <div class="metric-card"><span class="value">0.899</span><span class="label">ARI (Leiden vs Louvain)</span></div>
+</div>
+<p>Stability across 10 random seeds: mean modularity 0.6981
+(std 0.0028), mean pairwise ARI 0.908
+— the partition is highly stable across seeds.</p>
+
+<h2>Community sizes (Leiden, resolution=1.0)</h2>
+<table><thead><tr><th>Community</th><th>Size</th></tr></thead><tbody><tr><td>Community 0</td><td>72</td></tr><tr><td>Community 1</td><td>36</td></tr><tr><td>Community 2</td><td>33</td></tr><tr><td>Community 3</td><td>30</td></tr><tr><td>Community 4</td><td>23</td></tr><tr><td>Community 5</td><td>15</td></tr><tr><td>Community 6</td><td>12</td></tr><tr><td>Community 7</td><td>11</td></tr><tr><td>Community 8</td><td>11</td></tr><tr><td>Community 9</td><td>10</td></tr><tr><td>Community 10</td><td>6</td></tr><tr><td>Community 11</td><td>5</td></tr><tr><td>Community 12</td><td>4</td></tr><tr><td>Community 13</td><td>3</td></tr><tr><td>Community 14</td><td>2</td></tr><tr><td>Community 15</td><td>2</td></tr><tr><td>Community 16</td><td>2</td></tr><tr><td>Community 17</td><td>2</td></tr><tr><td>Community 18</td><td>2</td></tr><tr><td>Community 19</td><td>2</td></tr><tr><td>Community 20</td><td>2</td></tr><tr><td>Community 21</td><td>2</td></tr><tr><td>Community 22</td><td>2</td></tr><tr><td>Community 23</td><td>2</td></tr><tr><td>Community 24</td><td>2</td></tr><tr><td>Community 25</td><td>2</td></tr><tr><td>Community 26</td><td>2</td></tr><tr><td>Community 27</td><td>2</td></tr><tr><td>Community 28</td><td>2</td></tr><tr><td>Community 29</td><td>2</td></tr><tr><td>Community 30</td><td>2</td></tr><tr><td>Community 31</td><td>2</td></tr><tr><td>Community 32</td><td>2</td></tr></tbody></table>
+
+<h2>Interactive view</h2>
+<p>See the community-colored network in the <a href="explorer.html">Network Explorer</a> (filter
+by community) or the static figure below.</p>
+<figure>
+  <img src="figures/communities/F06_community_structure.png" alt="Community structure of G2_core_social">
+  <figcaption>Colors = community membership within the 261-node giant component only. Grey nodes = the 22 smaller connected components.</figcaption>
+</figure>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Network metrics are structural representations derived from the encoded dataset and should not be interpreted as complete literary judgments about character importance.</p>
+    <p>Built entirely from files in this repository — no analysis result on this site is hand-typed. See <a href="reproduce.html">Reproduce</a>.</p>
+  </div>
+</footer>
+</body>
+</html>

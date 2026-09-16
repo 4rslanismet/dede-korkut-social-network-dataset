@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Analysis — Dede Korkut Narrative Networks</title>
+<meta name="description" content="Centrality, communities, null models, sensitivity, robustness.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap brand-row">
+    <div>
+      <a class="brand" href="index.html">Dede Korkut Narrative Networks</a><br>
+      <span class="subtitle">A reproducible multilayer network analysis of characters and relations in the Book of Dede Korkut</span>
+    </div>
+  </div>
+  <nav class="main-nav"><div class="wrap"><a href="index.html">Home</a>
+<a href="dataset.html">Dataset</a>
+<a href="methodology.html">Methodology</a>
+<a href="explorer.html">Network Explorer</a>
+<a href="stories.html">Stories</a>
+<a href="characters.html">Characters</a>
+<a href="layers.html">Layers</a>
+<a href="communities.html">Communities</a>
+<a href="similarity.html">Similarity</a>
+<a href="analysis.html" class="active">Analysis</a>
+<a href="evidence.html">Evidence</a>
+<a href="downloads.html">Downloads</a>
+<a href="reproduce.html">Reproduce</a>
+<a href="about.html">About</a></div></nav>
+</header>
+<main class="wrap">
+
+<h1>Analysis</h1>
+<p class="lede">Summary of every analytical stage, each explicitly labeled descriptive/exploratory
+or statistically validated.</p>
+
+<h2>Corpus-level network metrics</h2>
+<div class="table-wrap"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>network</th>
+      <th>n_nodes</th>
+      <th>n_edges</th>
+      <th>density</th>
+      <th>average_clustering</th>
+      <th>transitivity</th>
+      <th>degree_assortativity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>G0_full</td>
+      <td>311</td>
+      <td>376</td>
+      <td>0.007800</td>
+      <td>0.071304</td>
+      <td>0.040797</td>
+      <td>-0.192043</td>
+    </tr>
+    <tr>
+      <td>G1_person_only</td>
+      <td>154</td>
+      <td>182</td>
+      <td>0.015449</td>
+      <td>0.073488</td>
+      <td>0.078020</td>
+      <td>-0.165118</td>
+    </tr>
+    <tr>
+      <td>G2_core_social</td>
+      <td>309</td>
+      <td>374</td>
+      <td>0.007859</td>
+      <td>0.071910</td>
+      <td>0.041577</td>
+      <td>-0.191415</td>
+    </tr>
+    <tr>
+      <td>G3_kinship</td>
+      <td>83</td>
+      <td>61</td>
+      <td>0.017925</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-0.107559</td>
+    </tr>
+    <tr>
+      <td>G4_communication</td>
+      <td>74</td>
+      <td>73</td>
+      <td>0.027027</td>
+      <td>0.090457</td>
+      <td>0.061224</td>
+      <td>-0.330866</td>
+    </tr>
+    <tr>
+      <td>G5_cooperation_support</td>
+      <td>73</td>
+      <td>65</td>
+      <td>0.024734</td>
+      <td>0.018379</td>
+      <td>0.013825</td>
+      <td>-0.185733</td>
+    </tr>
+    <tr>
+      <td>G6_conflict</td>
+      <td>114</td>
+      <td>92</td>
+      <td>0.014283</td>
+      <td>0.003036</td>
+      <td>0.013333</td>
+      <td>-0.240524</td>
+    </tr>
+    <tr>
+      <td>G7_positive</td>
+      <td>127</td>
+      <td>116</td>
+      <td>0.014498</td>
+      <td>0.029166</td>
+      <td>0.020380</td>
+      <td>-0.226361</td>
+    </tr>
+    <tr>
+      <td>G8_negative</td>
+      <td>126</td>
+      <td>102</td>
+      <td>0.012952</td>
+      <td>0.002766</td>
+      <td>0.012448</td>
+      <td>-0.216262</td>
+    </tr>
+    <tr>
+      <td>G9_directed</td>
+      <td>221</td>
+      <td>324</td>
+      <td>0.006664</td>
+      <td>0.081163</td>
+      <td>0.043781</td>
+      <td>-0.215968</td>
+    </tr>
+    <tr>
+      <td>G10_weighted</td>
+      <td>311</td>
+      <td>376</td>
+      <td>0.007800</td>
+      <td>0.071304</td>
+      <td>0.040797</td>
+      <td>-0.192043</td>
+    </tr>
+    <tr>
+      <td>G11_unweighted</td>
+      <td>311</td>
+      <td>376</td>
+      <td>0.007800</td>
+      <td>0.071304</td>
+      <td>0.040797</td>
+      <td>-0.192043</td>
+    </tr>
+  </tbody>
+</table></div>
+<p style="font-size:0.85rem;color:var(--ink-soft)"><strong>Note:</strong> degree assortativity
+values above are descriptive only — null-model testing (below) found none of them statistically
+significant after multiple-testing correction.</p>
+
+<h2>Null model validation</h2>
+<p>12 / 36 tests remain significant after Benjamini-Hochberg FDR correction (α=0.05).
+Community modularity is validated as a real signal (not a degree-sequence artifact) in most
+networks tested; degree assortativity is not validated in any network.</p>
+<div class="table-wrap"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>network</th>
+      <th>metric</th>
+      <th>observed</th>
+      <th>z_score</th>
+      <th>empirical_p</th>
+      <th>bh_qvalue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>G0_full</td>
+      <td>modularity_louvain</td>
+      <td>0.723464</td>
+      <td>7.038603</td>
+      <td>0.000999</td>
+      <td>0.011988</td>
+    </tr>
+    <tr>
+      <td>G2_core_social</td>
+      <td>clustering</td>
+      <td>0.071910</td>
+      <td>4.095698</td>
+      <td>0.000999</td>
+      <td>0.011988</td>
+    </tr>
+    <tr>
+      <td>G2_core_social</td>
+      <td>modularity_louvain</td>
+      <td>0.724470</td>
+      <td>6.884629</td>
+      <td>0.000999</td>
+      <td>0.011988</td>
+    </tr>
+    <tr>
+      <td>G0_full</td>
+      <td>clustering</td>
+      <td>0.071304</td>
+      <td>3.940297</td>
+      <td>0.001998</td>
+      <td>0.017982</td>
+    </tr>
+    <tr>
+      <td>G1_person_only</td>
+      <td>modularity_louvain</td>
+      <td>0.690602</td>
+      <td>3.275892</td>
+      <td>0.002997</td>
+      <td>0.021578</td>
+    </tr>
+    <tr>
+      <td>G1_person_only</td>
+      <td>clustering</td>
+      <td>0.073488</td>
+      <td>3.013157</td>
+      <td>0.003996</td>
+      <td>0.023976</td>
+    </tr>
+    <tr>
+      <td>G1_person_only</td>
+      <td>transitivity</td>
+      <td>0.078020</td>
+      <td>3.004597</td>
+      <td>0.005994</td>
+      <td>0.026973</td>
+    </tr>
+    <tr>
+      <td>G6_conflict</td>
+      <td>modularity_louvain</td>
+      <td>0.869211</td>
+      <td>2.711101</td>
+      <td>0.005994</td>
+      <td>0.026973</td>
+    </tr>
+    <tr>
+      <td>G7_positive</td>
+      <td>modularity_louvain</td>
+      <td>0.778686</td>
+      <td>2.816294</td>
+      <td>0.007992</td>
+      <td>0.031968</td>
+    </tr>
+    <tr>
+      <td>G8_negative</td>
+      <td>modularity_louvain</td>
+      <td>0.874087</td>
+      <td>2.575740</td>
+      <td>0.009990</td>
+      <td>0.035964</td>
+    </tr>
+    <tr>
+      <td>G4_communication</td>
+      <td>modularity_louvain</td>
+      <td>0.682867</td>
+      <td>2.621388</td>
+      <td>0.010989</td>
+      <td>0.035964</td>
+    </tr>
+    <tr>
+      <td>G4_communication</td>
+      <td>clustering</td>
+      <td>0.090457</td>
+      <td>2.202010</td>
+      <td>0.015984</td>
+      <td>0.047952</td>
+    </tr>
+  </tbody>
+</table></div>
+<figure>
+  <img src="figures/null_models/F15_null_model_distributions.png" alt="Null model distributions">
+  <figcaption>Random ensemble (n=1000) vs observed value, for every FDR-significant test.</figcaption>
+</figure>
+
+<h2>Sensitivity analysis</h2>
+<p>Rank-correlation of centrality across 6 network-construction choices. Person+group vs
+person-only is the single most consequential modeling decision tested.</p>
+<div class="table-wrap"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>pair</th>
+      <th>metric</th>
+      <th>spearman_rho</th>
+      <th>kendall_tau</th>
+      <th>top_10_overlap_fraction</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>person_plus_group_vs_person_only</td>
+      <td>degree</td>
+      <td>0.915745</td>
+      <td>0.876185</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>person_plus_group_vs_person_only</td>
+      <td>betweenness</td>
+      <td>0.886878</td>
+      <td>0.799486</td>
+      <td>0.7</td>
+    </tr>
+    <tr>
+      <td>person_plus_group_vs_person_only</td>
+      <td>pagerank</td>
+      <td>0.925998</td>
+      <td>0.808715</td>
+      <td>0.8</td>
+    </tr>
+    <tr>
+      <td>weighted_vs_unweighted</td>
+      <td>degree</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>weighted_vs_unweighted</td>
+      <td>betweenness</td>
+      <td>0.929556</td>
+      <td>0.880577</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <td>weighted_vs_unweighted</td>
+      <td>pagerank</td>
+      <td>0.848906</td>
+      <td>0.698524</td>
+      <td>0.9</td>
+    </tr>
+    <tr>
+      <td>all_relations_vs_core_social</td>
+      <td>degree</td>
+      <td>1.000000</td>
+      <td>0.999962</td>
+      <td>0.9</td>
+    </tr>
+    <tr>
+      <td>all_relations_vs_core_social</td>
+      <td>betweenness</td>
+      <td>0.999996</td>
+      <td>0.999673</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>all_relations_vs_core_social</td>
+      <td>pagerank</td>
+      <td>0.999921</td>
+      <td>0.997858</td>
+      <td>0.9</td>
+    </tr>
+    <tr>
+      <td>explicit_only_vs_explicit_plus_inferred</td>
+      <td>degree</td>
+      <td>0.981676</td>
+      <td>0.975829</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>explicit_only_vs_explicit_plus_inferred</td>
+      <td>betweenness</td>
+      <td>0.970698</td>
+      <td>0.942854</td>
+      <td>0.8</td>
+    </tr>
+    <tr>
+      <td>explicit_only_vs_explicit_plus_inferred</td>
+      <td>pagerank</td>
+      <td>0.989342</td>
+      <td>0.955402</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>groups_included_vs_excluded</td>
+      <td>degree</td>
+      <td>0.949805</td>
+      <td>0.923502</td>
+      <td>0.9</td>
+    </tr>
+    <tr>
+      <td>groups_included_vs_excluded</td>
+      <td>betweenness</td>
+      <td>0.895652</td>
+      <td>0.827891</td>
+      <td>0.7</td>
+    </tr>
+    <tr>
+      <td>groups_included_vs_excluded</td>
+      <td>pagerank</td>
+      <td>0.957364</td>
+      <td>0.875669</td>
+      <td>0.9</td>
+    </tr>
+    <tr>
+      <td>girizgah_included_vs_excluded</td>
+      <td>degree</td>
+      <td>1.000000</td>
+      <td>0.999962</td>
+      <td>0.9</td>
+    </tr>
+    <tr>
+      <td>girizgah_included_vs_excluded</td>
+      <td>betweenness</td>
+      <td>0.999996</td>
+      <td>0.999756</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>girizgah_included_vs_excluded</td>
+      <td>pagerank</td>
+      <td>0.999673</td>
+      <td>0.997148</td>
+      <td>0.9</td>
+    </tr>
+  </tbody>
+</table></div>
+<figure>
+  <img src="figures/sensitivity/F16_sensitivity_correlation_matrix.png" alt="Sensitivity correlation matrix">
+</figure>
+
+<h2>Structural robustness</h2>
+<p>Robust to random node loss, fragile to targeted (degree/betweenness) attack — a classic
+hub-driven network pattern. This describes graph connectivity only, not narrative resilience.</p>
+<figure>
+  <img src="figures/robustness/F18_structural_robustness_curves.png" alt="Structural robustness curves">
+</figure>
+
+<h2>Full reports</h2>
+<p>
+<a href="reports/04_05_network_construction_and_descriptive_report.md">Network construction &amp; descriptive analysis</a> ·
+<a href="reports/06_advanced_network_analysis_report.md">Advanced network analysis</a> ·
+<a href="reports/07_null_models_report.md">Null models</a> ·
+<a href="reports/08_sensitivity_robustness_report.md">Sensitivity &amp; robustness</a>
+</p>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Network metrics are structural representations derived from the encoded dataset and should not be interpreted as complete literary judgments about character importance.</p>
+    <p>Built entirely from files in this repository — no analysis result on this site is hand-typed. See <a href="reproduce.html">Reproduce</a>.</p>
+  </div>
+</footer>
+</body>
+</html>

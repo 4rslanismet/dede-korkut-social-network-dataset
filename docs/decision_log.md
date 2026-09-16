@@ -133,3 +133,27 @@ Bu dosya, projede alınan geri döndürülemez veya yorumlayıcı metodolojik ka
 **Rationale:** Stratifiye örnekleme, madde 37'nin "farklı story/relation type/layer/explicit-inferred" şartını karşılıyor. `not_applicable` davranışı, madde 38'in "gerçek ikinci annotator sonucu olmadan değer üretme" kuralının doğrudan uygulanması. Subprocess-tabanlı orkestrasyon, mevcut script'leri yeniden yazmadan (DRY) tek bir giriş noktası sağlıyor.
 
 **Status:** Uygulandı (Faz 13-14). `run_pipeline.py --all` (FULL mode, `--fast` olmadan) bu oturumda uçtan uca test edilmedi — yalnızca `--stage audit`, `--stage hash_manifest`, `--all --validate-only` doğrulandı. Her aşama zaten Faz 1-12'de ayrı ayrı çalıştırılıp doğrulanmıştı.
+
+---
+
+### DEC-012
+**Question:** GitHub Pages sitesi (Faz 15) `outputs/`, `data/`, `reports/` gibi `docs/` dışındaki dosyalara nasıl erişmeli? Aşırı uzun `node_id` değerleri (ör. 239 karakter) dosya adı olarak kullanılabilir mi?
+
+**Decision:**
+- GitHub Pages `/docs`'tan yayın yaptığında yalnızca `docs/` içeriği sunulur — `../outputs/...` gibi yollar gerçek sitede 404 verir (yerel dosya sisteminde veya repo-root sunucusunda çalışıyor gibi görünse bile). Çözüm: `src/build_site.py::copy_assets()` kullanılan figürleri (`docs/figures/`), tüm `reports/*.md`'yi (`docs/reports/`) ve indirilebilir dosyaları (`docs/downloads/`) site build sırasında `docs/` içine kopyalıyor; hiçbir sayfa `docs/` dışına "../" ile çıkmıyor.
+- `characters/<node_id>.html` dosya adları, 60 karakterden uzun `node_id`'ler için `{ilk_60_karakter}_{orijinal_uzunluk}` olarak kesiliyor (`safe_filename()`, Python ve JS'de eşleştirilmiş). Yalnızca dosya adı etkileniyor; `node_id`/`canonical_name` verisi değişmiyor.
+
+**Rationale:** Bu hata yalnızca gerçek bir HTTP sunucusuyla (`python -m http.server`, `docs/` kökünden) test edilerek yakalandı — `file://` önizlemesi (statik snapshot) bunu göstermedi. Bu, gelecekteki oturumlar için önemli bir metodolojik ders: **site değişiklikleri her zaman `docs/`'u kök dizin olarak simüle eden gerçek bir sunucuyla test edilmeli**, doğrudan dosya açarak değil.
+
+**Status:** Uygulandı (Faz 15-16). `src/validate_site.py` (Faz 16) bu tip hataları otomatik yakalayacak şekilde yazıldı — 363 HTML dosyasının tamamı artık 0 kırık link/eksik asset ile doğrulanıyor.
+
+---
+
+### DEC-013
+**Question:** Website inşası sırasında keşfedilen 5 "birleştirilmiş çoklu-aktör node"u (ör. `canonical_name="Beyrek, Yigenek, Kazan, Kara Budak, Deli Dündar, Uruz"`, tek bir node_id altında) nasıl ele alınmalı?
+
+**Decision:** Otomatik olarak **düzeltilmedi/bölünmedi**. `validation/HUMAN_REVIEW_QUEUE.csv`'ye 5 yeni madde eklendi (HR0076-HR0080, kategori `concatenated_multi_actor_node`). Bu node'lar site üzerinde oldukları gibi (birleşik isimleriyle) gösteriliyor; yalnızca dosya adları `safe_filename()` ile kısaltıldı.
+
+**Rationale:** Bu node'ları doğru şekilde ayırmak (her karakteri ayrı node yapmak + hangi ilişkinin hangi karaktere ait olduğunu yeniden türetmek) orijinal ham metne dönüp incelemeyi gerektirir — bu bir website-inşa görevinin kapsamı dışında, dikkatli bir entity-resolution çalışması gerektirir (madde 8 kuralı: "otomatik fuzzy matching sonucu doğrudan merge yapma"). Veriyi olduğu gibi bırakıp şeffafça işaretlemek, sessizce yanlış bir bölme yapmaktan daha güvenli.
+
+**Status:** Açık, `HUMAN_REVIEW_QUEUE.csv`'de bekliyor. Bu 5 node'un `relation_count`'u çok düşük (0-1), bu yüzden network analizlerine (Faz 5-8) etkisi ihmal edilebilir düzeyde olmalı, ama bu doğrulanmadı.
