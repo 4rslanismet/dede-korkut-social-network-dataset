@@ -1,0 +1,82 @@
+{
+  "project": "Dede Korkut Digital Humanities & Network Science Project (DKNN)",
+  "repository": "4rslanismet/dede-korkut-social-network-dataset",
+  "branch": "claude-dk-rebuild",
+  "last_commit_before_checkpoint": "384099367fb7db9849987fb8f8d3028546c05afb",
+  "last_updated": "2026-09-16T03:17:28+03:00",
+  "completed_phases": [1, 2, 3, 4, 5],
+  "current_phase": 6,
+  "current_phase_status": "partially_complete_not_yet_committed_before_this_checkpoint",
+  "current_phase_completed_subtasks": [
+    "community_detection_leiden_louvain",
+    "community_stability_multi_seed",
+    "community_resolution_sensitivity",
+    "community_bridge_metrics",
+    "signed_network_profile",
+    "signed_structural_balance_check_not_applicable",
+    "directed_triad_census",
+    "multilayer_versatility_profile"
+  ],
+  "current_phase_remaining_subtasks": [
+    "run_and_validate_narrative_order_script",
+    "write_phase6_report_reports_06",
+    "commit_phase6"
+  ],
+  "next_task": "run_narrative_order_then_write_phase6_report",
+  "validation_status_last_known": "WARNING (see outputs/validation/summary.json; no FAIL-level/blocking issues)",
+  "important_reports": [
+    "CLAUDE_SESSION_HANDOFF.md",
+    "NEXT_TASK.md",
+    "docs/MASTER_PROMPT.md",
+    "docs/decision_log.md",
+    "docs/network_models.md",
+    "reports/01_repository_audit.md",
+    "reports/02_data_quality_report.md",
+    "reports/03_canonical_dataset_report.md",
+    "reports/04_05_network_construction_and_descriptive_report.md",
+    "config/analysis.yaml"
+  ],
+  "verified_headline_numbers": {
+    "source": "reports/audit_data.json + data/processed/*.csv + outputs/validation/summary.json + outputs/statistics/*.json, re-read at checkpoint time",
+    "legacy_final_dataset": {"stories": 14, "nodes": 333, "edges": 628, "narrative_events": 85},
+    "canonical_processed_dataset": {
+      "nodes_csv_rows": 332,
+      "aliases_csv_rows": 525,
+      "stories_csv_rows": 14,
+      "relations_event_level_csv_rows": 628,
+      "relations_aggregated_csv_rows": 376,
+      "relation_taxonomy_csv_rows": 17,
+      "provenance_csv_rows": 628,
+      "validation_status_csv_rows": 27
+    },
+    "provenance_match_status": {"matched_unique": 571, "unmatched_provenance_gap": 53, "matched_ambiguous": 4},
+    "G0_full_network": {"n_nodes": 311, "n_edges": 376, "density": 0.0078, "n_connected_components": 23, "largest_component_size": 261},
+    "G9_directed_network": {"n_nodes": 221, "n_edges": 324, "reciprocity": 0.358025},
+    "community_detection_G2_core_social": {
+      "leiden_modularity_res1.0_seed42": 0.6949762646915844,
+      "leiden_n_communities": 33,
+      "louvain_modularity_seed42": 0.7113647776746863,
+      "louvain_n_communities": 34,
+      "ari_leiden_vs_louvain": 0.8987579269237412,
+      "stability_mean_pairwise_ari_10_seeds": 0.9078457078353954
+    },
+    "signed_structural_balance": {"n_triangles": 13, "threshold": 15, "status": "not_applicable"}
+  },
+  "known_warnings": [
+    "story_level (633 rows) vs final edges+events (713 rows): +80 undocumented row-count gap across 11/14 stories",
+    "data/raw/*.xlsx is not the direct raw source of story_level/final data (schema and row counts do not correspond)",
+    "29.6% of edges (186/628) have standard_relation == 'belirsiz' (uncertain)",
+    "1 node-name maps to 2 node IDs (Begil'in Adamları) - resolved via 1 high-confidence merge (DEC-002); 17 lower-confidence alias conflicts remain open in validation/HUMAN_REVIEW_QUEUE.csv",
+    "1 unexpected self-loop (Bamsı Beyrek, kayit_id DKR0220) - not resolved, flagged for manual review",
+    "G2_core_social community graph has 23 connected components - the 33-community count is partly inflated by trivial isolated-component 'communities', not yet documented in any report",
+    "tests/ directory does not exist yet - no automated tests written",
+    "no null models, sensitivity analysis, or structural robustness testing done yet - centrality findings are preliminary",
+    "no web portal, paper package, or thesis package started yet"
+  ],
+  "environment": {
+    "os": "Windows 11 Pro N (win32)",
+    "python_version": "3.12.10",
+    "venv_path": ".venv (not committed to git, excluded via .gitignore)",
+    "repo_absolute_path": "F:\\Recovered_D2\\v4gus\\Computer Since Master\\Articles\\dede korkut ai"
+  }
+}
