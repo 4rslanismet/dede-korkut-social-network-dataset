@@ -276,6 +276,17 @@ Yeni analiz yok — Faz 1-16'nın bilgisini kalıcı dokümanlara sentezledi: `d
 
 ---
 
+## PHASE 18-19 — PAPER & THESIS PACKAGES ✅ TAMAMLANDI
+
+**Dizinler:** [`paper/`](paper/), [`thesis/`](thesis/)
+
+- **Faz 18 (paper):** `manuscript_outline.md` (öneri başlık: null-model retraction bulgusunu öne çıkaran bir başlık, master prompt'un önerdiği alternatif de not edildi), `methods.md`, `results.md` (her sayı gerçek `outputs/` dosyasına atıflı, madde 94'ün hedge'li dili kullanıldı, madde 110'un descriptive/exploratory/confirmatory etiketlemesi uygulandı), `supplementary_material.md`, `paper/figures/` (8 dosya) + `paper/tables/` (22 dosya, T01-T11 CSV+LaTeX) kopyalandı. Ayrıca `reports/literature_search_plan.md` (madde 97) oluşturuldu.
+- **Faz 19 (thesis):** `research_questions.md` (RQ1-RQ7'nin her biri için "answerable: yes/partially/NOT YET" durumu — **RQ6 (story clustering) "NOT answerable with current data" olarak açıkça işaretlendi**, madde 17'nin tam benzerlik metrikleri eksik olduğu için zorla cevaplanmadı), `proposed_structure.md` (10 bölüm), `methodology_mapping.md`, `results_mapping.md`, `figure_inventory.md`, `table_inventory.md`.
+
+**Önemli:** RQ4 (null model karşılaştırması) ve RQ5 (sensitivity) tam ve confirmatory olarak cevaplandı — bunlar projenin en güçlü, en savunulabilir bulguları. RQ6 dürüstçe "cevaplanamıyor" olarak işaretlendi (madde 140 kuralı: "uyguladım deme, not applicable olarak işaretle").
+
+---
+
 ## KNOWN DATA / PROVENANCE LIMITATIONS (henüz çözülmedi, "çözülmüş" gibi gösterilmiyor)
 
 1. **Raw source lineage eksik** — hangi Dede Korkut edisyonunun/transkripsiyonunun kodlandığı belli değil (`validation/source_edition_metadata_required.md`).
@@ -308,54 +319,66 @@ Yeni analiz yok — Faz 1-16'nın bilgisini kalıcı dokümanlara sentezledi: `d
 
 ```text
 CURRENT STATUS:
-PHASES 1-17 COMPLETE (9-10 skipped with documented rationale, DEC-010)
+PHASES 1-19 COMPLETE (9-10 skipped with documented rationale, DEC-010)
 
 NEXT PHASE:
-PHASE 18 — PAPER PACKAGE, THEN PHASE 19 — THESIS PACKAGE
+PHASE 20 — FINAL VALIDATION/RELEASE, THEN PHASE 21 — FINAL REPORTS
 
-PHASES 1-17 ARE COMPLETE. DO NOT RESTART THEM UNLESS VALIDATION REVEALS A REAL ERROR.
+PHASES 1-19 ARE COMPLETE. DO NOT RESTART THEM UNLESS VALIDATION REVEALS A REAL ERROR.
 ```
 
 ---
 
-## PHASE 18-19 — NEXT WORK (Paper & Thesis Packages)
+## PHASE 20-21 — NEXT WORK (Final Validation/Release, Final Reports)
 
-Master prompt sections 91-96 (paper), 95 (thesis). All underlying findings already exist in
-`reports/*.md` — this is a writing/assembly task, not new analysis. **Rule 94 applies strictly:
-write results as measured statements ("X exhibited the highest betweenness centrality under the
-person-only core-social network specification"), never as unhedged literary claims ("X is the
-most important character").**
+Master prompt sections 80-82, 123-127, 142-145. This is the closing phase — cross-checking
+consistency and writing the summary documents. No new analysis should be needed; if a
+cross-check reveals a real numeric inconsistency, fix the inconsistency (usually a stale copy of
+a number in a doc) rather than re-running analysis.
 
-### Phase 18 — Paper Package (`paper/`)
+### Phase 20 — Final Validation/Release (section 80-82, 142)
 
-1. `paper/manuscript_outline.md` — structure per section 93 (Introduction, Related Work,
-   Materials and Data, Methods, Results, Discussion, Limitations, Conclusion, Data/Code
-   Availability). A candidate title is suggested in the master prompt (section 92) but should be
-   revised to fit the actual strongest findings (community modularity validation, the assortativity
-   retraction, and the person-only sensitivity result are the three most defensible headline
-   results from this rebuild).
-2. `paper/methods.md` — can largely reuse `docs/methodology.md`'s content, reframed for a paper's
-   methods section register.
-3. `paper/results.md` — pull directly from `reports/04_05...`, `06...`, `07...`, `08...`; every
-   number must be traceable to a specific `outputs/` file. Use rule 94's hedged phrasing throughout.
-   Report exploratory vs. confirmatory findings separately (section 44/110) and effect sizes, not
-   just p-values (section 111) — the FDR-corrected null model results in `reports/07...` already
-   have z-scores and q-values ready to cite.
-4. `paper/figures/`, `paper/tables/` — copy or symlink from `outputs/figures/` and
-   `outputs/tables/publication/`.
-5. `paper/supplementary_material.md` — full metric tables, sensitivity results, null model
-   details, coding protocol, taxonomy, validation results (section 96).
+1. Cross-check every headline number that appears in more than one place: README.md,
+   DATASET_CARD.md, `paper/results.md`, `thesis/research_questions.md`, `docs/data/project_summary.json`,
+   and `project_state.json`'s `verified_headline_numbers`. They should all agree (332 actors, 628
+   relations, etc.) — a small `src/validate_release_consistency.py` script that re-derives each
+   number and diffs against what's written in each doc would be more reliable than manual
+   checking.
+2. Re-run `python -m pytest tests/` and `python run_pipeline.py --all --validate-only` one more
+   time to confirm PASS.
+3. Re-run `python src/validate_site.py` to confirm the site still has 0 broken links (it will,
+   unless `docs/` was touched since the last check).
+4. Verify the final-quality-gate checklist from section 142 (raw data preserved, canonical data
+   produced, provenance preserved, validation tests passed, network definitions documented,
+   analyses reproducible, figures/tables regenerated, sensitivity analysis complete, web portal
+   built, broken links cleaned, README correct, paper package produced, thesis package produced,
+   final report produced) and write `reports/RELEASE_CHECKLIST.md` (section 123) with a PASS/FAIL
+   per item — by this point in the project, every item should be PASS except the ones already
+   known and disclosed as incomplete (RQ6/story similarity, some figures, live GitHub Pages
+   deployment).
 
-### Phase 19 — Thesis Package (`thesis/`)
+### Phase 21 — Final Reports (section 124-127)
 
-1. `thesis/proposed_structure.md`, `thesis/research_questions.md` (map to RQ1-RQ7 in
-   `docs/MASTER_PROMPT.md` section 43 — note which RQs this rebuild's data can and cannot actually
-   answer; several may need to be marked partially-answerable given the limitations in
-   `docs/limitations.md`).
-2. `thesis/methodology_mapping.md`, `thesis/results_mapping.md` — map each RQ to the specific
-   report/script/output that addresses it.
-3. `thesis/figure_inventory.md`, `thesis/table_inventory.md` — catalog of all F/T-numbered outputs
-   with their location and what they show.
+1. `reports/FINAL_REBUILD_REPORT.md` — the big one, section 124's full outline (Initial State,
+   Data Audit, Data Corrections, Preserved Decisions, Canonical Model, Network Models, Analyses,
+   Statistical Validation, Sensitivity, Key Findings, Limitations, Website, Reproducibility,
+   Academic Outputs, Future Work). This can be assembled almost entirely by summarizing
+   `reports/01` through `reports/17` plus the paper/thesis packages — it is a synthesis document,
+   not new work.
+2. `reports/EXECUTIVE_SUMMARY.md` (section 125) — short: what was done, what was found, what the
+   scientific contribution is, what should happen next. Aim for something a non-specialist
+   stakeholder could read in 3-5 minutes.
+3. Within `FINAL_REBUILD_REPORT.md`, include a "Top 5 strongest defensible findings" section
+   (section 126) — candidates, in defensibility order: (1) community modularity validated above
+   null in 7/9 networks, (2) degree assortativity retracted after null-model testing, (3)
+   person+group vs. person-only is the most consequential network-construction choice, (4) G3
+   kinship network is a genuine null result (indistinguishable from random), (5) the network is
+   robust to random failure but fragile to targeted attack. Do not pad this list with weaker
+   exploratory findings just to reach five if fewer are truly defensible (section 141: "az ama
+   güvenilir sonuç").
+4. Report negative/null results explicitly (section 127) — several already exist (G3_kinship null
+   result, the assortativity retraction, the RQ6 "not answerable" finding) — make sure the final
+   report doesn't quietly drop them.
 
 ---
 
@@ -373,10 +396,10 @@ Tam liste `docs/MASTER_PROMPT.md`'de; öncelik sırası (proje sahibinin verdiğ
 - ~~**PHASE 15 — Web Portal**~~ ✅ **TAMAMLANDI** (363 HTML dosyası, bkz. yukarı)
 - ~~**PHASE 16 — Website Validation**~~ ✅ **TAMAMLANDI** (363/363 PASS)
 - ~~**PHASE 17 — Documentation**~~ ✅ **TAMAMLANDI**
-- **PHASE 18 — Paper Package:** `paper/` dizini **henüz yok**.
-- **PHASE 19 — Thesis Package:** `thesis/` dizini **henüz yok**.
-- **PHASE 20 — Final Validation/Release:** tüm sayıların (README, paper, thesis, canonical data) tutarlılığı henüz kontrol edilmedi (bu sistematik kontrol henüz yapılmadı çünkü paper/thesis/website henüz yok).
-- **PHASE 21 — Final Reports:** `reports/FINAL_REBUILD_REPORT.md`, `reports/EXECUTIVE_SUMMARY.md`, `reports/RELEASE_CHECKLIST.md` — **hiçbiri henüz yok**.
+- ~~**PHASE 18 — Paper Package**~~ ✅ **TAMAMLANDI** (`paper/`)
+- ~~**PHASE 19 — Thesis Package**~~ ✅ **TAMAMLANDI** (`thesis/`)
+- **PHASE 20 — Final Validation/Release:** tüm sayıların (README, paper, thesis, canonical data) tutarlılığı henüz sistematik kontrol edilmedi. `reports/RELEASE_CHECKLIST.md` **henüz yok**.
+- **PHASE 21 — Final Reports:** `reports/FINAL_REBUILD_REPORT.md`, `reports/EXECUTIVE_SUMMARY.md` — **hiçbiri henüz yok**.
 
 ---
 
@@ -399,7 +422,8 @@ Gerçek dosya adlarıyla, okuma sırasına göre:
 13. `reports/13_14_reproducibility_report.md`
 14. `reports/15_16_web_portal_report.md`
 15. `reports/17_documentation_report.md`
-16. `docs/network_models.md`, `docs/methodology.md`, `docs/limitations.md`, `docs/data_dictionary.md`, `docs/relation_codebook.md`
+16. `thesis/research_questions.md` (which RQs are answerable, which are not — read before writing any final report)
+17. `docs/network_models.md`, `docs/methodology.md`, `docs/limitations.md`, `docs/data_dictionary.md`, `docs/relation_codebook.md`
 12. `docs/decision_log.md`
 13. `data/processed/*.csv` (canonical dataset — özellikle `nodes.csv`, `relations_event_level.csv`, `relations_aggregated.csv`, `relation_taxonomy.csv`)
 14. `src/networks.py` (network tanımlarının tek kaynağı — `NETWORK_DEFINITIONS`)

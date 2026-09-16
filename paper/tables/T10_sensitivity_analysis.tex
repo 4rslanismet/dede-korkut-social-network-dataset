@@ -1,0 +1,28 @@
+\begin{table}
+\caption{Sensitivity analysis: rank stability across 6 network-construction variant pairs (Phase 8)}
+\label{tab:t10_sensitivity_analysis}
+\begin{tabular}{llrrrrrrr}
+\toprule
+pair & metric & n_common_nodes & spearman_rho & spearman_p & kendall_tau & kendall_p & top_10_overlap_fraction & top_20_overlap_fraction \\
+\midrule
+person_plus_group_vs_person_only & degree & 154 & 0.916 & 0.000 & 0.876 & 0.000 & 1.000 & 0.800 \\
+person_plus_group_vs_person_only & betweenness & 154 & 0.887 & 0.000 & 0.799 & 0.000 & 0.700 & 0.850 \\
+person_plus_group_vs_person_only & pagerank & 154 & 0.926 & 0.000 & 0.809 & 0.000 & 0.800 & 0.800 \\
+weighted_vs_unweighted & degree & 311 & 1.000 & 0.000 & 1.000 & 0.000 & 1.000 & 1.000 \\
+weighted_vs_unweighted & betweenness & 311 & 0.930 & 0.000 & 0.881 & 0.000 & 0.600 & 0.800 \\
+weighted_vs_unweighted & pagerank & 311 & 0.849 & 0.000 & 0.699 & 0.000 & 0.900 & 0.850 \\
+all_relations_vs_core_social & degree & 309 & 1.000 & 0.000 & 1.000 & 0.000 & 0.900 & 0.950 \\
+all_relations_vs_core_social & betweenness & 309 & 1.000 & 0.000 & 1.000 & 0.000 & 1.000 & 0.950 \\
+all_relations_vs_core_social & pagerank & 309 & 1.000 & 0.000 & 0.998 & 0.000 & 0.900 & 1.000 \\
+explicit_only_vs_explicit_plus_inferred & degree & 293 & 0.982 & 0.000 & 0.976 & 0.000 & 1.000 & 0.900 \\
+explicit_only_vs_explicit_plus_inferred & betweenness & 293 & 0.971 & 0.000 & 0.943 & 0.000 & 0.800 & 0.900 \\
+explicit_only_vs_explicit_plus_inferred & pagerank & 293 & 0.989 & 0.000 & 0.955 & 0.000 & 1.000 & 0.950 \\
+groups_included_vs_excluded & degree & 183 & 0.950 & 0.000 & 0.924 & 0.000 & 0.900 & 0.850 \\
+groups_included_vs_excluded & betweenness & 183 & 0.896 & 0.000 & 0.828 & 0.000 & 0.700 & 0.850 \\
+groups_included_vs_excluded & pagerank & 183 & 0.957 & 0.000 & 0.876 & 0.000 & 0.900 & 0.850 \\
+girizgah_included_vs_excluded & degree & 310 & 1.000 & 0.000 & 1.000 & 0.000 & 0.900 & 0.950 \\
+girizgah_included_vs_excluded & betweenness & 310 & 1.000 & 0.000 & 1.000 & 0.000 & 1.000 & 0.950 \\
+girizgah_included_vs_excluded & pagerank & 310 & 1.000 & 0.000 & 0.997 & 0.000 & 0.900 & 1.000 \\
+\bottomrule
+\end{tabular}
+\end{table}
