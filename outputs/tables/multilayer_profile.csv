@@ -1,0 +1,312 @@
+﻿node_id,degree__akrabalık,degree__iletişim,degree__kimlik,degree__mekân,degree__olay,degree__otorite,degree__çatışma,strength__akrabalık,strength__iletişim,strength__kimlik,strength__mekân,strength__olay,strength__otorite,strength__çatışma,total_degree_across_layers,n_active_layers,layer_participation_coefficient,cross_layer_entropy,canonical_name,node_type,story_count
+100_kafir,0,0,0,0,1,0,1,0,0,0,0,1,0,5,2,2,0.5,0.6931471805599453,100 Kafir,kişi,2
+16_bin_kafir,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,16 Bin Kafir,kişi,1
+24_sancak_beyi,0,0,0,0,1,0,1,0,0,0,0,1,0,5,2,2,0.5,0.6931471805599453,24 Sancak Beyi,grup,1
+300_akinci,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,300 Akıncı,kişi,1
+300_asker,0,0,0,0,0,2,0,0,0,0,0,0,6,0,2,1,0.0,-0.0,300 Asker,grup,2
+300_kafir,1,0,0,0,6,1,3,5,0,0,0,6,3,15,11,4,0.6115702479338844,1.1209503926735835,300 Kafir,kişi,2
+40_askeri,0,0,0,0,0,1,0,0,0,0,0,0,3,0,1,1,0.0,-0.0,40 Askeri,grup,1
+40_ince_belli_kiz,0,0,0,0,0,3,0,0,0,0,0,0,9,0,3,1,0.0,-0.0,40 Ince Belli Kız,kişi,3
+40_yigit,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,40 Yiğit,grup,1
+600_kafir,0,0,0,0,0,1,6,0,0,0,0,0,3,29,7,2,0.24489795918367352,0.410116318288409,600 Kafir,kişi,3
+60_kafir,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,60 Kafir,kişi,1
+6_kafir,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,6 Kafir,kişi,1
+adsiz_kisi_uruz_kurtarma_boyu,1,1,0,0,3,0,0,5,2,0,0,3,0,0,5,3,0.56,0.9502705392332347,Adsız Kişi (Uruz Kurtarma Boyu),kişi,1
+agac,0,1,0,0,0,0,0,0,2,0,0,0,0,0,1,1,0.0,-0.0,Ağaç,nesne/doğa,1
+ak_melik,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,Ak Melik,kişi,1
+ak_saka_kalesi_casuslari,0,1,0,0,0,0,0,0,2,0,0,0,0,0,1,1,0.0,-0.0,Ak Saka Kalesi Casusları,grup,1
+ak_sakalli_aruz_koca,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Ak Sakallı Aruz Koca,kişi,1
+alp_eren,2,0,0,0,0,0,1,10,0,0,0,0,0,5,3,2,0.4444444444444444,0.6365141682948128,Alp Eren,kişi,1
+alp_rustem,1,0,0,0,2,0,1,5,0,0,0,2,0,5,4,3,0.625,1.0397207708399179,Alp Rüstem,kişi,3
+alplar_basi_kazan,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Alplar Başı Kazan,kişi,1
+alti_bey_oglu,0,0,0,0,0,1,0,0,0,0,0,0,3,0,1,1,0.0,-0.0,Altı Bey Oğlu,kişi,1
+anne_ve_babasi,0,2,0,0,1,0,0,0,4,0,0,1,0,0,3,2,0.4444444444444444,0.6365141682948128,Anne ve Babası,grup,3
+annesi,1,0,0,0,3,0,0,5,0,0,0,3,0,0,4,2,0.375,0.5623351446188083,Annesi,kişi,2
+arsin_oglu_direk_tekfur,0,0,0,0,2,0,5,0,0,0,0,2,0,25,7,2,0.40816326530612246,0.5982695885852573,Arşın Oğlu Direk Tekfur,kişi,1
+aruz,2,1,0,0,18,2,1,10,3,0,0,23,6,5,24,5,0.42013888888888884,0.894750481832498,Aruz,kişi,2
+aruz_koca,2,1,0,0,6,0,1,10,3,0,0,6,0,5,10,4,0.5800000000000001,1.0888999753452235,Aruz Koca,kişi,2
+aruz_ve_dis_oguz_beyleri,0,0,0,0,2,0,0,0,0,0,0,5,0,0,2,1,0.0,-0.0,Aruz ve Dış Oğuz Beyleri,grup,1
+aruzun_habercisi,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Aruzun Habercisi,kişi,1
+askerler,0,0,0,0,0,1,0,0,0,0,0,0,3,0,1,1,0.0,-0.0,Askerler,grup,1
+aslan,0,0,0,0,1,0,1,0,0,0,0,1,0,5,2,2,0.5,0.6931471805599453,Aslan,hayvan,2
+aslan_yatagi,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Aslan Yatağı,nesne/doğa,1
+at_agizli_aruz,0,1,0,0,0,0,0,0,3,0,0,0,0,0,1,1,0.0,-0.0,At Ağızlı Aruz,kişi,1
+at_agizli_aruz_koca,2,0,0,0,0,0,0,10,0,0,0,0,0,0,2,1,0.0,-0.0,At Ağızlı Aruz Koca,kişi,1
+azrail,0,2,0,0,2,4,1,0,5,0,0,2,12,5,9,4,0.691358024691358,1.2730283365896258,Azrail,mitolojik/ilahi,1
+bamsi_beyrek,8,23,0,0,28,0,6,40,55,0,0,51,0,29,65,4,0.6655621301775148,1.2081690791251267,Bamsı Beyrek,kişi,4
+bamsi_ve_bamsinin_40_yigidi,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Bamsı ve Bamsının 40 Yiğidi,grup,1
+bamsinin_anne_babasi,0,0,0,0,1,0,0,0,0,0,0,2,0,0,1,1,0.0,-0.0,Bamsı'nın Anne Babası,grup,1
+bamsinin_haberi_gelince,0,0,0,0,1,0,0,0,0,0,0,2,0,0,1,1,0.0,-0.0,Bamsı'nın Haberi Gelince,kişi,1
+bamsinin_haberi_gelince_siyah_giyme_yas_tutma,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Bamsı'nın Haberi Gelince Siyah Giyme Yas Tutma,kişi,1
+bamsinin_naibi,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Bamsı'nın Naibi,kişi,1
+banu_cicek,2,3,0,0,4,1,0,10,8,0,0,4,3,0,10,4,0.7,1.2798542258336676,Banu Çiçek,kişi,1
+bas_acik,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Baş Açık,kişi,1
+basat,6,1,0,0,13,2,5,30,2,0,0,16,6,25,27,5,0.6776406035665296,1.3133041850540068,Basat,kişi,2
+basatin_annesi,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,Basat'ın Annesi,kişi,1
+bayat_boyu,0,0,1,0,0,0,0,0,0,2,0,0,0,0,1,1,0.0,-0.0,Bayat Boyu,grup,1
+bayburd_hisarindaki_kafirler,0,0,0,0,1,0,0,0,0,0,0,4,0,0,1,1,0.0,-0.0,Bayburd Hisarındaki Kafirler,grup,1
+bayburt_hisari_beyi,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Bayburt Hisarı Beyi,kişi,1
+bayburt_hisrasi_melikinin_kizi,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,Bayburt Hisrası Meliki'nin Kızı,kişi,1
+bayindir_han,7,9,1,0,13,6,0,35,26,2,0,15,18,0,36,5,0.7407407407407407,1.4309830856288468,Bayındır Han,kişi,7
+bayindir_han_kazan,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,Bayındır Han Kazan,kişi,1
+bayindir_hanin_adamlari,0,1,0,0,0,0,0,0,2,0,0,0,0,0,1,1,0.0,-0.0,Bayındır Han'ın Adamları,grup,1
+begil,1,6,0,0,16,3,0,5,14,0,0,27,9,0,26,4,0.5532544378698224,1.0116421827442068,Begil,kişi,1
+begilin_adamlari,0,0,0,0,2,0,0,0,0,0,0,3,0,0,2,1,0.0,-0.0,Begil'in Adamları,grup,1
+begilin_casusu,0,0,0,0,1,0,0,0,0,0,0,4,0,0,1,1,0.0,-0.0,Begilin Casusu,kişi,1
+begilin_hismi_ve_kavmi,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Begilin Hısmı ve Kavmi,grup,1
+begilin_karisi,0,3,0,0,3,0,0,0,7,0,0,3,0,0,6,2,0.5,0.6931471805599453,Begilin Karısı,kişi,1
+beyerek,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Beyerek,kişi,1
+beyler_bamsi_beyrek_boyu,0,2,0,0,0,3,0,0,5,0,0,0,9,0,5,2,0.48,0.6730116670092565,Beyler (Bamsı Beyrek Boyu),grup,1
+beyler_basat_boyu,0,0,0,0,2,0,0,0,0,0,0,2,0,0,2,1,0.0,-0.0,Beyler (Basat Boyu),grup,1
+beyler_begil_boyu,0,0,0,0,4,0,0,0,0,0,0,5,0,0,4,1,0.0,-0.0,Beyler (Begil Boyu),grup,1
+beyler_ev_yagmasi_boyu,0,0,0,0,0,1,0,0,0,0,0,0,3,0,1,1,0.0,-0.0,Beyler (Ev Yağması Boyu),grup,1
+beyler_uruz_kurtarma_boyu,0,1,0,0,3,0,0,0,3,0,0,3,0,0,4,2,0.375,0.5623351446188083,Beyler (Uruz Kurtarma Boyu),grup,1
+beyler_uruz_tutsak_boyu,0,1,0,0,0,1,0,0,2,0,0,0,3,0,2,2,0.5,0.6931471805599453,Beyler (Uruz Tutsak Boyu),grup,1
+beyler_ve_beyrek,0,0,0,0,0,1,0,0,0,0,0,0,3,0,1,1,0.0,-0.0,Beyler ve Beyrek,grup,1
+beyrek_in_40_yoldaslari,0,1,0,0,0,0,0,0,3,0,0,0,0,0,1,1,0.0,-0.0,Beyrek'in 40 Yoldaşları,grup,1
+beyrekin_40_adami,0,0,0,0,1,0,0,0,0,0,0,2,0,0,1,1,0.0,-0.0,Beyrek'in 40 Adamı,grup,1
+beyrekin_40_yigidi,1,0,0,0,2,0,0,5,0,0,0,5,0,0,3,2,0.4444444444444444,0.6365141682948128,Beyrek'in 40 Yiğidi,grup,2
+beyrekin_adamlari,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Beyrek'in Adamları,grup,1
+beyrekin_anne_babasi,0,0,0,0,2,0,0,0,0,0,0,2,0,0,2,1,0.0,-0.0,Beyrek'in Anne Babası,grup,2
+beyrekin_buyuk_kiz_kardesi,0,1,0,0,1,0,0,0,2,0,0,4,0,0,2,2,0.5,0.6931471805599453,Beyrek'in Büyük Kız Kardeşi,kişi,1
+beyrekin_kayin_babasi_kara_gone,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,"Beyrek'in Kayın Babası, Kara Göne",kişi,1
+beyrekin_kucuk_kiz_kardesi,0,1,0,0,0,0,0,0,2,0,0,0,0,0,1,1,0.0,-0.0,Beyrek'in Küçük Kız Kardeşi,kişi,1
+beyrekin_yedi_kiz_kardesi,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,Beyrek'in Yedi Kız Kardeşi,kişi,1
+beyrekin_yoldaslari,0,1,0,0,0,0,0,0,3,0,0,0,0,0,1,1,0.0,-0.0,Beyrek'in Yoldaşları,grup,1
+bezirganlar,2,3,0,0,0,1,1,10,8,0,0,0,3,5,7,4,0.6938775510204082,1.277034259466139,Bezirganlar,grup,1
+biyigi_kanli_bugduz_emen,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Bıyığı Kanlı Bügdüz Emen,kişi,1
+boga,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Boğa,hayvan,1
+bogac,0,4,0,0,2,0,0,0,11,0,0,6,0,0,6,2,0.4444444444444444,0.6365141682948128,Boğaç,kişi,1
+bogac_han,1,0,0,0,0,0,1,5,0,0,0,0,0,4,2,2,0.5,0.6931471805599453,Boğaç Han,kişi,1
+bogac_ve_bogacin_40_adami,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Boğaç ve Boğaç'ın 40 Adamı,grup,1
+bogacin_40_adami,0,0,0,0,1,0,0,0,0,0,0,2,0,0,1,1,0.0,-0.0,Boğaç'ın 40 Adamı,grup,1
+bogacuk_melik,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Boğaçuk Melik,kişi,1
+bogazca_fatma,1,0,0,0,1,0,0,5,0,0,0,1,0,0,2,2,0.5,0.6931471805599453,Boğazça Fatma,kişi,1
+boyu_uzun_burla_hatun_ve_40_ince_belli_kiz,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Boyu Uzun Burla Hatun ve 40 Ince Belli Kız,grup,1
+bugacuk_melik,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Buğaçuk Melik,kişi,1
+burla_hatun,0,5,0,0,3,4,1,0,11,0,0,3,12,5,13,4,0.6982248520710059,1.2658567518727373,Burla Hatun,kişi,3
+cebrail,0,0,0,0,0,2,0,0,0,0,0,0,6,0,2,1,0.0,-0.0,Cebrail,kişi,2
+cekisen_oksuzle_diger_cocugu_ayirig_tokat_atti,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Çekişen Öksüzle Diğer Çocuğu Ayırığ Tokat Attı,kişi,1
+cevresindekiler,2,0,0,0,0,2,0,10,0,0,0,0,6,0,4,2,0.5,0.6931471805599453,Çevresindekiler,grup,4
+cilasun_yigitler_ve_kara_budak,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Cilasun Yiğitler ve Kara Budak,grup,1
+cilasun_yigitleri_ve_deli_dundar,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Cilasun Yiğitleri ve Deli Dündar,grup,1
+coban,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Çoban,kişi,1
+cobanlar,0,1,0,0,0,0,0,0,2,0,0,0,0,0,1,1,0.0,-0.0,Çobanlar,kişi,1
+dadi,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Dadı,kişi,1
+dadi_ve_diger_kizlar,0,1,0,0,0,0,0,0,2,0,0,0,0,0,1,1,0.0,-0.0,Dadı ve Diğer Kızlar,grup,1
+dadilar,0,1,0,0,0,0,0,0,3,0,0,0,0,0,1,1,0.0,-0.0,Dadılar,grup,1
+dayalar,0,0,0,0,0,1,0,0,0,0,0,0,3,0,1,1,0.0,-0.0,Dayalar,grup,1
+dede_korkut,2,16,1,0,2,1,2,10,46,2,0,2,3,8,24,6,0.5312500000000001,1.1563745537147718,Dede Korkut,kişi,5
+deli_budak,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Deli Budak,kişi,1
+deli_dumrul,1,2,0,0,3,0,2,5,5,0,0,3,0,10,8,4,0.71875,1.3208883431493221,Deli Dumrul,kişi,1
+deli_dundar,1,0,0,0,0,0,3,5,0,0,0,0,0,15,4,2,0.375,0.5623351446188083,Deli Dündar,kişi,3
+deli_durmrul,0,1,0,0,0,0,0,0,3,0,0,0,0,0,1,1,0.0,-0.0,Deli Durmrul,kişi,1
+deli_karcar,1,7,0,0,0,0,2,5,19,0,0,0,0,8,10,3,0.4600000000000001,0.8018185525433373,Deli Karçar,kişi,1
+demir_donlu_mamak,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Demir Donlu Mamak,kişi,1
+demir_guci,0,0,0,0,1,0,1,0,0,0,0,1,0,5,2,2,0.5,0.6931471805599453,Demir Güci,kişi,1
+deve,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Deve,hayvan,1
+deyis,0,0,0,0,2,0,0,0,0,0,0,2,0,0,2,1,0.0,-0.0,Deyiş,nesne/doğa,1
+dire,0,1,0,0,0,0,0,0,3,0,0,0,0,0,1,1,0.0,-0.0,Dire,kişi,1
+direk_tekfur,1,0,0,0,0,0,1,5,0,0,0,0,0,5,2,2,0.5,0.6931471805599453,Direk Tekfur,kişi,1
+dirse_han,1,9,0,0,0,1,1,5,23,0,0,0,3,5,12,4,0.41666666666666674,0.8369882167858358,Dirse Han,kişi,1
+dirse_hanin_40_adami,0,6,0,0,0,0,3,0,18,0,0,0,0,14,9,2,0.4444444444444444,0.6365141682948128,Dirse Han'ın 40 Adamı,grup,1
+dirse_hanin_karisi,0,6,0,0,0,1,0,0,14,0,0,0,3,0,7,2,0.24489795918367352,0.410116318288409,Dirse Han'ın Karısı,kişi,1
+dis_oguz,0,1,0,0,0,0,0,0,3,0,0,0,0,0,1,1,0.0,-0.0,Dış Oğuz,grup,1
+dis_oguz_agalari,0,0,0,0,0,1,0,0,0,0,0,0,3,0,1,1,0.0,-0.0,Dış Oğuz Ağaları,grup,1
+dis_oguz_beyleri,0,1,0,0,7,1,0,0,3,0,0,17,3,0,9,3,0.37037037037037024,0.6837389058487535,Dış Oğuz Beyleri,grup,1
+dis_oguz_beyleri_ve_deli_dundar,0,0,0,0,0,0,2,0,0,0,0,0,0,10,2,1,0.0,-0.0,Dış Oğuz Beyleri ve Deli Dündar,grup,2
+doksan_tumen_oguz,0,0,0,0,0,1,0,0,0,0,0,0,3,0,1,1,0.0,-0.0,Doksan Tümen Oğuz,grup,1
+dokuz_tumen_oguz,0,0,0,0,0,1,0,0,0,0,0,0,3,0,1,1,0.0,-0.0,Dokuz Tümen Oğuz,grup,1
+donebilmez_dulek_evren,0,0,0,0,2,0,2,0,0,0,0,2,0,10,4,2,0.5,0.6931471805599453,Dönebilmez Dülek Evren,kişi,2
+donebilmez_dulerk_evren,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Dönebilmez Dülerk Evren,kişi,1
+duha_koca,1,2,0,0,0,0,0,5,5,0,0,0,0,0,3,2,0.4444444444444444,0.6365141682948128,Duha Koca,kişi,1
+dumrul,0,9,0,0,0,0,0,0,23,0,0,0,0,0,9,1,0.0,-0.0,Dumrul,kişi,1
+dumrulun_40_adami,0,1,0,0,0,0,0,0,3,0,0,0,0,0,1,1,0.0,-0.0,Dumrul'un 40 Adamı,grup,1
+dumrulun_annesi,0,2,0,0,0,0,0,0,5,0,0,0,0,0,2,1,0.0,-0.0,Dumrul'un Annesi,kişi,1
+dumrulun_karisi,0,2,0,0,0,0,0,0,5,0,0,0,0,0,2,1,0.0,-0.0,Dumrul'un Karısı,kişi,1
+duzen,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,Düzen,kişi,2
+duzen_oglu_alp_rustem,0,1,0,0,1,0,1,0,2,0,0,1,0,5,3,3,0.6666666666666667,1.0986122886681096,Düzen Oğlu Alp Rüstem,kişi,2
+duzmurd_kalesi_tekfuru_arsin,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,Düzmürd Kalesi Tekfuru Arşın,kişi,1
+egrek,3,0,0,0,15,1,0,15,0,0,0,15,3,0,19,3,0.3490304709141274,0.6330395116644678,Egrek,kişi,1
+egrek_ve_300_akinci,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Egrek ve 300 Akıncı,grup,1
+egrek_ve_segrek,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Egrek ve Segrek,grup,1
+egreke_yol_gosterdi,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Egreke Yol Gösterdi,kişi,1
+emen,1,3,0,0,3,0,0,5,8,0,0,3,0,0,7,3,0.6122448979591837,1.0042424730540764,Emen,kişi,3
+emren,1,4,0,0,7,3,1,5,9,0,0,13,9,5,16,5,0.703125,1.3686896376228384,Emren,kişi,1
+ense_koca_oglu_okcu,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Ense Koca Oğlu Okçu,kişi,1
+evnuk_kalesi_kafirleri,0,0,0,0,0,0,2,0,0,0,0,0,0,10,2,1,0.0,-0.0,Evnük Kalesi Kafirleri,grup,1
+eylik_koca,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,Eylik Koca,kişi,1
+eylik_koca_donebilmez_dulek_evren,0,1,0,0,0,0,0,0,2,0,0,0,0,0,1,1,0.0,-0.0,Eylik Koca Dönebilmez Dülek Evren,kişi,1
+eylik_koca_oglu_saru_kulmas,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Eylik Koca Oğlu Saru Kulmaş,kişi,1
+gelen_diger_dadilar,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Gelen Diğer Dadılar,grup,1
+haberci,0,0,0,0,2,1,0,0,0,0,0,2,3,0,3,2,0.4444444444444444,0.6365141682948128,Haberci,kişi,2
+han_afsar,0,0,0,0,0,1,0,0,0,0,0,0,3,0,1,1,0.0,-0.0,Han Afşar,kişi,1
+hekimler,0,0,0,0,1,0,0,0,0,0,0,4,0,0,1,1,0.0,-0.0,Hekimler,grup,1
+hizir,0,1,0,0,0,0,0,0,3,0,0,0,0,0,1,1,0.0,-0.0,Hızır,mitolojik/ilahi,1
+ic_oguz,0,1,0,0,0,0,0,0,3,0,0,0,0,0,1,1,0.0,-0.0,İç Oğuz,grup,1
+ic_oguz_beyleri,0,0,0,0,2,1,0,0,0,0,0,3,3,0,3,2,0.4444444444444444,0.6365141682948128,İç Oğuz Beyleri,grup,2
+ic_oguz_beyleri_dis_oguz_beyleri_pay_pure_bey_kara_budak_uruz_bey_yigenek_salur_kazan_pay_bicen,0,0,0,0,1,0,0,0,0,0,0,2,0,0,1,1,0.0,-0.0,"Iç Oğuz Beyleri, Dış Oğuz Beyleri, Pay Püre Bey, Kara Budak, Uruz, Bey Yigenek, Salur Kazan, Pay Biçen",grup,1
+ic_oguz_ve_kazan,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Iç Oğuz ve Kazan,grup,1
+imrahor,0,0,0,0,0,1,0,0,0,0,0,0,3,0,1,1,0.0,-0.0,Imrahor,kişi,1
+kadinlar,1,1,0,0,0,0,0,5,3,0,0,0,0,0,2,2,0.5,0.6931471805599453,Kadınlar,grup,1
+kafir,1,0,0,0,3,2,3,5,0,0,0,6,6,15,9,4,0.7160493827160495,1.310783678099714,Kafir,kişi,5
+kafir_askeri,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Kafir Askeri,kişi,1
+kafir_beyinin_kizi,1,1,0,0,1,0,0,5,2,0,0,4,0,0,3,3,0.6666666666666667,1.0986122886681096,Kafir Beyi'nin Kızı,kişi,1
+kafir_eri,0,0,0,0,1,0,0,0,0,0,0,4,0,0,1,1,0.0,-0.0,Kafir Eri,kişi,1
+kafir_gozcusu,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Kafir Gözcüsü,kişi,1
+kafir_ordusu,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Kafir Ordusu,kişi,1
+kafirin_40_atlisi,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Kafirin 40 Atlısı,kişi,1
+kafirin_casusu,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Kafirin Casusu,kişi,1
+kafirin_causu,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Kafirin Causu,kişi,1
+kafirin_sagina_saldirdilar,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Kafirin Sağına Saldırdılar,kişi,1
+kafirin_sancagini_kilicladi,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Kafirin Sancağını Kılıçladı,kişi,1
+kafirin_soluna_saldirdilar,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Kafirin Soluna Saldırdılar,kişi,1
+kafirler_bamsi_beyrek_boyu,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Kafirler (Bamsı Beyrek Boyu),grup,1
+kafirler_ev_yagmasi_boyu,0,1,0,0,0,0,9,0,3,0,0,0,0,45,10,2,0.17999999999999994,0.3250829733914482,Kafirler (Ev Yağması Boyu),grup,1
+kafirler_kan_turali_boyu,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Kafirler (Kan Turalı Boyu),grup,1
+kafirler_segrek_boyu,0,0,0,0,6,1,0,0,0,0,0,6,3,0,7,2,0.24489795918367352,0.410116318288409,Kafirler (Segrek Boyu),grup,1
+kafirler_uruz_kurtarma_boyu,0,1,0,0,7,0,1,0,3,0,0,10,0,5,9,3,0.37037037037037024,0.6837389058487535,Kafirler (Uruz Kurtarma Boyu),grup,1
+kafirler_uruz_tutsak_boyu,0,0,0,0,1,0,5,0,0,0,0,1,0,25,6,2,0.2777777777777777,0.45056120886630463,Kafirler (Uruz Tutsak Boyu),grup,1
+kafirlere,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Kafirlere,grup,1
+kafirlerin_sag_cenahi,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Kafirlerin Sağ Cenahı,grup,1
+kalenin_sigir_cobani,0,0,0,0,1,0,0,0,0,0,0,2,0,0,1,1,0.0,-0.0,Kalenin Sığır Çobanı,kişi,1
+kaleye_hucum_edenler,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Kaleye Hücum Edenler,grup,1
+kam_gan,4,0,0,0,0,0,0,20,0,0,0,0,0,0,4,1,0.0,-0.0,Kam Gan,kişi,4
+kan_turali,6,4,0,0,9,1,4,30,10,0,0,11,3,20,24,5,0.7395833333333333,1.4440566261665524,Kan Turalı,kişi,1
+kan_turali_ve_adamlari,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Kan Turalı ve Adamları,grup,1
+kan_turali_ve_selcen_hatun,0,0,0,0,1,0,1,0,0,0,0,1,0,5,2,2,0.5,0.6931471805599453,Kan Turalı ve Selcen Hatun,grup,1
+kan_turalinin_40_adami,0,0,0,0,1,0,0,0,0,0,0,2,0,0,1,1,0.0,-0.0,Kan Turalının 40 Adamı,grup,1
+kan_turalinin_adamlari,1,0,0,0,1,1,0,5,0,0,0,1,3,0,3,3,0.6666666666666667,1.0986122886681096,Kan Turalı'nın Adamları,grup,1
+kan_turalinin_anne_babasi,0,0,0,0,3,0,0,0,0,0,0,6,0,0,3,1,0.0,-0.0,Kan Turalının Anne Babası,grup,1
+kan_turaliyi_gorunce_ona_tutuluyor_keske_babam_beni_buna_verse,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,Kan Turalıyı Görünce Ona Tutuluyor Keşke Babam Beni Buna Verse,kişi,1
+kanli_koca,2,2,0,0,4,0,0,10,6,0,0,4,0,0,8,3,0.625,1.0397207708399179,Kanlı Koca,kişi,1
+kapcak_melik,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Kapçak Melik,kişi,1
+kapici,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Kapıcı,kişi,1
+kara_arslan_melik,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Kara Arslan Melik,kişi,1
+kara_budak,2,2,0,0,2,0,4,10,4,0,0,8,0,19,10,4,0.72,1.3321790402101223,Kara Budak,kişi,5
+kara_budak_kazan_oglu_uruz_beyler_basi_yigenek_gaflet_koca_oglu_sir_semseddin_deli_karcar_dugunde_ok_atarlar,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,"Kara Budak, Kazan Oğlu Uruz, Beyler Başı Yigenek, Gaflet Koca Oğlu Şir Şemseddin, Deli Karçar, Düğünde Ok Atarlar",grup,1
+kara_cekur,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,Kara Çekür,kişi,1
+kara_gone,2,2,0,0,1,0,0,10,5,0,0,1,0,0,5,3,0.6399999999999999,1.0549201679861442,Kara Göne,kişi,4
+kara_gone_deli_dundar_kara_budak,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,"Kara Göne, Deli Dündar, Kara Budak",kişi,1
+kara_gone_oglu_kara_budak,0,1,0,0,0,0,0,0,3,0,0,0,0,0,1,1,0.0,-0.0,Kara Göne Oğlu Kara Budak,kişi,1
+kara_gone_ve_askerleri,0,1,0,0,1,0,0,0,3,0,0,1,0,0,2,2,0.5,0.6931471805599453,Kara Göne ve Askerleri,grup,1
+kara_tekfur,0,0,0,0,0,0,2,0,0,0,0,0,0,10,2,1,0.0,-0.0,Kara Tekfur,kişi,2
+kara_tekfurun_casusu,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Kara Tekfurun Casusu,kişi,1
+kara_tuken_melik,0,0,0,0,0,0,2,0,0,0,0,0,0,10,2,1,0.0,-0.0,Kara Tüken Melik,kişi,2
+karacuk_coban,0,3,0,0,3,1,2,0,8,0,0,4,3,9,9,4,0.7160493827160495,1.310783678099714,Karaçuk Çoban,kişi,1
+karacuk_cobanin_kara_kopegi,0,1,0,0,0,0,0,0,2,0,0,0,0,0,1,1,0.0,-0.0,Karaçuk Çoban'ın Kara Köpeği,hayvan,1
+karavas,0,0,0,0,2,0,0,0,0,0,0,2,0,0,2,1,0.0,-0.0,Karavaş,kişi,1
+karisi,1,0,0,0,4,0,0,5,0,0,0,7,0,0,5,2,0.31999999999999984,0.5004024235381879,Karısı,kişi,1
+karisina,0,0,0,0,1,0,0,0,0,0,0,2,0,0,1,1,0.0,-0.0,Karısına,kişi,1
+kayin_ata_kayin_anasi,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Kayın Ata - Kayın Anası,kişi,1
+kazan_kardesi_kara_gone_kiyan_selcuk_oglu_deli_dundar_gaflet_koca_oglu_sir_semseddin_beyrek_kazilik_koca_oglu_bey_yigenek_dor_boyun_oksayan_deli_dundar_bin_kavim_baslari_duger_bin_bugduz_baslari_emen_dokuz_koca_baslari_aruz_kazanin_beyleri,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,"Kazan Kardeşi Kara Göne, Kıyan Selçuk Oğlu Deli Dündar, Gaflet Koca Oğlu Şir Şemseddin, Beyrek, Kazılık Koca Oğlu Bey Yigenek, Dör Boyun Okşayan Deli Dündar, Bin Kavim Başları Düger, Bin Bügdüz Başları Emen, Dokuz Koca Başları Aruz, Kazan'ın Beyleri",grup,1
+kazan_uruz_ve_askerleri,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,"Kazan, Uruz ve Askerleri",grup,1
+kazan_ve_askerleri,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Kazan ve Askerleri,grup,1
+kazan_ve_bayindir_han,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,Kazan ve Bayındır Han,grup,1
+kazan_ve_beyler,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Kazan ve Beyler,grup,1
+kazan_ve_karacuk_coban,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Kazan ve Karaçuk Çoban,grup,1
+kazanin_adami,0,0,0,0,0,1,0,0,0,0,0,0,3,0,1,1,0.0,-0.0,Kazan'ın Adamı,grup,1
+kazanin_adamlari,0,0,0,0,1,1,0,0,0,0,0,1,3,0,2,2,0.5,0.6931471805599453,Kazan'ın Adamları,grup,1
+kazanin_askerleri,0,0,0,0,0,1,1,0,0,0,0,0,3,5,2,2,0.5,0.6931471805599453,Kazanın Askerleri,grup,2
+kazanin_evi,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Kazan'ın Evi,kişi,1
+kazanin_kardesi_kara_gone,0,0,0,0,1,0,1,0,0,0,0,1,0,5,2,2,0.5,0.6931471805599453,Kazan'ın Kardeşi Kara Göne,kişi,2
+kazanin_karicuk_anasi,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Kazan'ın Karıçuk Anası,kişi,1
+kazilik_koca,2,0,0,0,2,1,2,10,0,0,0,2,3,10,7,4,0.7346938775510204,1.351783994289646,Kazılık Koca,kişi,1
+kazilik_koca_oglu_bey_yigenek,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Kazılık Koca Oğlu Bey Yigenek,kişi,1
+kesisler,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Keşişler,grup,1
+kilbas,1,0,0,0,9,0,0,5,0,0,0,10,0,0,10,2,0.17999999999999994,0.3250829733914482,Kılbaş,kişi,1
+kilbas_ve_kara_gone,0,0,0,0,2,0,0,0,0,0,0,2,0,0,2,1,0.0,-0.0,Kılbaş ve Kara Göne,grup,1
+kirk_kinuk,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,Kırk Kınuk,kişi,1
+kisirca_yenge,1,2,0,0,0,0,0,5,5,0,0,0,0,0,3,2,0.4444444444444444,0.6365141682948128,Kısırca Yenge,kişi,1
+kiyan_guci,0,0,0,0,1,0,1,0,0,0,0,1,0,5,2,2,0.5,0.6931471805599453,Kıyan Güci,kişi,1
+kiyan_oglu_deli_dundar,0,0,0,0,0,1,0,0,0,0,0,0,3,0,1,1,0.0,-0.0,Kıyan Oğlu Deli Dündar,kişi,1
+kiyan_selcik,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Kıyan Selçık,kişi,1
+kiyan_selcuk,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,Kıyan Selçuk,kişi,2
+kiyan_selcuk_oglu_deli_dundar,0,1,0,0,0,0,1,0,3,0,0,0,0,5,2,2,0.5,0.6931471805599453,Kıyan Selçuk Oğlu Deli Dündar,kişi,2
+kocalar,0,0,0,0,2,3,0,0,0,0,0,2,9,0,5,2,0.48,0.6730116670092565,Kocalar,grup,1
+kurt,0,1,0,0,0,0,0,0,2,0,0,0,0,0,1,1,0.0,-0.0,Kurt,hayvan,1
+lala_kilbas,0,4,0,0,1,2,0,0,11,0,0,4,6,0,7,3,0.5714285714285714,0.9556998911125343,Lala Kılbaş,kişi,1
+meclis,0,1,0,0,0,0,0,0,3,0,0,0,0,0,1,1,0.0,-0.0,Meclis,grup,1
+nesne,0,0,0,0,3,0,0,0,0,0,0,3,0,0,3,1,0.0,-0.0,Nesne,kişi,1
+oba,0,1,0,0,0,0,0,0,2,0,0,0,0,0,1,1,0.0,-0.0,Oba,grup,1
+oglu_ve_40_adami,0,0,0,0,0,1,0,0,0,0,0,0,3,0,1,1,0.0,-0.0,Oğlu ve 40 Adamı,grup,1
+oglunu_veren_kadin,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Oğlunu Veren Kadın,kişi,1
+oguz,0,2,0,0,0,1,3,0,6,0,0,0,3,15,6,3,0.6111111111111112,1.0114042647073518,Oğuz,grup,1
+oguz_askerleri,0,0,0,0,1,0,1,0,0,0,0,1,0,5,2,2,0.5,0.6931471805599453,Oğuz Askerleri,grup,1
+oguz_beyleri,0,1,0,0,1,1,2,0,3,0,0,1,3,10,5,4,0.72,1.3321790402101223,Oğuz Beyleri,grup,2
+oguz_han,1,1,0,0,0,0,0,5,2,0,0,0,0,0,2,2,0.5,0.6931471805599453,Oğuz Han,kişi,1
+oguz_hanin_likcisi,0,1,0,0,0,0,0,0,2,0,0,0,0,0,1,1,0.0,-0.0,Oğuz Han'ın Lıkçısı,kişi,1
+oksuz_cocuk,0,0,0,0,3,0,0,0,0,0,0,6,0,0,3,1,0.0,-0.0,Öksüz Çocuk,kişi,1
+oynadigi_oglanlar,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Oynadığı Oğlanlar,kişi,1
+ozan,0,1,0,0,0,0,0,0,3,0,0,0,0,0,1,1,0.0,-0.0,Ozan,kişi,1
+pay_picen_bey,0,1,0,0,0,0,0,0,3,0,0,0,0,0,1,1,0.0,-0.0,Pay Piçen Bey,kişi,1
+pay_pure,1,5,0,0,0,0,0,5,14,0,0,0,0,0,6,2,0.2777777777777777,0.45056120886630463,Pay Püre,kişi,1
+pay_pure_bey,1,1,0,0,0,2,0,5,3,0,0,0,6,0,4,3,0.625,1.0397207708399179,Pay Püre Bey,kişi,1
+pay_pure_beyin_ordusu,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Pay Püre Bey'in Ordusu,grup,1
+pay_purenin_oglu,0,0,0,0,0,1,1,0,0,0,0,0,3,5,2,2,0.5,0.6931471805599453,Pay Püre'nin Oğlu,kişi,1
+paypure,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,Paypüre,kişi,1
+peri,0,0,0,0,1,0,0,0,0,0,0,2,0,0,1,1,0.0,-0.0,Peri,kişi,1
+peri_kizi,0,1,0,0,1,0,0,0,2,0,0,1,0,0,2,2,0.5,0.6931471805599453,Peri Kızı,mitolojik/ilahi,1
+peygamber_sahabesi_kanli_bugduz_emen,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Peygamber Sahabesi Kanlı Bügdüz Emen,kişi,1
+saht_oldu,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Saht Oldu,kişi,1
+salur_kazan,17,37,1,3,56,24,18,85,95,2,9,85,72,88,156,7,0.7656147271531887,1.5961117461312915,Salur Kazan,kişi,9
+sari_coban,0,1,0,0,1,0,0,0,2,0,0,2,0,0,2,2,0.5,0.6931471805599453,Sarı Çoban,kişi,1
+segerk,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Segerk,kişi,1
+segrek,3,0,0,0,17,0,3,15,0,0,0,24,0,15,23,3,0.41965973534971646,0.7547854950176571,Segrek,kişi,1
+segrekin_karisi,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Segrekin Karısı,kişi,1
+selcen_hatun,1,1,0,0,5,0,2,5,2,0,0,9,0,10,9,4,0.6172839506172839,1.1490596969706202,Selcen Hatun,kişi,1
+serhat_beylerinden_ulak,0,1,0,0,0,0,0,0,2,0,0,0,0,0,1,1,0.0,-0.0,Serhat Beylerinden Ulak,grup,1
+sir_semseddin,0,1,0,0,0,0,0,0,2,0,0,0,0,0,1,1,0.0,-0.0,Şir Şemseddin,kişi,1
+sokli_melik,0,3,0,0,0,0,5,0,9,0,0,0,0,25,8,2,0.46875,0.6615632381579821,Şökli Melik,kişi,2
+sokli_melik_ve_adamlari,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Şökli Melik ve Adamları,grup,1
+su,0,1,0,0,0,0,0,0,2,0,0,0,0,0,1,1,0.0,-0.0,Su,nesne/doğa,1
+tanri,0,5,0,0,1,6,1,0,15,0,0,4,18,5,13,4,0.6272189349112426,1.1189688668816267,Tanrı,mitolojik/ilahi,4
+tatyan_kalesi_casuslari,0,1,0,0,0,0,0,0,2,0,0,0,0,0,1,1,0.0,-0.0,Tatyan Kalesi Casusları,grup,1
+tekfur_begil_boyu,1,1,0,0,6,2,1,5,3,0,0,6,6,5,11,5,0.6446280991735538,1.294545165844896,Tekfur (Begil Boyu),kişi,1
+tekfur_kan_turali_boyu,7,2,0,0,0,2,0,35,5,0,0,0,6,0,11,3,0.5289256198347108,0.9075352941050092,Tekfur (Kan Turalı Boyu),kişi,1
+tekfur_segrek_boyu,0,0,0,0,5,1,0,0,0,0,0,5,3,0,6,2,0.2777777777777777,0.45056120886630463,Tekfur (Segrek Boyu),kişi,1
+tekfur_uruz_kurtarma_boyu,0,3,0,0,7,2,0,0,9,0,0,8,6,0,12,3,0.5694444444444444,0.9596147939120492,Tekfur (Uruz Kurtarma Boyu),kişi,1
+tekfur_uruz_tutsak_boyu,0,2,0,0,0,0,0,0,4,0,0,0,0,0,2,1,0.0,-0.0,Tekfur (Uruz Tutsak Boyu),kişi,1
+tekfur_ve_100_kafir,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Tekfur ve 100 Kafir,grup,1
+tekfur_ve_sokli_melik,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Tekfur ve Şökli Melik,grup,1
+tekfurun,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,Tekfurun,kişi,1
+tekfurun_adamlari,1,0,0,0,2,2,0,5,0,0,0,2,6,0,5,3,0.6399999999999999,1.0549201679861442,Tekfurun Adamları,grup,2
+tekfurun_askerleri,1,0,0,0,0,1,2,5,0,0,0,0,3,10,4,3,0.625,1.0397207708399179,Tekfurun Askerleri,grup,2
+tekfurun_beyleri,0,3,0,0,3,0,0,0,9,0,0,3,0,0,6,2,0.5,0.6931471805599453,Tekfurun Beyleri,grup,1
+tekfurun_casusu,0,0,0,0,2,0,0,0,0,0,0,2,0,0,2,1,0.0,-0.0,Tekfurun Casusu,kişi,2
+tekfurun_kardesinin_oglu,1,1,0,0,0,0,0,5,3,0,0,0,0,0,2,2,0.5,0.6931471805599453,Tekfurun Kardeşinin Oğlu,kişi,1
+tekfurun_karisi,1,0,0,0,4,1,0,5,0,0,0,4,3,0,6,3,0.5,0.8675632284814612,Tekfurun Karısı,kişi,1
+tepegoz,2,2,0,0,8,1,15,10,6,0,0,12,3,75,28,5,0.6198979591836735,1.1883161504533604,Tepegöz,mitolojik/ilahi,1
+tepegozden_sikayetci_olan_ana_babalar,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Tepegözden Şikayetçi Olan Ana Babalar,mitolojik/ilahi,1
+tepegozun_peri_annesi,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Tepegözün Peri Annesi,mitolojik/ilahi,1
+ters_uzamis,0,0,0,0,4,0,0,0,0,0,0,4,0,0,4,1,0.0,-0.0,Ters Uzamış,kişi,2
+trabzon_tekfuru,1,0,0,0,0,1,0,5,0,0,0,0,3,0,2,2,0.5,0.6931471805599453,Trabzon Tekfuru,kişi,2
+turkistan,0,0,0,3,0,0,0,0,0,0,9,0,0,0,3,1,0.0,-0.0,Türkistan,yer/coğrafya,2
+ulas,2,0,0,0,0,0,0,10,0,0,0,0,0,0,2,1,0.0,-0.0,Ulaş,kişi,2
+uruz,6,8,0,0,7,3,5,30,18,0,0,10,9,25,29,5,0.7824019024970273,1.562106636180645,Uruz,kişi,4
+uruz_ve_300_asker,0,0,0,0,0,1,0,0,0,0,0,0,3,0,1,1,0.0,-0.0,Uruz ve 300 Asker,grup,1
+uruz_ve_uruzun_40_askeri,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Uruz ve Uruzun 40 Askeri,grup,1
+uruzun_40_adamini_sehit_ettiler,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Uruzun 40 Adamını Şehit Ettiler,grup,1
+uruzun_40_askeri,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Uruz'un 40 Askeri,grup,1
+uruzun_annesi,0,0,0,0,2,0,0,0,0,0,0,2,0,0,2,1,0.0,-0.0,Uruzun Annesi,kişi,1
+uruzun_sag_yaninda_yer_gosterdi_cubbe_giydirdi,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,"Uruz'un Sağ Yanında Yer Gösterdi, Cübbe Giydirdi",kişi,1
+ustalar,0,0,0,0,0,2,0,0,0,0,0,0,6,0,2,1,0.0,-0.0,Ustalar,grup,1
+usun_koca,0,0,0,0,3,0,0,0,0,0,0,3,0,0,3,1,0.0,-0.0,Uşun Koca,kişi,1
+usun_koca_oglu,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,Uşun Koca Oğlu,kişi,1
+usun_koca_oglunun_2_kardesi,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,Uşun Koca Oğlu'nun 2 Kardeşi,kişi,1
+usun_koca_ve_karisi,1,0,0,0,1,0,0,5,0,0,0,1,0,0,2,2,0.5,0.6931471805599453,Uşun Koca ve Karısı,grup,1
+usun_kocanin_buyuk,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,Uşun Kocanın Büyük,kişi,1
+usun_kocanin_kucuk,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,Uşun Kocanın Küçük,kişi,1
+yalanci_oglu_yaltacuk,0,2,0,0,2,1,2,0,6,0,0,5,3,9,7,4,0.7346938775510204,1.351783994289646,Yalançı Oğlu Yaltaçuk,kişi,1
+yarar_kocalar,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Yarar Kocalar,grup,1
+yasli_kadin,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,Yaşlı Kadın,kişi,1
+yedi_basli_ejderha,0,0,0,0,0,0,4,0,0,0,0,0,0,19,4,1,0.0,-0.0,Yedi Başlı Ejderha,mitolojik/ilahi,1
+yedi_kafir_beyi,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Yedi Kafir Beyi,kişi,1
+yedi_yigit,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,1,0.0,-0.0,Yedi Yiğit,grup,1
+yigenek,3,4,0,0,3,0,1,15,10,0,0,7,0,5,11,4,0.7107438016528926,1.2945451658448959,Yigenek,kişi,2
+yigenek_ve_sancak_beyleri,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Yigenek ve Sancak Beyleri,grup,1
+yigit,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0.0,-0.0,Yiğit,grup,1
+yoldaslari,0,0,0,0,1,0,0,0,0,0,0,2,0,0,1,1,0.0,-0.0,Yoldaşları,grup,1
+yurt,0,1,0,0,0,0,0,0,2,0,0,0,0,0,1,1,0.0,-0.0,Yurt,nesne/doğa,1
+yuz_bin_kafir,0,0,0,0,0,0,1,0,0,0,0,0,0,5,1,1,0.0,-0.0,Yüz Bin Kâfir,grup,1
+zindanci,0,0,0,0,0,1,0,0,0,0,0,0,3,0,1,1,0.0,-0.0,Zindancı,kişi,1
