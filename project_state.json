@@ -2,13 +2,12 @@
   "project": "Dede Korkut Digital Humanities & Network Science Project (DKNN)",
   "repository": "4rslanismet/dede-korkut-social-network-dataset",
   "branch": "claude-dk-rebuild",
-  "last_commit_before_this_update": "d723f01",
-  "last_updated": "2026-09-16T12:21:41+03:00",
-  "completed_phases": [1, 2, 3, 4, 5, 6, 7, 8, "9-10 (skipped, DEC-010)", 11, 12, 13, 14, 15, 16, 17, 18, 19],
-  "current_phase": "20-21",
-  "current_phase_status": "not_started",
-  "current_phase_completed_subtasks": [],
-  "current_phase_remaining_subtasks": [
+  "last_commit_before_this_update": "1aa4d5e",
+  "last_updated": "2026-09-16T15:13:28+03:00",
+  "completed_phases": [1, 2, 3, 4, 5, 6, 7, 8, "9-10 (skipped, DEC-010)", 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+  "current_phase": "COMPLETE",
+  "current_phase_status": "all_21_phases_of_master_prompt_delivered",
+  "current_phase_completed_subtasks": [
     "cross_check_headline_numbers_across_docs",
     "rerun_tests_and_validate_only_pipeline",
     "rerun_validate_site",
@@ -18,7 +17,8 @@
     "executive_summary_md",
     "commit_phase_20_21"
   ],
-  "next_task": "cross_check_headline_numbers_then_release_checklist",
+  "current_phase_remaining_subtasks": [],
+  "next_task": "none_mandatory - see 'Future Work' in reports/FINAL_REBUILD_REPORT.md for optional next steps if the user asks to continue",
   "validation_status_last_known": "WARNING (see outputs/validation/summary.json; no FAIL-level/blocking issues)",
   "important_reports": [
     "CLAUDE_SESSION_HANDOFF.md",
@@ -38,6 +38,9 @@
     "reports/15_16_web_portal_report.md",
     "reports/17_documentation_report.md",
     "thesis/research_questions.md",
+    "reports/RELEASE_CHECKLIST.md",
+    "reports/FINAL_REBUILD_REPORT.md",
+    "reports/EXECUTIVE_SUMMARY.md",
     "config/analysis.yaml"
   ],
   "verified_headline_numbers": {
@@ -127,8 +130,11 @@
     "site's Network Explorer only offers G0/G1/G2 (not all 12 network variants); Similarity page remains partial (section 17 metrics not computed)",
     "documentation set complete (data_dictionary.md, relation_codebook.md, methodology.md, limitations.md, DATASET_CARD.md, CITATION.cff, CHANGELOG.md, CONTRIBUTING.md, architecture_diagram.svg, root README.md) - CITATION.cff has TODO placeholders for author name/date, intentionally not invented",
     "paper/ and thesis/ packages complete - RQ6 (story clustering) explicitly marked NOT answerable with current data in thesis/research_questions.md, not force-answered",
-    "no reports/RELEASE_CHECKLIST.md, reports/FINAL_REBUILD_REPORT.md, or reports/EXECUTIVE_SUMMARY.md exist yet (Phase 20-21)",
-    "repository has never been pushed to remote - all work is local commits on claude-dk-rebuild only"
+    "ALL 21 PHASES COMPLETE - reports/RELEASE_CHECKLIST.md (15/15 PASS or disclosed-gap), reports/FINAL_REBUILD_REPORT.md, reports/EXECUTIVE_SUMMARY.md all written",
+    "repository has never been pushed to remote - all work is local commits on claude-dk-rebuild only - do not push without explicit user instruction",
+    "site not yet deployed to a live GitHub Pages URL - tested locally only",
+    "CITATION.cff has TODO placeholders for author name/date - do not fill in without user confirmation",
+    "one minor terminology inconsistency found and fixed during Phase 20 consistency check: DATASET_CARD.md said 'narrative units' instead of 'stories' - src/validate_release_consistency.py now PASSes"
   ],
   "environment": {
     "os": "Windows 11 Pro N (win32)",

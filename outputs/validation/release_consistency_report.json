@@ -1,0 +1,14 @@
+{
+  "ground_truth": {
+    "stories": 14,
+    "actors": 332,
+    "relations_event_level": 628,
+    "narrative_events": 85,
+    "relation_types": 17,
+    "relation_layers": 7,
+    "site_html_files": 363,
+    "site_validation_issues": 0,
+    "pytest_tests": 18
+  },
+  "issues": []
+}

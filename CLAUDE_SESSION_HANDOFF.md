@@ -287,6 +287,24 @@ Yeni analiz yok — Faz 1-16'nın bilgisini kalıcı dokümanlara sentezledi: `d
 
 ---
 
+## PHASE 20-21 — FINAL VALIDATION/RELEASE & FINAL REPORTS ✅ TAMAMLANDI — PROJE TAMAMLANDI
+
+**Scriptler:** [`src/validate_release_consistency.py`](src/validate_release_consistency.py) → **Raporlar:** [`reports/RELEASE_CHECKLIST.md`](reports/RELEASE_CHECKLIST.md), [`reports/FINAL_REBUILD_REPORT.md`](reports/FINAL_REBUILD_REPORT.md), [`reports/EXECUTIVE_SUMMARY.md`](reports/EXECUTIVE_SUMMARY.md)
+
+- **Faz 20:** `src/validate_release_consistency.py` yazıldı — README.md/DATASET_CARD.md'deki temel sayıları (stories/actors/relations/events) gerçek kaynak dosyalarıyla çapraz kontrol ediyor. İlk çalıştırma 1 gerçek (küçük) tutarsızlık buldu: `DATASET_CARD.md` 14 birimi "narrative units" diye adlandırmış, "stories" kelimesini kullanmamıştı — terminoloji tutarlılığı için düzeltildi. Ayrıca `pytest` (18/18), `run_pipeline.py --all --validate-only` (PASS), `src/validate_site.py` (363/363, 0 sorun) yeniden çalıştırıldı, hepsi PASS.
+- `reports/RELEASE_CHECKLIST.md`: madde 142'nin 15 maddelik kalite kapısı — **15/15 PASS veya PASS-WITH-DISCLOSED-GAPS**, hiçbir madde sahte PASS almadı, her kısmi/eksik durum ilgili belgeye atıflı.
+- **Faz 21:** `reports/FINAL_REBUILD_REPORT.md` (madde 124'ün tam yapısı: Initial State → Future Work) ve `reports/EXECUTIVE_SUMMARY.md` (madde 125, ~4 dakikalık okuma) yazıldı. "Top 5 Strongest Defensible Findings" (madde 126) — hepsi gerçek istatistiklere atıflı, hiçbiri "en önemli karakter" tipi edebi iddia değil.
+
+### PROJE DURUMU: `docs/MASTER_PROMPT.md`'nin 21 fazının tamamı tamamlandı (Faz 9-10 gerekçeli olarak atlandı, DEC-010).
+
+**Bundan sonra kullanıcıyla görüşülmeden yapılmayacaklar** (NEXT_TASK.md'de de belirtildi):
+- `claude-dk-rebuild` branch'ini remote'a push etmek (hiç push denenmedi, auth hazır değildi/istenmedi).
+- `main`'e merge açmak.
+- Siteyi gerçek GitHub Pages URL'sinde deploy etmek (repo ayarı değişikliği gerektirir).
+- `CITATION.cff`'deki TODO alanlarını doldurmak (gerçek yazar adı/tarih bilgisi kullanıcıdan gelmeli).
+
+---
+
 ## KNOWN DATA / PROVENANCE LIMITATIONS (henüz çözülmedi, "çözülmüş" gibi gösterilmiyor)
 
 1. **Raw source lineage eksik** — hangi Dede Korkut edisyonunun/transkripsiyonunun kodlandığı belli değil (`validation/source_edition_metadata_required.md`).
@@ -319,66 +337,37 @@ Yeni analiz yok — Faz 1-16'nın bilgisini kalıcı dokümanlara sentezledi: `d
 
 ```text
 CURRENT STATUS:
-PHASES 1-19 COMPLETE (9-10 skipped with documented rationale, DEC-010)
+ALL 21 PHASES COMPLETE (9-10 skipped with documented rationale, DEC-010)
+THE MASTER_PROMPT.md SCOPE IS FULLY DELIVERED.
 
 NEXT PHASE:
-PHASE 20 — FINAL VALIDATION/RELEASE, THEN PHASE 21 — FINAL REPORTS
+NONE MANDATORY. This project has reached the end of its governing specification.
+Any further work is optional polish (see "Future Work" in
+reports/FINAL_REBUILD_REPORT.md) or something the user explicitly asks for next
+(e.g. pushing to remote, deploying the site, resolving an open HUMAN_REVIEW_QUEUE.csv item).
 
-PHASES 1-19 ARE COMPLETE. DO NOT RESTART THEM UNLESS VALIDATION REVEALS A REAL ERROR.
+DO NOT RESTART ANY COMPLETED PHASE UNLESS VALIDATION REVEALS A REAL ERROR.
+DO NOT PUSH TO REMOTE OR MERGE TO MAIN WITHOUT EXPLICIT USER INSTRUCTION.
 ```
 
 ---
 
-## PHASE 20-21 — NEXT WORK (Final Validation/Release, Final Reports)
+## OPTIONAL FUTURE WORK (nothing here is mandatory — the master prompt's scope is delivered)
 
-Master prompt sections 80-82, 123-127, 142-145. This is the closing phase — cross-checking
-consistency and writing the summary documents. No new analysis should be needed; if a
-cross-check reveals a real numeric inconsistency, fix the inconsistency (usually a stale copy of
-a number in a doc) rather than re-running analysis.
+If the user asks to continue, prioritize in this order (from `reports/FINAL_REBUILD_REPORT.md`
+"Future Work" and `docs/limitations.md`):
 
-### Phase 20 — Final Validation/Release (section 80-82, 142)
-
-1. Cross-check every headline number that appears in more than one place: README.md,
-   DATASET_CARD.md, `paper/results.md`, `thesis/research_questions.md`, `docs/data/project_summary.json`,
-   and `project_state.json`'s `verified_headline_numbers`. They should all agree (332 actors, 628
-   relations, etc.) — a small `src/validate_release_consistency.py` script that re-derives each
-   number and diffs against what's written in each doc would be more reliable than manual
-   checking.
-2. Re-run `python -m pytest tests/` and `python run_pipeline.py --all --validate-only` one more
-   time to confirm PASS.
-3. Re-run `python src/validate_site.py` to confirm the site still has 0 broken links (it will,
-   unless `docs/` was touched since the last check).
-4. Verify the final-quality-gate checklist from section 142 (raw data preserved, canonical data
-   produced, provenance preserved, validation tests passed, network definitions documented,
-   analyses reproducible, figures/tables regenerated, sensitivity analysis complete, web portal
-   built, broken links cleaned, README correct, paper package produced, thesis package produced,
-   final report produced) and write `reports/RELEASE_CHECKLIST.md` (section 123) with a PASS/FAIL
-   per item — by this point in the project, every item should be PASS except the ones already
-   known and disclosed as incomplete (RQ6/story similarity, some figures, live GitHub Pages
-   deployment).
-
-### Phase 21 — Final Reports (section 124-127)
-
-1. `reports/FINAL_REBUILD_REPORT.md` — the big one, section 124's full outline (Initial State,
-   Data Audit, Data Corrections, Preserved Decisions, Canonical Model, Network Models, Analyses,
-   Statistical Validation, Sensitivity, Key Findings, Limitations, Website, Reproducibility,
-   Academic Outputs, Future Work). This can be assembled almost entirely by summarizing
-   `reports/01` through `reports/17` plus the paper/thesis packages — it is a synthesis document,
-   not new work.
-2. `reports/EXECUTIVE_SUMMARY.md` (section 125) — short: what was done, what was found, what the
-   scientific contribution is, what should happen next. Aim for something a non-specialist
-   stakeholder could read in 3-5 minutes.
-3. Within `FINAL_REBUILD_REPORT.md`, include a "Top 5 strongest defensible findings" section
-   (section 126) — candidates, in defensibility order: (1) community modularity validated above
-   null in 7/9 networks, (2) degree assortativity retracted after null-model testing, (3)
-   person+group vs. person-only is the most consequential network-construction choice, (4) G3
-   kinship network is a genuine null result (indistinguishable from random), (5) the network is
-   robust to random failure but fragile to targeted attack. Do not pad this list with weaker
-   exploratory findings just to reach five if fewer are truly defensible (section 141: "az ama
-   güvenilir sonuç").
-4. Report negative/null results explicitly (section 127) — several already exist (G3_kinship null
-   result, the assortativity retraction, the RQ6 "not answerable" finding) — make sure the final
-   report doesn't quietly drop them.
+1. Obtain a real second coder and run `src/inter_annotator_stats.py` on actual data.
+2. Resolve the 5 concatenated-multi-actor nodes (DEC-013) — requires returning to original text.
+3. Build the full story-similarity metric suite (Jaccard/cosine/relation-profile/layer-composition/
+   hierarchical clustering) to properly answer RQ6 — currently the one open research question.
+4. Confirm the source edition metadata (`validation/source_edition_metadata_required.md`).
+5. Extend the Network Explorer to G3-G11; build remaining figures F01/F04-F05/F08-F14.
+6. **Only if the user explicitly asks:** push `claude-dk-rebuild` to remote, deploy the site to a
+   live GitHub Pages URL, or open a PR to `main`. None of these have been done — this entire
+   project exists only as local commits so far.
+7. Fill in `CITATION.cff`'s TODO fields once the repository owner confirms their name/publication
+   details.
 
 ---
 
@@ -398,8 +387,10 @@ Tam liste `docs/MASTER_PROMPT.md`'de; öncelik sırası (proje sahibinin verdiğ
 - ~~**PHASE 17 — Documentation**~~ ✅ **TAMAMLANDI**
 - ~~**PHASE 18 — Paper Package**~~ ✅ **TAMAMLANDI** (`paper/`)
 - ~~**PHASE 19 — Thesis Package**~~ ✅ **TAMAMLANDI** (`thesis/`)
-- **PHASE 20 — Final Validation/Release:** tüm sayıların (README, paper, thesis, canonical data) tutarlılığı henüz sistematik kontrol edilmedi. `reports/RELEASE_CHECKLIST.md` **henüz yok**.
-- **PHASE 21 — Final Reports:** `reports/FINAL_REBUILD_REPORT.md`, `reports/EXECUTIVE_SUMMARY.md` — **hiçbiri henüz yok**.
+- ~~**PHASE 20 — Final Validation/Release**~~ ✅ **TAMAMLANDI** (`reports/RELEASE_CHECKLIST.md`, 15/15 PASS)
+- ~~**PHASE 21 — Final Reports**~~ ✅ **TAMAMLANDI** (`reports/FINAL_REBUILD_REPORT.md`, `reports/EXECUTIVE_SUMMARY.md`)
+
+**Tüm 21 faz tamamlandı. `docs/MASTER_PROMPT.md`'nin kapsamı tam olarak teslim edildi.**
 
 ---
 
@@ -422,8 +413,9 @@ Gerçek dosya adlarıyla, okuma sırasına göre:
 13. `reports/13_14_reproducibility_report.md`
 14. `reports/15_16_web_portal_report.md`
 15. `reports/17_documentation_report.md`
-16. `thesis/research_questions.md` (which RQs are answerable, which are not — read before writing any final report)
-17. `docs/network_models.md`, `docs/methodology.md`, `docs/limitations.md`, `docs/data_dictionary.md`, `docs/relation_codebook.md`
+16. `reports/RELEASE_CHECKLIST.md`, `reports/FINAL_REBUILD_REPORT.md`, `reports/EXECUTIVE_SUMMARY.md` — the project's closing documents; read these FIRST if you just want the overall picture
+17. `thesis/research_questions.md` (which RQs are answerable, which are not)
+18. `docs/network_models.md`, `docs/methodology.md`, `docs/limitations.md`, `docs/data_dictionary.md`, `docs/relation_codebook.md`
 12. `docs/decision_log.md`
 13. `data/processed/*.csv` (canonical dataset — özellikle `nodes.csv`, `relations_event_level.csv`, `relations_aggregated.csv`, `relation_taxonomy.csv`)
 14. `src/networks.py` (network tanımlarının tek kaynağı — `NETWORK_DEFINITIONS`)

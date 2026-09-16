@@ -1,67 +1,45 @@
 # CURRENT PROJECT STATUS
 
-PHASES 1-19 COMPLETE AND COMMITTED (repository audit through paper/thesis packages; Phase 9-10
-motif/triad explicitly skipped with documented rationale, DEC-010).
+**ALL 21 PHASES OF THE GOVERNING MASTER PROMPT ARE COMPLETE.** (Phase 9-10 motif/triad analysis
+was explicitly and deliberately skipped, with documented rationale — DEC-010 — not silently
+omitted.)
 
-NEXT:
-PHASE 20 — FINAL VALIDATION/RELEASE, THEN PHASE 21 — FINAL REPORTS
+## Start by reading (in this order)
 
-## Start by reading
+1. `CLAUDE_SESSION_HANDOFF.md` — full state
+2. `reports/EXECUTIVE_SUMMARY.md` (~4 min read) — what was done, what was found, what's next
+3. `reports/FINAL_REBUILD_REPORT.md` — the full capstone synthesis
+4. `reports/RELEASE_CHECKLIST.md` — 15/15 PASS or PASS-with-disclosed-gaps
 
-1. `CLAUDE_SESSION_HANDOFF.md` — "PHASE 20-21 — NEXT WORK" section has the full task breakdown
-2. `thesis/research_questions.md` — which RQs are fully/partially/not answerable; the final report
-   must not silently claim more than this document supports
-3. Every `reports/*.md` file (01 through 17) plus `paper/` and `thesis/` — this phase synthesizes
-   all of them, it does not add new findings
+## There is no next mandatory task
 
-**This is the closing phase.** Do not run new analysis. If a consistency check finds a real
-discrepancy, fix the specific stale number, don't re-derive analysis from scratch.
+This project has reached the end of `docs/MASTER_PROMPT.md`'s 147-item specification. Do not
+invent new phases or restart completed ones. If you were resumed without a specific new
+instruction from the user, the correct action is to summarize the above three documents for them,
+not to start new work.
 
-## Task: Phase 20 — Final Validation/Release
+## If the user asks you to continue, prioritize (see "Future Work" in FINAL_REBUILD_REPORT.md)
 
-1. Cross-check headline numbers across README.md, DATASET_CARD.md, paper/results.md,
-   thesis/research_questions.md, docs/data/project_summary.json, and project_state.json - they
-   should all agree. A small script that re-derives each number from source and diffs against
-   what's written would be more reliable than eyeballing.
-2. Re-run `python -m pytest tests/`, `python run_pipeline.py --all --validate-only`, and
-   `python src/validate_site.py` - confirm all still PASS.
-3. Write `reports/RELEASE_CHECKLIST.md` (master prompt section 123/142's checklist) with an
-   explicit PASS/FAIL per item. Known, disclosed incompletions (RQ6/story similarity, some
-   figures, GitHub Pages not yet deployed) should show as explicitly acknowledged gaps, not
-   silently marked PASS.
+1. Get a real second coder and compute genuine inter-annotator reliability
+   (`docs/inter_annotator_protocol.md`, `src/inter_annotator_stats.py` are ready and waiting).
+2. Resolve the 5 concatenated-multi-actor nodes (`docs/decision_log.md` DEC-013).
+3. Build the full story-similarity metric suite to properly answer RQ6 (currently the project's
+   one open research question — `thesis/research_questions.md`).
+4. Confirm the source edition/transcription metadata
+   (`validation/source_edition_metadata_required.md`).
+5. Extend the Network Explorer to all 12 network variants; build remaining figures.
+6. **Only on explicit user request:** push `claude-dk-rebuild` to the remote, deploy the site to a
+   live GitHub Pages URL, or open a PR to `main`. Nothing has been pushed anywhere yet - this
+   entire project exists only as local commits on `claude-dk-rebuild`.
+7. Fill in `CITATION.cff` TODO fields once the repository owner confirms their details.
 
-## Task: Phase 21 — Final Reports
-
-1. `reports/FINAL_REBUILD_REPORT.md` (section 124's full outline - Initial State, Data Audit,
-   Data Corrections, Preserved Decisions, Canonical Model, Network Models, Analyses, Statistical
-   Validation, Sensitivity, Key Findings, Limitations, Website, Reproducibility, Academic Outputs,
-   Future Work). Assemble by synthesizing `reports/01` through `reports/17` - this is the
-   capstone document.
-2. Within it, a "Top 5 strongest defensible findings" section (section 126) - candidates already
-   identified in CLAUDE_SESSION_HANDOFF.md's Phase 21 section; don't pad to 5 if fewer are truly
-   defensible (section 141).
-3. Report negative/null results explicitly (section 127) - the G3_kinship null result, the
-   assortativity retraction, and RQ6's "not answerable" status must all appear, not be dropped.
-4. `reports/EXECUTIVE_SUMMARY.md` (section 125) - short, readable in 3-5 minutes by a
-   non-specialist: what was done, what was found, the scientific contribution, what's next.
-
-## After Phase 21: project is at v1 completion of the master prompt's scope
-
-At that point, consider with the user (not unilaterally):
-- Whether to push `claude-dk-rebuild` to the remote (this project has never pushed - no remote
-  auth was set up, and pushing changes the shared repository, which needs explicit permission).
-- Whether to open a PR to `main` or keep iterating on the branch.
-- Whether to actually deploy the site to GitHub Pages (requires a repo setting change).
-
-## Rules that must not be relaxed
+## Rules that must not be relaxed, ever, even after "completion"
 
 - Never invent unsupported data, metadata, academic findings, citation/DOI info, or author names.
 - Centrality ≠ literary importance.
-- Mark `not_applicable` rather than forcing a result on insufficient data - RQ6 is the standing
-  example; don't let a "final report" retroactively claim it was answered.
+- Mark `not_applicable` rather than forcing a result on insufficient data.
 - `data/raw/` and `data/final/` stay untouched.
-- No merge/push to `main`, no push to remote at all without explicit user request. Local commits
-  on `claude-dk-rebuild` only, as has been the practice throughout.
+- No merge/push to `main`, no push to remote at all without explicit user request.
 - Git commits via PowerShell: avoid embedded double quotes in `-m`, use `git commit -F <tempfile>`.
   Avoid PowerShell `-replace`/`Get-Content | Set-Content` on UTF-8 files with non-ASCII characters
   - use the Edit tool or a small Python script instead.

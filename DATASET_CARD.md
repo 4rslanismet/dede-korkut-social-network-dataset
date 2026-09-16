@@ -3,7 +3,7 @@
 ## Motivation
 
 This dataset encodes the actors, relations, and narrative events of the Book of Dede Korkut (14
-narrative units: 13 boy + 1 girizgah prologue) for computational digital-humanities and network-
+stories/narrative units: 13 boy + 1 girizgah prologue) for computational digital-humanities and network-
 science research. It was created to support reproducible social/complex/multilayer network
 analysis of a canonical Turkic epic corpus, rather than one-off, non-reproducible close-reading
 notes.
