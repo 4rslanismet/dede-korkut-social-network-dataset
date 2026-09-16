@@ -1,0 +1,206 @@
+{
+  "person_plus_group_vs_person_only": {
+    "pair": "person_plus_group_vs_person_only",
+    "description": "All actor types (G0_full) vs. kişi-only endpoints (G1_person_only).",
+    "n_nodes_a": 311,
+    "n_nodes_b": 154,
+    "n_common_nodes": 154,
+    "status": "computed",
+    "metrics": {
+      "degree": {
+        "spearman_rho": 0.9157452457267307,
+        "spearman_p": 4.475414685223788e-62,
+        "kendall_tau": 0.8761854336258534,
+        "kendall_p": 2.0858362986885765e-37,
+        "top_10_overlap_fraction": 1.0,
+        "top_20_overlap_fraction": 0.8
+      },
+      "betweenness": {
+        "spearman_rho": 0.8868778627109035,
+        "spearman_p": 7.7236731773856965e-53,
+        "kendall_tau": 0.7994860017270179,
+        "kendall_p": 9.290497386818259e-33,
+        "top_10_overlap_fraction": 0.7,
+        "top_20_overlap_fraction": 0.85
+      },
+      "pagerank": {
+        "spearman_rho": 0.9259979897249087,
+        "spearman_p": 3.4639912952402453e-66,
+        "kendall_tau": 0.8087149941679715,
+        "kendall_p": 9.074232289202311e-49,
+        "top_10_overlap_fraction": 0.8,
+        "top_20_overlap_fraction": 0.8
+      }
+    }
+  },
+  "weighted_vs_unweighted": {
+    "pair": "weighted_vs_unweighted",
+    "description": "Same edge set; G10 uses agirlik (1-5) as weight, G11 forces weight=1. Centrality measures that ignore weight (plain degree) are identical by construction - only weighted measures (strength, weighted betweenness/PageRank) can differ here.",
+    "n_nodes_a": 311,
+    "n_nodes_b": 311,
+    "n_common_nodes": 311,
+    "status": "computed",
+    "metrics": {
+      "degree": {
+        "spearman_rho": 1.0,
+        "spearman_p": 0.0,
+        "kendall_tau": 1.0,
+        "kendall_p": 3.0853991582629202e-89,
+        "top_10_overlap_fraction": 1.0,
+        "top_20_overlap_fraction": 1.0
+      },
+      "betweenness": {
+        "spearman_rho": 0.9295563438583019,
+        "spearman_p": 6.065469160319223e-136,
+        "kendall_tau": 0.8805773908294033,
+        "kendall_p": 1.3773734475650083e-72,
+        "top_10_overlap_fraction": 0.6,
+        "top_20_overlap_fraction": 0.8
+      },
+      "pagerank": {
+        "spearman_rho": 0.8489062985830346,
+        "spearman_p": 1.4425307032413495e-87,
+        "kendall_tau": 0.6985240780980234,
+        "kendall_p": 5.190423697621719e-72,
+        "top_10_overlap_fraction": 0.9,
+        "top_20_overlap_fraction": 0.85
+      }
+    }
+  },
+  "all_relations_vs_core_social": {
+    "pair": "all_relations_vs_core_social",
+    "description": "All relations (G0_full) vs. SEMANTIC/identity relations excluded (G2_core_social).",
+    "n_nodes_a": 311,
+    "n_nodes_b": 309,
+    "n_common_nodes": 309,
+    "status": "computed",
+    "metrics": {
+      "degree": {
+        "spearman_rho": 0.9999995789208921,
+        "spearman_p": 0.0,
+        "kendall_tau": 0.9999619062130967,
+        "kendall_p": 8.352567675564514e-89,
+        "top_10_overlap_fraction": 0.9,
+        "top_20_overlap_fraction": 0.95
+      },
+      "betweenness": {
+        "spearman_rho": 0.99999570625378,
+        "spearman_p": 0.0,
+        "kendall_tau": 0.9996734960411394,
+        "kendall_p": 3.256236584611954e-92,
+        "top_10_overlap_fraction": 1.0,
+        "top_20_overlap_fraction": 0.95
+      },
+      "pagerank": {
+        "spearman_rho": 0.9999213432454427,
+        "spearman_p": 0.0,
+        "kendall_tau": 0.9978576172418965,
+        "kendall_p": 7.636617991678884e-146,
+        "top_10_overlap_fraction": 0.9,
+        "top_20_overlap_fraction": 1.0
+      }
+    }
+  },
+  "explicit_only_vs_explicit_plus_inferred": {
+    "pair": "explicit_only_vs_explicit_plus_inferred",
+    "description": "Only cikarma_yontemi=='açık_ilişki' rows (596/628) vs. all rows including inferred relations (G0_full).",
+    "n_nodes_a": 293,
+    "n_nodes_b": 311,
+    "n_common_nodes": 293,
+    "status": "computed",
+    "metrics": {
+      "degree": {
+        "spearman_rho": 0.9816759529051566,
+        "spearman_p": 1.4637236866817583e-211,
+        "kendall_tau": 0.9758290225392785,
+        "kendall_p": 6.119963692319151e-81,
+        "top_10_overlap_fraction": 1.0,
+        "top_20_overlap_fraction": 0.9
+      },
+      "betweenness": {
+        "spearman_rho": 0.9706981430712783,
+        "spearman_p": 3.040286249532505e-182,
+        "kendall_tau": 0.9428539701996675,
+        "kendall_p": 1.431103760008606e-78,
+        "top_10_overlap_fraction": 0.8,
+        "top_20_overlap_fraction": 0.9
+      },
+      "pagerank": {
+        "spearman_rho": 0.989341574132362,
+        "spearman_p": 1.4648573397078308e-245,
+        "kendall_tau": 0.9554020914837704,
+        "kendall_p": 8.661756442967909e-128,
+        "top_10_overlap_fraction": 1.0,
+        "top_20_overlap_fraction": 0.95
+      }
+    }
+  },
+  "groups_included_vs_excluded": {
+    "pair": "groups_included_vs_excluded",
+    "description": "G0_full vs. relations where neither endpoint is node_type=='grup' (kişi + mitolojik/ilahi + hayvan + nesne/doğa + yer/coğrafya kept).",
+    "n_nodes_a": 311,
+    "n_nodes_b": 183,
+    "n_common_nodes": 183,
+    "status": "computed",
+    "metrics": {
+      "degree": {
+        "spearman_rho": 0.9498048410297082,
+        "spearman_p": 2.8099849528701104e-93,
+        "kendall_tau": 0.923502204397601,
+        "kendall_p": 5.274831443057961e-48,
+        "top_10_overlap_fraction": 0.9,
+        "top_20_overlap_fraction": 0.85
+      },
+      "betweenness": {
+        "spearman_rho": 0.895652197922328,
+        "spearman_p": 1.3479570662209944e-65,
+        "kendall_tau": 0.8278909058567601,
+        "kendall_p": 3.310884277493678e-40,
+        "top_10_overlap_fraction": 0.7,
+        "top_20_overlap_fraction": 0.85
+      },
+      "pagerank": {
+        "spearman_rho": 0.9573640202922519,
+        "spearman_p": 1.5213818366941628e-99,
+        "kendall_tau": 0.8756692420346751,
+        "kendall_p": 8.037620512341677e-68,
+        "top_10_overlap_fraction": 0.9,
+        "top_20_overlap_fraction": 0.85
+      }
+    }
+  },
+  "girizgah_included_vs_excluded": {
+    "pair": "girizgah_included_vs_excluded",
+    "description": "G0_full vs. story_id != 'S01' (girizgah has only 1 relation record; practical effect on rankings expected to be minimal but tested, not assumed).",
+    "n_nodes_a": 311,
+    "n_nodes_b": 310,
+    "n_common_nodes": 310,
+    "status": "computed",
+    "metrics": {
+      "degree": {
+        "spearman_rho": 0.9999995821809651,
+        "spearman_p": 0.0,
+        "kendall_tau": 0.9999620637329286,
+        "kendall_p": 5.11527291288773e-89,
+        "top_10_overlap_fraction": 0.9,
+        "top_20_overlap_fraction": 0.95
+      },
+      "betweenness": {
+        "spearman_rho": 0.9999963472888207,
+        "spearman_p": 0.0,
+        "kendall_tau": 0.9997560578955931,
+        "kendall_p": 1.9552946986734042e-92,
+        "top_10_overlap_fraction": 1.0,
+        "top_20_overlap_fraction": 0.95
+      },
+      "pagerank": {
+        "spearman_rho": 0.9996730768493406,
+        "spearman_p": 0.0,
+        "kendall_tau": 0.9971480866641127,
+        "kendall_p": 3.8627822745693746e-146,
+        "top_10_overlap_fraction": 0.9,
+        "top_20_overlap_fraction": 1.0
+      }
+    }
+  }
+}

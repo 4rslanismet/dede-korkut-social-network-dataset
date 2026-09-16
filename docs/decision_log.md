@@ -93,3 +93,18 @@ Bu dosya, projede alınan geri döndürülemez veya yorumlayıcı metodolojik ka
 **Rationale:** `double_edge_swap`, networkx'te en yaygın ve iyi test edilmiş degree-preserving randomizasyon yöntemidir; `configuration_model`'in çoklu-kenar/self-loop sadeleştirme adımlarını gerektirmez. Louvain (Leiden yerine) ensemble genelinde tutarlılık ve hız için seçildi — Faz 6'da Leiden ile yüksek uyum (ARI=0.899) zaten gösterilmişti. 36 testin çoğu (24/36) tek tek p<0.05 sınırına yakın/altında çıkabilirdi; FDR düzeltmesi olmadan yanlış-pozitif riski yüksek olurdu (madde 112 kuralı).
 
 **Status:** Uygulandı (Faz 7, `src/null_models.py`, `src/null_models_fdr.py`). **Önemli sonuç:** FDR düzeltmesi sonrası degree assortativity hiçbir ağda anlamlı çıkmadı — Faz 5'in "disassortative network" betimlemesi geri çekildi (bkz. `reports/07_null_models_report.md` §3.3, `reports/04_05_network_construction_and_descriptive_report.md`'e düzeltme notu eklendi). **Açık kalan iş:** G9_directed için yönlü-uyumlu bir null model henüz uygulanmadı; dev-bileşen-only modularity testi ve motif/triad null karşılaştırması da yapılmadı — bunlar gelecekteki iyileştirmeler olarak not edildi, mevcut Faz 7 kapsamının dışında bırakıldı.
+
+---
+
+### DEC-009
+**Question:** Sensitivity analysis için hangi 6 karşılaştırma çifti nasıl inşa edilmeli, karşılaştırma nasıl ölçülmeli; structural robustness için hangi kaldırma stratejileri ve durdurma/örnekleme kuralları kullanılmalı?
+
+**Decision:**
+- Sensitivity: `config/analysis.yaml::sensitivity.variants`'daki 6 çift, 3'ü mevcut G0/G1/G2/G10/G11 varyantlarını yeniden kullanarak, 3'ü (explicit-only, groups-excluded-only, girizgah-excluded) yeni filtrelerle inşa edildi. Karşılaştırma ölçütü: ortak node kümesi üzerinde Spearman ρ, Kendall τ, top-10/top-20 overlap (degree, betweenness, pagerank için).
+- "Groups excluded" (yalnızca `dugum_tipi=='grup'` çıkarılır) kasıtlı olarak `G1_person_only`'den (tüm `kişi`-dışı tipler çıkarılır: grup+mitolojik+hayvan+nesne+yer) **farklı** bir filtre olarak tanımlandı — madde 29'un "group nodes included/excluded" maddesi person-only'den ayrı bir soru olarak okundu.
+- Robustness: `G0_full` üzerinde random (100 deneme, seed=42), degree-targeted (her adımda yeniden hesaplanan), betweenness-targeted (~20 adımda bir yeniden hesaplanan — tam "her adımda" değil, hesaplama maliyeti nedeniyle) kaldırma. Adım büyüklüğü: orijinal node sayısının %2'si.
+- Ortak node sayısı 5'ten azsa sensitivity karşılaştırması `not_applicable` sayılır (kodda sabit, veriden türetilmedi).
+
+**Rationale:** Rank-correlation tabanlı karşılaştırma, "hangi network tanımı doğru" sorusundan kaçınıp "bu karar sıralamayı ne kadar değiştiriyor" sorusuna odaklanıyor — madde 30'un istediği tam olarak bu. Betweenness'i her adımda yeniden hesaplamak (311 node için ~300 kez tam betweenness hesaplama) gereksiz maliyetli olduğundan periyodik yeniden hesaplama tercih edildi; sonuç degree-targeted'e çok yakın çıktı (%1.9 vs %3.9 eşiği), bu yaklaşımın sonucu ciddi çarpıtmadığını düşündürüyor.
+
+**Status:** Uygulandı (Faz 8, `src/sensitivity.py`, `src/robustness.py`). **Bulgu:** Person+group vs person-only, test edilen 6 çift arasında sıralamaları en çok değiştiren karar (Spearman ρ=0.887-0.926); girizgah ve core-social filtrelemesi ihmal edilebilir etkiye sahip (ρ=1.000). Ağ, rastgele node kaybına dayanıklı (dev bileşen %50 altına düşmek için ~%25 rastgele kaldırma gerekiyor) ama hedefli saldırıya kırılgan (~%2-4 hedefli kaldırma yeterli) — klasik "robust yet fragile" örüntüsü, "structural robustness" olarak adlandırıldı, "narrative resilience" olarak değil (madde 31 kuralı).

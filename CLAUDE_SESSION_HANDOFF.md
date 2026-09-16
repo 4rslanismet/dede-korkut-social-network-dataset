@@ -214,6 +214,22 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 
 ---
 
+## PHASE 8 — SENSITIVITY / ROBUSTNESS ANALYSIS ✅ TAMAMLANDI
+
+**Scriptler:** [`src/sensitivity.py`](src/sensitivity.py), [`src/robustness.py`](src/robustness.py) → **Rapor:** [`reports/08_sensitivity_robustness_report.md`](reports/08_sensitivity_robustness_report.md)
+
+**Sensitivity (DEC-009):** `config/analysis.yaml::sensitivity.variants`'daki 6 çift test edildi (rank correlation: Spearman ρ, Kendall τ, top-k overlap). Sonuç, etki büyüklüğüne göre sıralı:
+- İhmal edilebilir: girizgah dahil/hariç (ρ=1.000), tüm ilişkiler vs core-social (ρ=1.000)
+- Küçük: explicit-only vs explicit+inferred (ρ=0.97-0.99)
+- Orta: weighted vs unweighted (PageRank ρ=0.849 — en duyarlı metrik), groups dahil/hariç (ρ=0.90-0.96)
+- **En büyük etki: person+group vs person-only** (ρ=0.887-0.926) — kolektif aktörleri çıkarmak sıralamayı en çok değiştiren tek karar.
+
+**Structural Robustness (madde 30-31, "narrative resilience" DEĞİL):** `G0_full` üzerinde random/degree-targeted/betweenness-targeted kaldırma. Klasik "robust yet fragile" örüntüsü: dev bileşenin %50 altına düşmesi için rastgele kaldırmada **%25.1** node gerekirken, hedefli (degree/betweenness) kaldırmada yalnızca **%1.9-3.9** yeterli.
+
+**Faz 5-7 bulgularına etkisi:** Salur Kazan/Bamsı Beyrek'in üstünlüğü network tanımına karşı nispeten kararlı (person-only'de bile top-10 overlap tam), ama alt sıradaki karakterlerin sıralaması modelleme kararına duyarlı.
+
+---
+
 ## KNOWN DATA / PROVENANCE LIMITATIONS (henüz çözülmedi, "çözülmüş" gibi gösterilmiyor)
 
 1. **Raw source lineage eksik** — hangi Dede Korkut edisyonunun/transkripsiyonunun kodlandığı belli değil (`validation/source_edition_metadata_required.md`).
@@ -228,6 +244,8 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 10. Directed triadic census, ağın seyrekliği nedeniyle ezici çoğunlukla "003" (bağlantısız) tipte — motif-tipi yorum için null model karşılaştırması henüz yapılmadı (G9_directed'e uygun yönlü null model Faz 7 kapsamına alınmadı, backlog'da).
 11. **Faz 5'in "disassortative network" bulgusu Faz 7'de geri çekildi** — degree assortativity, 9 ağın hiçbirinde FDR-düzeltmeli null modelden anlamlı şekilde farklı değil. Negatif değerler muhtemelen derece dağılımının kendisinden kaynaklanıyor.
 12. Modularity/community yapısının (Faz 6) 7/9 ağda null modelden anlamlı yüksek olduğu doğrulandı — ama bu, 23-bileşen artefaktını (§8 yukarı) çözmüyor, yalnızca genel modularity sinyalinin rastgele olmadığını gösteriyor.
+13. Faz 8 sensitivity: **person+group vs person-only** en büyük sıralama farkını yaratan modelleme kararı (ρ=0.887-0.926); PageRank, ağırlık şemasına (`agirlik`, semantiği hâlâ belirsiz — madde 36) en duyarlı metrik (ρ=0.849). Bu iki nokta, gelecekte "en önemli karakter" tartışması yapılırken **hangi network varyantının kullanıldığının açıkça belirtilmesi gerektiğini** gösteriyor.
+14. Structural robustness yalnızca `G0_full` üzerinde çalıştırıldı, ortalama path length eğrisi hesaplanmadı (yalnızca dev bileşen boyutu) — gelecekteki bir iyileştirme.
 
 ---
 
@@ -235,33 +253,30 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 
 ```text
 CURRENT STATUS:
-PHASES 1-7 COMPLETE
+PHASES 1-8 COMPLETE
 
 NEXT PHASE:
-PHASE 8 — SENSITIVITY / ROBUSTNESS ANALYSIS
+PHASE 9/10 — MOTIF/TRIAD (only if methodologically sound) THEN PHASE 11 — FIGURES
 
-PHASES 1-7 ARE COMPLETE. DO NOT RESTART THEM UNLESS VALIDATION REVEALS A REAL ERROR.
+PHASES 1-8 ARE COMPLETE. DO NOT RESTART THEM UNLESS VALIDATION REVEALS A REAL ERROR.
 ```
 
 ---
 
-## PHASE 8 — NEXT WORK
+## PHASE 9-10 / 11 — NEXT WORK
 
-1. `src/sensitivity.py` yaz: `config/analysis.yaml::sensitivity.variants` listesindeki karşılaştırmaları uygula — person+group vs person-only (G0 vs G1 zaten var, kullan), weighted vs unweighted (G10 vs G11 zaten var), all-relations vs core-social (G0 vs G2 zaten var), explicit vs explicit+inferred (`cikarma_yontemi` alanına göre yeni bir filtre gerekiyor — henüz yok), group included/excluded (G1 zaten "excluded" karşılığı), girizgah included/excluded (S01 hariç tutularak yeniden hesapla).
-2. Her varyant çifti için **centrality stability**: Spearman correlation, Kendall tau, top-k overlap (`outputs/tables/centrality_*.csv` dosyaları zaten var, bunları temel al).
-3. Structural robustness (Faz 9 ile birleştirilebilir ama madde 30/31 ayrı ele alınmalı): random/degree/betweenness-targeted node removal, giant component/connectivity eğrileri (`config/analysis.yaml::robustness`).
-4. Sonuçları `reports/08_sensitivity_robustness_report.md`'ye yaz — hangi merkeziyet sonuçlarının network tanımına duyarlı olduğunu, hangilerinin kararlı kaldığını açıkça göster.
-5. `not_applicable` gerektiren bir karşılaştırma varsa (ör. explicit-only ağ çok küçükse) belirt.
+1. **Motif/triad (Faz 9-10):** G9_directed'in triadic census'u zaten var (Faz 6) ama null model karşılaştırması yok — ağın seyrekliği (baskın "003" kategorisi) göz önüne alındığında, bu ancak dikkatli bir tasarımla (ör. yalnızca kapalı triad kategorilerinin (030T/030C/120*/210/300) toplam sayısını null ensemble ile karşılaştırmak) anlamlı olabilir. Yeterli örneklem yoksa `not_applicable` de.
+2. **Publication Figures (Faz 11, madde 48, F01-F18 hedefi):** `src/visualization.py` yaz. Öncelik: F02 (corpus full network), F03 (person-only), F06 (community structure — 23-bileşen uyarısıyla birlikte), F07 (centrality comparison), F15 (null-model dağılımları), F16 (sensitivity correlation matrix), F18 (robustness eğrileri) — bunlar zaten hesaplanmış veriye sahip, doğrudan görselleştirilebilir. Hairball'dan kaçın (madde 47): weighted edge opacity, degree-bazlı node boyutu, seçici etiketleme.
+3. **Publication Tables (Faz 12, madde 49, T01-T11):** CSV zaten çoğunlukla mevcut (`outputs/tables/`, `outputs/statistics/`) — LaTeX formatına da dönüştür.
 
 ---
 
-## REMAINING MASTER PLAN AFTER PHASE 7
+## REMAINING MASTER PLAN AFTER PHASE 8
 
 Tam liste `docs/MASTER_PROMPT.md`'de; öncelik sırası (proje sahibinin verdiği faz numaralandırmasıyla, kendi phase raporu numaralandırmamızdan farklı olabilir — önemli olan iş sırası):
 
 - ~~**PHASE 7 — Null Models / Statistical Validation**~~ ✅ **TAMAMLANDI** — bkz. yukarı.
-- **PHASE 8 — Sensitivity / Robustness:** person+group vs person-only, weighted vs unweighted, all vs core-social, explicit vs explicit+inferred, group included/excluded, girizgah included/excluded; centrality stability (Spearman, Kendall tau, top-k overlap). `config/analysis.yaml` → `sensitivity.variants` zaten tanımlı. Henüz `src/sensitivity.py` yok.
-- **PHASE 9 — Structural Robustness:** random/degree/betweenness-targeted node removal, giant component/connectivity eğrileri. `config/analysis.yaml` → `robustness` zaten tanımlı. Henüz `src/robustness.py` yok.
+- ~~**PHASE 8 — Sensitivity / Robustness**~~ ✅ **TAMAMLANDI** — `src/sensitivity.py`, `src/robustness.py`, `reports/08_sensitivity_robustness_report.md`. Bkz. yukarı.
 - **PHASE 10 — Motif/Triad (yalnızca uygunsa):** null modellerle motif enrichment.
 - **PHASE 11 — Publication Figures (F01-F18 hedefi, master prompt madde 48):** henüz `src/visualization.py` yok, `outputs/figures/` boş.
 - **PHASE 12 — Publication Tables (T01-T11, madde 49):** CSV + LaTeX. Henüz yok.
@@ -291,7 +306,8 @@ Gerçek dosya adlarıyla, okuma sırasına göre:
 8. `reports/04_05_network_construction_and_descriptive_report.md` (§ assortativity düzeltme notuna dikkat)
 9. `reports/06_advanced_network_analysis_report.md`
 10. `reports/07_null_models_report.md`
-11. `docs/network_models.md`
+11. `reports/08_sensitivity_robustness_report.md`
+12. `docs/network_models.md`
 12. `docs/decision_log.md`
 13. `data/processed/*.csv` (canonical dataset — özellikle `nodes.csv`, `relations_event_level.csv`, `relations_aggregated.csv`, `relation_taxonomy.csv`)
 14. `src/networks.py` (network tanımlarının tek kaynağı — `NETWORK_DEFINITIONS`)

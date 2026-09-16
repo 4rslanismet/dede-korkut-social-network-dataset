@@ -1,0 +1,17 @@
+{
+  "n_nodes": 311,
+  "n_edges": 376,
+  "n_random_trials": 100,
+  "seed": 42,
+  "step_fraction": 0.02,
+  "fraction_removed_to_drop_giant_below_50pct": {
+    "random": 0.2508038585209003,
+    "degree_targeted": 0.03858520900321544,
+    "betweenness_targeted": 0.01929260450160772
+  },
+  "fraction_removed_to_drop_giant_below_10pct": {
+    "random": 0.617363344051447,
+    "degree_targeted": 0.05787781350482315,
+    "betweenness_targeted": 0.05787781350482315
+  }
+}
