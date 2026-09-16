@@ -2,26 +2,26 @@
   "project": "Dede Korkut Digital Humanities & Network Science Project (DKNN)",
   "repository": "4rslanismet/dede-korkut-social-network-dataset",
   "branch": "claude-dk-rebuild",
-  "last_commit_before_this_update": "PENDING_PHASE_15_16_COMMIT",
-  "last_updated": "2026-09-16T11:47:13+03:00",
-  "completed_phases": [1, 2, 3, 4, 5, 6, 7, 8, "9-10 (skipped, DEC-010)", 11, 12, 13, 14, 15, 16],
-  "current_phase": 17,
+  "last_commit_before_this_update": "c62cc25",
+  "last_updated": "2026-09-16T12:08:59+03:00",
+  "completed_phases": [1, 2, 3, 4, 5, 6, 7, 8, "9-10 (skipped, DEC-010)", 11, 12, 13, 14, 15, 16, 17],
+  "current_phase": "18-19",
   "current_phase_status": "not_started",
   "current_phase_completed_subtasks": [],
   "current_phase_remaining_subtasks": [
-    "data_dictionary_md",
-    "relation_codebook_md",
-    "methodology_md_expanded",
-    "limitations_md",
-    "dataset_card_md",
-    "citation_cff",
-    "changelog_md",
-    "contributing_md",
-    "architecture_diagram",
-    "root_readme_redesign",
-    "commit_phase_17"
+    "paper_manuscript_outline",
+    "paper_methods",
+    "paper_results",
+    "paper_figures_tables",
+    "paper_supplementary_material",
+    "thesis_proposed_structure",
+    "thesis_research_questions",
+    "thesis_methodology_mapping",
+    "thesis_results_mapping",
+    "thesis_figure_table_inventory",
+    "commit_phase_18_19"
   ],
-  "next_task": "write_data_dictionary_then_relation_codebook",
+  "next_task": "write_paper_manuscript_outline_then_methods_results",
   "validation_status_last_known": "WARNING (see outputs/validation/summary.json; no FAIL-level/blocking issues)",
   "important_reports": [
     "CLAUDE_SESSION_HANDOFF.md",
@@ -39,6 +39,7 @@
     "reports/09_12_figures_tables_report.md",
     "reports/13_14_reproducibility_report.md",
     "reports/15_16_web_portal_report.md",
+    "reports/17_documentation_report.md",
     "config/analysis.yaml"
   ],
   "verified_headline_numbers": {
@@ -126,7 +127,8 @@
     "GitHub Pages path bug found and fixed (DEC-012): pages originally referenced ../outputs, ../data, ../reports which would 404 on a real /docs-published site - only caught by testing with a real local HTTP server, not a file:// preview",
     "site tested only locally (python -m http.server) - not yet deployed to actual GitHub Pages",
     "site's Network Explorer only offers G0/G1/G2 (not all 12 network variants); Similarity page remains partial (section 17 metrics not computed)",
-    "no methodology/limitations/data-dictionary/relation-codebook docs, DATASET_CARD.md, CITATION.cff, CHANGELOG.md, CONTRIBUTING.md, paper package, thesis package, or final release reports exist yet"
+    "documentation set complete (data_dictionary.md, relation_codebook.md, methodology.md, limitations.md, DATASET_CARD.md, CITATION.cff, CHANGELOG.md, CONTRIBUTING.md, architecture_diagram.svg, root README.md) - CITATION.cff has TODO placeholders for author name/date, intentionally not invented",
+    "no paper package, thesis package, or final release reports exist yet"
   ],
   "environment": {
     "os": "Windows 11 Pro N (win32)",

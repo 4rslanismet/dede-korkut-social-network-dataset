@@ -1,85 +1,88 @@
 # CURRENT PROJECT STATUS
 
-PHASES 1-16 COMPLETE AND COMMITTED (repository audit through web portal + website validation;
-Phase 9-10 motif/triad explicitly skipped with documented rationale, DEC-010).
+PHASES 1-17 COMPLETE AND COMMITTED (repository audit through full documentation set; Phase 9-10
+motif/triad explicitly skipped with documented rationale, DEC-010).
 
 NEXT:
-PHASE 17 — DOCUMENTATION
+PHASE 18 — PAPER PACKAGE, THEN PHASE 19 — THESIS PACKAGE
 
 ## Start by reading
 
-1. `CLAUDE_SESSION_HANDOFF.md` — full state
-2. `docs/MASTER_PROMPT.md` sections 83-90, 100-101 (documentation requirements)
-3. `reports/15_16_web_portal_report.md` — most recent work, including two new findings:
-   a GitHub-Pages path bug (DEC-012) and 5 newly-discovered concatenated-multi-actor nodes
-   (DEC-013, `validation/HUMAN_REVIEW_QUEUE.csv` HR0076-HR0080)
-4. `docs/decision_log.md` (DEC-001 through DEC-013)
+1. `CLAUDE_SESSION_HANDOFF.md` — full state, "PHASE 18-19 — NEXT WORK" section has the detailed
+   task breakdown
+2. `docs/MASTER_PROMPT.md` sections 43 (research questions), 91-96 (paper), 95 (thesis)
+3. `docs/methodology.md`, `docs/limitations.md` — reusable content for the paper's methods and
+   limitations sections
+4. Every `reports/*.md` file (01 through 17) — this is where every citable finding already lives
 
-**Do not rebuild Phases 1-16.** This phase is mostly synthesis/writing from data that already
-exists — schemas in `data/processed/*.csv`, relation types in `relation_taxonomy.csv`, every
-methodological decision in `docs/decision_log.md`, and limitations already scattered across every
-`reports/*.md` file and this handoff.
+**Do not rebuild Phases 1-17.** This is a writing/assembly task from existing findings.
 
-## Task: Phase 17 — Documentation
+## Critical rule for this phase (section 94)
 
-1. `docs/data_dictionary.md` (section 83): every column of every file in `data/processed/`
-   (nodes.csv, aliases.csv, stories.csv, relations_event_level.csv, relations_aggregated.csv,
-   relation_taxonomy.csv, provenance.csv, validation_status.csv) — field, type, meaning, allowed
-   values, nullability, source.
-2. `docs/relation_codebook.md` (section 84): one entry per relation type in
-   `data/processed/relation_taxonomy.csv` (17 types) — definition, parent family, directionality
-   expectation, polarity expectation, and 1-2 real examples pulled from
-   `relations_event_level.csv` (use `raw_evidence`).
-3. `docs/methodology.md` (section 85): expand well beyond `docs/methodology.html`'s summary — this
-   needs to be detailed enough to serve as a thesis/paper methods section source. Cite every
-   DEC-XXX decision by number with its rationale.
-4. `docs/limitations.md` (section 86): consolidate everything already known - source edition gap
-   (`validation/source_edition_metadata_required.md`), single coder, the 80-row story_level/final
-   provenance gap, 53 unmatched provenance relations, 29.6% "belirsiz" relations, group actor
-   effects (Phase 8 sensitivity results), inferred relation effects, edge weight semantics
-   (agirlik), narrative-order ≠ chronology, the 23-connected-component community artifact, the 5
-   concatenated-multi-actor nodes (new, Phase 15), entity resolution uncertainty (17 open alias
-   conflicts), retracted assortativity finding (Phase 7).
-5. `DATASET_CARD.md` (section 87), `CITATION.cff` (section 88 — use TODO/placeholder for missing
-   author/publication metadata, never invent), `CHANGELOG.md` (section 89 — legacy v3 to this
-   rebuild), `CONTRIBUTING.md` (section 90 — rules for adding new relation annotations).
-6. Architecture diagram (section 101) as SVG/PNG - the data-flow diagram already sketched in
-   `methodology.html` can be the basis.
-7. Root `README.md` redesign (section 100) - project overview, key features, dataset snapshot
-   (real numbers), repository structure, methodology summary, reproducibility, website link,
-   citation, license. This is the actual repository README, not a site page.
+Write every result as a **measured, hedged statement** tied to a specific network specification,
+never as an unhedged literary claim. Correct: "Salur Kazan exhibited the highest betweenness
+centrality (0.388) under the person-only core-social network specification (G1_person_only),
+though this is a preliminary descriptive result." Incorrect: "Salur Kazan is the most important
+character." This rule was already followed throughout `reports/*.md` — the paper/thesis text
+should inherit that discipline exactly, not loosen it for readability.
+
+## Task: Phase 18 — Paper Package (`paper/`)
+
+1. `paper/manuscript_outline.md` (structure: Introduction, Related Work, Materials and Data,
+   Methods, Results, Discussion, Limitations, Conclusion, Data/Code Availability — section 93).
+   The three most defensible headline findings to build the paper around: (a) community modularity
+   is validated as a real signal beyond the degree sequence in 7/9 tested networks (Phase 7), (b)
+   the earlier "disassortative network" claim did NOT survive null-model testing and was retracted
+   (Phase 7) - itself a notable methodological result about the risk of unvalidated descriptive
+   network statistics, (c) person+group vs. person-only is the single most consequential network-
+   construction choice tested (Phase 8).
+2. `paper/methods.md` (adapt from `docs/methodology.md`).
+3. `paper/results.md` (pull from `reports/04_05`, `06`, `07`, `08` - every number traceable to a
+   specific `outputs/` file; separate exploratory vs. confirmatory findings per section 44/110;
+   report effect sizes/z-scores/q-values, not just significance, per section 111).
+4. `paper/figures/`, `paper/tables/` (copy from `outputs/figures/`, `outputs/tables/publication/`).
+5. `paper/supplementary_material.md` (full metric tables, null model details, coding protocol,
+   taxonomy, validation results - section 96).
+
+## Task: Phase 19 — Thesis Package (`thesis/`)
+
+1. `thesis/proposed_structure.md`, `thesis/research_questions.md` - map to RQ1-RQ7 (master prompt
+   section 43); explicitly mark which RQs this dataset can only partially answer given the
+   limitations already catalogued in `docs/limitations.md` (e.g., RQ4's null-model question is
+   answerable; a hypothetical RQ about "which character is most important" is explicitly NOT
+   answerable given this project's own rules).
+2. `thesis/methodology_mapping.md`, `thesis/results_mapping.md` - map each RQ to the specific
+   report/script/output addressing it.
+3. `thesis/figure_inventory.md`, `thesis/table_inventory.md`.
 
 ## Then continue in master-plan order
 
-PHASE 18 paper package (`paper/`: manuscript outline, methods, results, figures, tables,
-supplementary material - section 91-94, use ONLY real computed findings, hedge appropriately per
-section 94's example phrasing) -> PHASE 19 thesis package (`thesis/`: proposed structure, research
-questions, methodology mapping, results mapping, figure/table inventory) -> PHASE 20 final
-validation/release (cross-check every number across README/paper/thesis/canonical
-data/website for consistency) -> PHASE 21 final reports (FINAL_REBUILD_REPORT.md,
-EXECUTIVE_SUMMARY.md, RELEASE_CHECKLIST.md).
+PHASE 20 final validation/release (cross-check every number across README/paper/thesis/canonical
+data/website for consistency - a good candidate for a small `src/validate_release_consistency.py`
+script rather than manual checking) -> PHASE 21 final reports (`reports/FINAL_REBUILD_REPORT.md`,
+`reports/EXECUTIVE_SUMMARY.md`, `reports/RELEASE_CHECKLIST.md`).
 
 ## Known gaps carried forward
 
-- Story similarity (section 17) still not fully computed.
-- 5 concatenated-multi-actor nodes discovered in Phase 15, unresolved (DEC-013).
+- Story similarity (section 17) still not fully computed - if the paper/thesis wants to discuss
+  story-level clustering, either compute the full metric suite first or scope the claim to what
+  the raw shared-actor projection actually supports.
+- 5 concatenated-multi-actor nodes discovered in Phase 15, unresolved (DEC-013) - mention as a
+  data-quality limitation if the paper discusses entity resolution.
 - G9_directed has no null-model comparison; degree assortativity is NOT validated (retracted,
-  Phase 7) - do not cite it as fact in new documentation.
-- `run_pipeline.py --all` (full mode) not tested end-to-end.
-- Site not yet deployed to actual GitHub Pages (only tested locally via `python -m http.server`).
+  Phase 7) - do not cite it as fact in the paper/thesis.
+- Site not yet deployed to actual GitHub Pages (tested locally only).
+- CITATION.cff has TODO placeholders for author name and date - resolve with the repository owner
+  before any real publication, don't fill in guessed values.
 
 ## Rules that must not be relaxed
 
 - Never invent unsupported data, metadata, academic findings, citation/DOI info, or author names.
-- Centrality ≠ literary importance.
+- Centrality ≠ literary importance - the paper/thesis must preserve this discipline.
 - Mark `not_applicable` rather than forcing a result on insufficient data.
 - `data/raw/` and `data/final/` stay untouched.
 - No merge/push to `main`. No force-push. Local commits on `claude-dk-rebuild` only.
-- When testing the website, always use a real local HTTP server (`python -m http.server` from
-  `docs/`), never just open the HTML file directly - `file://` previews hide real path bugs
-  (see DEC-012, caught a GitHub-Pages-breaking bug that a file:// preview missed entirely).
-- When writing git commit messages via PowerShell, avoid embedded double quotes in `-m` — use
-  `git commit -F <tempfile>`. Also avoid piping file content through PowerShell `-replace` /
-  `Get-Content | Set-Content` for files with non-ASCII characters - it can corrupt UTF-8 (this
-  happened once this session, see DEC-012's note and the fix in `src/build_site.py`'s git
-  history); prefer the Edit tool or a small Python script for text replacement instead.
+- Git commits via PowerShell: avoid embedded double quotes in `-m`, use `git commit -F <tempfile>`.
+  Avoid PowerShell `-replace`/`Get-Content | Set-Content` on UTF-8 files with non-ASCII characters
+  (corrupted em-dashes/Turkish characters once this session) - use the Edit tool or a small Python
+  script instead.

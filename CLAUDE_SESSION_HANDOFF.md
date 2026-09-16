@@ -268,6 +268,14 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 
 ---
 
+## PHASE 17 — DOCUMENTATION ✅ TAMAMLANDI
+
+**Rapor:** [`reports/17_documentation_report.md`](reports/17_documentation_report.md)
+
+Yeni analiz yok — Faz 1-16'nın bilgisini kalıcı dokümanlara sentezledi: `docs/data_dictionary.md`, `docs/relation_codebook.md` (gerçek `raw_evidence` örnekleriyle), genişletilmiş `docs/methodology.md`, `docs/limitations.md` (17 madde), `DATASET_CARD.md`, `CITATION.cff` (yazar adı **TODO**, uydurulmadı — repo sahibinin gerçek adı bilinmiyor), `CHANGELOG.md`, `CONTRIBUTING.md`, `docs/architecture_diagram.svg`, kökte yeniden tasarlanmış `README.md`. Site yeniden build edildi + validate edildi: **363/363 PASS**.
+
+---
+
 ## KNOWN DATA / PROVENANCE LIMITATIONS (henüz çözülmedi, "çözülmüş" gibi gösterilmiyor)
 
 1. **Raw source lineage eksik** — hangi Dede Korkut edisyonunun/transkripsiyonunun kodlandığı belli değil (`validation/source_edition_metadata_required.md`).
@@ -300,41 +308,54 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 
 ```text
 CURRENT STATUS:
-PHASES 1-16 COMPLETE (9-10 skipped with documented rationale, DEC-010)
+PHASES 1-17 COMPLETE (9-10 skipped with documented rationale, DEC-010)
 
 NEXT PHASE:
-PHASE 17 — DOCUMENTATION (data dictionary, relation codebook, methodology.md, limitations.md,
-architecture diagram, DATASET_CARD.md, CITATION.cff, CHANGELOG.md, CONTRIBUTING.md)
+PHASE 18 — PAPER PACKAGE, THEN PHASE 19 — THESIS PACKAGE
 
-PHASES 1-16 ARE COMPLETE. DO NOT RESTART THEM UNLESS VALIDATION REVEALS A REAL ERROR.
+PHASES 1-17 ARE COMPLETE. DO NOT RESTART THEM UNLESS VALIDATION REVEALS A REAL ERROR.
 ```
 
 ---
 
-## PHASE 17 — NEXT WORK (Documentation)
+## PHASE 18-19 — NEXT WORK (Paper & Thesis Packages)
 
-Master prompt sections 83-90, 100-101. All content-source data already exists (schemas in
-`data/processed/*.csv`, relation types in `relation_taxonomy.csv`, methodology decisions in
-`docs/decision_log.md`, limitations already enumerated throughout this handoff) — this phase is
-mostly synthesis/writing, not new analysis.
+Master prompt sections 91-96 (paper), 95 (thesis). All underlying findings already exist in
+`reports/*.md` — this is a writing/assembly task, not new analysis. **Rule 94 applies strictly:
+write results as measured statements ("X exhibited the highest betweenness centrality under the
+person-only core-social network specification"), never as unhedged literary claims ("X is the
+most important character").**
 
-1. `docs/data_dictionary.md` (section 83): every column of every `data/processed/*.csv`, with
-   field/type/meaning/allowed values/nullability/source.
-2. `docs/relation_codebook.md` (section 84): each of the 17 relation types (from
-   `data/processed/relation_taxonomy.csv`) with definition/parent family/directionality/polarity
-   expectations/examples (pull real examples from `relations_event_level.csv`).
-3. `docs/methodology.md` (section 85): should be detailed enough to be the technical source for a
-   thesis methods section — expand `methodology.html`'s content considerably, cite every DEC-XXX.
-4. `docs/limitations.md` (section 86): consolidate every limitation already scattered across this
-   handoff and the reports/*.md files into one document (source edition gap, single coder, group
-   actors, inferred relations, edge weighting, narrative-order ≠ time, projection artifacts, entity
-   resolution uncertainty including the 5 concatenated-node issue from Phase 15, interpretation limits).
-5. `DATASET_CARD.md`, `CITATION.cff` (placeholder author/publication metadata, don't invent), `CHANGELOG.md`
-   (legacy v3 → this rebuild), `CONTRIBUTING.md` (rules for adding new relation annotations).
-6. Architecture diagram (section 101) — SVG/PNG of the data flow, can adapt the ASCII diagram
-   already in `methodology.html`.
-7. README.md redesign (section 100) — this is the REPOSITORY root README, not the site; needs
-   project overview/features/dataset snapshot/structure/methodology/reproducibility/website/citation/license.
+### Phase 18 — Paper Package (`paper/`)
+
+1. `paper/manuscript_outline.md` — structure per section 93 (Introduction, Related Work,
+   Materials and Data, Methods, Results, Discussion, Limitations, Conclusion, Data/Code
+   Availability). A candidate title is suggested in the master prompt (section 92) but should be
+   revised to fit the actual strongest findings (community modularity validation, the assortativity
+   retraction, and the person-only sensitivity result are the three most defensible headline
+   results from this rebuild).
+2. `paper/methods.md` — can largely reuse `docs/methodology.md`'s content, reframed for a paper's
+   methods section register.
+3. `paper/results.md` — pull directly from `reports/04_05...`, `06...`, `07...`, `08...`; every
+   number must be traceable to a specific `outputs/` file. Use rule 94's hedged phrasing throughout.
+   Report exploratory vs. confirmatory findings separately (section 44/110) and effect sizes, not
+   just p-values (section 111) — the FDR-corrected null model results in `reports/07...` already
+   have z-scores and q-values ready to cite.
+4. `paper/figures/`, `paper/tables/` — copy or symlink from `outputs/figures/` and
+   `outputs/tables/publication/`.
+5. `paper/supplementary_material.md` — full metric tables, sensitivity results, null model
+   details, coding protocol, taxonomy, validation results (section 96).
+
+### Phase 19 — Thesis Package (`thesis/`)
+
+1. `thesis/proposed_structure.md`, `thesis/research_questions.md` (map to RQ1-RQ7 in
+   `docs/MASTER_PROMPT.md` section 43 — note which RQs this rebuild's data can and cannot actually
+   answer; several may need to be marked partially-answerable given the limitations in
+   `docs/limitations.md`).
+2. `thesis/methodology_mapping.md`, `thesis/results_mapping.md` — map each RQ to the specific
+   report/script/output that addresses it.
+3. `thesis/figure_inventory.md`, `thesis/table_inventory.md` — catalog of all F/T-numbered outputs
+   with their location and what they show.
 
 ---
 
@@ -351,7 +372,7 @@ Tam liste `docs/MASTER_PROMPT.md`'de; öncelik sırası (proje sahibinin verdiğ
 - ~~**PHASE 14 — Reproducibility/Pipeline**~~ ✅ **TAMAMLANDI** (`run_pipeline.py`, `tests/`, hash manifest, lock file)
 - ~~**PHASE 15 — Web Portal**~~ ✅ **TAMAMLANDI** (363 HTML dosyası, bkz. yukarı)
 - ~~**PHASE 16 — Website Validation**~~ ✅ **TAMAMLANDI** (363/363 PASS)
-- **PHASE 17 — Documentation:** `docs/data_dictionary.md`, `docs/relation_codebook.md`, `docs/methodology.md` (genişletilmiş), `docs/limitations.md` — **hiçbiri henüz yazılmadı** (`network_models.md`, `decision_log.md`, `MASTER_PROMPT.md`, `inter_annotator_protocol.md` hariç, onlar zaten var). `DATASET_CARD.md`, `CITATION.cff`, `CHANGELOG.md`, `CONTRIBUTING.md` — **hiçbiri henüz yok**. Kök `README.md` de bu fazda yeniden tasarlanmalı (madde 100).
+- ~~**PHASE 17 — Documentation**~~ ✅ **TAMAMLANDI**
 - **PHASE 18 — Paper Package:** `paper/` dizini **henüz yok**.
 - **PHASE 19 — Thesis Package:** `thesis/` dizini **henüz yok**.
 - **PHASE 20 — Final Validation/Release:** tüm sayıların (README, paper, thesis, canonical data) tutarlılığı henüz kontrol edilmedi (bu sistematik kontrol henüz yapılmadı çünkü paper/thesis/website henüz yok).
@@ -377,7 +398,8 @@ Gerçek dosya adlarıyla, okuma sırasına göre:
 12. `reports/09_12_figures_tables_report.md`
 13. `reports/13_14_reproducibility_report.md`
 14. `reports/15_16_web_portal_report.md`
-15. `docs/network_models.md`
+15. `reports/17_documentation_report.md`
+16. `docs/network_models.md`, `docs/methodology.md`, `docs/limitations.md`, `docs/data_dictionary.md`, `docs/relation_codebook.md`
 12. `docs/decision_log.md`
 13. `data/processed/*.csv` (canonical dataset — özellikle `nodes.csv`, `relations_event_level.csv`, `relations_aggregated.csv`, `relation_taxonomy.csv`)
 14. `src/networks.py` (network tanımlarının tek kaynağı — `NETWORK_DEFINITIONS`)

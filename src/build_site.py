@@ -236,6 +236,10 @@ Canonical dataset (data/processed/) — src/build_canonical.py
      ↓  src/visualization.py, src/export_tables.py — figures & publication tables
 Website (docs/) — src/build_site_data.py, src/build_site.py
 </pre>
+<figure>
+  <img src="architecture_diagram.svg" alt="Pipeline architecture diagram">
+  <figcaption>Full data-flow diagram (SVG). Every arrow is a re-runnable src/*.py script.</figcaption>
+</figure>
 
 <h2>Key modeling decisions</h2>
 <p>Every non-obvious methodological choice is logged with its rationale in
@@ -261,6 +265,14 @@ network (identity/title relations excluded), and the 23-connected-component cave
 <p>All 12 network variants (G0-G11) are defined in one place, <code>src/networks.py</code>, and
 documented in full in <a href="network_models.md">network_models.md</a>. Every variant is reproducible by
 re-running <code>python run_pipeline.py --stage build_networks</code>.</p>
+
+<h2>Further reading</h2>
+<p>
+<a href="data_dictionary.md">Data Dictionary</a> ·
+<a href="relation_codebook.md">Relation Codebook</a> ·
+<a href="limitations.md">Limitations</a> (17 items) ·
+<a href="inter_annotator_protocol.md">Inter-Annotator Protocol</a>
+</p>
 
 <h2>What this project does not claim</h2>
 <ul>

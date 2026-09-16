@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this dataset or analysis pipeline, please cite it as below. Author name/publication metadata below is incomplete (marked TODO) pending confirmation from the repository owner — it has not been invented."
+title: "Dede Korkut Narrative Network Dataset and Analysis Pipeline"
+type: dataset
+authors:
+  - alias: 4rslanismet
+    # TODO: replace with real given-names/family-names once confirmed by the repository owner.
+    given-names: "TODO"
+    family-names: "TODO"
+repository-code: "https://github.com/4rslanismet/dede-korkut-social-network-dataset"
+url: "https://4rslanismet.github.io/dede-korkut-social-network-dataset/"
+license: CC-BY-4.0
+version: "processed-v4-rebuild"
+date-released: "TODO"
+keywords:
+  - digital humanities
+  - social network analysis
+  - complex networks
+  - multilayer networks
+  - literary network analysis
+  - Dede Korkut
+  - Turkic epic narrative
+preferred-citation:
+  type: dataset
+  title: "Dede Korkut Narrative Network Dataset and Analysis Pipeline"
+  authors:
+    - alias: 4rslanismet
+      given-names: "TODO"
+      family-names: "TODO"
+  # TODO: add a forthcoming-publication entry here if/when this work is published
+  # in a journal, conference proceedings, or thesis. Do not fabricate a DOI.
