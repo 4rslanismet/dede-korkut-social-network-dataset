@@ -4,6 +4,35 @@
 was explicitly and deliberately skipped, with documented rationale — DEC-010 — not silently
 omitted.)
 
+## IN PROGRESS NOW (post-completion optional work, user asked to continue)
+
+**"Phase 22" (unofficial, not part of the original 21-phase master prompt numbering) — completing
+the story-similarity metric suite to properly answer RQ6**, the one research question
+`thesis/research_questions.md` marked "NOT answerable with current data." This was picked as the
+highest-value, fully self-contained item from `reports/FINAL_REBUILD_REPORT.md`'s "Future Work"
+list (items requiring a second coder or the repo owner's confirmation were skipped — not
+executable autonomously).
+
+**If you are resuming after a usage-limit reset, check `git log --oneline -5` first** — if a
+commit mentioning "story similarity" or "Phase 22" already exists, this work may already be
+done; read `reports/` for the newest report before redoing anything.
+
+Plan for this sub-task (section 17 of `docs/MASTER_PROMPT.md`):
+1. `src/story_similarity.py`: actor Jaccard, weighted Jaccard, cosine similarity, relation-profile
+   similarity, layer-composition similarity — all 14×14 story-pair matrices — plus hierarchical
+   clustering (scipy) over the combined feature set.
+2. Regenerate `outputs/tables/publication/T08_story_similarity.csv` (no longer partial) and update
+   `docs/similarity.html` (site) + `paper/`/`thesis/` references that currently say RQ6 is
+   unanswered.
+3. Figures F10 (heatmap) and F11 (similarity network) using `src/visualization.py`'s existing
+   style conventions.
+4. Update `thesis/research_questions.md` RQ6 status from "NOT answerable" to "answered" (only once
+   the analysis is actually done and defensible — do not flip the status prematurely).
+5. Checkpoint files (`CLAUDE_SESSION_HANDOFF.md`, `NEXT_TASK.md`, `project_state.json`,
+   `docs/decision_log.md` if a new methodological decision is made, e.g. which similarity metric
+   combination feeds the clustering) updated and committed at the end, same pattern as every prior
+   phase this session.
+
 ## Start by reading (in this order)
 
 1. `CLAUDE_SESSION_HANDOFF.md` — full state
