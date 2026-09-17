@@ -42,13 +42,17 @@ to cite. Cross-reference `paper/results.md` for full prose treatment.
   halve the giant component.
 - **Cite:** Table T10, T11, Figure F16, F17, F18.
 
-## RQ6 — Story clustering (NOT fully answerable)
+## RQ6 — Story clustering (answered post-project, DEC-014)
 
-- **Finding:** Only the raw shared-actor bipartite projection exists (Table T08, marked partial).
-  No Jaccard/cosine/hierarchical-clustering result to report.
-- **Recommendation for the thesis:** either build the full similarity suite before writing this
-  chapter, or explicitly scope Chapter 7's RQ6 discussion to "preliminary, projection-only
-  observations" and flag the gap as future work (Chapter 9).
+- **Finding:** S03/S05 (Jaccard=0.153) and S08/S10 (Jaccard=0.133) are the most actor-similar
+  story pairs, both also scoring highly on relation-profile and layer-composition similarity
+  (0.94-0.97) — these pairs are alike both in who appears and in what kind of relations dominate.
+  Ward hierarchical clustering on each story's relation-family/layer proportion profile shows no
+  sharp genre-like partition — several tight pairs/triples embedded in a broader continuum.
+- **Cite:** Table T08 (full 5-metric, 91-pair suite), Figure F10 (heatmap), Figure F11 (network,
+  top 15 pairs), `outputs/statistics/story_similarity_clustering.json` (dendrogram/linkage).
+- **Caveat for the thesis text:** descriptive only — no significance test was applied to the
+  clustering or similarity values themselves (unlike RQ4's null-model-tested claims).
 
 ## RQ7 — Narrative-order evolution (exploratory only)
 

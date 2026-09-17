@@ -51,8 +51,8 @@ collapsed into one entry. Neither was silently corrected; both are logged for ma
    (the sampling and tooling are already built and waiting).
 2. Resolve the two disclosed data-quality issues (the provenance gap and the five merged-name
    nodes) by returning to the original narrative text.
-3. ~~Complete the story-level similarity analysis~~ — **done** in a post-release addendum: all 91
-   story pairs, 5 similarity metrics, and a hierarchical clustering now answer RQ6 (previously the
-   one open research question of the original seven).
+3. Complete the story-level similarity analysis (currently only a raw projection exists), which is
+   needed to properly answer one of the seven original research questions (RQ6) — this project
+   explicitly declined to force an answer from incomplete data.
 4. Decide, with the repository owner, whether and when to push this work to the remote repository
    and deploy the website live; confirm citation metadata before any formal publication.

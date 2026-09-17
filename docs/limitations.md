@@ -128,12 +128,16 @@ model was available in the networkx version used, and 44 samples across 7 catego
 support a meaningful per-category enrichment test. Skipped, not forced.
 → `docs/decision_log.md` DEC-010.
 
-## 15. Story Similarity Incomplete
+## 15. Story Similarity — Completed Post-Project (Update)
 
-Only the raw actor×story bipartite shared-actor projection has been computed. The full similarity
-metric suite (actor Jaccard, weighted Jaccard, cosine similarity, relation-profile similarity,
-layer-composition similarity, hierarchical clustering) described in the original project brief has
-not yet been built. The website's Similarity page and table T08 are explicitly marked partial.
+*Originally, only the raw actor×story bipartite shared-actor projection had been computed and
+this item flagged RQ6 as unanswerable.* The full similarity metric suite (actor Jaccard, weighted
+Jaccard, cosine similarity, relation-profile similarity, layer-composition similarity,
+hierarchical clustering) was subsequently built (`src/story_similarity.py`, `docs/decision_log.md`
+DEC-014), completing RQ6. Remaining caveat: the similarity values and the hierarchical clustering
+built from them are descriptive only — no significance/null-model test was applied to them, unlike
+this project's community/modularity findings.
+→ `thesis/research_questions.md` RQ6, `outputs/statistics/story_similarity_clustering.json`.
 
 ## 16. Website Scope
 

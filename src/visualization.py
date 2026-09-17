@@ -258,6 +258,69 @@ def figure_F18_robustness_curves():
     save(fig, "robustness", "F18_structural_robustness_curves")
 
 
+def figure_F10_story_similarity_heatmap():
+    mat = pd.read_csv(ROOT / "outputs" / "matrices" / "story_similarity_actor_jaccard.csv", index_col=0, encoding="utf-8-sig")
+    off_diag_max = mat.values[~np.eye(len(mat), dtype=bool)].max()
+
+    masked = mat.values.copy()
+    np.fill_diagonal(masked, np.nan)
+
+    cmap = plt.get_cmap("YlOrBr").copy()
+    cmap.set_bad("#e8e4da")  # diagonal (self-similarity, trivially 1.0) shown as neutral grey, not competing with real pairs
+
+    fig, ax = plt.subplots(figsize=(8, 7))
+    im = ax.imshow(masked, cmap=cmap, vmin=0, vmax=off_diag_max)
+    ax.set_xticks(range(len(mat.columns)))
+    ax.set_xticklabels(mat.columns, rotation=90, fontsize=8)
+    ax.set_yticks(range(len(mat.index)))
+    ax.set_yticklabels(mat.index, fontsize=8)
+    fig.colorbar(im, ax=ax, label="Actor Jaccard similarity")
+    ax.set_title("F10 — Story Similarity Heatmap (Actor Jaccard)", fontsize=12, fontweight="bold")
+    fig.text(0.5, -0.02, "Grey diagonal = self-similarity (trivially 1.0, excluded from color scale). See outputs/matrices/ for the other 4 similarity metrics.",
+              ha="center", fontsize=8, color="#444444")
+    fig.tight_layout()
+    save(fig, "similarity", "F10_story_similarity_heatmap")
+
+
+def figure_F11_story_similarity_network():
+    mat = pd.read_csv(ROOT / "outputs" / "matrices" / "story_similarity_actor_jaccard.csv", index_col=0, encoding="utf-8-sig")
+    stories = pd.read_csv(ROOT / "data" / "processed" / "stories.csv", encoding="utf-8-sig").set_index("story_id")
+
+    # Keep only the strongest edges (top 15 of 91 pairs) so the network shows
+    # genuine similarity structure rather than every weak/noisy connection.
+    pairs = []
+    for i, a in enumerate(mat.index):
+        for b in mat.columns[i + 1:]:
+            pairs.append((a, b, mat.loc[a, b]))
+    pairs.sort(key=lambda x: x[2], reverse=True)
+    top_pairs = [p for p in pairs if p[2] > 0][:15]
+    threshold = top_pairs[-1][2] if top_pairs else 0
+
+    g = nx.Graph()
+    g.add_nodes_from(mat.index)
+    for a, b, w in top_pairs:
+        g.add_edge(a, b, weight=w)
+    g.remove_nodes_from(list(nx.isolates(g)))
+
+    pos = nx.spring_layout(g, weight="weight", seed=42, k=1.6)
+    fig, ax = plt.subplots(figsize=(9, 8))
+    weights = np.array([g[u][v]["weight"] for u, v in g.edges()])
+    for (u, v), w in zip(g.edges(), weights):
+        alpha = 0.25 + 0.65 * (w - threshold) / (weights.max() - threshold + 1e-9)
+        lw = 1.0 + 3.0 * (w - threshold) / (weights.max() - threshold + 1e-9)
+        ax.plot([pos[u][0], pos[v][0]], [pos[u][1], pos[v][1]], color="#7a4b2a", alpha=alpha, linewidth=lw, zorder=1)
+    ax.scatter([pos[n][0] for n in g.nodes()], [pos[n][1] for n in g.nodes()], s=420, c="#3b6fa0", edgecolors="white", linewidths=1.5, zorder=2)
+    for n in g.nodes():
+        ax.annotate(n, pos[n], fontsize=9, ha="center", va="center", color="white", fontweight="bold", zorder=3)
+        boy_name = stories.loc[n, "boy_name_raw"] if n in stories.index else n
+        ax.annotate(boy_name[:22], pos[n], fontsize=7, ha="center", va="top",
+                    xytext=(0, -16), textcoords="offset points", color="#2a2622", zorder=3)
+    ax.set_title(f"F11 — Story Similarity Network (top {len(top_pairs)} of 91 pairs by Actor Jaccard)", fontsize=12, fontweight="bold")
+    ax.axis("off")
+    fig.tight_layout()
+    save(fig, "similarity", "F11_story_similarity_network")
+
+
 def main():
     nodes, rel = load_processed()
     graphs = build_all_networks()
@@ -270,6 +333,8 @@ def main():
     figure_F16_sensitivity_matrix()
     figure_F17_rank_stability_scatter()
     figure_F18_robustness_curves()
+    figure_F10_story_similarity_heatmap()
+    figure_F11_story_similarity_network()
 
     print("\nAll priority figures generated under outputs/figures/")
 

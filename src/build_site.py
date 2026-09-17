@@ -34,6 +34,8 @@ FIGURES_TO_COPY = [
     "outputs/figures/sensitivity/F16_sensitivity_correlation_matrix.png",
     "outputs/figures/sensitivity/F17_centrality_rank_stability.png",
     "outputs/figures/robustness/F18_structural_robustness_curves.png",
+    "outputs/figures/similarity/F10_story_similarity_heatmap.png",
+    "outputs/figures/similarity/F11_story_similarity_network.png",
 ]
 
 REPORTS_TO_COPY_GLOB = "reports/*.md"
@@ -571,26 +573,42 @@ by community) or the static figure below.</p>
 # SIMILARITY
 # ---------------------------------------------------------------------------
 def build_similarity():
-    path = ROOT / "outputs" / "matrices" / "story_projection_shared_actors.csv"
-    if path.exists():
-        mat = pd.read_csv(path, index_col=0, encoding="utf-8-sig")
-        table = table_html(mat.reset_index())
-    else:
-        table = "<p>Not yet computed.</p>"
+    jaccard = pd.read_csv(ROOT / "outputs" / "matrices" / "story_similarity_actor_jaccard.csv", index_col=0, encoding="utf-8-sig")
+    t08 = pd.read_csv(ROOT / "outputs" / "tables" / "publication" / "T08_story_similarity.csv", encoding="utf-8-sig")
+    top10 = t08.sort_values("actor_jaccard", ascending=False).head(10)
 
     content = f"""
 <h1>Story Similarity</h1>
-<div class="disclaimer">This page is <strong>partial</strong>. Only the raw shared-actor bipartite
-projection is available. The full similarity metric suite described in the project brief
-(actor Jaccard, weighted Jaccard, cosine similarity, relation-profile similarity, layer-composition
-similarity, hierarchical clustering) has not yet been computed — see
-<code>CLAUDE_SESSION_HANDOFF.md</code> for status.</div>
+<p class="lede">Five similarity measures across all 91 story pairs: actor Jaccard, actor weighted
+Jaccard, actor cosine (all three based on shared characters), relation-profile similarity, and
+layer-composition similarity (both based on narrative-relational content, independent of which
+specific actors appear). See <a href="methodology.html">Methodology</a> and
+<a href="decision_log.md">decision_log.md</a> (DEC-014) for the exact definitions and the
+hierarchical-clustering feature-space choice.</p>
 
-<h2>Shared-actor counts between stories</h2>
-<p>Cell (i, j) = number of actors appearing in both story i and story j.</p>
-{table}
+<h2>Actor Jaccard heatmap</h2>
+<figure>
+  <img src="figures/similarity/F10_story_similarity_heatmap.png" alt="Story similarity heatmap">
+  <figcaption>Grey diagonal = self-similarity (trivially 1.0). Darker = more shared actors.</figcaption>
+</figure>
+
+<h2>Story similarity network</h2>
+<figure>
+  <img src="figures/similarity/F11_story_similarity_network.png" alt="Story similarity network">
+  <figcaption>Top 15 of 91 pairs by actor Jaccard. Edge darkness/thickness = similarity strength.</figcaption>
+</figure>
+
+<h2>Top 10 most similar story pairs (by shared actors)</h2>
+{table_html(top10, ["story_a", "story_b", "actor_jaccard", "actor_weighted_jaccard", "actor_cosine", "relation_profile_similarity", "layer_composition_similarity"])}
+
+<h2>Full pairwise table</h2>
+<p>All 91 pairs, all 5 metrics: <a href="downloads/outputs/tables/publication/T08_story_similarity.csv">T08_story_similarity.csv</a>.</p>
+
+<div class="disclaimer">These similarity values and the hierarchical clustering built from them
+are descriptive only — no significance/null-model test has been applied to them (unlike the
+community and modularity findings on the <a href="analysis.html">Analysis</a> page).</div>
 """
-    write("similarity.html", page("Similarity", "Story similarity (partial — shared-actor projection only).", "Similarity", content))
+    write("similarity.html", page("Similarity", "Story similarity: actor overlap, relation-profile, and layer-composition measures.", "Similarity", content))
 
 
 # ---------------------------------------------------------------------------

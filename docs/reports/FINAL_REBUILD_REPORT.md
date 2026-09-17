@@ -187,20 +187,3 @@ ama güvenilir sonuç" — few but reliable results).
 
 No claim above concerns literary or historical importance of any character — each is a
 statement about structural properties of this specific encoded relational dataset.
-
----
-
-## Post-Release Addendum: Story Similarity (RQ6) Completed
-
-After the 21-phase delivery above, the user asked to continue with optional future work. The
-story-similarity metric suite (previously this project's one open research question, RQ6) was
-completed: `src/story_similarity.py` computes actor Jaccard, weighted Jaccard, cosine, relation-
-profile, and layer-composition similarity across all 91 story pairs, plus a Ward hierarchical
-clustering on each story's relation-family/layer profile (`docs/decision_log.md` DEC-014). S03
-("Salur Kazan'ın Evinin Yağmalandığı") and S05 ("Kazan Bey Oğlu Uruz Bey'in Tutsak Olduğu Boy") are
-the most similar pair by shared actors (Jaccard=0.153) and also by relation/layer profile
-(0.94-0.97); the clustering shows no sharp genre-like separation across the 14 stories. Figures
-F10-F11 and the updated T08 table were added; `thesis/research_questions.md` RQ6 status changed
-from "not answerable" to "answered" (descriptive, no significance test applied). All validation
-layers (pytest, `src/validate_release_consistency.py`, `src/validate_site.py`) re-run and PASS
-after this addition.

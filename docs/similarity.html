@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Similarity — Dede Korkut Narrative Networks</title>
-<meta name="description" content="Story similarity (partial — shared-actor projection only).">
+<meta name="description" content="Story similarity: actor overlap, relation-profile, and layer-composition measures.">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -33,275 +33,138 @@
 <main class="wrap">
 
 <h1>Story Similarity</h1>
-<div class="disclaimer">This page is <strong>partial</strong>. Only the raw shared-actor bipartite
-projection is available. The full similarity metric suite described in the project brief
-(actor Jaccard, weighted Jaccard, cosine similarity, relation-profile similarity, layer-composition
-similarity, hierarchical clustering) has not yet been computed — see
-<code>CLAUDE_SESSION_HANDOFF.md</code> for status.</div>
+<p class="lede">Five similarity measures across all 91 story pairs: actor Jaccard, actor weighted
+Jaccard, actor cosine (all three based on shared characters), relation-profile similarity, and
+layer-composition similarity (both based on narrative-relational content, independent of which
+specific actors appear). See <a href="methodology.html">Methodology</a> and
+<a href="decision_log.md">decision_log.md</a> (DEC-014) for the exact definitions and the
+hierarchical-clustering feature-space choice.</p>
 
-<h2>Shared-actor counts between stories</h2>
-<p>Cell (i, j) = number of actors appearing in both story i and story j.</p>
+<h2>Actor Jaccard heatmap</h2>
+<figure>
+  <img src="figures/similarity/F10_story_similarity_heatmap.png" alt="Story similarity heatmap">
+  <figcaption>Grey diagonal = self-similarity (trivially 1.0). Darker = more shared actors.</figcaption>
+</figure>
+
+<h2>Story similarity network</h2>
+<figure>
+  <img src="figures/similarity/F11_story_similarity_network.png" alt="Story similarity network">
+  <figcaption>Top 15 of 91 pairs by actor Jaccard. Edge darkness/thickness = similarity strength.</figcaption>
+</figure>
+
+<h2>Top 10 most similar story pairs (by shared actors)</h2>
 <div class="table-wrap"><table class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th>index</th>
-      <th>S01</th>
-      <th>S02</th>
-      <th>S03</th>
-      <th>S04</th>
-      <th>S05</th>
-      <th>S06</th>
-      <th>S07</th>
-      <th>S08</th>
-      <th>S09</th>
-      <th>S10</th>
-      <th>S11</th>
-      <th>S12</th>
-      <th>S13</th>
-      <th>S14</th>
+      <th>story_a</th>
+      <th>story_b</th>
+      <th>actor_jaccard</th>
+      <th>actor_weighted_jaccard</th>
+      <th>actor_cosine</th>
+      <th>relation_profile_similarity</th>
+      <th>layer_composition_similarity</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>S01</td>
-      <td>2</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>S02</td>
-      <td>0</td>
-      <td>15</td>
-      <td>2</td>
-      <td>2</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>2</td>
-      <td>1</td>
-      <td>2</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
       <td>S03</td>
-      <td>0</td>
-      <td>2</td>
-      <td>48</td>
-      <td>8</td>
-      <td>11</td>
-      <td>0</td>
-      <td>1</td>
-      <td>5</td>
-      <td>3</td>
-      <td>3</td>
-      <td>2</td>
-      <td>4</td>
-      <td>3</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td>S04</td>
-      <td>1</td>
-      <td>2</td>
-      <td>8</td>
-      <td>70</td>
-      <td>5</td>
-      <td>0</td>
-      <td>1</td>
-      <td>4</td>
-      <td>5</td>
-      <td>4</td>
-      <td>3</td>
-      <td>3</td>
-      <td>4</td>
-      <td>4</td>
-    </tr>
-    <tr>
       <td>S05</td>
-      <td>0</td>
-      <td>1</td>
-      <td>11</td>
-      <td>5</td>
-      <td>35</td>
-      <td>0</td>
-      <td>0</td>
-      <td>3</td>
-      <td>1</td>
-      <td>3</td>
-      <td>1</td>
-      <td>3</td>
-      <td>2</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>S06</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>11</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>S07</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>23</td>
-      <td>0</td>
-      <td>2</td>
-      <td>0</td>
-      <td>1</td>
-      <td>2</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.1528</td>
+      <td>0.2215</td>
+      <td>0.6759</td>
+      <td>0.9414</td>
+      <td>0.9647</td>
     </tr>
     <tr>
       <td>S08</td>
-      <td>0</td>
-      <td>2</td>
-      <td>5</td>
-      <td>4</td>
-      <td>3</td>
-      <td>1</td>
-      <td>0</td>
-      <td>19</td>
-      <td>1</td>
-      <td>6</td>
-      <td>0</td>
-      <td>2</td>
-      <td>2</td>
-      <td>3</td>
+      <td>S10</td>
+      <td>0.1333</td>
+      <td>0.0710</td>
+      <td>0.1438</td>
+      <td>0.6685</td>
+      <td>0.7712</td>
     </tr>
     <tr>
-      <td>S09</td>
-      <td>1</td>
-      <td>1</td>
-      <td>3</td>
-      <td>5</td>
-      <td>1</td>
-      <td>0</td>
-      <td>2</td>
-      <td>1</td>
-      <td>41</td>
-      <td>4</td>
-      <td>2</td>
-      <td>2</td>
-      <td>4</td>
-      <td>3</td>
+      <td>S08</td>
+      <td>S14</td>
+      <td>0.0833</td>
+      <td>0.0811</td>
+      <td>0.0653</td>
+      <td>0.4642</td>
+      <td>0.6427</td>
     </tr>
     <tr>
       <td>S10</td>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>3</td>
-      <td>1</td>
-      <td>0</td>
-      <td>6</td>
-      <td>4</td>
-      <td>32</td>
-      <td>4</td>
-      <td>4</td>
-      <td>3</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td>S11</td>
-      <td>0</td>
-      <td>0</td>
-      <td>2</td>
-      <td>3</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>2</td>
-      <td>4</td>
-      <td>32</td>
-      <td>3</td>
-      <td>2</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>S12</td>
-      <td>0</td>
-      <td>0</td>
-      <td>4</td>
-      <td>3</td>
-      <td>3</td>
-      <td>0</td>
-      <td>2</td>
-      <td>2</td>
-      <td>2</td>
-      <td>4</td>
-      <td>3</td>
-      <td>30</td>
-      <td>3</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>S13</td>
-      <td>0</td>
-      <td>0</td>
-      <td>3</td>
-      <td>4</td>
-      <td>2</td>
-      <td>0</td>
-      <td>0</td>
-      <td>2</td>
-      <td>4</td>
-      <td>3</td>
-      <td>2</td>
-      <td>3</td>
-      <td>21</td>
-      <td>2</td>
-    </tr>
-    <tr>
       <td>S14</td>
-      <td>1</td>
-      <td>1</td>
-      <td>4</td>
-      <td>4</td>
-      <td>2</td>
-      <td>1</td>
-      <td>0</td>
-      <td>3</td>
-      <td>3</td>
-      <td>4</td>
-      <td>1</td>
-      <td>2</td>
-      <td>2</td>
-      <td>20</td>
+      <td>0.0833</td>
+      <td>0.0615</td>
+      <td>0.1342</td>
+      <td>0.2944</td>
+      <td>0.5756</td>
+    </tr>
+    <tr>
+      <td>S03</td>
+      <td>S08</td>
+      <td>0.0806</td>
+      <td>0.0345</td>
+      <td>0.0236</td>
+      <td>0.7462</td>
+      <td>0.7564</td>
+    </tr>
+    <tr>
+      <td>S03</td>
+      <td>S04</td>
+      <td>0.0727</td>
+      <td>0.0785</td>
+      <td>0.2459</td>
+      <td>0.7240</td>
+      <td>0.7810</td>
+    </tr>
+    <tr>
+      <td>S10</td>
+      <td>S12</td>
+      <td>0.0690</td>
+      <td>0.0244</td>
+      <td>0.0746</td>
+      <td>0.9528</td>
+      <td>0.9688</td>
+    </tr>
+    <tr>
+      <td>S09</td>
+      <td>S13</td>
+      <td>0.0690</td>
+      <td>0.0558</td>
+      <td>0.1492</td>
+      <td>0.8516</td>
+      <td>0.8651</td>
+    </tr>
+    <tr>
+      <td>S10</td>
+      <td>S11</td>
+      <td>0.0667</td>
+      <td>0.0273</td>
+      <td>0.0126</td>
+      <td>0.9245</td>
+      <td>0.9175</td>
+    </tr>
+    <tr>
+      <td>S03</td>
+      <td>S14</td>
+      <td>0.0625</td>
+      <td>0.1523</td>
+      <td>0.7181</td>
+      <td>0.5814</td>
+      <td>0.7741</td>
     </tr>
   </tbody>
 </table></div>
+
+<h2>Full pairwise table</h2>
+<p>All 91 pairs, all 5 metrics: <a href="downloads/outputs/tables/publication/T08_story_similarity.csv">T08_story_similarity.csv</a>.</p>
+
+<div class="disclaimer">These similarity values and the hierarchical clustering built from them
+are descriptive only — no significance/null-model test has been applied to them (unlike the
+community and modularity findings on the <a href="analysis.html">Analysis</a> page).</div>
 
 </main>
 <footer class="site-footer">

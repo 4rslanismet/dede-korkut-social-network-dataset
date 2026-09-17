@@ -96,3 +96,22 @@ for a corpus this sparse. Motif/triad enrichment on the directed network was lik
 attempted: only 44 of 1,774,630 triads in the directed triadic census fall into a closed category,
 an insufficient sample for per-category null comparison, and no directed degree-preserving null
 model was available in the software version used.
+
+## 7. Story Similarity [descriptive, post-project completion]
+
+*(Added after initial completion of this study, when the story-similarity metric suite originally
+scoped for this project — actor Jaccard, weighted Jaccard, cosine similarity, relation-profile
+similarity, layer-composition similarity, and hierarchical clustering — was built; see
+`docs/decision_log.md` DEC-014.)*
+
+Across all 91 story pairs, S03 ("Salur Kazan'ın Evinin Yağmalandığı") and S05 ("Kazan Bey Oğlu
+Uruz Bey'in Tutsak Olduğu Boy") are the most similar by shared actors (Jaccard=0.153), and also
+score highly on relation-profile (0.941) and layer-composition (0.965) similarity — these two
+stories share both characters and the kinds of relations coded between them. S08–S10
+(Jaccard=0.133) is the next most actor-similar pair. Hierarchical clustering (Ward linkage) on
+each story's relation-family and layer composition profile does not separate the corpus into
+sharply distinct clusters; instead it shows several tight pairs and small groups (e.g., S03-S05;
+S08-S09-S10) embedded within a broader continuum, consistent with a corpus of narratively distinct
+but structurally/methodologically homogeneous *boy* rather than a small number of clearly separable
+narrative types. No significance test was applied to these similarity values or to the clustering
+itself; this section remains descriptive.

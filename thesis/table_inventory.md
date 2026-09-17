@@ -12,7 +12,7 @@ All tables in `outputs/tables/publication/` (CSV + LaTeX), mirrored in `paper/ta
 | T05 | Community statistics | 9 | RQ1, RQ4 | Leiden/Louvain comparison + stability |
 | T06 | Layer-specific metrics | 15 | RQ2, RQ3 | Top actors per layer |
 | T07 | Actor-story participation | 15 | RQ2 | Top actors by story count |
-| T08 | Story similarity | 14 | RQ6 | **Partial** — raw shared-actor projection only |
+| T08 | Story similarity | 91 | RQ6 | **Complete** (post-project, DEC-014) — all 5 metrics, all 91 story pairs |
 | T09 | Null model tests | 36 | RQ4 | Every test, FDR-corrected |
 | T10 | Sensitivity analysis | 18 | RQ5 | 6 pairs × 3 metrics |
 | T11 | Robustness results | 6 | RQ5 | 3 strategies × 2 thresholds |
@@ -29,4 +29,8 @@ All tables in `outputs/tables/publication/` (CSV + LaTeX), mirrored in `paper/ta
 - `outputs/tables/narrative_order_windows.csv`, `dynamic_centrality_trajectory.csv` — RQ7 source
   data, not yet formatted as a numbered publication table.
 - `outputs/matrices/story_projection_shared_actors.csv`, `actor_projection_cooccurrence.csv` —
-  RQ2/RQ6 raw projections underlying T07/T08.
+  RQ2 raw projections underlying T07.
+- `outputs/matrices/story_similarity_{actor_jaccard,actor_weighted_jaccard,actor_cosine,relation_profile,layer_composition}.csv` —
+  the 5 full 14×14 similarity matrices underlying T08 (RQ6, completed post-project).
+- `outputs/statistics/story_similarity_clustering.json` — Ward linkage matrix and dendrogram leaf
+  order for the RQ6 hierarchical clustering.

@@ -48,16 +48,27 @@ negligible.
 
 ## RQ6 — What clusterings do the Dede Korkut boy show in terms of character composition and relation profiles?
 
-**Answerable: NOT YET — data/analysis incomplete.** Only the raw actor×story shared-actor
-bipartite projection has been computed (`outputs/matrices/story_projection_shared_actors.csv`).
-The full similarity metric suite the project brief specifies for this question (actor Jaccard,
-weighted Jaccard, cosine similarity, relation-profile similarity, layer-composition similarity,
-hierarchical clustering — section 17) has not been built. **Per the brief's own instruction, this
-question should be either deferred (with the gap disclosed, as done here) or scoped down to only
-what the raw projection supports** — it should not be answered from the incomplete data as if it
-were complete.
-→ `docs/limitations.md` item 15; `outputs/tables/publication/T08_story_similarity.csv` (marked
-partial).
+**Answerable: YES — completed post-project (DEC-014).** The full similarity metric suite (actor
+Jaccard, weighted Jaccard, cosine similarity, relation-profile similarity, layer-composition
+similarity, hierarchical clustering — section 17) has been built in `src/story_similarity.py`.
+
+**Character-composition finding:** S03 ("Salur Kazan'ın Evinin Yağmalandığı") and S05 ("Kazan Bey
+Oğlu Uruz Bey'in Tutsak Olduğu Boy") are the most similar pair by shared actors (Jaccard=0.153),
+consistent with both centering on Salur Kazan and a captivity/rescue narrative arc; S08–S10
+(Jaccard=0.133) is the next strongest pair. Both pairs also show high relation-profile and
+layer-composition similarity (0.94–0.97), i.e. they are similar in *which relation types and
+layers* they emphasize, not only in *which actors* appear.
+
+**Relation-profile clustering finding (Ward linkage on relation-family + layer proportions):**
+the 14 stories do not separate into two or three sharply distinct clusters — leaf order
+`[S01, S04, S02, S06, S14, S03, S05, S11, S13, S07, S08, S09, S10, S12]` shows several tight
+pairs/triples (e.g. S03-S05, S08-S09-S10) embedded in a broader continuum rather than isolated
+blocks, consistent with a corpus of structurally similar boy narratives sharing the same
+underlying coding scheme rather than falling into a small number of narrative "genres."
+
+→ `outputs/matrices/story_similarity_*.csv` (5 matrices), `outputs/statistics/story_similarity_clustering.json`,
+`outputs/tables/publication/T08_story_similarity.csv` (full, no longer partial), Figures F10-F11,
+`docs/decision_log.md` DEC-014.
 
 ## RQ7 — How does character centrality and relational intensity change over the course of the narrative?
 
@@ -81,5 +92,5 @@ test) has not been attempted.
 | RQ3 (relation-specific roles) | Fully answered | Confirmatory (incl. one genuine null result, G3) |
 | RQ4 (null-model comparison) | Fully answered | Confirmatory — this project's central finding |
 | RQ5 (construction sensitivity) | Fully answered | Confirmatory |
-| RQ6 (story clustering) | **Not answerable with current data** | N/A — flagged, not forced |
+| RQ6 (story clustering) | Answered (post-project completion, DEC-014) | Descriptive — no null-model or significance test applied to the clustering itself |
 | RQ7 (temporal/narrative-order evolution) | Partially answered | Exploratory only |

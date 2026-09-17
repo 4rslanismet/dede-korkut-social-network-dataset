@@ -14,13 +14,14 @@ All figures follow the no-hairball design rules in `docs/methodology.md` §8. Lo
 | F16 | Sensitivity correlation matrix | `sensitivity/F16_sensitivity_correlation_matrix.png` | RQ5 | 6 pairs × 3 metrics, Spearman ρ heatmap |
 | F17 | Centrality rank stability scatter | `sensitivity/F17_centrality_rank_stability.png` | RQ5 | Person+group vs. person-only degree rank |
 | F18 | Structural robustness curves | `robustness/F18_structural_robustness_curves.png` | RQ5 | Random vs. degree- vs. betweenness-targeted removal |
+| F10 | Story similarity heatmap | `similarity/F10_story_similarity_heatmap.png` | RQ6 | Actor Jaccard, 14×14, diagonal masked grey (post-project, DEC-014) |
+| F11 | Story similarity network | `similarity/F11_story_similarity_network.png` | RQ6 | Top 15 of 91 pairs by actor Jaccard, edge weight = line darkness/thickness |
 
 ## Not Yet Produced (from the F01-F18 target list, master prompt section 48)
 
 F01 (dataset construction workflow — `docs/architecture_diagram.svg` covers this need already,
 consider renaming/promoting it to F01), F04 (core-social network — near-duplicate of F02, low
 priority), F05 (multilayer overview), F08 (story-level metric comparison), F09 (actor×story
-bipartite), F10/F11 (story similarity heatmap/network — blocked on RQ6's incomplete data), F12
-(layer participation — data exists in `outputs/tables/multilayer_profile.csv`, chart not built),
-F13 (positive/negative network comparison), F14 (narrative-order evolution — data exists in
-`outputs/tables/narrative_order_windows.csv`, chart not built).
+bipartite), F12 (layer participation — data exists in `outputs/tables/multilayer_profile.csv`,
+chart not built), F13 (positive/negative network comparison), F14 (narrative-order evolution —
+data exists in `outputs/tables/narrative_order_windows.csv`, chart not built).

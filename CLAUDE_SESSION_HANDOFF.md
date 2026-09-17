@@ -297,6 +297,28 @@ Yeni analiz yok — Faz 1-16'nın bilgisini kalıcı dokümanlara sentezledi: `d
 
 ### PROJE DURUMU: `docs/MASTER_PROMPT.md`'nin 21 fazının tamamı tamamlandı (Faz 9-10 gerekçeli olarak atlandı, DEC-010).
 
+---
+
+## POST-RELEASE ADDENDUM — STORY SIMILARITY (RQ6) TAMAMLANDI ✅
+
+21 faz tamamlandıktan sonra kullanıcı devam etmemi istedi. Otonom olarak yürütülebilecek, en yüksek değerli tek kalem olan **story similarity metrik seti (RQ6)** seçildi (ikinci kodlayıcı veya repo sahibinin onayı gerektiren diğer future-work maddeleri atlandı, çünkü otonom yürütülemezler).
+
+**Script:** [`src/story_similarity.py`](src/story_similarity.py) — DEC-014 (`docs/decision_log.md`)
+
+- 5 benzerlik metriği (actor Jaccard, weighted Jaccard, actor cosine, relation-profile similarity, layer-composition similarity), 14 boyun tüm 91 çifti için hesaplandı.
+- Hiyerarşik kümeleme (Ward), ham aktör kimliği yerine **relation_family_top + layer oranlarından oluşan 13-boyutlu sabit profil** üzerinde çalıştırıldı (DEC-014'te gerekçelendirildi — aktör vektörleri çok seyrek).
+- **En benzer çift: S03–S05 (actor Jaccard 0.153)**, ikisi de Salur Kazan/esaret temalı; relation-profile ve layer-composition benzerliği de çok yüksek (0.94-0.97). İkinci en benzer: S08–S10 (0.133).
+- Kümeleme, 14 boyun keskin ayrı kümelere değil, geniş bir süreklilik içinde birkaç sıkı çift/üçlüye (S03-S05, S08-S09-S10) ayrıldığını gösteriyor.
+- Figürler: F10 (heatmap, köşegen gri maskelenmiş), F11 (network, en güçlü 15/91 çift) — ikisi de tarayıcıda görsel olarak doğrulandı.
+- `outputs/tables/publication/T08_story_similarity.csv` artık **tam** (91 satır × 5 metrik), "partial" değil.
+- `thesis/research_questions.md` RQ6 durumu **"NOT answerable" → "answered"** olarak güncellendi.
+- Site yeniden build edildi (`similarity.html` artık gerçek içerik gösteriyor, tarayıcıda test edildi) + `validate_site.py`: **363/363 PASS**. `pytest` (18/18) ve `validate_release_consistency.py` yeniden çalıştırıldı: PASS.
+- `reports/RELEASE_CHECKLIST.md`, `reports/FINAL_REBUILD_REPORT.md`, `reports/EXECUTIVE_SUMMARY.md`, `docs/limitations.md` (madde 15), `paper/results.md` (§7 eklendi), `paper/supplementary_material.md`, `thesis/{results_mapping,table_inventory,figure_inventory,methodology_mapping}.md` hepsi bu tamamlanmayı yansıtacak şekilde güncellendi.
+
+**Kalan opsiyonel future-work maddeleri (otonom yürütülemez, kullanıcı girdisi gerekir):** ikinci kodlayıcı, 5 birleştirilmiş node'un çözümü (orijinal metne dönüş gerektirir), source edition onayı, remote'a push/deploy, CITATION.cff doldurma.
+
+**Önemli teknik not (yeni oturum için):** Bu makinede scipy'nin bazı alt modülleri (`scipy.cluster.hierarchy` → `scipy.spatial`/`scipy.sparse`) **ilk import'ta** bir Application Control Policy/antivirüs DLL taraması nedeniyle 120s+ sürebiliyor ve timeout'a uğrayabiliyor. Bu geçicidir — aynı komutu (gerekirse daha uzun timeout ile, örn. 150000ms) tekrar çalıştırmak genellikle çalışır. Gerçek bir engelleme değil, yalnızca ilk-çalıştırma gecikmesi.
+
 **Bundan sonra kullanıcıyla görüşülmeden yapılmayacaklar** (NEXT_TASK.md'de de belirtildi):
 - `claude-dk-rebuild` branch'ini remote'a push etmek (hiç push denenmedi, auth hazır değildi/istenmedi).
 - `main`'e merge açmak.

@@ -157,3 +157,16 @@ Bu dosya, projede alınan geri döndürülemez veya yorumlayıcı metodolojik ka
 **Rationale:** Bu node'ları doğru şekilde ayırmak (her karakteri ayrı node yapmak + hangi ilişkinin hangi karaktere ait olduğunu yeniden türetmek) orijinal ham metne dönüp incelemeyi gerektirir — bu bir website-inşa görevinin kapsamı dışında, dikkatli bir entity-resolution çalışması gerektirir (madde 8 kuralı: "otomatik fuzzy matching sonucu doğrudan merge yapma"). Veriyi olduğu gibi bırakıp şeffafça işaretlemek, sessizce yanlış bir bölme yapmaktan daha güvenli.
 
 **Status:** Açık, `HUMAN_REVIEW_QUEUE.csv`'de bekliyor. Bu 5 node'un `relation_count`'u çok düşük (0-1), bu yüzden network analizlerine (Faz 5-8) etkisi ihmal edilebilir düzeyde olmalı, ama bu doğrulanmadı.
+
+---
+
+### DEC-014
+**Question:** Proje 21 fazın tamamlanmasının ardından, tek açık kalan araştırma sorusu olan RQ6 (boy kümelemesi/story similarity) tamamlanırken: (a) hangi 5 benzerlik metriği hesaplanmalı, (b) hiyerarşik kümeleme hangi özellik uzayında yapılmalı?
+
+**Decision:**
+- 5 metrik: actor Jaccard (ikili küme örtüşmesi), actor weighted Jaccard (boy-içi etkileşim sayısı ağırlıklı), actor cosine (aynı ağırlık vektörleri üzerinden kosinüs), relation-profile similarity (17 `standard_relation` tipi üzerinden kosinüs), layer-composition similarity (7 layer üzerinden kosinüs).
+- Hiyerarşik kümeleme (Ward linkage), **ham aktör kimliği üzerinden DEĞİL**, her boy'un `relation_family_top` (6 boyut) + `layer` (7 boyut) oranlarından oluşan **sabit, karşılaştırılabilir 13-boyutlu bir profil vektörü** üzerinde çalıştırıldı.
+
+**Rationale:** Ham aktör vektörleri 332 boyutlu ve çoğu boy-çifti arasında neredeyse hiç ortak aktör olmadığından (çoğu boy'un kendine özgü karakterleri var) çok seyrek ve kümeleme için anlamlı bir metrik uzayı oluşturmuyor. Buna karşılık `relation_family_top`/`layer` oranları her boy için doğrudan karşılaştırılabilir, sabit boyutlu bir "anlatısal-ilişkisel profil" sunuyor — "hangi boylar benzer karakterleri paylaşıyor" (aktör-tabanlı ağ, F11) ile "hangi boylar benzer ilişki türü/katman kompozisyonuna sahip" (içerik-tabanlı kümeleme) sorularını kasıtlı olarak ayırıyor.
+
+**Status:** Uygulandı (`src/story_similarity.py`). En yüksek actor Jaccard: S03–S05 (0.153, ikisi de Salur Kazan/esaret temalı), S08–S10 (0.133). `data/processed/relations_event_level.csv`'nin tamamı kullanıldı, hiçbir veri uydurulmadı — tüm 5 metrik ve kümeleme sonucu `outputs/matrices/` ve `outputs/statistics/story_similarity_clustering.json`'da makine-okunabilir olarak mevcut. **RQ6 artık "answerable: yes" olarak güncellenebilir** (`thesis/research_questions.md`).

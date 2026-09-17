@@ -12,10 +12,13 @@ below points to the actual repository artifact — this document is an index, no
 - **T05 Community statistics** — `paper/tables/T05_community_statistics.csv`
 - **T06 Layer-specific metrics** (top 15 actors by layer participation) — `paper/tables/T06_layer_specific_metrics.csv`
 - **T07 Actor-story participation** (top 15 by story count) — `paper/tables/T07_actor_story_participation.csv`
-- **T08 Story similarity** (partial — raw shared-actor projection only; see limitation S4 below) — `paper/tables/T08_story_similarity.csv`
+- **T08 Story similarity** (complete, post-project — 5 metrics × 91 pairs; DEC-014) — `paper/tables/T08_story_similarity.csv`
 - **T09 Null model tests** (all 36 tests, observed/z/p/q) — `paper/tables/T09_null_model_tests.csv`
 - **T10 Sensitivity analysis** (all 6 pairs × 3 metrics) — `paper/tables/T10_sensitivity_analysis.csv`
 - **T11 Robustness results** — `paper/tables/T11_robustness_results.csv`
+
+Figures F10 (`paper/figures/F10_story_similarity_heatmap.png`) and F11
+(`paper/figures/F11_story_similarity_network.png`) accompany T08.
 
 LaTeX versions of every table above (`.tex`) are in the same directory for direct manuscript
 inclusion.
@@ -64,12 +67,13 @@ and `paper/figures/F17_centrality_rank_stability.png`.
 
 ## S7. Known Incomplete Analyses
 
-- Story similarity (full Jaccard/cosine/relation-profile/layer-composition suite) — only the raw
-  shared-actor bipartite projection exists.
 - Directed-network null model — no degree-preserving randomization for directed graphs was
   available in the software version used; only 44/1,774,630 triads are closed, an insufficient
   sample for enrichment testing regardless.
-- Publication figures F01, F04-F05, F08-F14 (of the F01-F18 target set) were not produced.
+- Publication figures F01, F04-F05, F08-F09, F12-F14 (of the F01-F18 target set) were not
+  produced. (F10-F11, story similarity heatmap/network, were completed post-project — see S1.)
+- 5 concatenated-multi-actor nodes discovered while building the companion website remain
+  unresolved (`docs/decision_log.md` DEC-013).
 
 ## S8. Interactive Companion
 
