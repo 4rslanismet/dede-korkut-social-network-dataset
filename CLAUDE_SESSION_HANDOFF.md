@@ -249,7 +249,7 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 - **Faz 13:** `validation/inter_annotator_sample.csv` (70 satır, stratifiye, seed=42, 14/14 boy temsilli), `docs/inter_annotator_protocol.md`, `src/inter_annotator_stats.py` (Cohen's kappa + Krippendorff's alpha'ya hazır ama **ikinci kodlayıcı verisi olmadan `not_applicable` döndürüyor** — test edildi, sahte değer üretmiyor).
 - **Faz 14:** `run_pipeline.py` (19 aşama, `--all`/`--stage`/`--fast`/`--validate-only`, `logs/`'a log yazıyor), `tests/` (**18 test, 18/18 PASS** — şema, aggregation, network inşası, determinizm), `outputs/manifest_sha256.csv` (192 dosya), `requirements-lock.txt` (42 paket), `.github/workflows/validate.yml` (CI: pytest + validate-only, ağır aşamalar CI dışında).
 
-**Önemli:** `run_pipeline.py --all` (FULL mode) bu oturumda **uçtan uca test edilmedi** — yalnızca `--stage audit`, `--stage hash_manifest`, `--all --validate-only` doğrulandı. Her aşama zaten Faz 1-12'de ayrı ayrı çalıştırılmıştı, bu yüzden risk düşük ama tam bir `--all` çalıştırması (~10-15 dk) henüz yapılmadı — yeni oturum isterse bunu doğrulayabilir.
+**[Tarihsel not — GÜNCELLENDİ 2026-09-19]:** Faz 14 sırasında `run_pipeline.py --all` (FULL mode) uçtan uca test edilmemişti. **Bu artık yapıldı: FULL mode iki kez çalıştırıldı, 23/23 aşama PASS (bkz. aşağıdaki "FULL PIPELINE END-TO-END DOĞRULAMASI" bölümü ve DEC-016).**
 
 ---
 
@@ -355,6 +355,20 @@ Kullanıcı, yeni analizden önce RQ6 iddialarının ve "Top 5 findings"in denet
 
 ---
 
+## FULL PIPELINE END-TO-END DOĞRULAMASI (release öncesi son teknik görev) — TAMAMLANDI ✅ — DEC-016
+
+**Full end-to-end pipeline run: PASS.** Mode: **FULL** (`python run_pipeline.py --all`, `--fast` yok; n_random=1000, robustness 100 deneme, seed 42 — ayrı bir `--full` bayrağı yok, raporlanan sayılar bu moddan). Başlangıç: temiz ağaç, commit `2e08975`; `data/raw` ve `data/final` hash karşılaştırmasıyla değişmedi.
+
+- **1. koşu (`2e08975` kodu):** 23/23 aşama PASS, 7 dk 11 sn; bilimsel çıktılar aynı. **Ama iki idempotency hatası ortaya çıktı:** koşu (a) `validation/HUMAN_REVIEW_QUEUE.csv`'den HR0076–HR0080'i (elle eklenmişlerdi) ve (b) `docs/network_models.md`'nin story-level/bipartite bölümlerini sildi.
+- **Düzeltme:** `validation/manual_review_items.csv` (5 satır) + `entity_resolution.py::append_manual_review_items`; `story_networks.py::update_network_models_doc` (sayılar veriden); bipartite graphml kenarları sıralı. Bilimsel kod değişmedi. Her iki dosya artık HEAD ile birebir aynı yeniden üretiliyor, tekrar koşuda da.
+- **2. koşu (düzeltilmiş kod):** 23/23 PASS, 7 dk 18 sn. Aşamalar: audit, validate, entity_resolution, build_canonical, build_networks, story_networks, metrics, communities, signed_and_directed, multilayer, narrative_order, **story_similarity, story_similarity_validity**, null_models, null_models_fdr, sensitivity, robustness, **audit_top5_checks**, visualization, export_tables, build_inter_annotator_sample, inter_annotator_stats, hash_manifest.
+- **Kontrol edilenler:** story similarity + cluster validity orkestratör tarafından çağrılıyor ve dosyaları yeniden yazıyor; `export_tables` T08'i ezmiyor (log: "authored by story_similarity.py - left as is"; T08 = 91 satır × 5 metrik); F10/F11 yeniden üretiliyor; `outputs/statistics|matrices|null_models|validation`, `data/processed`, tüm yayın tabloları, tüm PNG'ler, paper/thesis/site sayfaları commit'lenmiş sürümle **birebir aynı** (RQ6 = PARTIALLY ANSWERED / EXPLORATORY korunuyor; cluster-validity "not_robustly_supported", maks. Jaccard 0.1528, giant-component z=9.94, G3 forest hepsi aynı).
+- **Beklenen bilimsel olmayan farklar (doğrulandı):** `.gexf` `lastmodifieddate` (tek satır; bu satırlar commit'lendi), `.svg` `dc:date` + rastgele id'ler (gömülü rasterlar piksel-özdeş), `centrality_*.csv`/T04'te ≤1.1e-13 float gürültüsü (tanımlayıcı/sıra aynı) — SVG ve centrality gürültüsü commit'lenmedi. Windows `core.autocrlf=true` altında CRLF checkout'u LF yazılan dosyaların (`.gexf`) manifest hash'ini bozar; `git checkout` ile geri alınan `.gexf` bu yüzden pipeline ile yeniden üretildi.
+- **Orkestratör dışı adımlar** (ayrıca, sırayla çalıştırıldı, hepsi PASS): `build_site.py` → `pytest` 18/18 → `run_pipeline.py --all --validate-only` → `validate_site.py` 363/363, 0 sorun → `validate_release_consistency.py`; site gerçek HTTP sunucusunda (`http.server`) da 200 döndü. Öneri (yapılmadı, pipeline sözleşmesini değiştirir): `build_site` + `validate_site`'ı `STAGES`'e eklemek.
+- **Açık release blocker'lar değişmedi:** kaynak baskı doğrulaması, inter-annotator reliability (ikinci kodlayıcı), birleşik/entity vakaları (HR0076–HR0080 vd.), `CITATION.cff` metadata. Push/merge yapılmadı.
+
+---
+
 ## KNOWN DATA / PROVENANCE LIMITATIONS (henüz çözülmedi, "çözülmüş" gibi gösterilmiyor)
 
 1. **Raw source lineage eksik** — hangi Dede Korkut edisyonunun/transkripsiyonunun kodlandığı belli değil (`validation/source_edition_metadata_required.md`).
@@ -375,10 +389,10 @@ Kullanıcı, yeni analizden önce RQ6 iddialarının ve "Top 5 findings"in denet
 16. **Story similarity (madde 17) tamamlanmadı** — yalnızca ham shared-actor bipartite projeksiyonu var (`outputs/matrices/story_projection_shared_actors.csv`, `outputs/tables/publication/T08_story_similarity.csv`); actor Jaccard, weighted Jaccard, cosine, relation-profile similarity, layer-composition similarity, hierarchical clustering **henüz hesaplanmadı**. Bu, F10/F11 figürlerinin de neden üretilmediğini açıklıyor.
 17. F01, F04-F05, F08-F14 figürleri (madde 48'in tam listesi) henüz üretilmedi — düşük öncelikli backlog.
 18. Inter-annotator kappa/alpha hesaplanamadı (gerçek ikinci kodlayıcı yok, beklenen durum) — `not_applicable`.
-19. `run_pipeline.py --all` (FULL mode, `--fast` olmadan) uçtan uca test edilmedi.
+19. ~~`run_pipeline.py --all` (FULL mode) uçtan uca test edilmedi.~~ **Çözüldü (2026-09-19, DEC-016):** FULL mode iki kez çalıştırıldı, 23/23 PASS. Kalan kapsam notu: `build_site.py`/`validate_site.py` orkestratörün `STAGES` listesinde değil, ayrıca çalıştırılıyor.
 20. ~~Web portal, website validation~~ ✅ tamamlandı (Faz 15-16). Documentation (data dictionary/relation codebook/methodology/limitations), paper/thesis package, final validation/release raporları **henüz hiç başlamadı**.
 21. **Website inşası sırasında 5 yeni "birleştirilmiş çoklu-aktör node" bulundu** (DEC-013, `validation/HUMAN_REVIEW_QUEUE.csv` HR0076-HR0080) — Faz 2'nin otomatik testlerini geçmişti ama içerik/anlamsal bir kalite sorunu. Düzeltilmedi, açık.
-22. Site yalnızca 3 network varyantını (G0/G1/G2) Explorer'da sunuyor; G3-G11 export edilmedi. Similarity sayfası kısmi (madde 17 tamamlanmadı). TR/EN dil altyapısı yok. Mobil/erişilebilirlik sistematik test edilmedi.
+22. Site yalnızca 3 network varyantını (G0/G1/G2) Explorer'da sunuyor; G3-G11 export edilmedi. Similarity sayfası artık tam 5-metrik seti gösteriyor (RQ6 = PARTIALLY ANSWERED / EXPLORATORY uyarılarıyla; DEC-014/015). TR/EN dil altyapısı yok. Mobil/erişilebilirlik sistematik test edilmedi.
 23. Site henüz GitHub'a push edilmedi / gerçek Pages URL'sinde deploy edilmedi — yalnızca yerel `python -m http.server` ile test edildi.
 
 ---

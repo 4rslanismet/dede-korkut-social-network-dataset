@@ -3,6 +3,13 @@
 **ALL 21 PHASES OF THE GOVERNING MASTER PROMPT ARE COMPLETE**, plus a post-release addendum
 (story-similarity metric suite, RQ6) and a **final academic audit before release (DEC-015)**.
 
+**Full end-to-end reproducibility is verified (DEC-016):** `python run_pipeline.py --all` (FULL
+mode, n_random=1000) was run twice, 23/23 stages PASS each time (~7 min); scientific outputs
+reproduced exactly; the pipeline is now idempotent (the first run exposed and the fix removed two
+cases where a fresh run deleted hand-added review items / doc sections). `pytest` 18/18,
+`--validate-only`, site validation (363/363) and release consistency all PASS afterwards. The site
+build/validation scripts are run separately (they are not in the orchestrator's `STAGES`).
+
 After the audit, the seven original research questions stand as: RQ1, RQ3, RQ4, RQ5 answered
 (RQ4 confirmatory; RQ5 a descriptive sensitivity analysis); RQ2, RQ7 partially answered
 (exploratory); **RQ6 PARTIALLY ANSWERED / EXPLORATORY** — story-level similarity can be quantified
@@ -16,7 +23,7 @@ and visualized, but evidence for a robust discrete clustering structure is limit
 3. `reports/FINAL_REBUILD_REPORT.md` (see the Post-Release Addendum and the audited "Top 5" section)
 4. `reports/RELEASE_CHECKLIST.md` (see "Open release blockers")
 5. `thesis/research_questions.md` — RQ6 is "partially answered / exploratory"
-6. `docs/decision_log.md` DEC-014 (revised) and DEC-015
+6. `docs/decision_log.md` DEC-014 (revised), DEC-015 and DEC-016 (full-pipeline verification)
 
 ## There is no next mandatory task
 
@@ -37,6 +44,8 @@ push `claude-dk-rebuild` to the remote for independent review.
 
 ## Other optional items (only on explicit user request)
 
+- Add `build_site` and `validate_site` to `run_pipeline.py` `STAGES` so one command is end-to-end
+  (not done: it changes the pipeline contract).
 - Extend the Network Explorer to all 12 network variants; build the remaining figures (F01, F04-F05,
   F08-F09, F12-F14).
 - Push `claude-dk-rebuild`, deploy the site to a live GitHub Pages URL, or open a PR to `main`.

@@ -139,6 +139,20 @@ def build_human_review_queue(entity_candidates: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def append_manual_review_items(queue: pd.DataFrame) -> pd.DataFrame:
+    """Append items found by human/ad-hoc inspection after the automated
+    checks (e.g. the five concatenated multi-actor nodes, DEC-013), kept in
+    validation/manual_review_items.csv. Without this, a fresh pipeline run
+    regenerated the queue from the automated checks only and silently
+    dropped them. IDs continue after the automated rows."""
+    path = VALIDATION_DIR / "manual_review_items.csv"
+    if not path.exists():
+        return queue
+    manual = pd.read_csv(path, encoding="utf-8-sig")
+    manual.insert(0, "item_id", [f"HR{len(queue) + 1 + i:04d}" for i in range(len(manual))])
+    return pd.concat([queue, manual[queue.columns]], ignore_index=True)
+
+
 def build_source_edition_note():
     text = """# Source Edition Metadata — REQUIRED
 
@@ -191,7 +205,7 @@ def main():
     candidates = build_entity_resolution_candidates()
     candidates.to_csv(VALIDATION_DIR / "entity_resolution_candidates.csv", index=False, encoding="utf-8-sig")
 
-    queue = build_human_review_queue(candidates)
+    queue = append_manual_review_items(build_human_review_queue(candidates))
     queue.to_csv(VALIDATION_DIR / "HUMAN_REVIEW_QUEUE.csv", index=False, encoding="utf-8-sig")
 
     with open(VALIDATION_DIR / "source_edition_metadata_required.md", "w", encoding="utf-8") as f:

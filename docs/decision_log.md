@@ -132,7 +132,7 @@ Bu dosya, projede alınan geri döndürülemez veya yorumlayıcı metodolojik ka
 
 **Rationale:** Stratifiye örnekleme, madde 37'nin "farklı story/relation type/layer/explicit-inferred" şartını karşılıyor. `not_applicable` davranışı, madde 38'in "gerçek ikinci annotator sonucu olmadan değer üretme" kuralının doğrudan uygulanması. Subprocess-tabanlı orkestrasyon, mevcut script'leri yeniden yazmadan (DRY) tek bir giriş noktası sağlıyor.
 
-**Status:** Uygulandı (Faz 13-14). `run_pipeline.py --all` (FULL mode, `--fast` olmadan) bu oturumda uçtan uca test edilmedi — yalnızca `--stage audit`, `--stage hash_manifest`, `--all --validate-only` doğrulandı. Her aşama zaten Faz 1-12'de ayrı ayrı çalıştırılıp doğrulanmıştı.
+**Status:** Uygulandı (Faz 13-14). `run_pipeline.py --all` (FULL mode, `--fast` olmadan) bu oturumda uçtan uca test edilmedi — yalnızca `--stage audit`, `--stage hash_manifest`, `--all --validate-only` doğrulandı. Her aşama zaten Faz 1-12'de ayrı ayrı çalıştırılıp doğrulanmıştı. **[Güncelleme: 2026-09-19'da tam `--all` çalıştırması yapıldı ve PASS — bkz. DEC-016.]**
 
 ---
 
@@ -189,3 +189,20 @@ Bu dosya, projede alınan geri döndürülemez veya yorumlayıcı metodolojik ka
 **Rationale:** Benzerliğin hesaplanmış olması RQ6'yı otomatik olarak "answered" yapmaz; ayrık küme yapısı doğrulanamadığı için RQ6 kısmen cevaplanmış, keşfsel olarak işaretlendi. Hiçbir sonuç "iyileştirilmedi": destek kuralı ilk çalıştırmadan önce betiğe yazıldı ve olumsuz sonuç olduğu gibi raporlandı. Dürüstlük notu: S01 (tek ilişkili girizgah) hariç duyarlılık analizi, ilk çalıştırmada k=2 ayrımının yalnızca S01'i ayırdığı görüldükten *sonra* eklendi; aynı sabit kural uygulandı ve o analiz de desteği sağlamadı (silhouette 0.487 < 0.50, ARI 0.746 < 0.75).
 
 **Status:** Uygulandı. Paper, thesis, website, README ve raporlar tutarlı hâle getirildi.
+
+---
+
+### DEC-016
+**Question:** Release öncesi son teknik doğrulama: tam `python run_pipeline.py --all` (FULL mode) uçtan uca çalıştığında bilimsel çıktılar aynen yeniden üretiliyor mu, ve pipeline idempotent mi?
+
+**Mode:** FULL — `--fast` yok; `config/analysis.yaml` `null_models.n_random: 1000`, `robustness.n_random_trials: 100`, `seed: 42` (raporlanan sayıların kaynağı; ayrı bir `--full` bayrağı yok).
+
+**Bulgu:** 1. koşu (commit `2e08975`): 23/23 aşama PASS, ~7 dk; bilimsel çıktılar birebir aynı. Ancak koşu, elle eklenmiş iki içeriği **sildi** (pipeline idempotent değildi): (a) `validation/HUMAN_REVIEW_QUEUE.csv`'den HR0076–HR0080 (Faz 15'te elle eklenen 5 birleşik-aktör düğümü, DEC-013) — `entity_resolution.py` kuyruğu yalnızca otomatik kontrollerden yeniden üretiyordu; (b) `docs/network_models.md`'nin story-level/bipartite bölümleri — `build_networks.py` dosyayı sıfırdan yazıyordu.
+
+**Decision (düzeltme):** (a) İnsan tarafından bulunan maddeler `validation/manual_review_items.csv` dosyasında tutuluyor ve `entity_resolution.py` bunları otomatik satırların ardına ID'leri devam ettirerek ekliyor; (b) `story_networks.py` aşaması bu bölümleri idempotent olarak (sayılar veriden hesaplanarak) yeniden yazıyor; (c) bipartite `.graphml` kenarları sıralı yazılıyor (set iterasyon sırası koşular arasında değişiyordu; içerik aynıydı). Bilimsel kod değişmedi. Her iki dosya HEAD ile birebir aynı yeniden üretiliyor ve tekrar koşuda da değişmiyor.
+
+**Sonuç (2. koşu, düzeltilmiş kod):** 23/23 aşama PASS, ~7 dk 18 sn. `outputs/statistics/`, `matrices/`, `null_models/`, `data/processed/`, tüm yayın tabloları (T08 tam 91 çift dahil), tüm PNG figürler ve paper/thesis/site sayfaları (RQ6 = PARTIALLY ANSWERED / EXPLORATORY) commit'lenmiş sürümle **birebir aynı**. Beklenen, bilimsel olmayan farklar: `.gexf` `lastmodifieddate`; `.svg` `dc:date` + rastgele element id'leri; `centrality_*.csv`/T04'te ≤1.1e-13 kayan nokta gürültüsü (tanımlayıcılar ve satır sırası aynı). Yalnızca `.gexf` tarih satırları commit'lendi; SVG/centrality gürültüsü commit'lenmedi (içerik değişikliği yok).
+
+**Kapsam notları:** `build_site.py`, `validate_site.py`, `pytest` ve `validate_release_consistency.py` `run_pipeline.py` `STAGES` içinde değil; pipeline'dan sonra ayrıca çalıştırıldı (hepsi PASS). Bunları `STAGES`'e eklemek öneri olarak bırakıldı (pipeline sözleşmesini değiştirir). Windows `core.autocrlf=true` altında LF ile yazılan dosyaların (ör. `.gexf`) manifest hash'leri, taze bir CRLF checkout'unda değil, yalnızca pipeline'ın yazdığı hâliyle eşleşir.
+
+**Status:** Uygulandı; açık release blocker'lar (kaynak baskı doğrulaması, inter-annotator reliability, birleşik/entity vakaları, `CITATION.cff` metadata) değişmedi.

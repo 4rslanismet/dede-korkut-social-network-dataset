@@ -20,7 +20,7 @@
 
 ## 3. Bilinen Sınırlamalar
 
-- `run_pipeline.py --all` (tam, `--fast` olmadan) bu oturumda uçtan uca test edilmedi — her aşama ayrı ayrı zaten çalıştırılıp doğrulanmıştı (Faz 1-12); orkestratörün kendisi yalnızca tekil aşamalarla (`audit`, `hash_manifest`, `validate-only`) test edildi. Tam bir uçtan-uca `--all` çalıştırması (~10-15 dakika, çoğunlukla null_models FULL mode'dan) henüz yapılmadı.
+- `run_pipeline.py --all` (tam, `--fast` olmadan) bu oturumda uçtan uca test edilmedi — her aşama ayrı ayrı zaten çalıştırılıp doğrulanmıştı (Faz 1-12); orkestratörün kendisi yalnızca tekil aşamalarla (`audit`, `hash_manifest`, `validate-only`) test edildi. Tam bir uçtan-uca `--all` çalıştırması (~10-15 dakika, çoğunlukla null_models FULL mode'dan) henüz yapılmadı. **[Güncelleme 2026-09-19: yapıldı — `python run_pipeline.py --all` FULL mode'da iki kez çalıştırıldı, her seferinde 23/23 aşama PASS (~7 dk); bilimsel çıktılar birebir yeniden üretildi. Bkz. `reports/RELEASE_CHECKLIST.md` "Full End-to-End Pipeline Run" ve `docs/decision_log.md` DEC-016.]**
 - Inter-annotator kappa/alpha **hesaplanamadı** (beklenen, gerçek ikinci kodlayıcı yok) — bu proje "tek kodlayıcı" durumunu şeffafça koruyor.
 - `tests/` kapsamı temel düzeyde (18 test) — ör. web portal, figür/tablo script'leri için test yok (görsel çıktı test edilmesi zor).
 

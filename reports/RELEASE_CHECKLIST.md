@@ -10,7 +10,7 @@ at Phase 20, after re-running every automated validation layer this project has 
 | 3 | Provenance preserved | ⚠️ PASS WITH DISCLOSED GAPS | `data/processed/provenance.csv` — 90.9% matched uniquely, 8.4% disclosed as `unmatched_provenance_gap`, 0.6% `matched_ambiguous`; the +80-row story_level→final gap is documented, not hidden (`docs/limitations.md` item 3) |
 | 4 | Validation tests passed | ✅ PASS | `outputs/validation/summary.json` — 0 FAIL-level issues; 18/18 `pytest` tests passing (just re-verified) |
 | 5 | Network definitions documented | ✅ PASS | `docs/network_models.md` — all 12 variants (G0-G11), one filter rule each in `src/networks.py` |
-| 6 | Analyses reproducible | ✅ PASS | `run_pipeline.py --all --validate-only` just re-run: PASS. Full `--all` (non-fast) run not re-executed this session (each stage was already verified individually across Phases 1-19) |
+| 6 | Analyses reproducible | ✅ PASS | Full end-to-end `python run_pipeline.py --all` (FULL mode, n_random=1000) run twice on 2026-09-19: 23/23 stages PASS each time; scientific outputs reproduced exactly (see "Full End-to-End Pipeline Run" below). The first run exposed two idempotency defects, fixed before the second run (DEC-016) |
 | 7 | Figures regenerated | ⚠️ PARTIAL, DISCLOSED | 10/18 target figures produced (F02,F03,F06,F07,F10,F11,F15-F18); F01,F04-F05,F08-F09,F12-F14 not built (`docs/limitations.md` item 16) |
 | 8 | Tables regenerated | ✅ PASS | T01-T11 all produced and complete (`outputs/tables/publication/`); T08 (story similarity) now the full 5-metric, 91-pair table (post-release addendum, DEC-014; exploratory content, see DEC-015) |
 | 9 | Sensitivity analysis complete | ✅ PASS | 6/6 planned construction-choice pairs tested (`reports/08_sensitivity_robustness_report.md`) |
@@ -60,6 +60,50 @@ These remain open, deferred, manual/external items; the audit did not alter thei
 3. Unresolved merged/concatenated entity cases (HR0076–HR0080 and other `HUMAN_REVIEW_QUEUE.csv`
    items) — need review against the original narrative text.
 4. `CITATION.cff` personal/bibliographic metadata — needs the repository owner.
+
+## Full End-to-End Pipeline Run (2026-09-19)
+
+**Full end-to-end pipeline run: PASS**
+
+- **Command / mode:** `python run_pipeline.py --all` — FULL mode (no `--fast`; `config/analysis.yaml`
+  `null_models.n_random: 1000`, `robustness.n_random_trials: 100`, `seed: 42`). This is the mode the
+  reported numbers come from (`reports/07_null_models_report.md`); there is no separate `--full`
+  flag. Starting point: clean tree at `2e08975`; `data/raw/` and `data/final/` verified byte-identical
+  before and after (hash comparison).
+- **Run 1 (code as committed at `2e08975`):** 23/23 stages PASS, 7 min 11 s. It exposed two
+  idempotency defects: a fresh run deleted (a) the five hand-appended review items HR0076-HR0080
+  from `validation/HUMAN_REVIEW_QUEUE.csv` and (b) the story-level/bipartite sections of
+  `docs/network_models.md`. No scientific output was affected.
+- **Fix (DEC-016):** `validation/manual_review_items.csv` + `entity_resolution.py` append; the
+  `story_networks.py` stage rewrites the doc sections (counts computed, not typed);
+  bipartite `.graphml` edges written in sorted order. Both files now regenerate byte-identical to
+  their committed versions, also on repeated runs.
+- **Run 2 (fixed code):** 23/23 stages PASS, 7 min 18 s: audit, validate, entity_resolution,
+  build_canonical, build_networks, story_networks, metrics, communities, signed_and_directed,
+  multilayer, narrative_order, story_similarity, story_similarity_validity, null_models,
+  null_models_fdr, sensitivity, robustness, audit_top5_checks, visualization, export_tables,
+  build_inter_annotator_sample, inter_annotator_stats, hash_manifest.
+- **Not orchestrator stages:** the website build (`src/build_site.py`), site validation
+  (`src/validate_site.py`), `pytest` and `src/validate_release_consistency.py` are not in
+  `run_pipeline.py`'s `STAGES`; they were run separately, in that order, after the pipeline.
+- **Post-run validation:** `pytest` 18/18 PASS; `run_pipeline.py --all --validate-only` PASS;
+  `validate_site.py` 363/363 files, 0 issues; `validate_release_consistency.py` PASS; the built site
+  was also served over real HTTP (`python -m http.server`) and its key pages, figures and download
+  files returned 200.
+- **Scientific outputs vs. the committed versions:** no change. Byte-identical: all of
+  `outputs/statistics/` (null-model FDR table, sensitivity, robustness, story-similarity clustering,
+  cluster-validity, Top-5 checks), `outputs/matrices/`, `outputs/null_models/`, `outputs/validation/`,
+  `data/processed/`, all publication tables incl. the full 91-pair T08, all PNG figures, and every
+  paper/thesis/site page (RQ6 wording unchanged: PARTIALLY ANSWERED / EXPLORATORY).
+- **Expected non-scientific differences when re-running (verified, and why they are not committed
+  churn):** `.gexf` `lastmodifieddate` (one line per file, the only `.gexf` change committed);
+  `.svg` `dc:date` and matplotlib's random element ids (embedded rasters pixel-identical);
+  floating-point summation noise <= 1.1e-13 in `centrality_*.csv` / T04 (identifiers and row order
+  identical). `outputs/manifest_sha256.csv` hashes update accordingly. `core.autocrlf=true` on
+  Windows checks text files out with CRLF, so the manifest hashes of LF-written files (e.g. `.gexf`)
+  match only files as the pipeline writes them, not a fresh CRLF checkout.
+- **Recommendation (not done, changes the pipeline contract):** add `build_site` and `validate_site`
+  to `run_pipeline.py` `STAGES` so that one command is end-to-end.
 
 ## Overall Status
 

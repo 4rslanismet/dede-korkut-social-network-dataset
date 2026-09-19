@@ -977,23 +977,23 @@
     <node id="S14">
       <data key="d0">1</data>
     </node>
-    <edge source="100_kafir" target="S11" />
     <edge source="100_kafir" target="S10" />
+    <edge source="100_kafir" target="S11" />
     <edge source="16_bin_kafir" target="S05" />
     <edge source="24_sancak_beyi" target="S08" />
     <edge source="300_akinci" target="S11" />
-    <edge source="300_asker" target="S10" />
     <edge source="300_asker" target="S05" />
+    <edge source="300_asker" target="S10" />
     <edge source="300_kafir" target="S04" />
     <edge source="300_kafir" target="S11" />
     <edge source="40_askeri" target="S05" />
     <edge source="40_ince_belli_kiz" target="S02" />
-    <edge source="40_ince_belli_kiz" target="S05" />
     <edge source="40_ince_belli_kiz" target="S03" />
+    <edge source="40_ince_belli_kiz" target="S05" />
     <edge source="40_yigit" target="S06" />
-    <edge source="600_kafir" target="S11" />
-    <edge source="600_kafir" target="S07" />
     <edge source="600_kafir" target="S03" />
+    <edge source="600_kafir" target="S07" />
+    <edge source="600_kafir" target="S11" />
     <edge source="60_kafir" target="S11" />
     <edge source="6_kafir" target="S11" />
     <edge source="adsiz_kisi_uruz_kurtarma_boyu" target="S12" />
@@ -1003,18 +1003,18 @@
     <edge source="ak_sakalli_aruz_koca" target="S09" />
     <edge source="alp_eren" target="S03" />
     <edge source="alp_rustem" target="S10" />
-    <edge source="alp_rustem" target="S13" />
     <edge source="alp_rustem" target="S12" />
+    <edge source="alp_rustem" target="S13" />
     <edge source="alplar_basi_kazan" target="S09" />
     <edge source="alti_bey_oglu" target="S14" />
-    <edge source="anne_ve_babasi" target="S10" />
     <edge source="anne_ve_babasi" target="S09" />
+    <edge source="anne_ve_babasi" target="S10" />
     <edge source="anne_ve_babasi" target="S11" />
-    <edge source="annesi" target="S12" />
     <edge source="annesi" target="S11" />
+    <edge source="annesi" target="S12" />
     <edge source="arsin_oglu_direk_tekfur" target="S08" />
-    <edge source="aruz" target="S13" />
     <edge source="aruz" target="S09" />
+    <edge source="aruz" target="S13" />
     <edge source="aruz_koca" target="S03" />
     <edge source="aruz_koca" target="S09" />
     <edge source="aruz_ve_dis_oguz_beyleri" target="S13" />
@@ -1027,8 +1027,8 @@
     <edge source="at_agizli_aruz_koca" target="S03" />
     <edge source="azrail" target="S06" />
     <edge source="bamsi_beyrek" target="S03" />
-    <edge source="bamsi_beyrek" target="S12" />
     <edge source="bamsi_beyrek" target="S04" />
+    <edge source="bamsi_beyrek" target="S12" />
     <edge source="bamsi_beyrek" target="S13" />
     <edge source="bamsi_ve_bamsinin_40_yigidi" target="S04" />
     <edge source="bamsinin_anne_babasi" target="S04" />
@@ -1044,12 +1044,12 @@
     <edge source="bayburd_hisarindaki_kafirler" target="S04" />
     <edge source="bayburt_hisari_beyi" target="S04" />
     <edge source="bayburt_hisrasi_melikinin_kizi" target="S04" />
-    <edge source="bayindir_han" target="S03" />
-    <edge source="bayindir_han" target="S09" />
-    <edge source="bayindir_han" target="S04" />
-    <edge source="bayindir_han" target="S10" />
     <edge source="bayindir_han" target="S02" />
+    <edge source="bayindir_han" target="S03" />
+    <edge source="bayindir_han" target="S04" />
     <edge source="bayindir_han" target="S08" />
+    <edge source="bayindir_han" target="S09" />
+    <edge source="bayindir_han" target="S10" />
     <edge source="bayindir_han" target="S14" />
     <edge source="bayindir_han_kazan" target="S10" />
     <edge source="bayindir_hanin_adamlari" target="S02" />
@@ -1068,8 +1068,8 @@
     <edge source="beyler_ve_beyrek" target="S04" />
     <edge source="beyrek_in_40_yoldaslari" target="S04" />
     <edge source="beyrekin_40_adami" target="S04" />
-    <edge source="beyrekin_40_yigidi" target="S13" />
     <edge source="beyrekin_40_yigidi" target="S04" />
+    <edge source="beyrekin_40_yigidi" target="S13" />
     <edge source="beyrekin_adamlari" target="S13" />
     <edge source="beyrekin_anne_babasi" target="S04" />
     <edge source="beyrekin_anne_babasi" target="S13" />
@@ -1092,12 +1092,12 @@
     <edge source="burla_hatun" target="S03" />
     <edge source="burla_hatun" target="S04" />
     <edge source="burla_hatun" target="S05" />
-    <edge source="cebrail" target="S10" />
     <edge source="cebrail" target="S08" />
+    <edge source="cebrail" target="S10" />
     <edge source="cekisen_oksuzle_diger_cocugu_ayirig_tokat_atti" target="S11" />
+    <edge source="cevresindekiler" target="S04" />
     <edge source="cevresindekiler" target="S07" />
     <edge source="cevresindekiler" target="S09" />
-    <edge source="cevresindekiler" target="S04" />
     <edge source="cilasun_yigitler_ve_kara_budak" target="S03" />
     <edge source="cilasun_yigitleri_ve_deli_dundar" target="S05" />
     <edge source="coban" target="S09" />
@@ -1106,16 +1106,16 @@
     <edge source="dadi_ve_diger_kizlar" target="S04" />
     <edge source="dadilar" target="S09" />
     <edge source="dayalar" target="S04" />
-    <edge source="dede_korkut" target="S09" />
     <edge source="dede_korkut" target="S01" />
+    <edge source="dede_korkut" target="S04" />
+    <edge source="dede_korkut" target="S09" />
     <edge source="dede_korkut" target="S10" />
     <edge source="dede_korkut" target="S14" />
-    <edge source="dede_korkut" target="S04" />
     <edge source="deli_budak" target="S03" />
     <edge source="deli_dumrul" target="S06" />
-    <edge source="deli_dundar" target="S05" />
     <edge source="deli_dundar" target="S03" />
     <edge source="deli_dundar" target="S04" />
+    <edge source="deli_dundar" target="S05" />
     <edge source="deli_durmrul" target="S06" />
     <edge source="deli_karcar" target="S04" />
     <edge source="demir_donlu_mamak" target="S09" />
@@ -1134,8 +1134,8 @@
     <edge source="dis_oguz_beyleri_ve_deli_dundar" target="S05" />
     <edge source="doksan_tumen_oguz" target="S05" />
     <edge source="dokuz_tumen_oguz" target="S05" />
-    <edge source="donebilmez_dulek_evren" target="S12" />
     <edge source="donebilmez_dulek_evren" target="S08" />
+    <edge source="donebilmez_dulek_evren" target="S12" />
     <edge source="donebilmez_dulerk_evren" target="S12" />
     <edge source="duha_koca" target="S06" />
     <edge source="dumrul" target="S06" />
@@ -1143,15 +1143,15 @@
     <edge source="dumrulun_annesi" target="S06" />
     <edge source="dumrulun_karisi" target="S06" />
     <edge source="duzen" target="S10" />
-    <edge source="duzen_oglu_alp_rustem" target="S12" />
     <edge source="duzen_oglu_alp_rustem" target="S09" />
+    <edge source="duzen_oglu_alp_rustem" target="S12" />
     <edge source="duzmurd_kalesi_tekfuru_arsin" target="S08" />
     <edge source="egrek" target="S11" />
     <edge source="egrek_ve_300_akinci" target="S11" />
     <edge source="egrek_ve_segrek" target="S11" />
     <edge source="egreke_yol_gosterdi" target="S11" />
-    <edge source="emen" target="S10" />
     <edge source="emen" target="S08" />
+    <edge source="emen" target="S10" />
     <edge source="emen" target="S13" />
     <edge source="emren" target="S10" />
     <edge source="ense_koca_oglu_okcu" target="S13" />
@@ -1166,17 +1166,17 @@
     <edge source="hekimler" target="S02" />
     <edge source="hizir" target="S02" />
     <edge source="ic_oguz" target="S14" />
-    <edge source="ic_oguz_beyleri" target="S14" />
     <edge source="ic_oguz_beyleri" target="S13" />
+    <edge source="ic_oguz_beyleri" target="S14" />
     <edge source="ic_oguz_beyleri_dis_oguz_beyleri_pay_pure_bey_kara_budak_uruz_bey_yigenek_salur_kazan_pay_bicen" target="S04" />
     <edge source="ic_oguz_ve_kazan" target="S03" />
     <edge source="imrahor" target="S04" />
     <edge source="kadinlar" target="S04" />
     <edge source="kafir" target="S03" />
-    <edge source="kafir" target="S12" />
+    <edge source="kafir" target="S05" />
     <edge source="kafir" target="S08" />
     <edge source="kafir" target="S10" />
-    <edge source="kafir" target="S05" />
+    <edge source="kafir" target="S12" />
     <edge source="kafir_askeri" target="S12" />
     <edge source="kafir_beyinin_kizi" target="S04" />
     <edge source="kafir_eri" target="S12" />
@@ -1198,10 +1198,10 @@
     <edge source="kafirlerin_sag_cenahi" target="S05" />
     <edge source="kalenin_sigir_cobani" target="S12" />
     <edge source="kaleye_hucum_edenler" target="S04" />
-    <edge source="kam_gan" target="S10" />
     <edge source="kam_gan" target="S02" />
-    <edge source="kam_gan" target="S08" />
     <edge source="kam_gan" target="S04" />
+    <edge source="kam_gan" target="S08" />
+    <edge source="kam_gan" target="S10" />
     <edge source="kan_turali" target="S07" />
     <edge source="kan_turali_ve_adamlari" target="S07" />
     <edge source="kan_turali_ve_selcen_hatun" target="S07" />
@@ -1213,17 +1213,17 @@
     <edge source="kapcak_melik" target="S03" />
     <edge source="kapici" target="S10" />
     <edge source="kara_arslan_melik" target="S04" />
-    <edge source="kara_budak" target="S08" />
-    <edge source="kara_budak" target="S14" />
+    <edge source="kara_budak" target="S03" />
     <edge source="kara_budak" target="S04" />
     <edge source="kara_budak" target="S05" />
-    <edge source="kara_budak" target="S03" />
+    <edge source="kara_budak" target="S08" />
+    <edge source="kara_budak" target="S14" />
     <edge source="kara_budak_kazan_oglu_uruz_beyler_basi_yigenek_gaflet_koca_oglu_sir_semseddin_deli_karcar_dugunde_ok_atarlar" target="S04" />
     <edge source="kara_cekur" target="S07" />
-    <edge source="kara_gone" target="S13" />
     <edge source="kara_gone" target="S03" />
-    <edge source="kara_gone" target="S08" />
     <edge source="kara_gone" target="S05" />
+    <edge source="kara_gone" target="S08" />
+    <edge source="kara_gone" target="S13" />
     <edge source="kara_gone_deli_dundar_kara_budak" target="S03" />
     <edge source="kara_gone_oglu_kara_budak" target="S03" />
     <edge source="kara_gone_ve_askerleri" target="S12" />
@@ -1263,8 +1263,8 @@
     <edge source="kiyan_oglu_deli_dundar" target="S14" />
     <edge source="kiyan_selcik" target="S09" />
     <edge source="kiyan_selcuk" target="S04" />
-    <edge source="kiyan_selcuk_oglu_deli_dundar" target="S08" />
     <edge source="kiyan_selcuk_oglu_deli_dundar" target="S03" />
+    <edge source="kiyan_selcuk_oglu_deli_dundar" target="S08" />
     <edge source="kocalar" target="S09" />
     <edge source="kurt" target="S03" />
     <edge source="lala_kilbas" target="S14" />
@@ -1275,8 +1275,8 @@
     <edge source="oglunu_veren_kadin" target="S09" />
     <edge source="oguz" target="S09" />
     <edge source="oguz_askerleri" target="S12" />
-    <edge source="oguz_beyleri" target="S09" />
     <edge source="oguz_beyleri" target="S04" />
+    <edge source="oguz_beyleri" target="S09" />
     <edge source="oguz_han" target="S09" />
     <edge source="oguz_hanin_likcisi" target="S09" />
     <edge source="oksuz_cocuk" target="S11" />
@@ -1292,15 +1292,15 @@
     <edge source="peri_kizi" target="S09" />
     <edge source="peygamber_sahabesi_kanli_bugduz_emen" target="S03" />
     <edge source="saht_oldu" target="S13" />
-    <edge source="salur_kazan" target="S10" />
-    <edge source="salur_kazan" target="S13" />
-    <edge source="salur_kazan" target="S12" />
     <edge source="salur_kazan" target="S03" />
-    <edge source="salur_kazan" target="S09" />
-    <edge source="salur_kazan" target="S14" />
-    <edge source="salur_kazan" target="S05" />
     <edge source="salur_kazan" target="S04" />
+    <edge source="salur_kazan" target="S05" />
+    <edge source="salur_kazan" target="S09" />
+    <edge source="salur_kazan" target="S10" />
     <edge source="salur_kazan" target="S11" />
+    <edge source="salur_kazan" target="S12" />
+    <edge source="salur_kazan" target="S13" />
+    <edge source="salur_kazan" target="S14" />
     <edge source="sari_coban" target="S09" />
     <edge source="segerk" target="S11" />
     <edge source="segrek" target="S11" />
@@ -1314,8 +1314,8 @@
     <edge source="su" target="S03" />
     <edge source="tanri" target="S06" />
     <edge source="tanri" target="S08" />
-    <edge source="tanri" target="S14" />
     <edge source="tanri" target="S10" />
+    <edge source="tanri" target="S14" />
     <edge source="tatyan_kalesi_casuslari" target="S05" />
     <edge source="tekfur_begil_boyu" target="S10" />
     <edge source="tekfur_kan_turali_boyu" target="S07" />
@@ -1339,15 +1339,15 @@
     <edge source="tepegozun_peri_annesi" target="S09" />
     <edge source="ters_uzamis" target="S11" />
     <edge source="ters_uzamis" target="S13" />
-    <edge source="trabzon_tekfuru" target="S12" />
     <edge source="trabzon_tekfuru" target="S07" />
-    <edge source="turkistan" target="S14" />
+    <edge source="trabzon_tekfuru" target="S12" />
     <edge source="turkistan" target="S03" />
+    <edge source="turkistan" target="S14" />
     <edge source="ulas" target="S03" />
     <edge source="ulas" target="S05" />
+    <edge source="uruz" target="S03" />
     <edge source="uruz" target="S04" />
     <edge source="uruz" target="S05" />
-    <edge source="uruz" target="S03" />
     <edge source="uruz" target="S12" />
     <edge source="uruz_ve_300_asker" target="S03" />
     <edge source="uruz_ve_uruzun_40_askeri" target="S05" />
@@ -1368,8 +1368,8 @@
     <edge source="yedi_basli_ejderha" target="S14" />
     <edge source="yedi_kafir_beyi" target="S04" />
     <edge source="yedi_yigit" target="S04" />
-    <edge source="yigenek" target="S08" />
     <edge source="yigenek" target="S04" />
+    <edge source="yigenek" target="S08" />
     <edge source="yigenek_ve_sancak_beyleri" target="S08" />
     <edge source="yigit" target="S09" />
     <edge source="yoldaslari" target="S08" />
