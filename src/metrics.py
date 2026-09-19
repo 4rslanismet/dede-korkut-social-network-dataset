@@ -4,14 +4,20 @@ centrality profiles (section 19-20).
 Every metric is computed only where structurally meaningful for that graph
 (e.g. reciprocity/in-out-degree only for the directed G9 variant; harmonic
 centrality preferred over closeness on disconnected graphs, per section
-19's explicit instruction) — nothing is force-computed everywhere."""
+19's explicit instruction) — nothing is force-computed everywhere.
+
+Semantics of the shortest-path-based columns (DEC-017): the edge attribute
+`weight` is tie STRENGTH. Weighted betweenness therefore uses the derived
+distance 1/strength (networks.with_distance); it is never given `weight`
+directly. Unweighted hop-count betweenness is provided separately as
+`betweenness_hop`."""
 import json
 from pathlib import Path
 
 import networkx as nx
 import pandas as pd
 
-from networks import build_all_networks, load_processed
+from networks import build_all_networks, load_processed, with_distance
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT_STATS = ROOT / "outputs" / "statistics"
@@ -83,7 +89,13 @@ def centrality_profile(name: str, g, nodes: pd.DataFrame) -> pd.DataFrame:
 
     degree = dict(g.degree())
     strength = dict(g.degree(weight="weight"))
-    betweenness = nx.betweenness_centrality(g, weight="weight", normalized=True)
+    # Shortest-path metrics need a DISTANCE, not a strength (DEC-017):
+    #   betweenness      = strength-derived weighted betweenness, distance = 1/strength
+    #   betweenness_hop  = unweighted (hop-count) betweenness, kept as its own comparison
+    # For G11_unweighted all strengths are 1, so both columns coincide there.
+    g_dist = with_distance(g)
+    betweenness = nx.betweenness_centrality(g_dist, weight="distance", normalized=True)
+    betweenness_hop = nx.betweenness_centrality(g, weight=None, normalized=True)
     harmonic = nx.harmonic_centrality(g, distance=None)
     pagerank = nx.pagerank(g, weight="weight")
     eigen = _safe_eigenvector(g)
@@ -93,6 +105,7 @@ def centrality_profile(name: str, g, nodes: pd.DataFrame) -> pd.DataFrame:
         "degree": [degree[x] for x in g.nodes()],
         "strength_weighted_degree": [strength[x] for x in g.nodes()],
         "betweenness": [betweenness[x] for x in g.nodes()],
+        "betweenness_hop": [betweenness_hop[x] for x in g.nodes()],
         "harmonic_centrality": [harmonic[x] for x in g.nodes()],
         "pagerank": [pagerank[x] for x in g.nodes()],
         "eigenvector_centrality": [eigen.get(x, float("nan")) for x in g.nodes()],

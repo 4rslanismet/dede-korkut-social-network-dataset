@@ -16,10 +16,10 @@
         "top_20_overlap_fraction": 0.8
       },
       "betweenness": {
-        "spearman_rho": 0.8868778627109035,
-        "spearman_p": 7.7236731773856965e-53,
-        "kendall_tau": 0.7994860017270179,
-        "kendall_p": 9.290497386818259e-33,
+        "spearman_rho": 0.8921467587526797,
+        "spearman_p": 2.5295135710793432e-54,
+        "kendall_tau": 0.8277527328317158,
+        "kendall_p": 3.4998976871320676e-33,
         "top_10_overlap_fraction": 0.7,
         "top_20_overlap_fraction": 0.85
       },
@@ -35,7 +35,7 @@
   },
   "weighted_vs_unweighted": {
     "pair": "weighted_vs_unweighted",
-    "description": "Same edge set; G10 uses agirlik (1-5) as weight, G11 forces weight=1. Centrality measures that ignore weight (plain degree) are identical by construction - only weighted measures (strength, weighted betweenness/PageRank) can differ here.",
+    "description": "Same edge set; G10 uses agirlik (1-5) as weight, G11 forces weight=1. Centrality measures that ignore weight (plain degree) are identical by construction - only weighted measures (strength, weighted betweenness/PageRank) can differ here. Weighted betweenness uses distance = 1/strength (DEC-017); in G11 all strengths are 1, so its betweenness is the unweighted hop-count value (the 'unweighted' arm).",
     "n_nodes_a": 311,
     "n_nodes_b": 311,
     "n_common_nodes": 311,
@@ -50,10 +50,10 @@
         "top_20_overlap_fraction": 1.0
       },
       "betweenness": {
-        "spearman_rho": 0.9295563438583019,
-        "spearman_p": 6.065469160319223e-136,
-        "kendall_tau": 0.8805773908294033,
-        "kendall_p": 1.3773734475650083e-72,
+        "spearman_rho": 0.885794555458881,
+        "spearman_p": 4.846042754341045e-105,
+        "kendall_tau": 0.8387312779385404,
+        "kendall_p": 5.605249378270637e-64,
         "top_10_overlap_fraction": 0.6,
         "top_20_overlap_fraction": 0.8
       },
@@ -84,12 +84,12 @@
         "top_20_overlap_fraction": 0.95
       },
       "betweenness": {
-        "spearman_rho": 0.99999570625378,
+        "spearman_rho": 0.9999992809436034,
         "spearman_p": 0.0,
-        "kendall_tau": 0.9996734960411394,
-        "kendall_p": 3.256236584611954e-92,
+        "kendall_tau": 0.9999011369253582,
+        "kendall_p": 1.5037793433981293e-86,
         "top_10_overlap_fraction": 1.0,
-        "top_20_overlap_fraction": 0.95
+        "top_20_overlap_fraction": 1.0
       },
       "pagerank": {
         "spearman_rho": 0.9999213432454427,
@@ -118,12 +118,12 @@
         "top_20_overlap_fraction": 0.9
       },
       "betweenness": {
-        "spearman_rho": 0.9706981430712783,
-        "spearman_p": 3.040286249532505e-182,
-        "kendall_tau": 0.9428539701996675,
-        "kendall_p": 1.431103760008606e-78,
-        "top_10_overlap_fraction": 0.8,
-        "top_20_overlap_fraction": 0.9
+        "spearman_rho": 0.984253789780102,
+        "spearman_p": 4.634207065809724e-221,
+        "kendall_tau": 0.9689846390086049,
+        "kendall_p": 6.94149167111959e-78,
+        "top_10_overlap_fraction": 0.7,
+        "top_20_overlap_fraction": 0.95
       },
       "pagerank": {
         "spearman_rho": 0.989341574132362,
@@ -152,12 +152,12 @@
         "top_20_overlap_fraction": 0.85
       },
       "betweenness": {
-        "spearman_rho": 0.895652197922328,
-        "spearman_p": 1.3479570662209944e-65,
-        "kendall_tau": 0.8278909058567601,
-        "kendall_p": 3.310884277493678e-40,
+        "spearman_rho": 0.9488164054529897,
+        "spearman_p": 1.5691370672483246e-92,
+        "kendall_tau": 0.9046618094844819,
+        "kendall_p": 2.4282178007416076e-45,
         "top_10_overlap_fraction": 0.7,
-        "top_20_overlap_fraction": 0.85
+        "top_20_overlap_fraction": 1.0
       },
       "pagerank": {
         "spearman_rho": 0.9573640202922519,
@@ -186,12 +186,12 @@
         "top_20_overlap_fraction": 0.95
       },
       "betweenness": {
-        "spearman_rho": 0.9999963472888207,
+        "spearman_rho": 0.9999992861790342,
         "spearman_p": 0.0,
-        "kendall_tau": 0.9997560578955931,
-        "kendall_p": 1.9552946986734042e-92,
+        "kendall_tau": 0.9999015020930804,
+        "kendall_p": 9.24838599427709e-87,
         "top_10_overlap_fraction": 1.0,
-        "top_20_overlap_fraction": 0.95
+        "top_20_overlap_fraction": 1.0
       },
       "pagerank": {
         "spearman_rho": 0.9996730768493406,

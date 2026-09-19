@@ -31,6 +31,38 @@ def load_processed():
     return nodes, rel
 
 
+def strength_to_distance(strength) -> float:
+    """Convert a tie STRENGTH into a shortest-path DISTANCE: distance = 1 / strength.
+
+    The edge attribute `weight` in every graph built here is tie strength
+    (sum of the coded 1-5 `agirlik` values over an actor pair): larger = a
+    stronger tie. NetworkX shortest-path functions (weighted betweenness,
+    closeness, ...) interpret their `weight=` argument as DISTANCE/COST
+    (smaller = shorter), so passing strength directly makes strong ties count
+    as LONG paths. Shortest-path-based metrics must therefore use this derived
+    distance (edge attribute "distance"), never `weight` (DEC-017).
+
+    Raises ValueError for strength <= 0 or NaN instead of returning an
+    arbitrary value."""
+    try:
+        s = float(strength)
+    except (TypeError, ValueError):
+        raise ValueError(f"tie strength must be numeric, got {strength!r}")
+    if not (s > 0) or s != s:  # rejects <= 0 and NaN
+        raise ValueError(f"tie strength must be > 0 to derive a distance, got {strength!r}")
+    return 1.0 / s
+
+
+def with_distance(g):
+    """Return a copy of `g` whose every edge carries distance = 1/weight (see
+    strength_to_distance). `weight` (strength) is left untouched; the input
+    graph is not modified and exported graph files do not gain the attribute."""
+    h = g.copy()
+    for _, _, data in h.edges(data=True):
+        data["distance"] = strength_to_distance(data.get("weight", 1.0))
+    return h
+
+
 def _semantic_family(rel: pd.DataFrame) -> pd.Series:
     return rel["relation_family_top"] == "SEMANTIC"
 

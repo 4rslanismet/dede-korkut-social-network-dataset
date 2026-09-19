@@ -59,7 +59,9 @@ def build_sensitivity_pairs(nodes: pd.DataFrame, rel: pd.DataFrame, base_graphs:
             "description": "Same edge set; G10 uses agirlik (1-5) as weight, G11 forces weight=1. "
                             "Centrality measures that ignore weight (plain degree) are identical by "
                             "construction - only weighted measures (strength, weighted betweenness/"
-                            "PageRank) can differ here.",
+                            "PageRank) can differ here. Weighted betweenness uses distance = "
+                            "1/strength (DEC-017); in G11 all strengths are 1, so its betweenness "
+                            "is the unweighted hop-count value (the 'unweighted' arm).",
         },
         "all_relations_vs_core_social": {
             "a_label": "all_relations", "a_graph": base_graphs["G0_full"],
