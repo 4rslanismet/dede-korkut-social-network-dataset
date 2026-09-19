@@ -1,11 +1,17 @@
 """Phase 15: build the static GitHub Pages site under docs/.
 
-Every number/table on every page is generated here from real files under
-data/, outputs/, reports/, docs/decision_log.md, validation/ — nothing is
-hand-typed. Run src/build_site_data.py first (it's called at the top of
-main() here too) so docs/data/*.json is fresh.
+Scientific numbers on every page are LOADED from the pipeline's machine-readable
+outputs - above all outputs/results_registry.json (src/build_results_registry.py)
+- or computed from the data files here; they are not typed into this generator
+(DEC-019). If a required value is missing/null the build FAILS instead of
+printing a guess. Explanatory prose is hand-written, but the numbers inside it
+come from the registry.
+
+Run src/build_results_registry.py first (the pipeline does). src/build_site_data.py
+is called at the top of main() so docs/data/*.json is fresh.
 """
 import json
+import re
 import shutil
 import sys
 from pathlib import Path
@@ -15,9 +21,30 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from site_layout import page, DISCLAIMER
 import build_site_data
+from site_pages import (safe_filename, expected_character_pages, expected_story_pages,
+                        remove_stale_pages, CHARACTERS_DIR, STORIES_DIR)
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
+
+
+def registry() -> dict:
+    path = ROOT / "outputs" / "results_registry.json"
+    if not path.exists():
+        raise SystemExit("outputs/results_registry.json is missing - run `python run_pipeline.py --stage results_registry` first")
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def need(value, name: str):
+    """Refuse to print a scientific value that the registry could not supply."""
+    if value is None:
+        raise SystemExit(f"required registry value '{name}' is null/unavailable - refusing to hard-code or guess it")
+    return value
+
+
+def count_headings(rel_path: str, pattern: str) -> int:
+    return len(re.findall(pattern, (ROOT / rel_path).read_text(encoding="utf-8"), flags=re.M))
 
 # GitHub Pages, when configured to publish from /docs, serves ONLY the
 # contents of docs/ - anything under ../outputs, ../data, ../reports is
@@ -58,6 +85,10 @@ DOWNLOAD_FILES = [
     "outputs/networks/bipartite_actor_story.graphml",
     "outputs/statistics/story_similarity_clustering.json",
     "outputs/statistics/story_similarity_cluster_validity.json",
+    "outputs/statistics/composite_node_summary.json",
+    "outputs/results_registry.json",
+    "validation/composite_node_candidates.csv",
+    "validation/HUMAN_REVIEW_QUEUE.csv",
     "outputs/manifest_sha256.csv",
 ]
 
@@ -99,17 +130,6 @@ def load_json(rel_path):
 
 def df(rel_path, **kwargs):
     return pd.read_csv(ROOT / rel_path, encoding="utf-8-sig", **kwargs)
-
-
-def safe_filename(node_id: str, maxlen: int = 60) -> str:
-    """A handful of node_ids in the canonical dataset are pathologically long
-    (concatenated multi-actor entries - see CLAUDE_SESSION_HANDOFF.md known
-    warnings and validation/HUMAN_REVIEW_QUEUE.csv). Truncate deterministically
-    with a length suffix for filesystem safety; the full node_id/canonical_name
-    still appears as the page's own content and in the JSON data exports."""
-    if len(node_id) <= maxlen:
-        return node_id
-    return f"{node_id[:maxlen]}_{len(node_id)}"
 
 
 def write(rel_path: str, html: str):
@@ -154,9 +174,9 @@ an interactive research portal, and an academic research package at once.</p>
 <h2>Project Status</h2>
 <div class="status-panel">
   <div class="item"><strong>Dataset Validation</strong><span class="pill {pill_class}">{val['status']}</span></div>
-  <div class="item"><strong>Pipeline</strong>{'Reproducible' if summary['pipeline']['reproducible'] else 'Not yet reproducible'}</div>
+  <div class="item"><strong>Pipeline stages</strong>{summary['pipeline']['n_stages']}</div>
   <div class="item"><strong>Network Models</strong>{summary['pipeline']['n_network_models']}</div>
-  <div class="item"><strong>Automated Tests</strong>{summary['pipeline']['n_pytest_tests_passing']}</div>
+  <div class="item"><strong>Automated tests (collected)</strong>{summary['pipeline']['n_tests_collected']}</div>
   <div class="item"><strong>Fail-level issues</strong>{val['fail_level_issue_count']}</div>
   <div class="item"><strong>Warning-level issues</strong>{val['warning_level_issue_count']}</div>
 </div>
@@ -220,6 +240,10 @@ Legacy dataset version: v3 (<code>data/final/</code>, documented in <code>docs/R
 # METHODOLOGY
 # ---------------------------------------------------------------------------
 def build_methodology():
+    reg = registry()
+    n_tests_fdr = need(reg["null_models"]["n_tests"], "null_models.n_tests")
+    n_limitations = count_headings("docs/limitations.md", r"^## \d+\.")
+    n_models = need(reg["networks"]["n_models"], "networks.n_models")
     content = f"""
 <h1>Methodology</h1>
 <p class="lede">Every step below is implemented as a standalone, re-runnable script under
@@ -262,11 +286,15 @@ arbitrary direction.</p>
 network (identity/title relations excluded), and the 23-connected-component caveat (see
 <a href="communities.html">Communities</a>) is carried through every downstream use.</p>
 <p><strong>Null model method (DEC-008):</strong> degree-preserving randomization
-(<code>networkx.double_edge_swap</code>), Benjamini-Hochberg FDR correction across all 36 tests.</p>
+(<code>networkx.double_edge_swap</code>), Benjamini-Hochberg FDR correction across all {n_tests_fdr} tests.</p>
+<p><strong>Shortest-path distance vs. tie strength (DEC-017):</strong> the edge attribute
+<code>weight</code> is tie <em>strength</em>. Weighted betweenness therefore uses the derived distance
+<code>1 / strength</code> (a stronger tie is a shorter path); unweighted hop-count betweenness is kept as a
+separate measure. Strength is never passed directly to a shortest-path routine.</p>
 </div>
 
 <h2>Network model definitions</h2>
-<p>All 12 network variants (G0-G11) are defined in one place, <code>src/networks.py</code>, and
+<p>All {n_models} network variants (G0-G11) are defined in one place, <code>src/networks.py</code>, and
 documented in full in <a href="network_models.md">network_models.md</a>. Every variant is reproducible by
 re-running <code>python run_pipeline.py --stage build_networks</code>.</p>
 
@@ -274,7 +302,7 @@ re-running <code>python run_pipeline.py --stage build_networks</code>.</p>
 <p>
 <a href="data_dictionary.md">Data Dictionary</a> ·
 <a href="relation_codebook.md">Relation Codebook</a> ·
-<a href="limitations.md">Limitations</a> (17 items) ·
+<a href="limitations.md">Limitations</a> ({n_limitations} items) ·
 <a href="inter_annotator_protocol.md">Inter-Annotator Protocol</a>
 </p>
 
@@ -349,26 +377,39 @@ literary judgments about character importance.</div>
 # STORIES (index) + per-story pages
 # ---------------------------------------------------------------------------
 def build_stories():
-    stories = df("data/processed/stories.csv")
-    metrics = df("data/derived/story_level_metrics.csv")
-    merged = stories.merge(metrics, on=["story_id", "source_file"], how="left", suffixes=("", "_m"))
+    reg = registry()
+    n_boy = need(reg["dataset"]["n_boy_stories"], "dataset.n_boy_stories")
+    stories = df("data/processed/stories.csv").rename(columns={"n_edges": "n_relation_records"})
+    metrics = df("data/derived/story_level_metrics.csv").rename(columns={"n_edges": "n_edges_aggregated"})
+    # Two different "edge" counts (review finding, DEC-019): stories.csv counts raw coded relation
+    # RECORDS; story_level_metrics.csv counts edges of the AGGREGATED story graph (one per unordered
+    # actor pair). Density / average degree / centralization are computed on the aggregated graph.
+    merged = stories.merge(metrics[["story_id", "source_file", "n_nodes", "n_edges_aggregated", "density",
+                                    "average_degree", "degree_centralization"]],
+                           on=["story_id", "source_file"], how="left", validate="one_to_one")
+    other_sections = "/".join(sorted(stories.loc[stories["section_type"] != "boy", "section_type"].unique()))
 
     tiles = "".join(
         f'<a class="tile" href="stories/{r.story_id}.html"><div class="tile-title">{r.story_id} — {r.boy_name_raw}</div>'
         f'<div class="tile-meta">{int(r.n_nodes) if pd.notna(r.n_nodes) else "—"} nodes · '
-        f'{int(r.n_edges) if pd.notna(r.n_edges) else "—"} edges</div></a>'
+        f'{int(r.n_edges_aggregated) if pd.notna(r.n_edges_aggregated) else "—"} aggregated edges · '
+        f'{int(r.n_relation_records)} relation records</div></a>'
         for r in merged.itertuples()
     )
     content = f"""
 <h1>Stories</h1>
-<p class="lede">14 units (13 boy + 1 girizgah prologue), each with its own network built the same
-way as the corpus-level graphs (see <a href="methodology.html">Methodology</a>).</p>
+<p class="lede">{len(stories)} units ({n_boy} boy + {len(stories) - n_boy} {other_sections}), each with its own network built the same
+way as the corpus-level graphs (see <a href="methodology.html">Methodology</a>). &ldquo;Aggregated edges&rdquo; = edges of the story's
+aggregated undirected graph (one per unordered actor pair); &ldquo;relation records&rdquo; = raw coded relation rows.</p>
 <div class="grid-list">{tiles}</div>
 """
     write("stories.html", page("Stories", "The 14 stories (boy) of the corpus, each with its own network.", "Stories", content))
 
     nodes = df("data/processed/nodes.csv")
     rel = df("data/processed/relations_event_level.csv")
+    removed = remove_stale_pages(STORIES_DIR, expected_story_pages())
+    if removed:
+        print(f"Removed {len(removed)} stale story page(s): {removed}")
     for r in merged.itertuples():
         story_rel = rel[rel["story_id"] == r.story_id]
         actor_ids = pd.unique(pd.concat([story_rel["source_id"], story_rel["target_id"]]))
@@ -383,9 +424,12 @@ way as the corpus-level graphs (see <a href="methodology.html">Methodology</a>).
         )
         metric_bits = []
         for label, val, fmt in [
-            ("Nodes", r.n_nodes, "{:.0f}"), ("Edges", r.n_edges, "{:.0f}"),
-            ("Density", r.density, "{:.4f}"), ("Avg. degree", r.average_degree, "{:.2f}"),
-            ("Degree centralization", r.degree_centralization, "{:.3f}"),
+            ("Nodes", r.n_nodes, "{:.0f}"),
+            ("Raw relation records", r.n_relation_records, "{:.0f}"),
+            ("Aggregated network edges", r.n_edges_aggregated, "{:.0f}"),
+            ("Density (aggregated graph)", r.density, "{:.4f}"),
+            ("Avg. degree (aggregated graph)", r.average_degree, "{:.2f}"),
+            ("Degree centralization (aggregated graph)", r.degree_centralization, "{:.3f}"),
         ]:
             v = fmt.format(val) if pd.notna(val) else "N/A"
             metric_bits.append(f'<div class="metric-card"><span class="value">{v}</span><span class="label">{label}</span></div>')
@@ -397,6 +441,9 @@ way as the corpus-level graphs (see <a href="methodology.html">Methodology</a>).
 <code>{r.source_file}</code></p>
 
 <div class="card-grid">{''.join(metric_bits)}</div>
+<p style="font-size:0.8rem;color:var(--ink-soft)">&ldquo;Raw relation records&rdquo; counts the coded relation rows of this story
+(several can fall on the same actor pair). Nodes, aggregated edges, density, average degree and degree centralization all describe the
+story's <em>aggregated undirected graph</em> (one edge per unordered actor pair).</p>
 
 <h2>Top actors in this story</h2>
 <table><thead><tr><th>Actor</th><th>Type</th></tr></thead><tbody>{actor_rows or '<tr><td colspan=2>—</td></tr>'}</tbody></table>
@@ -420,20 +467,44 @@ def build_characters():
     comm = df("outputs/tables/community_membership_G2_core_social.csv")
     rel = df("data/processed/relations_event_level.csv")
 
+    n_layers = need(registry()["dataset"]["n_relation_layers"], "dataset.n_relation_layers")
     all_actors = nodes.sort_values("relation_count", ascending=False)
-    top = all_actors.head(60)
-    tiles = "".join(
-        f'<a class="tile" href="characters/{safe_filename(r.node_id)}.html"><div class="tile-title">{r.canonical_name}</div>'
-        f'<div class="tile-meta">{r.node_type} · {r.story_count} stories</div></a>'
-        for r in top.itertuples()
+    # The index lists EVERY canonical actor (sorted by name), with a client-side filter, so all
+    # profile pages are reachable through normal navigation (review finding, DEC-019).
+    listing = nodes.sort_values("canonical_name", key=lambda s: s.str.casefold())
+    rows = "".join(
+        f'<tr data-name="{r.canonical_name.casefold()}" data-type="{r.node_type}">'
+        f'<td><a href="characters/{safe_filename(r.node_id)}.html">{r.canonical_name}</a></td>'
+        f'<td>{r.node_type}</td><td>{r.story_count}</td><td>{r.relation_count}</td></tr>'
+        for r in listing.itertuples()
     )
+    type_options = "".join(f'<option value="{t}">{t}</option>' for t in sorted(nodes["node_type"].unique()))
     content = f"""
 <h1>Characters</h1>
-<p class="lede">Showing the top {len(top)} actors by relation count here; every one of the
-{len(nodes)} canonical actors has its own profile page (linked from story pages and search),
-and the full table is in <a href="downloads.html">Downloads</a> (<code>data/processed/nodes.csv</code>).</p>
+<p class="lede">All {len(nodes)} canonical actors, each with its own profile page. Use the filter to search by name or actor type;
+the full table is also in <a href="downloads.html">Downloads</a> (<code>data/processed/nodes.csv</code>).
+Some labels are candidate composite nodes awaiting manual review (see <a href="evidence.html">Evidence</a>).</p>
 <div class="disclaimer">{DISCLAIMER}</div>
-<div class="grid-list">{tiles}</div>
+<p><label for="char-filter">Filter by name</label> <input type="text" id="char-filter" placeholder="e.g. Salur Kazan">
+<label for="type-filter">Type</label> <select id="type-filter"><option value="">all</option>{type_options}</select>
+<span id="char-count" style="font-size:0.85rem;color:var(--ink-soft)"></span></p>
+<div class="table-wrap"><table id="char-table"><thead><tr><th>Actor</th><th>Type</th><th>Stories</th><th>Relations</th></tr></thead>
+<tbody>{rows}</tbody></table></div>
+<script>
+(function () {{
+  var box = document.getElementById("char-filter"), sel = document.getElementById("type-filter"),
+      rows = document.querySelectorAll("#char-table tbody tr"), out = document.getElementById("char-count");
+  function apply() {{
+    var q = box.value.trim().toLowerCase(), t = sel.value, shown = 0;
+    rows.forEach(function (r) {{
+      var ok = (!q || r.getAttribute("data-name").indexOf(q) !== -1) && (!t || r.getAttribute("data-type") === t);
+      r.style.display = ok ? "" : "none"; if (ok) shown++;
+    }});
+    out.textContent = " " + shown + " of " + rows.length + " shown";
+  }}
+  box.addEventListener("input", apply); sel.addEventListener("change", apply); apply();
+}})();
+</script>
 """
     write("characters.html", page("Characters", "Actor profiles: centrality, layers, community, story participation.", "Characters", content))
 
@@ -441,10 +512,12 @@ and the full table is in <a href="downloads.html">Downloads</a> (<code>data/proc
     ml_idx = ml.set_index("node_id")
     comm_idx = comm.set_index("node_id")
 
-    # Every canonical actor gets a profile page (not just the top 60 shown on
-    # the index) - story pages link to any actor that appears in them, so an
-    # incomplete set here would mean broken links (caught by
-    # src/validate_site.py, section 105).
+    # Every canonical actor gets a profile page. Stale generated pages (e.g. from a
+    # previous naming scheme) are removed first: the expected set comes from the CURRENT
+    # canonical data, and src/validate_site.py checks expected == generated (DEC-019).
+    removed = remove_stale_pages(CHARACTERS_DIR, expected_character_pages())
+    if removed:
+        print(f"Removed {len(removed)} stale character page(s): {removed}")
     for r in all_actors.itertuples():
         nid = r.node_id
         c = cent_idx.loc[nid] if nid in cent_idx.index else None
@@ -461,7 +534,7 @@ and the full table is in <a href="downloads.html">Downloads</a> (<code>data/proc
         metric_bits = []
         if c is not None:
             for label, val, fmt in [("Degree (G0)", c["degree"], "{:.0f}"), ("Strength", c["strength_weighted_degree"], "{:.0f}"),
-                                     ("Betweenness", c["betweenness"], "{:.4f}"), ("PageRank", c["pagerank"], "{:.4f}")]:
+                                     ("Betweenness (distance = 1/strength)", c["betweenness"], "{:.4f}"), ("PageRank", c["pagerank"], "{:.4f}")]:
                 metric_bits.append(f'<div class="metric-card"><span class="value">{fmt.format(val)}</span><span class="label">{label}</span></div>')
         card_html = f'<div class="card-grid">{"".join(metric_bits)}</div>' if metric_bits else "<p>No relations in G0_full (event-only actor).</p>"
 
@@ -481,7 +554,7 @@ first appearance (corpus order): {first_story}</p>
 null-model and sensitivity context before treating any of these as a definitive ranking.</p>
 
 <h2>Layers &amp; community</h2>
-<p>Active layers: {int(m['n_active_layers']) if m is not None and pd.notna(m['n_active_layers']) else '—'} / 7
+<p>Active layers: {int(m['n_active_layers']) if m is not None and pd.notna(m['n_active_layers']) else '—'} / {n_layers}
 &nbsp;·&nbsp; Layer participation coefficient: {f"{m['layer_participation_coefficient']:.3f}" if m is not None and pd.notna(m['layer_participation_coefficient']) else '—'}
 &nbsp;·&nbsp; Community (G2_core_social, Leiden): {'Community ' + str(int(community)) if community is not None and pd.notna(community) else '—'}</p>
 
@@ -532,6 +605,10 @@ def build_communities():
 
     sizes = membership["leiden_community"].value_counts().sort_index()
     size_rows = "".join(f"<tr><td>Community {i}</td><td>{n}</td></tr>" for i, n in sizes.items())
+    g2 = registry()["networks"]["g2_core_social"]
+    n_comp = need(g2["n_components"], "networks.g2_core_social.n_components")
+    giant = need(g2["giant_component_size"], "networks.g2_core_social.giant_component_size")
+    n_small = need(g2["n_smaller_components"], "networks.g2_core_social.n_smaller_components")
 
     content = f"""
 <h1>Communities</h1>
@@ -539,11 +616,11 @@ def build_communities():
 sociological names are assigned to them.</div>
 
 <h2>⚠️ Read this before interpreting community counts</h2>
-<p>The <code>G2_core_social</code> network has <strong>23 connected components</strong>. Modularity
+<p>The <code>G2_core_social</code> network has <strong>{n_comp} connected components</strong>. Modularity
 algorithms assign each disconnected component to its own community by construction, so a large
 share of the raw community count below is a graph-fragmentation artifact, not meaningful social
 clustering. The only community structure worth interpreting substantively is <strong>within the
-261-node giant component</strong>. Full discussion: <a href="analysis.html">Analysis</a> and
+{giant}-node giant component</strong>. Full discussion: <a href="analysis.html">Analysis</a> and
 <code>reports/06_advanced_network_analysis_report.md</code> §1.4.</p>
 
 <h2>Leiden vs Louvain</h2>
@@ -565,7 +642,7 @@ clustering. The only community structure worth interpreting substantively is <st
 by community) or the static figure below.</p>
 <figure>
   <img src="figures/communities/F06_community_structure.png" alt="Community structure of G2_core_social">
-  <figcaption>Colors = community membership within the 261-node giant component only. Grey nodes = the 22 smaller connected components.</figcaption>
+  <figcaption>Colors = community membership within the {giant}-node giant component only. Grey nodes = the {n_small} smaller connected components.</figcaption>
 </figure>
 """
     write("communities.html", page("Communities", "Community detection results and the connected-component caveat.", "Communities", content))
@@ -578,11 +655,24 @@ def build_similarity():
     jaccard = pd.read_csv(ROOT / "outputs" / "matrices" / "story_similarity_actor_jaccard.csv", index_col=0, encoding="utf-8-sig")
     t08 = pd.read_csv(ROOT / "outputs" / "tables" / "publication" / "T08_story_similarity.csv", encoding="utf-8-sig")
     top10 = t08.sort_values("actor_jaccard", ascending=False).head(10)
-    jac_median, jac_max, n_zero = float(t08["actor_jaccard"].median()), float(t08["actor_jaccard"].max()), int((t08["actor_jaccard"] == 0).sum())
+    sim = registry()["story_similarity"]
+    jac_median, jac_max, n_zero = sim["actor_jaccard"]["median"], sim["actor_jaccard"]["max"], sim["actor_jaccard"]["n_zero_pairs"]
+    n_pairs, n_metrics = sim["n_pairs"], sim["n_metrics"]
+    lead = sim["leading_pair_by_actor_jaccard"].replace("-", "&ndash;")
+    rk = sim["leading_pair_rank_per_metric"]
+    cv = sim["cluster_validity"]
+    sil_lo, sil_hi = cv["silhouette_range_all_k_both_analyses"]
+    ari_lo, ari_hi = cv["bootstrap_ari_range_both_analyses"]
+    ks = "&ndash;".join(str(k) for k in (cv["k_where_linkage_methods_disagree"][0], cv["k_where_linkage_methods_disagree"][-1])) if cv["k_where_linkage_methods_disagree"] else "none"
+    def ordinal(n):
+        return f"{n}{'th' if 10 <= n % 100 <= 20 else {1: 'st', 2: 'nd', 3: 'rd'}.get(n % 10, 'th')}"
+    short = {"actor_jaccard": "Jaccard", "actor_weighted_jaccard": "weighted Jaccard", "actor_cosine": "actor cosine",
+             "relation_profile_similarity": "relation-profile", "layer_composition_similarity": "layer-composition"}
+    tops = "; ".join(f"{short[m]} {p.replace('-', '&ndash;')}" for m, p in sim["top_pair_per_metric"].items())
 
     content = f"""
 <h1>Story Similarity</h1>
-<p class="lede">Five similarity measures across all 91 story pairs: actor Jaccard, actor weighted
+<p class="lede">{n_metrics} similarity measures across all {n_pairs} story pairs: actor Jaccard, actor weighted
 Jaccard, actor cosine (all three based on shared characters), relation-profile similarity, and
 layer-composition similarity (both based on narrative-relational content, independent of which
 specific actors appear). <strong>Exploratory / descriptive.</strong> Story-level similarity can be
@@ -594,15 +684,17 @@ hierarchical-clustering feature-space choice, and the audit that narrowed the cl
 <h2>How to read these numbers</h2>
 <ul>
 <li><strong>Overlap is low.</strong> Actor Jaccard has a median of {jac_median:.3f} and a maximum of
-{jac_max:.3f}; {n_zero} of 91 pairs share no actor. &ldquo;Top&rdquo; below means <em>relatively most
+{jac_max:.3f}; {n_zero} of {n_pairs} pairs share no actor. &ldquo;Top&rdquo; below means <em>relatively most
 overlapping among the evaluated stories</em>, not strongly similar.</li>
-<li><strong>The top pair depends on the metric.</strong> S03&ndash;S05 leads on the two Jaccard measures only;
-it ranks 6th, 6th and 7th of 91 on actor cosine, relation-profile and layer-composition cosine.</li>
+<li><strong>The top pair depends on the metric.</strong> The pair with the highest actor Jaccard ({lead}) ranks
+{ordinal(rk['actor_weighted_jaccard'])} on weighted Jaccard, {ordinal(rk['actor_cosine'])} on actor cosine,
+{ordinal(rk['relation_profile_similarity'])} on relation-profile and {ordinal(rk['layer_composition_similarity'])} on layer-composition
+cosine (of {n_pairs} pairs); the top pair per metric is {tops}.</li>
 <li><strong>Cosine values are high by construction</strong> (non-negative counts over a few categories).
 A permutation baseline (relations reassigned across stories) reaches nearly the same top values, so
 relation-profile and layer-composition similarities near 0.9 are not evidence of specific affinity.</li>
-<li><strong>Clusters are not established.</strong> A Ward dendrogram always exists. Silhouette 0.37&ndash;0.56,
-bootstrap adjusted Rand index 0.54&ndash;0.79 and disagreement between linkage methods at k=4&ndash;5 do not
+<li><strong>Clusters are not established.</strong> A Ward dendrogram always exists. Silhouette {sil_lo:.2f}&ndash;{sil_hi:.2f},
+bootstrap adjusted Rand index {ari_lo:.2f}&ndash;{ari_hi:.2f} and disagreement between linkage methods at k={ks} do not
 support a robust discrete grouping (<a href="downloads/outputs/statistics/story_similarity_cluster_validity.json">validity audit</a>).
 Themes such as captivity are not coded variables, so they are not a finding of this analysis.</li>
 </ul>
@@ -624,7 +716,7 @@ Themes such as captivity are not coded variables, so they are not a finding of t
 {table_html(top10, ["story_a", "story_b", "actor_jaccard", "actor_weighted_jaccard", "actor_cosine", "relation_profile_similarity", "layer_composition_similarity"])}
 
 <h2>Full pairwise table</h2>
-<p>All 91 pairs, all 5 metrics: <a href="downloads/outputs/tables/publication/T08_story_similarity.csv">T08_story_similarity.csv</a>.</p>
+<p>All {n_pairs} pairs, all {n_metrics} metrics: <a href="downloads/outputs/tables/publication/T08_story_similarity.csv">T08_story_similarity.csv</a>.</p>
 
 <div class="disclaimer">RQ6 status: <strong>partially answered / exploratory</strong>. These similarity values
 are descriptive only — no significance test has been applied to them (unlike the community and
@@ -644,6 +736,31 @@ def build_analysis():
     sens = df("outputs/tables/sensitivity_rank_stability.csv")
     sig = fdr[fdr["significant_at_bh_fdr_0.05"]]
 
+    reg = registry()
+    nm = reg["null_models"]
+    mod, asr = nm["per_metric"]["modularity_louvain"], nm["per_metric"]["degree_assortativity"]
+    audit = load_json("outputs/statistics/audit_top5_checks.json")
+    forest = audit["B_kinship_forest_check"]["is_forest"]
+    assort_txt = ("degree assortativity is not supported in any network (an earlier &ldquo;disassortative&rdquo; claim is withdrawn)"
+                  if asr["n_significant"] == 0 else
+                  f"degree assortativity is significant in {asr['n_significant']} of {asr['n_tested']} networks")
+    kin_txt = (" The kinship network (G3) shows no deviation from its null, but it is a forest, so its clustering and transitivity tests are uninformative."
+               if forest else "")
+
+    se = reg["sensitivity"]
+    pretty = lambda p: p.replace("_", " ")
+    noticeable_txt = "; ".join(f"{pretty(p)} (mean &rho; {se['pairs'][p]['mean_rho']:.3f}, min {se['pairs'][p]['min_rho']:.3f})" for p in se["noticeable_pairs"])
+    negl_lo = need(se["min_rho_negligible"], "sensitivity.min_rho_negligible")
+    gap = need(se["max_mean_rho_gap_among_noticeable"], "sensitivity.max_mean_rho_gap_among_noticeable")
+
+    rb = reg["robustness"]
+    n0, giant0 = rb["n_nodes"], rb["denominators"]["initial_giant_component"]
+    a50, g50 = rb["fraction_removed_below_threshold_of_all_nodes"]["50pct"], rb["fraction_removed_below_threshold_of_initial_giant_component"]["50pct"]
+    tb = rb["degree_targeted_tie_break_sensitivity"]["all_nodes"]["50pct"]
+    bx = rb["betweenness_targeted_exact_nodes_removed"]["all_nodes"]["50pct"]
+    step = rb["checkpoint_step_nodes"]
+    pct = lambda x: f"{100 * x:.1f}%"
+
     content = f"""
 <h1>Analysis</h1>
 <p class="lede">Summary of every analytical stage, each explicitly labeled descriptive/exploratory
@@ -656,33 +773,41 @@ values above are descriptive only — null-model testing (below) found none of t
 significant after multiple-testing correction.</p>
 
 <h2>Null model validation</h2>
-<p>{len(sig)} / {len(fdr)} tests remain significant after Benjamini-Hochberg FDR correction (α=0.05).
-Community modularity is validated as a non-random signal (not a degree-sequence artifact) in 7 of 9
-networks tested; degree assortativity is not supported in any network (an earlier &ldquo;disassortative&rdquo;
-claim is withdrawn). The kinship network (G3) shows no deviation from its null, but it is a forest, so
-its clustering and transitivity tests are uninformative.</p>
+<p>{len(sig)} / {len(fdr)} tests remain significant after Benjamini-Hochberg FDR correction (&alpha;=0.05).
+Community modularity is validated as a non-random signal (not a degree-sequence artifact) in {mod['n_significant']} of {mod['n_tested']}
+network specifications tested; {assort_txt}.{kin_txt}</p>
+<p style="font-size:0.85rem;color:var(--ink-soft)"><strong>How to read &ldquo;{mod['n_significant']} of {mod['n_tested']}&rdquo;:</strong> the {nm['n_networks_tested']}
+tested networks are related, partly nested specifications of one corpus (for example G1 and G2 are subsets/variants of G0), so these are
+<em>not</em> {mod['n_significant']} independent replications. Observed modularity is a single Louvain partition
+(seed {nm['seed']}, unweighted); each of the {nm['n_random']} randomized graphs (degree-preserving edge swaps) gets one Louvain run.</p>
 {table_html(sig, ["network", "metric", "observed", "z_score", "empirical_p", "bh_qvalue"])}
 <figure>
   <img src="figures/null_models/F15_null_model_distributions.png" alt="Null model distributions">
-  <figcaption>Random ensemble (n=1000) vs observed value, for every FDR-significant test.</figcaption>
+  <figcaption>Random ensemble (n={nm['n_random']}) vs observed value, for every FDR-significant test.</figcaption>
 </figure>
 
 <h2>Sensitivity analysis</h2>
-<p>Rank-correlation of centrality across 6 network-construction choices (descriptive). Actor-type
-inclusion (person+group vs person-only; groups included vs excluded) and edge weighting change
-centrality rankings noticeably (Spearman &rho; 0.85&ndash;0.96); the other three choices barely matter
-(&rho; &ge; 0.97). The three larger-effect choices are close to each other and were not tested
-against one another, so none is singled out as the most consequential.</p>
+<p>Rank-correlation of centrality across {se['n_pairs']} network-construction choices (descriptive). Weighted betweenness uses
+shortest-path distance = 1/tie strength; the &ldquo;unweighted&rdquo; arm is hop-count betweenness (DEC-017).
+{len(se['noticeable_pairs'])} choices change rankings noticeably ({se['tier_rule']}): {noticeable_txt}. The other
+{len(se['negligible_pairs'])} barely matter (&rho; &ge; {negl_lo:.2f}). The mean &rho; of the noticeable choices spans only {gap:.3f}, the
+comparisons use different node sets, and differences between correlations were not tested, so none of them is singled out as the most
+consequential.</p>
 {table_html(sens, ["pair", "metric", "spearman_rho", "kendall_tau", "top_10_overlap_fraction"])}
 <figure>
   <img src="figures/sensitivity/F16_sensitivity_correlation_matrix.png" alt="Sensitivity correlation matrix">
 </figure>
 
 <h2>Structural robustness</h2>
-<p>Robust to random node loss, fragile to targeted (degree/betweenness) attack — a classic
-hub-driven network pattern (G0_full only; thresholds are relative to the original 311 nodes; targeted
-crossings are resolved to one 6-node step). This describes graph connectivity only, not narrative
-resilience.</p>
+<p>Removing nodes at random needs {pct(a50['random'])} of the {n0} G0 nodes ({round(a50['random'] * n0)} nodes) before the largest connected
+component falls below 50% of <strong>all {n0} G0 nodes</strong>; measured against the <strong>initial giant component</strong>
+({giant0} nodes) instead, it needs {pct(g50['random'])}. Targeted removal is far more disruptive: checked after every removal, degree-targeted
+removal crosses the all-nodes threshold after {tb['nodes_removed_min']}&ndash;{tb['nodes_removed_max']} nodes (median {tb['nodes_removed_median']:.0f}; range over
+{rb['degree_targeted_tie_break_sensitivity']['n_trials']} random tie-breaks among equal-degree nodes) and hop-count-betweenness-targeted removal after {bx} nodes.
+The coarser {step}-node checkpoint grid reports {round(a50['degree_targeted'] * n0)} vs {round(a50['betweenness_targeted'] * n0)} nodes, but that gap is a
+resolution/tie-break artifact, so <strong>no claim is made that one targeted strategy is more destructive than the other</strong>; the supported
+conclusion is only that targeted removal is substantially more disruptive than random removal (G0_full only). This describes graph connectivity only,
+not narrative resilience.</p>
 <figure>
   <img src="figures/robustness/F18_structural_robustness_curves.png" alt="Structural robustness curves">
 </figure>
@@ -704,6 +829,14 @@ resilience.</p>
 def build_evidence():
     val_summary = load_json("outputs/validation/summary.json")
     manifest = df("outputs/manifest_sha256.csv")
+    reg = registry()
+    queue = df("validation/HUMAN_REVIEW_QUEUE.csv")
+    n_queue = len(queue)
+    queue_cats = ", ".join(f"{c}: {n}" for c, n in queue["category"].value_counts().items())
+    n_decisions = count_headings("docs/decision_log.md", r"^### DEC-\d+")
+    comp = reg["composite_nodes"]
+    n_tests = reg["pipeline"]["n_tests_collected"]
+    tests_txt = f"{n_tests} automated tests are collected by pytest" if n_tests else "the automated test count is unavailable"
 
     val_rows = "".join(
         f"<tr><td>{cat}</td><td>{check}</td><td>{n}</td></tr>"
@@ -718,7 +851,7 @@ still unresolved.</p>
 <h2>Data lineage</h2>
 <pre>data/raw/ (immutable) → data/story_level/ → data/final/ (legacy v3)
     → data/processed/ (canonical rebuild, Phase 3) → outputs/ → docs/ (this site)</pre>
-<p><strong>Known provenance gap:</strong> ~8.4% of event-level relations could not be matched
+<p><strong>Known provenance gap:</strong> {100 * need(reg['dataset']['provenance_gap_share'], 'dataset.provenance_gap_share'):.1f}% of event-level relations could not be matched
 back to a specific <code>data/story_level/</code> row (see <code>data/processed/provenance.csv</code>,
 <code>source_row_status == 'unmatched_provenance_gap'</code>). This is disclosed, not hidden.</p>
 
@@ -726,7 +859,16 @@ back to a specific <code>data/story_level/</code> row (see <code>data/processed/
 <div class="table-wrap"><table><thead><tr><th>Category</th><th>Check</th><th>Flagged rows</th></tr></thead>
 <tbody>{val_rows}</tbody></table></div>
 <p>Full detail: <code>outputs/validation/summary.json</code>, <code>validation/HUMAN_REVIEW_QUEUE.csv</code>
-(75 open items awaiting manual review).</p>
+({n_queue} open items awaiting manual review: {queue_cats}).</p>
+
+<h2>Candidate composite nodes (manual review pending)</h2>
+<p>A reproducible scan (<code>src/composite_nodes.py</code>) flags <strong>{comp['n_candidate_nodes']} of {comp['n_canonical_nodes']}</strong>
+canonical actor labels as <em>candidate composite nodes</em> &mdash; comma lists, &ldquo;X ve Y&rdquo; constructions or sentence-like names that
+may denote several actors collapsed into one node. They touch {comp['relations_touching_candidates']} of {comp['relations_total']} relations
+({100 * comp['share_of_relations']:.1f}%) and {comp['relation_endpoints_on_candidates']} of {comp['relation_endpoints_total']} relation endpoints
+({100 * comp['share_of_endpoints']:.1f}%). A candidate is <strong>not</strong> necessarily an error (many are legitimate collective labels);
+none has been split or merged automatically. The list is in <a href="downloads/validation/composite_node_candidates.csv">composite_node_candidates.csv</a>.
+The scan under-approximates (it misses &ldquo;ile&rdquo; constructions and short phrases). This remains an open manual entity-resolution task.</p>
 
 <h2>Hash manifest</h2>
 <p>{len(manifest)} files hashed (SHA-256) for reproducibility verification —
@@ -734,11 +876,11 @@ back to a specific <code>data/story_level/</code> row (see <code>data/processed/
 
 <h2>Decision log</h2>
 <p>Every irreversible or interpretive methodological choice is recorded with its rationale in
-<a href="decision_log.md">decision_log.md</a> (11 decisions, DEC-001 through DEC-011).</p>
+<a href="decision_log.md">decision_log.md</a> ({n_decisions} decisions).</p>
 
 <h2>Reproduction status</h2>
-<p>18/18 automated tests passing (<code>tests/</code>). CI (<code>.github/workflows/validate.yml</code>)
-runs the test suite and a validation-only pipeline pass on every push.</p>
+<p>{tests_txt} (<code>tests/</code>); their pass/fail status is reported by <code>pytest</code> and by CI, not asserted on this page.
+CI (<code>.github/workflows/validate.yml</code>) runs the test suite and a validation-only pipeline pass on every push.</p>
 """
     write("evidence.html", page("Evidence", "Data lineage, validation results, hash manifest, decision log.", "Evidence", content))
 
@@ -791,27 +933,40 @@ def build_downloads():
 # REPRODUCE
 # ---------------------------------------------------------------------------
 def build_reproduce():
-    content = """
+    reg = registry()
+    n_stages = need(reg["pipeline"]["n_stages"], "pipeline.n_stages")
+    names = reg["pipeline"]["stage_names"]
+    site_stages = [s for s in names if s in ("build_site", "validate_site")]
+    tail = " &rarr; ".join(f"<code>{s}</code>" for s in site_stages)
+    content = f"""
 <h1>Reproduce</h1>
-<p class="lede">Everything on this site is generated by the pipeline below — nothing is hand-typed.</p>
+<p class="lede">The analysis outputs, the website data, the website pages and the website validation are all produced by one command,
+<code>python run_pipeline.py --all</code> ({n_stages} stages). Scientific numbers on the site are loaded from
+<code>outputs/results_registry.json</code>; explanatory prose is hand-written.</p>
 
 <h2>Setup</h2>
 <pre>git clone https://github.com/4rslanismet/dede-korkut-social-network-dataset.git
 cd dede-korkut-social-network-dataset
-git checkout claude-dk-rebuild
+# to reproduce a specific published state, check out its release tag or commit (git checkout &lt;tag-or-commit&gt;)
 python -m venv .venv
 .venv\\Scripts\\activate   # Windows; use "source .venv/bin/activate" on macOS/Linux
 pip install -r requirements.txt</pre>
 
 <h2>Run everything</h2>
 <pre>python run_pipeline.py --all</pre>
+<p>This runs, in order: data audit and validation, canonical dataset, composite-node review scan, network construction, metrics,
+communities and the other analyses, story similarity, null models, sensitivity, robustness, the results registry, figures, tables,
+inter-annotator infrastructure, the SHA-256 manifest, and finally the website ({tail}: website data and pages are generated,
+then every link, asset and generated-page set is validated). A full run takes several minutes (mostly the 1,000-member null-model ensembles).</p>
 <p>Or a single stage:</p>
 <pre>python run_pipeline.py --stage build_networks
 python run_pipeline.py --stage null_models --fast   # development mode, n_random=100</pre>
 
-<h2>Validate only (CI)</h2>
-<pre>python run_pipeline.py --all --validate-only
-python -m pytest tests/ -v</pre>
+<h2>Validate</h2>
+<pre>python run_pipeline.py --all --validate-only        # data validation gate only (what CI runs)
+python -m pytest tests/ -v                          # automated tests
+python src/validate_site.py                         # website links, assets, generated-page sets
+python src/validate_release_consistency.py          # documents vs. ground-truth numbers</pre>
 
 <h2>Google Colab</h2>
 <p><em>Placeholder — a Colab notebook link can be added here once published.</em></p>
@@ -828,7 +983,10 @@ degree-preserving randomization used for null models are exactly reproducible gi
 # ABOUT
 # ---------------------------------------------------------------------------
 def build_about():
-    content = """
+    reg = registry()
+    gap = need(reg["dataset"]["provenance_gap_share"], "dataset.provenance_gap_share")
+    comp = reg["composite_nodes"]
+    content = f"""
 <h1>About</h1>
 <p class="lede">Dede Korkut Narrative Network Project (DKNN) — a working title; the repository
 name itself has not been changed.</p>
@@ -847,19 +1005,21 @@ in <code>validation/inter_annotator_sample.csv</code>, awaiting a second coder).
 <li>The specific print edition/transcription of the Book of Dede Korkut underlying the original
 coding is not recorded in the repository — flagged as a critical open metadata gap
 (<code>validation/source_edition_metadata_required.md</code>).</li>
-<li>~8.4% of relations have an unresolved provenance link back to the story-level source rows.</li>
+<li>{100 * gap:.1f}% of relations have an unresolved provenance link back to the story-level source rows.</li>
+<li>{comp['n_candidate_nodes']} canonical actor labels are candidate composite nodes awaiting manual entity-resolution review
+(see <a href="evidence.html">Evidence</a>); they are not resolved.</li>
 <li>Community counts on the core-social network are partly a connected-component artifact — see
 <a href="communities.html">Communities</a>.</li>
 </ul>
 
 <h2>License &amp; citation</h2>
-<p>Dataset license: CC BY 4.0 (see repository <code>LICENSE</code>). If you use this dataset or
-analysis in academic work, please cite the repository. A <code>CITATION.cff</code> file is
-pending (Phase 17 documentation).</p>
+<p>The <strong>dataset</strong> is licensed CC BY 4.0 (see repository <code>LICENSE</code>). A separate licence for the
+<strong>source code</strong> has not been chosen yet (an open decision for the repository owner). A <code>CITATION.cff</code> file exists,
+but its author and release-date fields are still marked <code>TODO</code> pending the owner's confirmation; if you use this dataset or
+analysis in academic work, please cite the repository.</p>
 
 <h2>Source</h2>
-<p>Repository: <a href="https://github.com/4rslanismet/dede-korkut-social-network-dataset">github.com/4rslanismet/dede-korkut-social-network-dataset</a>
-(branch <code>claude-dk-rebuild</code>).</p>
+<p>Repository: <a href="https://github.com/4rslanismet/dede-korkut-social-network-dataset">github.com/4rslanismet/dede-korkut-social-network-dataset</a>.</p>
 """
     write("about.html", page("About", "Project scope, limitations, license, and citation.", "About", content))
 

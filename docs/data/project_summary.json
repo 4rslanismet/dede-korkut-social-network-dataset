@@ -26,8 +26,8 @@
     "caveat": "G2_core_social has 23 connected components; the raw community count is partly inflated by trivial isolated-component partitions - see Methodology."
   },
   "pipeline": {
-    "reproducible": true,
+    "n_stages": 27,
     "n_network_models": 12,
-    "n_pytest_tests_passing": "18/18"
+    "n_tests_collected": 53
   }
 }

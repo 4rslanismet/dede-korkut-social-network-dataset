@@ -125,12 +125,17 @@ def figure_F06_communities(graphs):
     color_map_giant = {cid: cmap(i % 20) for i, cid in enumerate(comm_ids)}
     node_color_map = {n: (color_map_giant[comm_of[n]] if n in giant_nodes else "#d9d9d9") for n in g.nodes()}
 
+    import json
+    with open(ROOT / "outputs" / "statistics" / "community_summary_G2_core_social.json", encoding="utf-8") as f:
+        cs = json.load(f)
+    n_small = nx.number_connected_components(g) - 1
     fig = draw_network(
         g, "F06 — Community Structure (G2_core_social, Leiden, resolution=1.0, seed=42)",
-        "Colors = community membership WITHIN the 261-node giant component only. Grey nodes = the "
-        "22 smaller connected components, each trivially its own 'community' by construction - "
+        f"Colors = community membership WITHIN the {len(giant_nodes)}-node giant component only. Grey nodes = the "
+        f"{n_small} smaller connected components, each trivially its own 'community' by construction - "
         "NOT meaningful social clustering (see reports/06_advanced_network_analysis_report.md §1.4). "
-        f"Giant component modularity context: overall Leiden modularity = 0.695, 33 communities total.",
+        f"Giant component modularity context: overall Leiden modularity = {cs['leiden_modularity_res1.0_seed42']:.3f}, "
+        f"{cs['leiden_n_communities_res1.0_seed42']} communities total.",
         node_color_map=node_color_map,
     )
     save(fig, "communities", "F06_community_structure")
@@ -184,8 +189,8 @@ def figure_F15_null_model_distributions():
     for ax in axes[n_plots:]:
         ax.axis("off")
 
-    fig.suptitle("F15 — Null Model Distributions (random ensemble, n=1000) vs Observed (red line)\n"
-                  "Only the 12/36 tests significant after Benjamini-Hochberg FDR correction (α=0.05) shown",
+    fig.suptitle(f"F15 — Null Model Distributions (random ensemble, n={data['n_random']}) vs Observed (red line)\n"
+                  f"Only the {len(sig)}/{len(fdr)} tests significant after Benjamini-Hochberg FDR correction (α=0.05) shown",
                   fontsize=11, fontweight="bold")
     fig.tight_layout(rect=[0, 0, 1, 0.92])
     save(fig, "null_models", "F15_null_model_distributions")

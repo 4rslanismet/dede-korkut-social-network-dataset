@@ -77,6 +77,36 @@ def check_nav_consistency() -> list[dict]:
     return issues
 
 
+def check_generated_pages() -> list[dict]:
+    """The expected character and story page sets are derived from the CURRENT canonical
+    data (site_pages.py) - never a hard-coded count. Verifies expected == generated
+    (no missing and no stale/orphan generated pages) and that every expected page is
+    linked from its index page, i.e. reachable through normal navigation (DEC-019)."""
+    import sys
+    sys.path.insert(0, str(ROOT / "src"))
+    from site_pages import (expected_character_pages, expected_story_pages, generated_pages,
+                            CHARACTERS_DIR, STORIES_DIR)
+
+    issues = []
+    for label, expected, directory, index_page in (
+        ("character", expected_character_pages(), CHARACTERS_DIR, DOCS / "characters.html"),
+        ("story", expected_story_pages(), STORIES_DIR, DOCS / "stories.html"),
+    ):
+        generated = generated_pages(directory)
+        rel_dir = str(directory.relative_to(ROOT))
+        for name in sorted(expected - generated):
+            issues.append({"file": rel_dir, "reference": name, "issue": f"missing_{label}_page"})
+        for name in sorted(generated - expected):
+            issues.append({"file": rel_dir, "reference": name, "issue": f"orphan_{label}_page"})
+        if not index_page.exists():
+            issues.append({"file": str(index_page.relative_to(ROOT)), "reference": "-", "issue": "missing_index_page"})
+            continue
+        linked = set(re.findall(rf'{directory.name}/([^"/]+\.html)', index_page.read_text(encoding="utf-8")))
+        for name in sorted(expected - linked):
+            issues.append({"file": str(index_page.relative_to(ROOT)), "reference": name, "issue": f"{label}_page_not_reachable_from_index"})
+    return issues
+
+
 def main():
     all_issues = []
     html_files = list(DOCS.rglob("*.html"))
@@ -85,6 +115,7 @@ def main():
 
     all_issues.extend(check_json_files())
     all_issues.extend(check_nav_consistency())
+    all_issues.extend(check_generated_pages())
 
     print(f"Checked {len(html_files)} HTML files under docs/.")
     if not all_issues:

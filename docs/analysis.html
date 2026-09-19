@@ -165,11 +165,13 @@ values above are descriptive only — null-model testing (below) found none of t
 significant after multiple-testing correction.</p>
 
 <h2>Null model validation</h2>
-<p>12 / 36 tests remain significant after Benjamini-Hochberg FDR correction (α=0.05).
+<p>12 / 36 tests remain significant after Benjamini-Hochberg FDR correction (&alpha;=0.05).
 Community modularity is validated as a non-random signal (not a degree-sequence artifact) in 7 of 9
-networks tested; degree assortativity is not supported in any network (an earlier &ldquo;disassortative&rdquo;
-claim is withdrawn). The kinship network (G3) shows no deviation from its null, but it is a forest, so
-its clustering and transitivity tests are uninformative.</p>
+network specifications tested; degree assortativity is not supported in any network (an earlier &ldquo;disassortative&rdquo; claim is withdrawn). The kinship network (G3) shows no deviation from its null, but it is a forest, so its clustering and transitivity tests are uninformative.</p>
+<p style="font-size:0.85rem;color:var(--ink-soft)"><strong>How to read &ldquo;7 of 9&rdquo;:</strong> the 9
+tested networks are related, partly nested specifications of one corpus (for example G1 and G2 are subsets/variants of G0), so these are
+<em>not</em> 7 independent replications. Observed modularity is a single Louvain partition
+(seed 42, unweighted); each of the 1000 randomized graphs (degree-preserving edge swaps) gets one Louvain run.</p>
 <div class="table-wrap"><table class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -286,11 +288,12 @@ its clustering and transitivity tests are uninformative.</p>
 </figure>
 
 <h2>Sensitivity analysis</h2>
-<p>Rank-correlation of centrality across 6 network-construction choices (descriptive). Actor-type
-inclusion (person+group vs person-only; groups included vs excluded) and edge weighting change
-centrality rankings noticeably (Spearman &rho; 0.85&ndash;0.96); the other three choices barely matter
-(&rho; &ge; 0.97). The three larger-effect choices are close to each other and were not tested
-against one another, so none is singled out as the most consequential.</p>
+<p>Rank-correlation of centrality across 6 network-construction choices (descriptive). Weighted betweenness uses
+shortest-path distance = 1/tie strength; the &ldquo;unweighted&rdquo; arm is hop-count betweenness (DEC-017).
+3 choices change rankings noticeably ('noticeable' = at least one measure with Spearman rho < 0.95; otherwise 'negligible'): person plus group vs person only (mean &rho; 0.911, min 0.892); weighted vs unweighted (mean &rho; 0.912, min 0.849); groups included vs excluded (mean &rho; 0.952, min 0.949). The other
+3 barely matter (&rho; &ge; 0.98). The mean &rho; of the noticeable choices spans only 0.041, the
+comparisons use different node sets, and differences between correlations were not tested, so none of them is singled out as the most
+consequential.</p>
 <div class="table-wrap"><table class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -312,8 +315,8 @@ against one another, so none is singled out as the most consequential.</p>
     <tr>
       <td>person_plus_group_vs_person_only</td>
       <td>betweenness</td>
-      <td>0.886878</td>
-      <td>0.799486</td>
+      <td>0.892147</td>
+      <td>0.827753</td>
       <td>0.7</td>
     </tr>
     <tr>
@@ -333,8 +336,8 @@ against one another, so none is singled out as the most consequential.</p>
     <tr>
       <td>weighted_vs_unweighted</td>
       <td>betweenness</td>
-      <td>0.929556</td>
-      <td>0.880577</td>
+      <td>0.885795</td>
+      <td>0.838731</td>
       <td>0.6</td>
     </tr>
     <tr>
@@ -354,8 +357,8 @@ against one another, so none is singled out as the most consequential.</p>
     <tr>
       <td>all_relations_vs_core_social</td>
       <td>betweenness</td>
-      <td>0.999996</td>
-      <td>0.999673</td>
+      <td>0.999999</td>
+      <td>0.999901</td>
       <td>1.0</td>
     </tr>
     <tr>
@@ -375,9 +378,9 @@ against one another, so none is singled out as the most consequential.</p>
     <tr>
       <td>explicit_only_vs_explicit_plus_inferred</td>
       <td>betweenness</td>
-      <td>0.970698</td>
-      <td>0.942854</td>
-      <td>0.8</td>
+      <td>0.984254</td>
+      <td>0.968985</td>
+      <td>0.7</td>
     </tr>
     <tr>
       <td>explicit_only_vs_explicit_plus_inferred</td>
@@ -396,8 +399,8 @@ against one another, so none is singled out as the most consequential.</p>
     <tr>
       <td>groups_included_vs_excluded</td>
       <td>betweenness</td>
-      <td>0.895652</td>
-      <td>0.827891</td>
+      <td>0.948816</td>
+      <td>0.904662</td>
       <td>0.7</td>
     </tr>
     <tr>
@@ -417,8 +420,8 @@ against one another, so none is singled out as the most consequential.</p>
     <tr>
       <td>girizgah_included_vs_excluded</td>
       <td>betweenness</td>
-      <td>0.999996</td>
-      <td>0.999756</td>
+      <td>0.999999</td>
+      <td>0.999902</td>
       <td>1.0</td>
     </tr>
     <tr>
@@ -435,10 +438,15 @@ against one another, so none is singled out as the most consequential.</p>
 </figure>
 
 <h2>Structural robustness</h2>
-<p>Robust to random node loss, fragile to targeted (degree/betweenness) attack — a classic
-hub-driven network pattern (G0_full only; thresholds are relative to the original 311 nodes; targeted
-crossings are resolved to one 6-node step). This describes graph connectivity only, not narrative
-resilience.</p>
+<p>Removing nodes at random needs 25.1% of the 311 G0 nodes (78 nodes) before the largest connected
+component falls below 50% of <strong>all 311 G0 nodes</strong>; measured against the <strong>initial giant component</strong>
+(261 nodes) instead, it needs 30.9%. Targeted removal is far more disruptive: checked after every removal, degree-targeted
+removal crosses the all-nodes threshold after 6&ndash;7 nodes (median 7; range over
+200 random tie-breaks among equal-degree nodes) and hop-count-betweenness-targeted removal after 6 nodes.
+The coarser 6-node checkpoint grid reports 12 vs 6 nodes, but that gap is a
+resolution/tie-break artifact, so <strong>no claim is made that one targeted strategy is more destructive than the other</strong>; the supported
+conclusion is only that targeted removal is substantially more disruptive than random removal (G0_full only). This describes graph connectivity only,
+not narrative resilience.</p>
 <figure>
   <img src="figures/robustness/F18_structural_robustness_curves.png" alt="Structural robustness curves">
 </figure>

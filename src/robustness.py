@@ -141,7 +141,7 @@ def main():
     degree_rows = curve_for_order(g, degree_order)
     degree_df = pd.DataFrame(degree_rows)
 
-    print("Betweenness-targeted removal (recomputed periodically)...")
+    print("Betweenness-targeted removal (unweighted hop-count betweenness, recomputed periodically)...")
     betweenness_order = betweenness_targeted_order(g)
     betweenness_rows = curve_for_order(g, betweenness_order)
     betweenness_df = pd.DataFrame(betweenness_rows)
@@ -150,24 +150,79 @@ def main():
     degree_df.to_csv(OUT_STATS / "robustness_degree_targeted_removal_G0_full.csv", index=False, encoding="utf-8-sig")
     betweenness_df.to_csv(OUT_STATS / "robustness_betweenness_targeted_removal_G0_full.csv", index=False, encoding="utf-8-sig")
 
-    # summary: fraction removed to drop giant component below 50% and below 10% of original
-    def fraction_to_threshold(df, col, threshold):
-        below = df[df[col] < threshold]
+    # The largest connected component (LCC) can be compared with TWO different
+    # denominators, and they answer different questions - they are reported
+    # separately and labelled, never mixed (review finding, DEC-019):
+    #   all_nodes              LCC size < X% of ALL G0 nodes (n0)
+    #   initial_giant_component LCC size < X% of the INITIAL giant component (size at 0 removed)
+    n0 = g.number_of_nodes()
+    giant0 = int(degree_df["largest_component_size"].iloc[0])
+
+    def fraction_below(df, size_col, denominator, threshold):
+        below = df[df[size_col] < threshold * denominator]
         return float(below["fraction_removed"].iloc[0]) if len(below) else None
+
+    def thresholds_for(denominator):
+        out = {}
+        for label, thr in (("50pct", 0.5), ("10pct", 0.1)):
+            out[label] = {
+                "random": fraction_below(random_df, "largest_component_size_mean", denominator, thr),
+                "degree_targeted": fraction_below(degree_df, "largest_component_size", denominator, thr),
+                "betweenness_targeted": fraction_below(betweenness_df, "largest_component_size", denominator, thr),
+            }
+        return out
+
+    # Tie-break sensitivity of degree-targeted removal: many nodes share the same
+    # degree, so "highest degree first" is not uniquely defined. Re-run the adaptive
+    # attack with random tie-break orders (seeded) and record how many removals are
+    # needed to cross each threshold (exact, checked after every single removal).
+    def degree_attack_crossings(rng_):
+        rank = {n: i for i, n in enumerate(rng_.permutation(list(g.nodes())))}
+        h = g.copy()
+        crossed = {}
+        removed = 0
+        targets = {("all_nodes", "50pct"): 0.5 * n0, ("all_nodes", "10pct"): 0.1 * n0,
+                   ("initial_giant_component", "50pct"): 0.5 * giant0, ("initial_giant_component", "10pct"): 0.1 * giant0}
+        while h.number_of_nodes() > 0 and len(crossed) < len(targets):
+            v = max(h.degree(), key=lambda x: (x[1], -rank[x[0]]))[0]
+            h.remove_node(v)
+            removed += 1
+            size = max((len(c) for c in nx.connected_components(h)), default=0)
+            for key, lim in targets.items():
+                if key not in crossed and size < lim:
+                    crossed[key] = removed
+        return crossed
+
+    tb_rng = np.random.default_rng(SEED + 1)
+    tb_trials = [degree_attack_crossings(tb_rng) for _ in range(200)]
+    tie_break = {"n_trials": 200, "seed": SEED + 1,
+                 "description": "adaptive degree-targeted removal with random tie-breaks among equal-degree nodes; nodes removed (checked after every removal) until the largest component falls below the threshold"}
+    for (basis, thr) in tb_trials[0]:
+        vals = [t[(basis, thr)] for t in tb_trials]
+        tie_break.setdefault(basis, {})[thr] = {"nodes_removed_min": int(min(vals)), "nodes_removed_median": float(np.median(vals)),
+                                                "nodes_removed_max": int(max(vals))}
+    # betweenness-targeted crossing, exact (the recorded order is a single deterministic sequence)
+    def order_crossing(order, denominator, threshold):
+        h = g.copy()
+        for i, v in enumerate(order, start=1):
+            h.remove_node(v)
+            if max((len(c) for c in nx.connected_components(h)), default=0) < threshold * denominator:
+                return i
+        return None
+    betw_exact = {basis: {thr_label: order_crossing(betweenness_order, den, thr)
+                          for thr_label, thr in (("50pct", 0.5), ("10pct", 0.1))}
+                  for basis, den in (("all_nodes", n0), ("initial_giant_component", giant0))}
 
     summary = {
         "n_nodes": g.number_of_nodes(), "n_edges": g.number_of_edges(),
         "n_random_trials": N_RANDOM_TRIALS, "seed": SEED, "step_fraction": STEP_FRACTION,
-        "fraction_removed_to_drop_giant_below_50pct": {
-            "random": fraction_to_threshold(random_df, "largest_component_fraction_mean", 0.5),
-            "degree_targeted": fraction_to_threshold(degree_df, "largest_component_fraction", 0.5),
-            "betweenness_targeted": fraction_to_threshold(betweenness_df, "largest_component_fraction", 0.5),
-        },
-        "fraction_removed_to_drop_giant_below_10pct": {
-            "random": fraction_to_threshold(random_df, "largest_component_fraction_mean", 0.1),
-            "degree_targeted": fraction_to_threshold(degree_df, "largest_component_fraction", 0.1),
-            "betweenness_targeted": fraction_to_threshold(betweenness_df, "largest_component_fraction", 0.1),
-        },
+        "checkpoint_step_nodes": max(1, int(round(n0 * STEP_FRACTION))),
+        "betweenness_targeted_ranking": "unweighted hop-count betweenness, recomputed every n/20 removals (category A: intentionally NOT strength-derived)",
+        "denominators": {"all_nodes": n0, "initial_giant_component": giant0},
+        "fraction_removed_below_threshold_of_all_nodes": thresholds_for(n0),
+        "fraction_removed_below_threshold_of_initial_giant_component": thresholds_for(giant0),
+        "degree_targeted_tie_break_sensitivity": tie_break,
+        "betweenness_targeted_exact_nodes_removed": betw_exact,
     }
     with open(OUT_STATS / "robustness_summary_G0_full.json", "w", encoding="utf-8") as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)

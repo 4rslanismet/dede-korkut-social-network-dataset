@@ -33,7 +33,7 @@
 <main class="wrap">
 
 <h1>Story Similarity</h1>
-<p class="lede">Five similarity measures across all 91 story pairs: actor Jaccard, actor weighted
+<p class="lede">5 similarity measures across all 91 story pairs: actor Jaccard, actor weighted
 Jaccard, actor cosine (all three based on shared characters), relation-profile similarity, and
 layer-composition similarity (both based on narrative-relational content, independent of which
 specific actors appear). <strong>Exploratory / descriptive.</strong> Story-level similarity can be
@@ -47,8 +47,10 @@ hierarchical-clustering feature-space choice, and the audit that narrowed the cl
 <li><strong>Overlap is low.</strong> Actor Jaccard has a median of 0.030 and a maximum of
 0.153; 28 of 91 pairs share no actor. &ldquo;Top&rdquo; below means <em>relatively most
 overlapping among the evaluated stories</em>, not strongly similar.</li>
-<li><strong>The top pair depends on the metric.</strong> S03&ndash;S05 leads on the two Jaccard measures only;
-it ranks 6th, 6th and 7th of 91 on actor cosine, relation-profile and layer-composition cosine.</li>
+<li><strong>The top pair depends on the metric.</strong> The pair with the highest actor Jaccard (S03&ndash;S05) ranks
+1st on weighted Jaccard, 6th on actor cosine,
+6th on relation-profile and 7th on layer-composition
+cosine (of 91 pairs); the top pair per metric is Jaccard S03&ndash;S05; weighted Jaccard S03&ndash;S05; actor cosine S12&ndash;S14; relation-profile S11&ndash;S13; layer-composition S11&ndash;S13.</li>
 <li><strong>Cosine values are high by construction</strong> (non-negative counts over a few categories).
 A permutation baseline (relations reassigned across stories) reaches nearly the same top values, so
 relation-profile and layer-composition similarities near 0.9 are not evidence of specific affinity.</li>

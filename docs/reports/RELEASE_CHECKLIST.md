@@ -1,113 +1,77 @@
 # Release Checklist
 
-Per master prompt section 123 (release preparation) and section 142 (final quality gate). Checked
-at Phase 20, after re-running every automated validation layer this project has built.
+Per master prompt section 123 (release preparation) and section 142 (final quality gate). First checked at
+Phase 20; updated after the story-similarity addendum (DEC-014), the final academic audit (DEC-015), the full
+end-to-end pipeline verification (DEC-016) and the independent-review fix pass (DEC-017/018/019).
+
+**Status: VALIDATED RESEARCH REPOSITORY — PUBLICATION BLOCKERS REMAIN.** A technical release candidate: the
+pipeline, tests and site validation pass and the scientific core was independently reviewed and corrected, but the
+open owner/manual items below must be closed before anything is published or presented as final. Current counts
+(pipeline stages, tests, manifest entries, composite candidates) are generated into `outputs/results_registry.json`,
+`outputs/manifest_sha256.csv` and `outputs/validation/site_validation_report.json`, not typed here.
 
 | # | Item | Status | Evidence |
 |---|---|---|---|
-| 1 | Raw data preserved | ✅ PASS | `data/raw/`, `data/final/` untouched since clone; never written to by any `src/*.py` script |
-| 2 | Canonical data produced | ✅ PASS | `data/processed/` — 8 files, 332 nodes, 628 relations (`reports/03_canonical_dataset_report.md`) |
-| 3 | Provenance preserved | ⚠️ PASS WITH DISCLOSED GAPS | `data/processed/provenance.csv` — 90.9% matched uniquely, 8.4% disclosed as `unmatched_provenance_gap`, 0.6% `matched_ambiguous`; the +80-row story_level→final gap is documented, not hidden (`docs/limitations.md` item 3) |
-| 4 | Validation tests passed | ✅ PASS | `outputs/validation/summary.json` — 0 FAIL-level issues; 18/18 `pytest` tests passing (just re-verified) |
-| 5 | Network definitions documented | ✅ PASS | `docs/network_models.md` — all 12 variants (G0-G11), one filter rule each in `src/networks.py` |
-| 6 | Analyses reproducible | ✅ PASS | Full end-to-end `python run_pipeline.py --all` (FULL mode, n_random=1000) run twice on 2026-09-19: 23/23 stages PASS each time; scientific outputs reproduced exactly (see "Full End-to-End Pipeline Run" below). The first run exposed two idempotency defects, fixed before the second run (DEC-016) |
-| 7 | Figures regenerated | ⚠️ PARTIAL, DISCLOSED | 10/18 target figures produced (F02,F03,F06,F07,F10,F11,F15-F18); F01,F04-F05,F08-F09,F12-F14 not built (`docs/limitations.md` item 16) |
-| 8 | Tables regenerated | ✅ PASS | T01-T11 all produced and complete (`outputs/tables/publication/`); T08 (story similarity) now the full 5-metric, 91-pair table (post-release addendum, DEC-014; exploratory content, see DEC-015) |
-| 9 | Sensitivity analysis complete | ✅ PASS | 6/6 planned construction-choice pairs tested (`reports/08_sensitivity_robustness_report.md`) |
-| 10 | Web portal built | ✅ PASS | 363 HTML pages, all 14 navbar sections, Cytoscape.js explorer (`reports/15_16_web_portal_report.md`) |
-| 11 | Broken links cleaned | ✅ PASS | `src/validate_site.py` just re-run: 363/363 files, 0 issues |
-| 12 | README correct | ✅ PASS | Cross-checked against source data by `src/validate_release_consistency.py`: PASS |
-| 13 | Paper package produced | ✅ PASS | `paper/` — outline, methods, results, supplementary material, 8 figures, 22 table files |
-| 14 | Thesis package produced | ✅ PASS | `thesis/` — structure, RQ assessment (RQ6 originally marked not-yet-answerable; now PARTIALLY ANSWERED / EXPLORATORY after DEC-014/DEC-015), mappings, inventories |
-| 15 | Final report produced | ✅ PASS | `reports/FINAL_REBUILD_REPORT.md` and `reports/EXECUTIVE_SUMMARY.md` |
+| 1 | Raw data preserved | ✅ PASS | `data/raw/`, `data/final/`, `data/story_level/` byte-identical to `main`; never written to by any `src/*.py` script (verified by hash comparison before/after full runs) |
+| 2 | Canonical data produced | ✅ PASS | `data/processed/` — 332 nodes, 628 relations; 333→332 merge and 628/376 counts re-derived independently from `data/final/` (`reports/03_canonical_dataset_report.md`) |
+| 3 | Provenance preserved | ⚠️ PASS WITH DISCLOSED GAPS | `data/processed/provenance.csv` — 90.9% matched uniquely, 8.4% disclosed as `unmatched_provenance_gap`, 0.6% `matched_ambiguous`; the +80-row story_level→final gap is documented (`docs/limitations.md` item 3) |
+| 4 | Validation tests passed | ✅ PASS | `outputs/validation/summary.json` — 0 FAIL-level issues; full `pytest` suite passes (schema, aggregation, networks, distance semantics, site consistency, text consistency, determinism) and CI passed on the pushed reviewed state |
+| 5 | Network definitions documented | ✅ PASS | `docs/network_models.md` (generated) — all 12 variants (G0-G11), one filter rule each in `src/networks.py`; all rebuilt independently by the reviewer; tie strength vs. path distance documented (DEC-017) |
+| 6 | Analyses reproducible | ✅ PASS | `python run_pipeline.py --all` (FULL mode, n_random=1000) runs analysis → figures/tables → manifest → website build → website validation; run on the reviewed state and again after the fix pass; scientific outputs reproduce exactly; the manifest's SHA-256 hashes were independently re-verified |
+| 7 | Figures regenerated | ⚠️ PARTIAL, DISCLOSED | 10/18 target figures produced; F01, F04-F05, F08-F09, F12-F14 not built (`docs/limitations.md` item 16) |
+| 8 | Tables regenerated | ✅ PASS | T01-T11 produced from pipeline outputs; T03 separates raw relation records from aggregated edges; T04/T10 regenerated with corrected betweenness (DEC-017); T11 reports both component-size denominators |
+| 9 | Sensitivity analysis complete | ✅ PASS | 6/6 planned construction-choice pairs, recomputed with weighted betweenness distance = 1/strength; person+group vs person-only and weighted vs unweighted numerically tied (`reports/08_sensitivity_robustness_report.md`) |
+| 10 | Web portal built | ✅ PASS | Every actor and story has a generated page, all reachable from the Characters/Stories indexes; scientific numbers loaded from the results registry; Cytoscape.js explorer for 3 of 12 variants |
+| 11 | Broken links / stale pages cleaned | ✅ PASS | `src/validate_site.py`: links, assets, JSON, expected-vs-generated page sets (no missing/orphan pages), index reachability — 0 issues; also served over real HTTP in earlier verification |
+| 12 | README correct | ✅ PASS | Cross-checked against source data by `src/validate_release_consistency.py`; stale counts removed and enforced by `tests/test_text_consistency.py` |
+| 13 | Paper package produced | ⚠️ PASS AS A PACKAGE, NOT A MANUSCRIPT | `paper/` — outline, methods, results, supplementary material, figures and tables. **Not a finished paper:** no Introduction, Discussion or References; no literature review performed |
+| 14 | Thesis package produced | ✅ PASS | `thesis/` — structure, RQ assessment (RQ6 PARTIALLY ANSWERED / EXPLORATORY), mappings, inventories |
+| 15 | Final report produced | ✅ PASS | `reports/FINAL_REBUILD_REPORT.md`, `reports/EXECUTIVE_SUMMARY.md`, `reports/FIX_PASS_REPORT.md` |
 
-## Known, Disclosed Incompletions (not blockers — each has a stated reason and owner document)
+## Open blockers — classification
 
-- 5 concatenated-multi-actor nodes found, not fixed — `docs/decision_log.md` DEC-013, `validation/HUMAN_REVIEW_QUEUE.csv` HR0076-HR0080.
+None of these can be closed by the pipeline; each needs the repository owner, a second human, or the original text.
+"Release blocker" = must be settled before tagging/merging a citable release or deploying the site as final;
+"publication blocker" = must be settled before a paper/thesis is submitted or the results are presented as final.
+
+| Item | Severity | Blocks | Needs |
+|---|---|---|---|
+| Source edition/transcription metadata (`validation/source_edition_metadata_required.md`) | MAJOR | publication | repository owner |
+| Second annotator / inter-annotator reliability (`docs/inter_annotator_protocol.md`) | MAJOR | publication | a real second coder |
+| Manual review of unresolved entity items — 18 alias/entity conflicts, stale alias targets, provenance-gap files, the self-loop, and the candidate composite nodes (`validation/HUMAN_REVIEW_QUEUE.csv`, `validation/composite_node_candidates.csv`) | MAJOR | publication | review against the original text |
+| `CITATION.cff` author / release-date metadata (`TODO` placeholders) | MINOR | release (tag/DOI) and publication | repository owner |
+| Source-code licence (dataset is CC BY 4.0; no code licence chosen) | MINOR | release | repository owner |
+| Paper Introduction / Discussion / References; literature review | MAJOR (for a paper) | publication | authors |
+| Network Explorer covers 3 of 12 variants; 8 of 18 target figures not built | MINOR | nice-to-have | optional work |
+
+## Known, disclosed incompletions (not blockers on their own — each has a stated reason and owner document)
+
+- Candidate composite actor nodes are flagged, not resolved; no node has been split or merged (`docs/decision_log.md` DEC-013, DEC-018).
 - No verified inter-annotator reliability statistic — single coder; infrastructure ready but correctly refuses to fabricate a value (`docs/limitations.md` item 2).
 - Motif/triad null-model enrichment skipped — insufficient sample, no directed null model available (`docs/decision_log.md` DEC-010).
-- Site not yet deployed to a live GitHub Pages URL — tested locally only.
-- Repository never pushed to remote — all work is local commits on `claude-dk-rebuild`.
-- `CITATION.cff` has `TODO` placeholders for author name and release date.
+- The nine null-model networks are related, partly nested specifications, so "7 of 9" is not seven independent replications; observed modularity is a single Louvain partition.
+- Site not deployed to a live GitHub Pages URL; `claude-dk-rebuild` is on the remote, `claude-dk-fixpass` is local only.
 
-## Post-Release Addendum
+## History
 
-After this checklist was first completed (all 21 phases), the user asked to continue with
-optional future work. The single highest-value, fully self-contained item was picked: **the story
-similarity metric suite (RQ6)**, previously the project's one open research question. It is now
-built (`src/story_similarity.py`, `docs/decision_log.md` DEC-014) — all 91 story pairs, 5
-metrics, hierarchical clustering, and figures F10-F11. It was first recorded as "answered"; a
-**final academic audit before release (DEC-015)** found that overclaim was not supported: actor
-overlap is low (max Jaccard 0.153), the top pair differs by metric, and cluster-validity checks
-(`outputs/statistics/story_similarity_cluster_validity.json`) do not support a robust discrete
-clustering. `thesis/research_questions.md` RQ6 is therefore **PARTIALLY ANSWERED / EXPLORATORY**;
-an uncoded "captivity theme" interpretation was removed; and the pipeline now runs
-`story_similarity`, `story_similarity_validity` and `audit_top5_checks` stages (previously
-`export_tables` would have overwritten the full T08 on a rerun). The Top-5 findings in
-`reports/FINAL_REBUILD_REPORT.md` were verified 5/5 against their output files and reworded where
-the evidence was narrower than the claim (notably #3, sensitivity ranking; see DEC-015).
-Validation layers re-run after the audit, all PASS: `pytest` 18/18;
-`run_pipeline.py --all --validate-only`; `src/validate_site.py` 363/363 files, 0 issues;
-`src/validate_release_consistency.py`.
-
-### Open release blockers — unchanged by the DEC-015 audit
-
-These remain open, deferred, manual/external items; the audit did not alter their status:
-
-1. Source edition/transcription verification — external input from the repository owner
-   (`validation/source_edition_metadata_required.md`).
-2. Inter-annotator reliability — needs a real second coder (`docs/inter_annotator_protocol.md`).
-3. Unresolved merged/concatenated entity cases (HR0076–HR0080 and other `HUMAN_REVIEW_QUEUE.csv`
-   items) — need review against the original narrative text.
-4. `CITATION.cff` personal/bibliographic metadata — needs the repository owner.
-
-## Full End-to-End Pipeline Run (2026-09-19)
-
-**Full end-to-end pipeline run: PASS**
-
-- **Command / mode:** `python run_pipeline.py --all` — FULL mode (no `--fast`; `config/analysis.yaml`
-  `null_models.n_random: 1000`, `robustness.n_random_trials: 100`, `seed: 42`). This is the mode the
-  reported numbers come from (`reports/07_null_models_report.md`); there is no separate `--full`
-  flag. Starting point: clean tree at `2e08975`; `data/raw/` and `data/final/` verified byte-identical
-  before and after (hash comparison).
-- **Run 1 (code as committed at `2e08975`):** 23/23 stages PASS, 7 min 11 s. It exposed two
-  idempotency defects: a fresh run deleted (a) the five hand-appended review items HR0076-HR0080
-  from `validation/HUMAN_REVIEW_QUEUE.csv` and (b) the story-level/bipartite sections of
-  `docs/network_models.md`. No scientific output was affected.
-- **Fix (DEC-016):** `validation/manual_review_items.csv` + `entity_resolution.py` append; the
-  `story_networks.py` stage rewrites the doc sections (counts computed, not typed);
-  bipartite `.graphml` edges written in sorted order. Both files now regenerate byte-identical to
-  their committed versions, also on repeated runs.
-- **Run 2 (fixed code):** 23/23 stages PASS, 7 min 18 s: audit, validate, entity_resolution,
-  build_canonical, build_networks, story_networks, metrics, communities, signed_and_directed,
-  multilayer, narrative_order, story_similarity, story_similarity_validity, null_models,
-  null_models_fdr, sensitivity, robustness, audit_top5_checks, visualization, export_tables,
-  build_inter_annotator_sample, inter_annotator_stats, hash_manifest.
-- **Not orchestrator stages:** the website build (`src/build_site.py`), site validation
-  (`src/validate_site.py`), `pytest` and `src/validate_release_consistency.py` are not in
-  `run_pipeline.py`'s `STAGES`; they were run separately, in that order, after the pipeline.
-- **Post-run validation:** `pytest` 18/18 PASS; `run_pipeline.py --all --validate-only` PASS;
-  `validate_site.py` 363/363 files, 0 issues; `validate_release_consistency.py` PASS; the built site
-  was also served over real HTTP (`python -m http.server`) and its key pages, figures and download
-  files returned 200.
-- **Scientific outputs vs. the committed versions:** no change. Byte-identical: all of
-  `outputs/statistics/` (null-model FDR table, sensitivity, robustness, story-similarity clustering,
-  cluster-validity, Top-5 checks), `outputs/matrices/`, `outputs/null_models/`, `outputs/validation/`,
-  `data/processed/`, all publication tables incl. the full 91-pair T08, all PNG figures, and every
-  paper/thesis/site page (RQ6 wording unchanged: PARTIALLY ANSWERED / EXPLORATORY).
-- **Expected non-scientific differences when re-running (verified, and why they are not committed
-  churn):** `.gexf` `lastmodifieddate` (one line per file, the only `.gexf` change committed);
-  `.svg` `dc:date` and matplotlib's random element ids (embedded rasters pixel-identical);
-  floating-point summation noise <= 1.1e-13 in `centrality_*.csv` / T04 (identifiers and row order
-  identical). `outputs/manifest_sha256.csv` hashes update accordingly. `core.autocrlf=true` on
-  Windows checks text files out with CRLF, so the manifest hashes of LF-written files (e.g. `.gexf`)
-  match only files as the pipeline writes them, not a fresh CRLF checkout.
-- **Recommendation (not done, changes the pipeline contract):** add `build_site` and `validate_site`
-  to `run_pipeline.py` `STAGES` so that one command is end-to-end.
+- **Post-release addendum (RQ6, DEC-014) and final academic audit (DEC-015).** The story-similarity suite was built,
+  first recorded as "answered", then corrected: actor overlap is low, the top pair differs by metric, and cluster
+  validity does not support a robust discrete clustering, so RQ6 is **PARTIALLY ANSWERED / EXPLORATORY**; an uncoded
+  "captivity theme" interpretation was removed; the Top-5 findings were re-verified against their outputs.
+- **Full end-to-end pipeline verification (DEC-016).** A first full run exposed two idempotency defects (a fresh run
+  deleted hand-appended review items and generated documentation sections); both were fixed at their generators and a
+  second full run reproduced the scientific outputs exactly.
+- **Independent review of the reviewed state and the fix pass (DEC-017, DEC-018, DEC-019).** The review passed the
+  scientific core and found: weighted betweenness had used tie strength as path distance (**fixed**, rankings and
+  sensitivity regenerated; no headline finding reversed, but the claim that two actors lead betweenness in every
+  specification was withdrawn); an under-inclusive composite-node disclosure (**reproducible scan, review queue
+  expanded, disclosures corrected; manual review still open**); stale generated pages, story-page edge labelling,
+  hand-typed site numbers, ambiguous robustness wording and stale counts (**fixed at the generators and enforced by
+  tests**). Details and per-issue status: `reports/FIX_PASS_REPORT.md`.
 
 ## Overall Status
 
-**15/15 items PASS or PASS-WITH-DISCLOSED-GAPS.** No item is silently marked PASS while actually
-incomplete — every partial/gap above is cross-referenced to the document that discloses it in
-full. Phases 1-21 of the governing master prompt are complete, with Phase 9-10 (motif analysis)
-explicitly and deliberately skipped (DEC-010) rather than forced.
+**15/15 items PASS or PASS-WITH-DISCLOSED-GAPS.** No item is silently marked PASS while actually incomplete — every
+partial/gap above is cross-referenced to the document that discloses it in full. The project is a validated research
+repository, not a finished publication: the blockers above remain open. Phases 1-21 of the governing master prompt
+are complete, with Phase 9-10 (motif analysis) explicitly and deliberately skipped (DEC-010) rather than forced.

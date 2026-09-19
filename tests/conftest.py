@@ -7,6 +7,7 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
 sys.path.insert(0, str(SRC))
+sys.path.insert(0, str(ROOT))  # so tests can import run_pipeline (repo root) with bare `pytest` too
 
 
 @pytest.fixture(scope="session")

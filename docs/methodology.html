@@ -74,6 +74,10 @@ network (identity/title relations excluded), and the 23-connected-component cave
 <a href="communities.html">Communities</a>) is carried through every downstream use.</p>
 <p><strong>Null model method (DEC-008):</strong> degree-preserving randomization
 (<code>networkx.double_edge_swap</code>), Benjamini-Hochberg FDR correction across all 36 tests.</p>
+<p><strong>Shortest-path distance vs. tie strength (DEC-017):</strong> the edge attribute
+<code>weight</code> is tie <em>strength</em>. Weighted betweenness therefore uses the derived distance
+<code>1 / strength</code> (a stronger tie is a shorter path); unweighted hop-count betweenness is kept as a
+separate measure. Strength is never passed directly to a shortest-path routine.</p>
 </div>
 
 <h2>Network model definitions</h2>
@@ -85,7 +89,7 @@ re-running <code>python run_pipeline.py --stage build_networks</code>.</p>
 <p>
 <a href="data_dictionary.md">Data Dictionary</a> ·
 <a href="relation_codebook.md">Relation Codebook</a> ·
-<a href="limitations.md">Limitations</a> (17 items) ·
+<a href="limitations.md">Limitations</a> (19 items) ·
 <a href="inter_annotator_protocol.md">Inter-Annotator Protocol</a>
 </p>
 

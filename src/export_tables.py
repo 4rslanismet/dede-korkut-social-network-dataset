@@ -49,9 +49,17 @@ def t02_relation_taxonomy():
 
 def t03_story_level_statistics():
     df = pd.read_csv(ROOT / "data" / "derived" / "story_level_metrics.csv", encoding="utf-8-sig")
-    cols = ["story_id", "boy_name_raw", "n_nodes", "n_edges", "density", "average_degree",
+    stories = pd.read_csv(ROOT / "data" / "processed" / "stories.csv", encoding="utf-8-sig")
+    # Two different "edge" counts exist and must not be conflated (review finding, DEC-019):
+    #   n_relation_records    raw coded relation rows of the story (stories.csv n_edges)
+    #   n_edges_aggregated    edges of the story's aggregated undirected graph (one per unordered actor pair);
+    #                         density / average degree / clustering below are computed on THIS graph
+    df = df.merge(stories[["story_id", "n_edges"]].rename(columns={"n_edges": "n_relation_records"}), on="story_id", how="left")
+    df = df.rename(columns={"n_edges": "n_edges_aggregated"})
+    cols = ["story_id", "boy_name_raw", "n_nodes", "n_relation_records", "n_edges_aggregated", "density", "average_degree",
             "average_clustering", "n_connected_components", "degree_centralization"]
-    write(df[cols], "T03_story_level_statistics", "Story-level network statistics (Phase 4)")
+    write(df[cols], "T03_story_level_statistics",
+          "Story-level network statistics: raw relation records vs. edges of the aggregated story graph (density, degree and clustering use the aggregated graph)")
 
 
 def t04_centrality_results():
@@ -59,7 +67,9 @@ def t04_centrality_results():
     top = df.sort_values("degree", ascending=False).head(20)
     cols = ["canonical_name", "node_type", "degree", "strength_weighted_degree", "betweenness",
             "harmonic_centrality", "pagerank", "story_count"]
-    write(top[cols], "T04_centrality_results", "Top 20 actors by degree, G0\\_full (Phase 5, preliminary/descriptive)")
+    write(top[cols], "T04_centrality_results",
+          "Top 20 actors by degree, G0\\_full (preliminary/descriptive). Betweenness uses shortest-path distance = 1/tie strength (DEC-017); "
+          "unweighted hop-count betweenness is in the full centrality table")
 
 
 def t05_community_statistics():
@@ -68,6 +78,8 @@ def t05_community_statistics():
         summary = json.load(f)
     with open(ROOT / "outputs" / "statistics" / "community_stability_G2_core_social.json", encoding="utf-8") as f:
         stability = json.load(f)
+    with open(ROOT / "outputs" / "networks" / "network_summary.json", encoding="utf-8") as f:
+        n_components = json.load(f)[summary["network"]]["n_connected_components"]
     rows = [
         ("Network", summary["network"]),
         ("Leiden modularity (res=1.0, seed=42)", round(summary["leiden_modularity_res1.0_seed42"], 4)),
@@ -77,7 +89,7 @@ def t05_community_statistics():
         ("ARI (Leiden vs Louvain)", round(summary["adjusted_rand_index_leiden_vs_louvain"], 4)),
         ("Stability: mean modularity (10 seeds)", round(stability["modularity_mean"], 4)),
         ("Stability: mean pairwise ARI (10 seeds)", round(stability["mean_pairwise_adjusted_rand_index"], 4)),
-        ("Caveat", "23 connected components inflate raw community count with trivial isolates (see reports/06 sec 1.4)"),
+        ("Caveat", f"{n_components} connected components inflate raw community count with trivial isolates (see reports/06 sec 1.4)"),
     ]
     df = pd.DataFrame(rows, columns=["Metric", "Value"])
     write(df, "T05_community_statistics", "Community detection statistics, G2\\_core\\_social (Phase 6)", float_format="%s")
@@ -127,14 +139,33 @@ def t11_robustness_results():
     import json
     with open(ROOT / "outputs" / "statistics" / "robustness_summary_G0_full.json", encoding="utf-8") as f:
         summary = json.load(f)
+    n0 = summary["n_nodes"]
+    bases = [("all_G0_nodes", "fraction_removed_below_threshold_of_all_nodes", summary["denominators"]["all_nodes"]),
+             ("initial_giant_component", "fraction_removed_below_threshold_of_initial_giant_component", summary["denominators"]["initial_giant_component"])]
     rows = []
-    for threshold_label, key in [("50%", "fraction_removed_to_drop_giant_below_50pct"),
-                                  ("10%", "fraction_removed_to_drop_giant_below_10pct")]:
-        for strategy, val in summary[key].items():
-            rows.append({"giant_component_threshold": threshold_label, "removal_strategy": strategy,
-                         "fraction_removed": round(val, 4) if val is not None else None})
+    exact_key = {"all_G0_nodes": "all_nodes", "initial_giant_component": "initial_giant_component"}
+    for basis, key, denominator in bases:
+        for threshold_label in ("50pct", "10pct"):
+            for strategy, val in summary[key][threshold_label].items():
+                # exact crossing, checked after EVERY removal (the checkpoint-grid value above can overshoot by up to one grid step)
+                if strategy == "degree_targeted":
+                    exact = summary["degree_targeted_tie_break_sensitivity"][exact_key[basis]][threshold_label]["nodes_removed_median"]
+                elif strategy == "betweenness_targeted":
+                    exact = summary["betweenness_targeted_exact_nodes_removed"][exact_key[basis]][threshold_label]
+                else:
+                    exact = None
+                rows.append({"component_size_basis": basis, "basis_size_nodes": denominator,
+                             "largest_component_below": threshold_label.replace("pct", "%") + " of basis",
+                             "removal_strategy": strategy,
+                             "fraction_of_G0_nodes_removed": round(val, 4) if val is not None else None,
+                             "nodes_removed_on_checkpoint_grid": int(round(val * n0)) if val is not None else None,
+                             "nodes_removed_exact": exact})
     df = pd.DataFrame(rows)
-    write(df, "T11_robustness_results", "Structural robustness: fraction of nodes removed to cross giant-component thresholds, G0\\_full (Phase 8)")
+    write(df, "T11_robustness_results",
+          f"Structural robustness of G0\\_full: share of the {n0} G0 nodes removed until the largest connected component falls below 50\\% / 10\\% of a stated basis "
+          f"(all G0 nodes, or the initial giant component). Grid columns use checkpoints every {summary['checkpoint_step_nodes']} nodes; "
+          "the exact columns check after every removal (degree-targeted: median over random tie-breaks; random: grid only). "
+          "The grid-based degree- vs betweenness-targeted gap is a resolution/tie-break artifact, not a supported claim (DEC-019)")
 
 
 def main():

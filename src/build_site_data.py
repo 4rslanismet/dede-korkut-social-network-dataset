@@ -1,7 +1,8 @@
 """Phase 15: export machine-readable JSON for the GitHub Pages site
 (section 68, 108-109). Every number the site displays must trace back to
-this script reading real output files - nothing is hardcoded here or in
-the site's HTML/JS.
+this script reading real output files (above all outputs/results_registry.json)
+- nothing scientific is hardcoded here or in the site's HTML/JS (DEC-019).
+A value the registry cannot supply makes this script fail rather than guess.
 """
 import json
 from pathlib import Path
@@ -43,6 +44,17 @@ def build_project_summary():
 
     g0 = corpus_metrics[corpus_metrics["network"] == "G0_full"].iloc[0]
 
+    registry_path = ROOT / "outputs" / "results_registry.json"
+    if not registry_path.exists():
+        raise SystemExit("outputs/results_registry.json is missing - run `python run_pipeline.py --stage results_registry` first")
+    reg = load_json(registry_path)
+    pipe = reg["pipeline"]
+    g2 = reg["networks"]["g2_core_social"]
+    for name, val in (("pipeline.n_stages", pipe["n_stages"]), ("networks.n_models", reg["networks"]["n_models"]),
+                      ("networks.g2_core_social.n_components", g2["n_components"])):
+        if val is None:
+            raise SystemExit(f"required registry value '{name}' is null/unavailable")
+
     return {
         "generated_from": "src/build_site_data.py (Phase 15)",
         "dataset": {
@@ -67,13 +79,13 @@ def build_project_summary():
             "network": community_summary["network"],
             "leiden_modularity": round(community_summary["leiden_modularity_res1.0_seed42"], 4),
             "leiden_n_communities": community_summary["leiden_n_communities_res1.0_seed42"],
-            "caveat": "G2_core_social has 23 connected components; the raw community count is "
+            "caveat": f"G2_core_social has {g2['n_components']} connected components; the raw community count is "
                       "partly inflated by trivial isolated-component partitions - see Methodology.",
         },
         "pipeline": {
-            "reproducible": True,
-            "n_network_models": 12,
-            "n_pytest_tests_passing": "18/18",
+            "n_stages": pipe["n_stages"],
+            "n_network_models": reg["networks"]["n_models"],
+            "n_tests_collected": pipe["n_tests_collected"],
         },
     }
 
@@ -95,9 +107,12 @@ def build_actor_metrics():
 
 
 def build_story_metrics():
-    stories = pd.read_csv(ROOT / "data" / "processed" / "stories.csv", encoding="utf-8-sig")
-    metrics = pd.read_csv(ROOT / "data" / "derived" / "story_level_metrics.csv", encoding="utf-8-sig")
-    df = stories.merge(metrics, on=["story_id", "source_file"], how="left", suffixes=("", "_m"))
+    # Two different "edge" counts must stay distinguishable (DEC-019): stories.csv counts raw relation
+    # RECORDS; story_level_metrics.csv counts edges of the AGGREGATED story graph, and its density /
+    # average degree / centralization are computed on that graph.
+    stories = pd.read_csv(ROOT / "data" / "processed" / "stories.csv", encoding="utf-8-sig").rename(columns={"n_edges": "n_relation_records"})
+    metrics = pd.read_csv(ROOT / "data" / "derived" / "story_level_metrics.csv", encoding="utf-8-sig").rename(columns={"n_edges": "n_edges_aggregated"})
+    df = stories.merge(metrics.drop(columns=["boy_name_raw"], errors="ignore"), on=["story_id", "source_file"], how="left", validate="one_to_one")
     df = df.where(pd.notna(df), None)
     return {r["story_id"]: r for r in df.to_dict("records")}
 

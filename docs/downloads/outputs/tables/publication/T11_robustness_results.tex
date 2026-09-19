@@ -1,16 +1,22 @@
 \begin{table}
-\caption{Structural robustness: fraction of nodes removed to cross giant-component thresholds, G0\_full (Phase 8)}
+\caption{Structural robustness of G0\_full: share of the 311 G0 nodes removed until the largest connected component falls below 50\% / 10\% of a stated basis (all G0 nodes, or the initial giant component). Grid columns use checkpoints every 6 nodes; the exact columns check after every removal (degree-targeted: median over random tie-breaks; random: grid only). The grid-based degree- vs betweenness-targeted gap is a resolution/tie-break artifact, not a supported claim (DEC-019)}
 \label{tab:t11_robustness_results}
-\begin{tabular}{llr}
+\begin{tabular}{lrllrrr}
 \toprule
-giant_component_threshold & removal_strategy & fraction_removed \\
+component_size_basis & basis_size_nodes & largest_component_below & removal_strategy & fraction_of_G0_nodes_removed & nodes_removed_on_checkpoint_grid & nodes_removed_exact \\
 \midrule
-50% & random & 0.251 \\
-50% & degree_targeted & 0.039 \\
-50% & betweenness_targeted & 0.019 \\
-10% & random & 0.617 \\
-10% & degree_targeted & 0.058 \\
-10% & betweenness_targeted & 0.058 \\
+all_G0_nodes & 311 & 50% of basis & random & 0.251 & 78 & NaN \\
+all_G0_nodes & 311 & 50% of basis & degree_targeted & 0.039 & 12 & 7.000 \\
+all_G0_nodes & 311 & 50% of basis & betweenness_targeted & 0.019 & 6 & 6.000 \\
+all_G0_nodes & 311 & 10% of basis & random & 0.617 & 192 & NaN \\
+all_G0_nodes & 311 & 10% of basis & degree_targeted & 0.058 & 18 & 17.000 \\
+all_G0_nodes & 311 & 10% of basis & betweenness_targeted & 0.058 & 18 & 17.000 \\
+initial_giant_component & 261 & 50% of basis & random & 0.309 & 96 & NaN \\
+initial_giant_component & 261 & 50% of basis & degree_targeted & 0.039 & 12 & 9.000 \\
+initial_giant_component & 261 & 50% of basis & betweenness_targeted & 0.039 & 12 & 9.000 \\
+initial_giant_component & 261 & 10% of basis & random & 0.656 & 204 & NaN \\
+initial_giant_component & 261 & 10% of basis & degree_targeted & 0.058 & 18 & 17.000 \\
+initial_giant_component & 261 & 10% of basis & betweenness_targeted & 0.058 & 18 & 17.000 \\
 \bottomrule
 \end{tabular}
 \end{table}

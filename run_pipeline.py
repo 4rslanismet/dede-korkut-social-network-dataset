@@ -2,7 +2,7 @@
 """Master pipeline orchestrator (section 75, 119).
 
 Usage:
-    python run_pipeline.py --all
+    python run_pipeline.py --all                 # analysis + figures/tables + manifest + website build + website validation
     python run_pipeline.py --stage audit
     python run_pipeline.py --stage null_models --fast
     python run_pipeline.py --all --fast          # fast null-model mode for development
@@ -30,6 +30,7 @@ STAGES = [
     ("validate", "validate.py", []),
     ("entity_resolution", "entity_resolution.py", []),
     ("build_canonical", "build_canonical.py", []),
+    ("composite_nodes", "composite_nodes.py", []),  # after build_canonical (needs data/processed) and entity_resolution (regenerates the queue)
     ("build_networks", "build_networks.py", []),
     ("story_networks", "story_networks.py", []),
     ("metrics", "metrics.py", []),
@@ -44,11 +45,14 @@ STAGES = [
     ("sensitivity", "sensitivity.py", []),
     ("robustness", "robustness.py", []),
     ("audit_top5_checks", "audit_top5_checks.py", []),  # DEC-015 final-audit evidence for the Top-5 findings
+    ("results_registry", "build_results_registry.py", []),  # after every analysis stage: single source for quoted scientific numbers (DEC-019)
     ("visualization", "visualization.py", []),
     ("export_tables", "export_tables.py", []),
     ("build_inter_annotator_sample", "build_inter_annotator_sample.py", []),
     ("inter_annotator_stats", "inter_annotator_stats.py", []),
     ("hash_manifest", "build_hash_manifest.py", []),
+    ("build_site", "build_site.py", []),        # website data + pages (copies the manifest, so it runs after hash_manifest)
+    ("validate_site", "validate_site.py", []),  # links/assets/JSON + expected-vs-generated page sets
 ]
 
 STAGE_NAMES = [s[0] for s in STAGES]

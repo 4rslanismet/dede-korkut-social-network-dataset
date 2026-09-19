@@ -97,6 +97,16 @@ def main():
         "are removed from the graph object for that variant, but remain listed in "
         "`data/processed/nodes.csv`.\n"
     )
+    md.append(
+        "**Tie strength vs. shortest-path distance (DEC-017).** The edge attribute `weight` is tie "
+        "*strength*: larger means a stronger tie. Shortest-path-based weighted metrics (weighted betweenness) "
+        "therefore use the derived distance `distance = 1 / strength` "
+        "(`src/networks.py::strength_to_distance`, computed on a copy of the graph; exported graph files keep "
+        "`weight` only). Strength is never passed directly to a shortest-path routine, and a non-positive "
+        "strength is rejected. Unweighted hop-count betweenness is reported separately (`betweenness_hop`); "
+        "in `G11_unweighted` all strengths are 1, so both coincide. PageRank, strength and community "
+        "detection use `weight` as strength, which is their correct reading.\n"
+    )
     md.append("| Model | Directed | Nodes | Edges | Density | Components | Largest component | Avg degree | Description |")
     md.append("|---|---|---:|---:|---:|---:|---:|---:|---|")
     for name, spec in NETWORK_DEFINITIONS.items():

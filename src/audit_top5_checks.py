@@ -106,18 +106,22 @@ def check_robustness_reference() -> dict:
     n0 = s["n_nodes"]
     graphs = build_all_networks()
     giant0 = len(max(nx.connected_components(graphs["G0_full"]), key=len))
-    step = max(1, int(round(n0 * s["step_fraction"])))
+    assert giant0 == s["denominators"]["initial_giant_component"], "robustness summary and G0 giant component disagree"
+    step = s["checkpoint_step_nodes"]
     out = {"n_nodes": n0, "initial_giant_component_size": giant0,
            "initial_giant_fraction_of_nodes": round(giant0 / n0, 4),
            "removal_step_nodes": step, "thresholds": {}}
-    for key, label in [("fraction_removed_to_drop_giant_below_50pct", "50pct_of_original_node_count"),
-                       ("fraction_removed_to_drop_giant_below_10pct", "10pct_of_original_node_count")]:
-        out["thresholds"][label] = {k: {"fraction_removed": round(v, 4), "nodes_removed": int(round(v * n0))}
-                                    for k, v in s[key].items()}
-    out["reading"] = ("thresholds are relative to the ORIGINAL NODE COUNT (311), not to the original giant component "
-                      "(261 = 83.9% of nodes); targeted-removal crossings are resolved only to one removal step of "
-                      f"{step} nodes ({step / n0:.1%}); betweenness ranking is recomputed every "
-                      f"{max(1, n0 // 20)} removals, not after each removal")
+    for basis, key in [("all_G0_nodes", "fraction_removed_below_threshold_of_all_nodes"),
+                       ("initial_giant_component", "fraction_removed_below_threshold_of_initial_giant_component")]:
+        out["thresholds"][basis] = {
+            thr: {k: {"fraction_removed": round(v, 4), "nodes_removed": int(round(v * n0))} for k, v in s[key][thr].items()}
+            for thr in ("50pct", "10pct")}
+    out["degree_targeted_tie_break_sensitivity"] = s["degree_targeted_tie_break_sensitivity"]
+    out["reading"] = ("two denominators are reported separately: ALL G0 nodes (311) and the INITIAL GIANT COMPONENT "
+                      f"({giant0} = {giant0 / n0:.1%} of nodes); targeted-removal crossings on the checkpoint grid are resolved only to "
+                      f"{step} nodes ({step / n0:.1%}); the degree-targeted crossing depends on tie-breaks among equal-degree nodes "
+                      "(see degree_targeted_tie_break_sensitivity), so degree- vs betweenness-targeted order is not a supported claim; "
+                      f"betweenness ranking is unweighted hop-count, recomputed every {max(1, n0 // 20)} removals")
     return out
 
 
