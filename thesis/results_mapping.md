@@ -6,8 +6,12 @@ to cite. Cross-reference `paper/results.md` for full prose treatment.
 ## RQ1 — Structural organization
 
 - **Finding:** G0_full: 311 connected actors, 376 edges, density 0.0078, 23 components, largest
-  261 actors. Salur Kazan/Bamsı Beyrek dominate degree/betweenness/PageRank across G0/G1/G2/G9.
-- **Cite:** Table T04, Figure F02/F03/F07, `outputs/statistics/corpus_network_metrics.csv`.
+  261 actors. State centrality claims per specification and definition: Salur Kazan is first on
+  degree, strength, PageRank and both betweenness definitions in G0/G1/G2/G9; Bamsı Beyrek is second on
+  degree/strength/PageRank in G0-G2, but its betweenness rank depends on the definition (hop-count vs.
+  distance = 1/strength, DEC-017; effectively tied with Bayındır Han in G0). Do not write that both
+  "lead betweenness across all specifications".
+- **Cite:** Table T04 (betweenness = distance 1/strength), Figure F02/F03/F07, `outputs/statistics/corpus_network_metrics.csv`.
 - **Confirmatory layer:** community modularity validated above null in 7/9 networks (see RQ4).
 
 ## RQ2 — Bridge actors
@@ -38,13 +42,17 @@ to cite. Cross-reference `paper/results.md` for full prose treatment.
 
 ## RQ5 — Sensitivity to construction choices
 
-- **Finding:** Actor-type inclusion and edge weighting change centrality rankings most: person+group
-  vs. person-only ρ=0.887-0.926 (lowest mean ρ, 0.91), groups included vs. excluded ρ=0.896-0.957,
-  weighted vs. unweighted PageRank ρ=0.849 (lowest single value). Girizgah/core-social filtering and
-  relation-inference policy: ρ ≥ 0.97 (negligible). Do not call any one of the three larger-effect
-  choices "the single most consequential" (means 0.91-0.93, untested differences, different node
-  sets). Structural robustness (G0_full): 25.1% random (78 nodes) vs. 1.9-3.9% targeted (6-12
-  nodes) removal before the largest component falls below half of the original 311 nodes.
+- **Finding (weighted betweenness uses distance = 1/strength, DEC-017):** three choices change
+  centrality rankings noticeably (at least one ρ < 0.95): person+group vs. person-only (ρ 0.892-0.926,
+  mean 0.911), weighted vs. unweighted (ρ 0.849 PageRank, 0.886 betweenness; mean 0.912) and groups
+  included vs. excluded (ρ 0.949-0.957; mean 0.952, just below the threshold). The first two are
+  numerically tied — do not rank them or call either "the most consequential" (differences untested,
+  different node sets). Girizgah/core-social filtering and relation-inference policy are negligible
+  (ρ ≥ 0.98). Structural robustness (G0_full), two separately labelled denominators: random removal
+  needs 25.1% of the 311 G0 nodes (78) before the largest component falls below 50% of all G0 nodes,
+  30.9% (96) against the 261-node initial giant component; targeted removal needs 6-9 nodes. Degree- vs
+  betweenness-targeted removal are not ranked (grid gap 12 vs 6 is a resolution/tie-break artifact;
+  exact crossing 6-7 vs 6).
 - **Cite:** Table T10, T11, Figure F16, F17, F18.
 
 ## RQ6 — Story similarity / clustering (PARTIALLY ANSWERED / EXPLORATORY; DEC-014, DEC-015)

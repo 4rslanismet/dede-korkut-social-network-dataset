@@ -7,13 +7,17 @@ research portal, and an academic research package built on one shared, auditable
 **This is not a "degree centrality" project.** It is a full research infrastructure: repository
 audit and data validation, a canonical data model with tracked provenance, 12 network model
 variants, community/signed/directed/multilayer/narrative-order analysis, null-model statistical
-validation, sensitivity and structural-robustness testing, publication figures and tables, and a
-363-page interactive website — all generated from the same source data, all re-runnable with one
-command.
+validation, sensitivity and structural-robustness testing, publication figures and tables, and an
+interactive website (a profile page for every actor and every story) — all generated from the same
+source data, all re-runnable with one command.
 
 **Website:** https://4rslanismet.github.io/dede-korkut-social-network-dataset/ (once deployed —
 see [Reproduce](docs/reproduce.html))
-**Working branch:** `claude-dk-rebuild` (this rebuild has not been merged to `main`)
+**Development branches:** `claude-dk-rebuild` (independently reviewed state) and `claude-dk-fixpass`
+(post-review corrections); neither has been merged to `main`.
+**Status:** validated research repository — publication blockers remain (source-edition metadata,
+second annotator, manual entity review, `CITATION.cff` owner metadata, code-licence decision); see
+[`reports/RELEASE_CHECKLIST.md`](reports/RELEASE_CHECKLIST.md).
 
 ## Key Features
 
@@ -25,12 +29,14 @@ see [Reproduce](docs/reproduce.html))
 - **Statistically validated findings**: every descriptive structural claim (community structure,
   clustering) was tested against a degree-preserving null model with multiple-testing correction —
   and one earlier finding (a "disassortative network" claim) was retracted after failing that test.
-- **Sensitivity-tested**: 6 network-construction choices ranked by how much they change centrality
+- **Sensitivity-tested**: 6 network-construction choices compared by how much they change centrality
   rankings, so no finding is presented without knowing how fragile it is to modeling decisions.
+  Weighted betweenness uses distance = 1/tie strength (DEC-017).
 - **Interactive web portal** (`docs/`, GitHub Pages): a Cytoscape.js network explorer, and a
   profile page for every one of the 332 canonical actors — generated, not hand-written.
 - **Reproducible end to end**: one seed (`config/analysis.yaml`), one pipeline
-  (`run_pipeline.py`), 18 automated tests, a SHA-256 hash manifest, and a CI validation gate.
+  (`run_pipeline.py`, including the website build and validation), automated tests, a SHA-256 hash
+  manifest, and a CI validation gate.
 
 ## Dataset Snapshot
 
@@ -47,7 +53,7 @@ here is re-derived and cross-checked in `reports/01_repository_audit.md`, not ha
 | Relation types | 17, mapped to 6 interpretive families |
 | Relation layers | 7 |
 | Network model variants | 12 (G0-G11) |
-| Automated tests | 18/18 passing |
+| Candidate composite actor nodes (manual review pending) | 46 of 332 (`validation/composite_node_candidates.csv`) |
 
 ## Repository Structure
 
@@ -64,7 +70,7 @@ here is re-derived and cross-checked in `reports/01_repository_audit.md`, not ha
 │   ├── processed/                  # canonical rebuild (this project's main dataset)
 │   └── derived/                    # story-level metrics, etc.
 ├── src/                            # one script per pipeline stage, each independently runnable
-├── tests/                          # 18 pytest tests
+├── tests/                          # pytest suite
 ├── validation/                     # entity-resolution candidates, human review queue, IAA sample
 ├── outputs/                        # figures, tables, statistics, networks, validation results
 ├── reports/                        # one report per project phase (01 through 15-16)
@@ -86,10 +92,10 @@ for a consolidated, itemized list of everything this project does and does not c
 ```bash
 git clone https://github.com/4rslanismet/dede-korkut-social-network-dataset.git
 cd dede-korkut-social-network-dataset
-git checkout claude-dk-rebuild
+# to reproduce a specific published state, check out its release tag or commit
 python -m venv .venv && .venv\Scripts\activate   # or: source .venv/bin/activate
 pip install -r requirements.txt
-python run_pipeline.py --all
+python run_pipeline.py --all      # analysis, figures/tables, manifest, website build + validation
 python -m pytest tests/
 ```
 
@@ -109,4 +115,6 @@ See [`CITATION.cff`](CITATION.cff). Author/publication metadata there is intenti
 
 ## License
 
-CC BY 4.0 — see [`LICENSE`](LICENSE).
+The **dataset** is licensed CC BY 4.0 — see [`LICENSE`](LICENSE). A separate licence for the
+**source code** has not been chosen yet; that is an open decision for the repository owner and is
+not implied by this file.

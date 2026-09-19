@@ -1,13 +1,26 @@
 {
   "project": "Dede Korkut Digital Humanities & Network Science Project (DKNN)",
   "repository": "4rslanismet/dede-korkut-social-network-dataset",
-  "branch": "claude-dk-rebuild",
-  "last_commit_before_this_update": "2e08975",
+  "branch": "claude-dk-fixpass",
+  "reviewed_branch": "claude-dk-rebuild (independently reviewed at 4e89da5; pushed to origin)",
+  "last_commit_before_this_update": "4e89da5",
   "last_updated": "2026-09-19",
-  "completed_phases": [1, 2, 3, 4, 5, 6, 7, 8, "9-10 (skipped, DEC-010)", 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, "post-release: story similarity RQ6 (DEC-014)", "final academic audit before release (DEC-015)", "full end-to-end pipeline verification (DEC-016)"],
-  "current_phase": "COMPLETE_PLUS_ADDENDUM_FINAL_AUDIT_AND_FULL_PIPELINE_VERIFICATION",
-  "current_phase_status": "all_21_phases_plus_RQ6_addendum_final_academic_audit_and_full_end_to_end_pipeline_verification_completed",
+  "project_status": "VALIDATED RESEARCH REPOSITORY - PUBLICATION BLOCKERS REMAIN (technical release candidate; not publication-ready)",
+  "completed_phases": [1, 2, 3, 4, 5, 6, 7, 8, "9-10 (skipped, DEC-010)", 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, "post-release: story similarity RQ6 (DEC-014)", "final academic audit before release (DEC-015)", "full end-to-end pipeline verification (DEC-016)", "independent review fix pass (DEC-017, DEC-018, DEC-019)"],
+  "current_phase": "POST_REVIEW_FIX_PASS_COMPLETE_PENDING_INDEPENDENT_RE_REVIEW",
+  "current_phase_status": "independent_review_findings_corrected_full_pipeline_regenerated_all_validations_run_publication_blockers_remain",
+  "fix_pass": {
+    "starting_reviewed_commit": "4e89da5",
+    "report": "reports/FIX_PASS_REPORT.md",
+    "decisions": ["DEC-017 weighted betweenness distance = 1/strength (unweighted hop-count kept separately)", "DEC-018 composite-node candidate scan, review queue expanded, disclosures corrected", "DEC-019 site page sets derived from data + stale page cleanup, story raw-vs-aggregated edge labels, results registry, robustness denominators, stale counts, pipeline includes site build/validation"],
+    "single_source_of_numbers": "outputs/results_registry.json (generated; counts of stages/tests/nodes/composite candidates live there, not in prose)",
+    "top5_finding_3": "regenerated with corrected betweenness: person+group vs person-only and weighted vs unweighted numerically tied (mean rho 0.911 vs 0.912); groups incl/excl smaller (0.952); others >= 0.98",
+    "headline_finding_reversed": false,
+    "withdrawn_claim": "'Salur Kazan and Bamsi Beyrek lead betweenness across G0/G1/G2/G9' - Bamsi Beyrek betweenness rank depends on the definition",
+    "not_pushed": "claude-dk-fixpass is local only; no push/merge/deploy without explicit owner authorization"
+  },
   "full_pipeline_verification": {
+    "note": "HISTORICAL record of the DEC-016 verification (state 4e89da5); all counts below are as of that run and are superseded by fix_pass / outputs/results_registry.json",
     "date": "2026-09-19",
     "command": "python run_pipeline.py --all",
     "mode": "FULL (no --fast; null_models.n_random=1000, robustness.n_random_trials=100, seed=42; there is no --full flag)",
@@ -40,7 +53,7 @@
     "final_reports_addenda_added"
   ],
   "current_phase_remaining_subtasks": [],
-  "next_task": "none_mandatory - open release blockers (source edition verification, inter-annotator reliability/second coder, unresolved merged-entity cases HR0076-HR0080 etc., CITATION.cff metadata) all require external input and were NOT changed by the audit; recommended next step: push claude-dk-rebuild for independent review only on explicit user request - see NEXT_TASK.md",
+  "next_task": "none_mandatory - recommended: independent re-review of claude-dk-fixpass. OPEN PUBLICATION BLOCKERS (external/manual; unchanged, not closable by the pipeline): (1) source edition/transcription metadata, (2) second annotator / inter-annotator reliability, (3) manual review of unresolved entity items incl. the candidate composite nodes (validation/composite_node_candidates.csv, HUMAN_REVIEW_QUEUE.csv), (4) CITATION.cff owner metadata, (5) source-code licence decision; plus paper Introduction/Discussion/References not written. Push/merge/deploy only on explicit owner authorization - see NEXT_TASK.md",
   "validation_status_last_known": "WARNING (see outputs/validation/summary.json; no FAIL-level/blocking issues)",
   "important_reports": [
     "CLAUDE_SESSION_HANDOFF.md",
@@ -105,12 +118,15 @@
     },
     "sensitivity_analysis": {
       "method": "Spearman rho, Kendall tau, top-10/top-20 overlap on degree/betweenness/pagerank, common node set across 6 variant pairs",
-      "smallest_effect_pairs": ["girizgah_included_vs_excluded (rho=1.000)", "all_relations_vs_core_social (rho=1.000)"],
-      "largest_effect_pair": "person_plus_group_vs_person_only (rho=0.887-0.926)",
-      "most_weight_sensitive_metric": "pagerank (rho=0.849 for weighted_vs_unweighted)"
+      "betweenness_definition": "weighted betweenness distance = 1/strength (DEC-017); unweighted arm = hop-count",
+      "negligible_pairs": ["girizgah_included_vs_excluded (rho>=0.9997)", "all_relations_vs_core_social (rho>=0.9999)", "explicit_only_vs_explicit_plus_inferred (rho>=0.982)"],
+      "noticeable_pairs_numerically_tied_first_two": "person_plus_group_vs_person_only (rho 0.892-0.926, mean 0.911) ~ weighted_vs_unweighted (0.849-1.000, mean 0.912); groups_included_vs_excluded smaller (0.949-0.957, mean 0.952)",
+      "no_single_most_influential_choice": true,
+      "values_source": "outputs/results_registry.json -> sensitivity"
     },
     "structural_robustness_G0_full": {
-      "fraction_removed_to_drop_giant_below_50pct": {"random": 0.2508, "degree_targeted": 0.0386, "betweenness_targeted": 0.0193},
+      "denominators": "reported separately: all 311 G0 nodes, and the 261-node initial giant component (see outputs/results_registry.json -> robustness)",
+      "targeted_vs_random": "targeted removal far more disruptive; degree- vs betweenness-targeted ordering NOT claimed (grid gap is a resolution/tie-break artifact; exact crossing 6-7 vs 6 nodes)",
       "pattern": "robust to random failure, fragile to targeted attack (classic hub-driven network behavior)"
     },
     "figures_generated": ["F02", "F03", "F06", "F07", "F10", "F11", "F15", "F16", "F17", "F18"],
@@ -142,22 +158,22 @@
       "verified": "5/5 against output files, correct network model and effect direction; wording corrected",
       "1_modularity": "7/9 networks (z 2.6-7.0, all positive); also holds on G0_full giant component alone (obs 0.692 vs null 0.615, z=9.9, p=0.001); Louvain not Leiden; confirmatory",
       "2_assortativity": "0/9 significant; G0_full nominal p=0.032, q=0.089; claim withdrawn as unsupported (not proof of absence)",
-      "3_sensitivity": "'single most consequential, wide margin' NOT supported: person+group vs person-only mean rho 0.910 (lowest) but weighted vs unweighted 0.926 (PageRank 0.849 lowest single) and groups incl/excl 0.934; untested differences, different node sets; descriptive",
+      "3_sensitivity": "REGENERATED after DEC-017: person+group vs person-only (mean rho 0.911) and weighted vs unweighted (0.912) numerically tied; groups incl/excl smaller (0.952); rest >= 0.98; no single most influential choice; untested differences, different node sets; descriptive",
       "4_kinship": "G3 is a forest (83 nodes, 61 edges, 22 components, 0 triangles) - clustering/transitivity structurally zero; low-information null, not 'genuine null'",
-      "5_robustness": "thresholds relative to original 311 nodes (not 261 giant); random 78 nodes vs targeted 6-12 nodes; 6-node resolution; betweenness recomputed every 15 removals; G0_full only; descriptive"
+      "5_robustness": "two labelled denominators (all 311 G0 nodes / 261-node initial giant); random 78 vs 96 nodes; targeted 6-9 nodes checked after every removal; degree vs betweenness ordering not claimed; hop-count betweenness recomputed every 15 removals; G0_full only; descriptive"
     },
     "inter_annotator_sample_size": 70,
-    "pytest_results": {"total": 18, "passed": 18, "failed": 0},
-    "hash_manifest_files_hashed": 192,
+    "counts_note": "test count, stage count, manifest entries, html page count and composite-candidate counts are NOT duplicated here; read outputs/results_registry.json, outputs/manifest_sha256.csv and outputs/validation/site_validation_report.json",
     "requirements_lock_package_count": 42,
     "web_portal": {
-      "html_files_generated": 363,
-      "static_pages": 14,
-      "story_pages": 14,
-      "character_pages": 332,
+      "character_and_story_pages_derived_from": "data/processed/nodes.csv and stories.csv (src/site_pages.py); stale pages removed by the generator; validated by src/validate_site.py",
       "network_explorer_variants": ["G0_full", "G1_person_only", "G2_core_social"],
-      "site_validation_status": "PASS (0 issues, 363/363 files checked)",
-      "newly_discovered_data_issue": "5 concatenated-multi-actor nodes (DEC-013)"
+      "characters_index_lists_all_actors": true,
+      "story_pages_show_raw_relation_records_and_aggregated_edges_separately": true
+    },
+    "composite_nodes": {
+      "status": "OPEN - candidate composite nodes awaiting manual review; none split or merged (DEC-018)",
+      "outputs": ["validation/composite_node_candidates.csv", "outputs/statistics/composite_node_summary.json", "validation/HUMAN_REVIEW_QUEUE.csv (category composite_node_candidate)"]
     }
   },
   "known_warnings": [
@@ -177,13 +193,13 @@
     "T01-T11 publication tables generated and complete, including T08 (story similarity, full 5-metric table, exploratory content, post-release DEC-014/DEC-015)",
     "run_pipeline.py --all (FULL mode, no --fast) was run end-to-end twice on 2026-09-19 (23/23 stages PASS each, ~7 min): run 1 exposed two idempotency defects (fresh run deleted HR0076-HR0080 from HUMAN_REVIEW_QUEUE.csv and the story-level/bipartite sections of docs/network_models.md), fixed in DEC-016 before run 2; scientific outputs reproduced exactly; build_site.py / validate_site.py / pytest / validate_release_consistency.py are not orchestrator stages and were run separately (all PASS)",
     "inter-annotator kappa/alpha cannot be reported - no real second coder yet (expected, by design)",
-    "5 newly-discovered concatenated-multi-actor nodes found while building the website (DEC-013, validation/HUMAN_REVIEW_QUEUE.csv HR0076-HR0080) - not fixed, low relation_count so likely low analytical impact but unverified",
+    "candidate composite actor nodes (originally 5 hand-found, DEC-013; reproducible scan DEC-018 - counts in outputs/results_registry.json) awaiting manual review; none split or merged; impact quantified (share of relations/endpoints) but unresolved",
     "GitHub Pages path bug found and fixed (DEC-012): pages originally referenced ../outputs, ../data, ../reports which would 404 on a real /docs-published site - only caught by testing with a real local HTTP server, not a file:// preview",
     "site tested only locally (python -m http.server) - not yet deployed to actual GitHub Pages",
     "site's Network Explorer only offers G0/G1/G2 (not all 12 network variants); Similarity page now shows the full 5-metric suite with explicit exploratory / low-overlap / no-robust-clusters caveats (DEC-015)",
     "documentation set complete (data_dictionary.md, relation_codebook.md, methodology.md, limitations.md, DATASET_CARD.md, CITATION.cff, CHANGELOG.md, CONTRIBUTING.md, architecture_diagram.svg, root README.md) - CITATION.cff has TODO placeholders for author name/date, intentionally not invented",
     "paper/ and thesis/ packages complete - RQ6 (story similarity/clustering) built in a post-release addendum (DEC-014) and then audited: PARTIALLY ANSWERED / EXPLORATORY (DEC-015); all 7 original research questions have a status in thesis/research_questions.md",
-    "OPEN RELEASE BLOCKERS (unchanged by DEC-015 audit): (1) source edition/transcription verification - external, repo owner; (2) inter-annotator reliability - needs second coder; (3) unresolved merged/concatenated entity cases HR0076-HR0080 + other HUMAN_REVIEW_QUEUE items - needs original text review; (4) CITATION.cff personal/bibliographic metadata - repo owner",
+    "OPEN PUBLICATION BLOCKERS (external/manual, unchanged by DEC-015..019): (1) source edition/transcription verification - repo owner; (2) inter-annotator reliability - needs a second coder; (3) manual review of unresolved entity items incl. candidate composite nodes - needs original text; (4) CITATION.cff personal/bibliographic metadata - repo owner; (5) source-code licence not chosen (dataset is CC BY 4.0) - repo owner; also: paper Introduction/Discussion/References unwritten, no literature review",
     "ALL 21 PHASES COMPLETE - reports/RELEASE_CHECKLIST.md (15/15 PASS or disclosed-gap), reports/FINAL_REBUILD_REPORT.md, reports/EXECUTIVE_SUMMARY.md all written",
     "repository has never been pushed to remote - all work is local commits on claude-dk-rebuild only - do not push without explicit user instruction",
     "site not yet deployed to a live GitHub Pages URL - tested locally only",

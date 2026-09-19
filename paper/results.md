@@ -9,12 +9,20 @@ exploratory/confirmatory discipline (section 44/110 of the governing project bri
 The full corpus network (G0) comprises 311 connected actors (of 332 canonical actors; the
 remaining 21 appear only in non-relational narrative events) and 376 aggregated relations, with
 density 0.0078 and 23 connected components, the largest containing 261 actors
-(`outputs/statistics/corpus_network_metrics.csv`). Across the full, person-only, and core-social
-specifications alike, Salur Kazan and Bamsı Beyrek exhibit the highest degree, betweenness, and
-PageRank (e.g., under G0_full: Salur Kazan degree=72, strength=436, betweenness=0.388,
-PageRank=0.092; `outputs/tables/centrality_G0_full.csv`). **We do not interpret this as evidence
-that these are the "most important" characters in a literary sense** — only that they occupy the
-most structurally central positions in this specific encoded relational network.
+(`outputs/statistics/corpus_network_metrics.csv`). Centrality claims are specific to a network
+specification and a metric definition. Under each of the full (G0), person-only (G1), core-social (G2)
+and directed (G9) specifications, Salur Kazan ranks first on degree, strength, PageRank and on both
+betweenness definitions used here (e.g. under G0_full: degree=72, strength=436, PageRank=0.092,
+distance-weighted betweenness=0.598, hop-count betweenness=0.461;
+`outputs/tables/centrality_G0_full.csv`). Bamsı Beyrek ranks second on degree, strength and PageRank
+under G0, G1 and G2, but its betweenness rank depends on the definition: second under hop-count
+betweenness in G0, G2 and G9, whereas under distance-weighted betweenness it is effectively tied with
+Bayındır Han in G0 (0.1912 vs 0.1914), second in G2, and fourth in G1 behind Bayındır Han and Uruz.
+Weighted betweenness uses shortest-path distance = 1 / tie strength (a stronger tie is a shorter path;
+DEC-017); an earlier version passed strength directly as distance and its betweenness values and rankings
+are superseded. **We do not interpret any of this as evidence that these are the "most important"
+characters in a literary sense** — only that they occupy structurally central positions in this specific
+encoded relational network under the stated definitions.
 
 Under the directed specification (G9, 221 nodes, 324 edges), Salur Kazan's HITS hub score
 (0.425) far exceeds its authority score (0.016), and out-degree (53) exceeds in-degree (30),
@@ -46,6 +54,10 @@ confirmatory finding in this study: the community structure detected in this cor
 artifact of the degree sequence alone.** It establishes non-random modular organization; it does not
 establish that the communities are socially meaningful units (labels are numeric only, alignment
 with story boundaries was not tested, and the null ensemble used Louvain rather than Leiden).
+The nine tested networks are related, partly nested specifications of one corpus (G1 and G2 are
+subsets or variants of G0), so "7 of 9" must not be read as seven independent replications. Observed
+modularity is a single Louvain partition (seed 42, unweighted); each of the 1,000 randomized graphs
+receives one Louvain run.
 
 ## 3. Retraction of an Earlier Descriptive Finding [confirmatory, negative result]
 
@@ -74,32 +86,39 @@ importance of kinship.
 
 ## 4. Sensitivity to Network-Construction Choices [descriptive sensitivity analysis]
 
-Of six paired network-construction choices tested by rank correlation, three show negligible effect
-on centrality rankings — prologue inclusion/exclusion, core-social filtering and (nearly)
-explicit-only versus explicit-plus-inferred relations (Spearman ρ ≥ 0.97 on all three centralities).
-Actor-type inclusion and edge weighting change rankings noticeably: person-plus-group versus
-person-only (ρ=0.887-0.926 across degree, betweenness and PageRank), groups included versus excluded
-(ρ=0.896-0.957) and weighted versus unweighted (ρ=0.849 for PageRank, 0.930 for betweenness; degree
-identical by construction; `outputs/tables/sensitivity_rank_stability.csv`). Person-plus-group versus
-person-only has the lowest mean ρ (0.91), but weighting has the lowest PageRank ρ, the three means
-lie within 0.03 of one another, the comparisons use different node sets (n=154 to 311), and the
-differences between correlations were not tested, so we do not rank these three choices. All
-correlations remain ≥ 0.85. The weighting effect on PageRank is consistent with this dataset's
-edge-weight field having undocumented semantics (`docs/limitations.md` item 7). We conclude that any
-centrality-based claim drawn from this corpus should specify which actor-inclusion and weighting
-decisions were made, since these measurably change which actors rank highest.
+Weighted betweenness in these comparisons uses shortest-path distance = 1 / tie strength (DEC-017);
+the "unweighted" arm is hop-count betweenness. Of six paired network-construction choices tested by
+rank correlation, three show negligible effect on centrality rankings — prologue inclusion/exclusion,
+core-social filtering and (nearly) explicit-only versus explicit-plus-inferred relations (Spearman
+ρ ≥ 0.98 on all three centralities). Three choices change rankings noticeably (at least one measure
+with ρ < 0.95): person-plus-group versus person-only (ρ=0.916 degree, 0.892 betweenness, 0.926
+PageRank; mean 0.911), weighted versus unweighted (ρ=0.886 betweenness, 0.849 PageRank; degree
+identical by construction; mean 0.912) and groups included versus excluded (ρ=0.949-0.957; mean
+0.952, just below the threshold; `outputs/tables/sensitivity_rank_stability.csv`). Person-plus-group
+versus person-only and weighted versus unweighted are numerically tied (mean ρ 0.911 vs 0.912), so we do
+not rank them; the comparisons also use different node sets (n=154 to 311), and differences between
+correlations were not tested. All correlations remain ≥ 0.85. The weighting effect is consistent with
+this dataset's edge-weight field having undocumented semantics (`docs/limitations.md` item 7). We
+conclude that any centrality-based claim drawn from this corpus should specify which actor-inclusion
+and weighting decisions and which betweenness definition were used, since these measurably change
+which actors rank highest.
 
 ## 5. Structural Robustness [descriptive]
 
-The full network (G0, 311 nodes) requires random removal of approximately 25.1% of nodes (78 nodes;
-mean of 100 trials) to reduce the largest connected component below 50% of the original node count,
-but only 3.9% (12 nodes, degree-targeted) or 1.9% (6 nodes, betweenness-targeted) under targeted
-removal (`outputs/statistics/robustness_summary_G0_full.json`). The reference is the original 311
-nodes, not the 261-node initial giant component; targeted crossings are resolved only to one 6-node
-removal step; degree ranking is recomputed after every removal, betweenness ranking every 15
-removals; and only G0 was tested. This robust-to-random/fragile-to-targeted pattern is consistent
-with the hub-dominated degree distribution reported in §1, and describes graph connectivity only —
-we make no claim about narrative resilience or any property of the underlying story.
+For the full network (G0, 311 nodes) the largest connected component (LCC) is compared with two
+separately labelled denominators. Against **all 311 G0 nodes**, random removal must remove about 25.1%
+of nodes (78 nodes; mean of 100 trials) before the LCC falls below 50%; against the **261-node initial
+giant component** it must remove about 30.9% (96 nodes). Targeted removal is far more disruptive:
+checked after every removal, degree-targeted removal crosses the all-nodes threshold after 6-7 nodes
+(range over 200 random tie-breaks among equal-degree nodes) and hop-count-betweenness-targeted removal
+after 6 nodes (`outputs/statistics/robustness_summary_G0_full.json`, Table T11). The coarser 6-node
+checkpoint grid reports 12 versus 6 nodes (3.9% vs 1.9%), but that gap is a resolution and tie-break
+artifact, so **we make no claim that one targeted strategy is more destructive than the other**; the
+supported conclusion is only that targeted removal is substantially more disruptive than random removal.
+Degree ranking is recomputed after every removal, betweenness ranking (unweighted hop-count) every 15
+removals; only G0 was tested. This robust-to-random/fragile-to-targeted pattern is consistent with the
+hub-dominated degree distribution reported in §1, and describes graph connectivity only — we make no
+claim about narrative resilience or any property of the underlying story.
 
 ## 6. Multilayer and Signed Structure [exploratory]
 
@@ -159,3 +178,15 @@ is not a coded variable in the canonical dataset (no structured theme field exis
 relation phrases of S03 contain none of the terms esir/esaret/tutsak/kurtar/yağma, while S05's
 contain them in 2 of 40 rows). This section is descriptive and exploratory; no
 significance test was applied to the similarity values themselves.
+
+## 8. Data Limitation Affecting All Sections: Candidate Composite Actor Labels [limitation]
+
+Some canonical actor labels may denote several actors collapsed into a single node (comma lists,
+"X ve Y" constructions, sentence-like names). A reproducible scan (`src/composite_nodes.py`,
+`validation/composite_node_candidates.csv`) flags 46 of the 332 canonical nodes as **candidate
+composite nodes requiring manual review**; they touch 46 of 628 relations (7.3%) and 48 of 1,256
+relation endpoints (3.8%). A candidate is not necessarily an error — many are legitimate collective
+labels (for example "Kazan ve Askerleri") — and none has been split or merged, so every node-level
+statistic above counts each such label as one actor. The scan under-approximates (it does not detect
+"ile" constructions or short phrases). Composite labels remain an unresolved manual entity-resolution
+task, and the network results should be read with this limitation until the review is completed.

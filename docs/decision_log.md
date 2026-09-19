@@ -150,6 +150,8 @@ Bu dosya, projede alınan geri döndürülemez veya yorumlayıcı metodolojik ka
 ---
 
 ### DEC-013
+> **Güncelleme (DEC-018):** aşağıdaki "5" sayısı o günkü keşfin tarihsel kaydıdır; güncel, yeniden üretilebilir tarama 332 node'dan 46 aday buluyor.
+
 **Question:** Website inşası sırasında keşfedilen 5 "birleştirilmiş çoklu-aktör node"u (ör. `canonical_name="Beyrek, Yigenek, Kazan, Kara Budak, Deli Dündar, Uruz"`, tek bir node_id altında) nasıl ele alınmalı?
 
 **Decision:** Otomatik olarak **düzeltilmedi/bölünmedi**. `validation/HUMAN_REVIEW_QUEUE.csv`'ye 5 yeni madde eklendi (HR0076-HR0080, kategori `concatenated_multi_actor_node`). Bu node'lar site üzerinde oldukları gibi (birleşik isimleriyle) gösteriliyor; yalnızca dosya adları `safe_filename()` ile kısaltıldı.
@@ -206,3 +208,36 @@ Bu dosya, projede alınan geri döndürülemez veya yorumlayıcı metodolojik ka
 **Kapsam notları:** `build_site.py`, `validate_site.py`, `pytest` ve `validate_release_consistency.py` `run_pipeline.py` `STAGES` içinde değil; pipeline'dan sonra ayrıca çalıştırıldı (hepsi PASS). Bunları `STAGES`'e eklemek öneri olarak bırakıldı (pipeline sözleşmesini değiştirir). Windows `core.autocrlf=true` altında LF ile yazılan dosyaların (ör. `.gexf`) manifest hash'leri, taze bir CRLF checkout'unda değil, yalnızca pipeline'ın yazdığı hâliyle eşleşir.
 
 **Status:** Uygulandı; açık release blocker'lar (kaynak baskı doğrulaması, inter-annotator reliability, birleşik/entity vakaları, `CITATION.cff` metadata) değişmedi.
+
+---
+
+### DEC-017
+**Question:** Kenar özniteliği `weight` ilişki *gücü* (kodlanmış 1-5 `agirlik` değerlerinin toplamı) iken, en-kısa-yol tabanlı ağırlıklı betweenness'e nasıl verilmeli? (Bağımsız incelemenin bulgusu: `nx.betweenness_centrality(g, weight="weight")` güçlü bağı *uzun* yol sayıyordu.)
+
+**Decision:** Güç ve mesafe ayrı tutulur. `weight` = güç (değişmedi). En-kısa-yol tabanlı ağırlıklı metrikler için türetilmiş `distance = 1 / strength` kullanılır (`src/networks.py::strength_to_distance`, `with_distance`; güç ≤ 0 veya NaN ise `ValueError` — sessizce keyfi değer üretilmez). Ağırlıksız (hop-count) betweenness ayrı bir ölçü olarak korunur (`betweenness_hop`); `weighted_vs_unweighted` çiftinin "unweighted" kolu G11'dir (tüm güçler 1 ⇒ betweenness hop-count'a eşit). Tüm `betweenness_centrality` çağrıları sınıflandırıldı: (A) hop-count: `robustness.py` (2 çağrı, kasıtlı ağırlıksız) ve `betweenness_hop`; (B) güç-türevi ağırlıklı: `metrics.py::centrality_profile` (sensitivity bunu kullanır) — yalnızca B düzeltildi. Degree, strength, PageRank, community detection (`weight` = güç olarak doğru okunuyor), `harmonic_centrality(distance=None)` ve diameter/path length (hop-count) değişmedi. Toplu/kör değiştirme yapılmadı.
+
+**Sonuç (pipeline'dan yeniden üretildi):** Salur Kazan G0/G1/G2/G9'un hepsinde degree, strength, PageRank ve iki betweenness tanımında ilk. "Salur Kazan **ve** Bamsı Beyrek her belirtimde betweenness'te ilk" iddiası geçerli değil: Bamsı Beyrek'in betweenness sırası tanıma bağlı (hop-count: G0/G2/G9'da 2.; mesafe=1/güç: G0'da Bayındır Han'la fiilen eşit, 0.1912 vs 0.1914; G1'de 4.). Sensitivity: person+group vs person-only (ρ 0.916/0.892/0.926, ort. 0.911) ile weighted vs unweighted (ρ 1.000/0.886/0.849, ort. 0.912) sayısal olarak eşit; groups incl/excl (ort. 0.952) daha küçük; diğer üçü ≥ 0.98. Altı çiftin ortalama-ρ sıralaması düzeltmeden etkilenmedi; eski weighted-betweenness ρ=0.930 hatalı hesaptan geliyordu. Hiçbir Top-5 bulgusunun yönü değişmedi; #3'ün sayıları yeniden üretildi.
+
+**Regresyon testleri:** `tests/test_distance_semantics.py` (güçlü bağ = kısa mesafe; ≤0 güç reddi; sentetik grafta güçlü iki-adım yol betweenness'i doğru üretir; kaynak kodda `betweenness_centrality(..., weight="weight")` yasak — statik tarama; yayınlanmış centrality/sensitivity çıktılarının bayat olmadığı).
+
+**Status:** Uygulandı.
+
+---
+
+### DEC-018
+**Question:** "5 birleşik (concatenated) node" açıklaması (DEC-013) eksik kapsamlıydı; birleşik-aktör adayları nasıl bulunmalı ve nasıl ele alınmalı?
+
+**Decision:** Otomatik birleştirme/bölme YOK. `src/composite_nodes.py` yeniden üretilebilir bir tarayıcıdır: virgüllü liste, " ve " bağlacı, `/`/`+`/`&`, ≥6 kelimelik cümle-benzeri isimler tetikleyicidir. Her sonuç bir *inceleme adayıdır* (hata olduğu varsayılmaz; birçoğu meşru kolektif etiket olabilir). Çıktılar: `validation/composite_node_candidates.csv` (node_id, canonical_name, trigger, story_count, relation_endpoint_count, relation_count, current_type, suggested_review_category, requires_human_review, notes + n_name_parts, review_priority, already_queued_as), `outputs/statistics/composite_node_summary.json` ve `validation/HUMAN_REVIEW_QUEUE.csv`'ye idempotent eklenen `composite_node_candidate` satırları (DEC-013'ün elle kaydedilen 5 maddesi silinmez, tekrar eklenmez). Aşama `run_pipeline.py`'da `build_canonical`'dan sonra çalışır. Tarayıcı eksik yaklaşıklar (" ile " ve kısa ifadeleri bulmaz).
+
+**Sonuç:** 332 node'dan 46'sı aday (10 virgül, 36 "ve", 12 uzun ifade; kesişimli); 46/628 ilişkiye (%7.3) ve 48/1256 ilişki uç noktasına (%3.8) dokunuyor; 41 yeni kuyruk maddesi (5'i DEC-013'ten zaten kuyrukta). Açıklama metinleri (README, DATASET_CARD, limitations, paper ana metni, thesis, raporlar, site) bu sayılarla düzeltildi; ana makale metnine (Results §8, Methods) sınırlılık eklendi. DEC-013'teki "5" o günkü keşfin tarihsel kaydıdır ve güncel sayı değildir.
+
+**Status:** Uygulandı; manuel inceleme AÇIK — publication blocker.
+
+---
+
+### DEC-019
+**Question:** İncelemenin website / tutarlılık / kapsam bulguları nasıl kalıcı biçimde çözülmeli (yalnızca ilgili dosyalar değil, üreticiler)?
+
+**Decision:** (1) **Sayfa kümeleri kaynaktan türetilir:** `src/site_pages.py` beklenen karakter/story sayfa kümesini güncel kanonik veriden hesaplar; `build_site.py` üretimden önce yalnızca bu dizinlerdeki bayat `*.html` dosyalarını siler; `validate_site.py` beklenen == üretilen (eksik/orphan) ve her sayfanın indeksten erişilebilirliğini doğrular (sayı sabit yazılmaz; 3 orphan sayfa kaldırıldı). Characters indeksi tüm aktörleri filtreli tabloyla listeler. (2) **Story kenar semantiği:** "raw relation records" (stories.csv) ve "aggregated network edges" (story_level_metrics) ayrı gösterilir; yoğunluk/ort. derece/merkezilik toplulaştırılmış grafiğe aittir; T03 ve `story_metrics.json` aynı ayrımı taşır. (3) **Sonuç registry'si:** `src/build_results_registry.py` → `outputs/results_registry.json` (deterministik, zaman damgasız). `build_site.py`/`build_site_data.py` bilimsel sayıları buradan yükler; değer yoksa build başarısız olur (sessizce sabit yazılmaz). Figür/tablo altyazılarındaki sabit sayılar (F06, F15, T05, T11) verilerden türetilir. (4) **Robustness ifadesi:** LCC iki payda ile ayrı etiketli raporlanır (tüm G0 node'ları vs başlangıç dev bileşeni); T11'e kesin (her kaldırmada kontrol) geçişler eklendi; degree-targeted için 200 tie-break duyarlılığı (seed 43). Grid'deki 12 vs 6 farkı çözünürlük/tie-break artefaktıdır; degree vs betweenness sıralaması iddia edilmez (kesin: 6–7 vs 6). (5) **Bayat sayılar:** manifest girdi sayısı, aşama sayısı, test sayısı, node-tipi sayıları ya türetilir ya da metinden çıkarılır; `tests/test_text_consistency.py` güncel-durum belgelerinde bunları denetler. (6) **Pipeline:** `results_registry`, `build_site`, `validate_site` aşamaları eklendi; `--all` artık uçtan uca siteyi de üretip doğrular. (7) **Reproduce sayfası:** geçici branch adı kaldırıldı; tam süreç belgelendi. (8) **Null-model ifadesi:** 9 ağ ilişkili/iç içe belirtimlerdir, "7/9" bağımsız replikasyon değildir; gözlenen modularity tek Louvain bölümlemesidir (metodoloji değişmedi). (9) **Lisans:** veri CC BY 4.0; kaynak-kod lisansı çözülmedi (sahip kararı). (10) **Makale durumu:** paper/ bir manuscript/research package'tir (outline+methods+results+supplement), bitmiş makale değil; giriş/tartışma/kaynakça yok, literatür taraması yapılmadı.
+
+**Status:** Uygulandı. Dış/manuel publication blocker'lar (kaynak baskı, ikinci kodlayıcı, entity incelemesi, CITATION.cff, kod lisansı) AÇIK ve değişmedi.

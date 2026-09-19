@@ -93,7 +93,13 @@ degree-inflation caveat for the co-occurrence projection) are built the same way
 Corpus-level metrics (density, clustering, transitivity, degree assortativity, diameter,
 k-core) and centrality (degree, strength, betweenness, harmonic centrality — preferred over
 closeness on this disconnected graph — PageRank, eigenvector) are computed per applicable
-network (`src/metrics.py`). Community detection uses Leiden (RBConfiguration, resolution=1.0) and
+network (`src/metrics.py`). **Tie strength vs. path distance (DEC-017):** the edge attribute
+`weight` is tie *strength* (sum of the coded 1-5 intensity values over an actor pair). Weighted
+betweenness therefore uses the derived distance `1 / strength` (`src/networks.py::strength_to_distance`,
+which rejects non-positive strengths), so a stronger tie is a shorter path; hop-count betweenness is
+computed separately (`betweenness_hop`), and strength is never passed directly to a shortest-path
+routine (enforced by `tests/test_distance_semantics.py`). PageRank, strength and community detection
+use `weight` as strength, which is their correct reading. Community detection uses Leiden (RBConfiguration, resolution=1.0) and
 Louvain, both seeded (`config/analysis.yaml::seed=42`), on `G2_core_social` (DEC-007: SEMANTIC
 relations excluded from the community substrate). **Critical caveat:** `G2_core_social` has 23
 connected components, so a substantial share of the raw community count is a
@@ -118,23 +124,29 @@ Benjamini-Hochberg FDR (α=0.05). **Result:** community modularity is validated 
 (not a degree-sequence artifact) in 7/9 networks; degree assortativity is validated in **none** —
 the earlier descriptive "disassortative network" observation was retracted
 (`reports/07_null_models_report.md` §3.3). This is the single most important correction this
-rebuild made to its own earlier findings.
+rebuild made to its own earlier findings. Two disclosures: the nine tested networks are related,
+partly nested specifications of one corpus, so "7/9" is not seven independent replications; and the
+observed modularity is a single Louvain partition (seed 42, unweighted) compared against one Louvain run
+on each randomized graph.
 
 ## 7. Sensitivity and Robustness (Phase 8)
 
 Six paired network-construction choices (person+group vs. person-only, weighted vs. unweighted,
 all-relations vs. core-social, explicit-only vs. explicit+inferred, groups included vs. excluded,
 girizgah included vs. excluded — `config/analysis.yaml::sensitivity.variants`) are compared via
-Spearman ρ, Kendall τ, and top-k rank overlap on degree/betweenness/PageRank. Actor-type inclusion
-(person+group vs. person-only, ρ=0.887-0.926; groups included vs. excluded, ρ=0.896-0.957) and edge
-weighting (PageRank ρ=0.849) changed rankings most; girizgah, core-social filtering and
-relation-inference policy had essentially no effect (ρ ≥ 0.97). The three larger-effect choices
-are close (mean ρ 0.91-0.93), were not tested against each other, and use different node sets, so
-none is called "the most consequential". Structural robustness (random vs. degree-targeted vs.
-betweenness-targeted node removal on G0_full, `config/analysis.yaml::robustness`; thresholds
-relative to the original 311 nodes; betweenness ranking recomputed every 15 removals) showed the
-network is robust to random failure but fragile to targeted attack — a pattern consistent with the
-hub-dominated degree distribution found in Phase 5 (`reports/08...`).
+Spearman ρ, Kendall τ, and top-k rank overlap on degree/betweenness (distance = 1/strength; the
+"unweighted" arm is hop-count)/PageRank. Person+group vs. person-only (ρ=0.892-0.926), weighted vs.
+unweighted (PageRank ρ=0.849, betweenness ρ=0.886) and, more weakly, groups included vs. excluded
+(ρ=0.949-0.957) changed rankings noticeably; girizgah, core-social filtering and relation-inference
+policy had essentially no effect (ρ ≥ 0.98). The first two are numerically tied (mean ρ 0.911 vs.
+0.912), were not tested against each other, and use different node sets, so none is called "the
+biggest driver". Structural robustness (random vs. degree-targeted vs. hop-count-betweenness-targeted
+node removal on G0_full, `config/analysis.yaml::robustness`) compares the largest connected component
+with two separately labelled denominators — all 311 G0 nodes and the 261-node initial giant component —
+and showed the network is robust to random failure but fragile to targeted attack, a pattern consistent
+with the hub-dominated degree distribution found in Phase 5 (`reports/08...`). The degree- vs
+betweenness-targeted gap on the 6-node checkpoint grid is a resolution/tie-break artifact and is not
+claimed.
 
 ## 8. Figures, Tables, and the Web Portal (Phase 11-16)
 
@@ -145,18 +157,23 @@ from the same underlying data as every other output — no table is retyped by h
 
 The GitHub Pages site (`docs/`) is generated entirely by `src/build_site_data.py` (JSON export)
 and `src/build_site.py` (HTML generation) from these same pipeline outputs; `src/validate_site.py`
-crawls every generated page to check for broken links and missing assets before each release
-(363/363 pages passing at last check). Every file the site links to or embeds is copied into
+crawls every generated page to check for broken links and missing assets, and verifies that the
+generated character and story page sets equal the sets expected from the canonical data (no missing
+and no stale/orphan pages; every page reachable from its index). Scientific numbers quoted on the site
+are loaded from `outputs/results_registry.json` (`src/build_results_registry.py`, DEC-019). Every file the site links to or embeds is copied into
 `docs/` at build time (`copy_assets()`), because GitHub Pages, when configured to publish from
 `/docs`, only serves that subtree — a repo-relative `../outputs/...` link resolves fine on a full
 checkout but 404s on the deployed site (DEC-012).
 
 ## 9. Reproducibility
 
-`run_pipeline.py --all` runs every stage above in order; `run_pipeline.py --stage <name>` runs one
-stage. `tests/` (18 tests, pytest) checks schema integrity, aggregation correctness, network
-construction invariants, and determinism (the same seed must reproduce the same Leiden partition
-and the same randomized graph). `outputs/manifest_sha256.csv` hashes 192 files for drift detection.
+`run_pipeline.py --all` runs every stage above in order — analysis, figures and tables, the manifest,
+and the website build and validation; `run_pipeline.py --stage <name>` runs one stage. `tests/`
+(pytest) checks schema integrity, aggregation correctness, network construction invariants,
+shortest-path distance semantics, generated-website consistency, text/number consistency of the
+current-status documents, and determinism (the same seed must reproduce the same Leiden partition
+and the same randomized graph). `outputs/manifest_sha256.csv` hashes the key data and output files
+for drift detection (its entry count is the number of rows in that file).
 `.github/workflows/validate.yml` runs the test suite and a validation-only pipeline pass on every
 push; the heavy null-model/sensitivity/robustness stages are intentionally excluded from CI
 (development/analysis stages, not a merge gate).

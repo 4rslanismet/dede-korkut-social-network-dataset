@@ -65,8 +65,8 @@ a requirement — adapt to the target program's conventions.
 
 ## Chapter 9 — Limitations and Future Work
 
-- → `docs/limitations.md` (17 items) as the primary source; future work should prioritize: a real
-  second coder for inter-annotator reliability, resolving the 5 concatenated-multi-actor nodes,
+- → `docs/limitations.md` as the primary source; future work should prioritize: a real
+  second coder for inter-annotator reliability, manual review of the 46 candidate composite nodes,
   and obtaining the source edition metadata. (The story-similarity metric suite for RQ6 now exists;
   what remains open is whether any robust discrete story grouping exists, which would need richer
   story-level features than the current relation-type/layer profile, e.g. coded thematic variables.)

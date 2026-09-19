@@ -1,5 +1,11 @@
 # Manuscript Outline
 
+> **Status of this package:** a manuscript/research package, **not a finished paper**. It currently
+> contains this outline, `methods.md`, `results.md` and `supplementary_material.md`. The Introduction,
+> Discussion and References are not written and no literature review has been done (only a search plan,
+> `reports/literature_search_plan.md`). Publication additionally depends on the open owner/manual
+> items listed in `reports/RELEASE_CHECKLIST.md`.
+
 **Working title:** *Structure, Not Sentiment: A Reproducible Multilayer Network Analysis of the
 Book of Dede Korkut, With Null-Model Validation of Its Own Descriptive Claims*
 
@@ -74,9 +80,10 @@ subsections, each explicitly tagged **descriptive**, **exploratory**, or **confi
 (section 44/110):
 
 ### 5.1 Descriptive corpus structure
-Density, clustering, degree distribution, hub structure (Salur Kazan and Bamsı Beyrek dominate
-degree/betweenness/PageRank across G0/G1/G2/G9 — framed exactly as in `reports/04_05...`, never as
-"most important character").
+Density, clustering, degree distribution, hub structure. State centrality claims per network
+specification and metric definition (Salur Kazan is first on degree, strength, PageRank and both
+betweenness definitions in G0/G1/G2/G9; Bamsı Beyrek's betweenness rank depends on the definition —
+see Results §1) — never as "most important character".
 
 ### 5.2 Confirmatory: null-model validation (the paper's central methodological result)
 Community modularity is significantly higher than a degree-preserving null model in 7/9 tested
@@ -103,6 +110,8 @@ validation was performed for these (motif/triad analysis was explicitly skipped,
 ### 5.5 Structural robustness
 Classic robust-random/fragile-targeted pattern (Table T11) — framed strictly as graph
 connectivity, never as "narrative resilience" (master prompt's own naming rule, section 31).
+Report the two component-size denominators (all G0 nodes vs initial giant component) separately, and
+make no claim that degree- or betweenness-targeted removal is the more destructive strategy.
 
 ## 6. Discussion
 
@@ -121,8 +130,8 @@ connectivity, never as "narrative resilience" (master prompt's own naming rule, 
 Reference `docs/limitations.md` in full; do not re-litigate items already stated there, but ensure
 the paper's own text does not silently overstate anything the limitations document already
 qualifies (source edition, single coder, provenance gap, taxonomy coverage, group-actor effects,
-weight semantics, community-count artifact, the 5 concatenated-node data-quality issue, motif
-analysis skip, story similarity being exploratory with limited evidence for discrete clusters).
+weight semantics, community-count artifact, the 46 candidate composite nodes awaiting manual
+review (Results §8), motif analysis skip, story similarity being exploratory with limited evidence for discrete clusters).
 
 ## 8. Conclusion
 

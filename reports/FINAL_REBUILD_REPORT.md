@@ -91,16 +91,15 @@ assortativity and modularity tests are informative. →
 
 ## Sensitivity
 
-Six paired network-construction choices tested by rank correlation. Actor-type inclusion
-(person+group vs. person-only, ρ=0.887-0.926; groups included vs. excluded, ρ=0.896-0.957) and edge
-weighting (ρ=0.849-1.000, PageRank most affected) change centrality rankings noticeably; person+group
-vs. person-only has the lowest mean ρ (0.91) but weighting is lower for PageRank (0.85), and the
-differences among these three are small and untested. Girizgah inclusion, core-social filtering and
-relation-inference policy have negligible effect (ρ ≥ 0.97). Structural robustness (G0_full): the
-network needs ~25% random node loss (78 of 311 nodes) before its largest component falls below half
-of the original node count, but only ~2-4% (6-12 nodes; resolution is one 6-node step) under
-degree- or betweenness-targeted attack — a classic robust-yet-fragile pattern, framed strictly as
-graph connectivity, never narrative resilience. →
+Six paired network-construction choices tested by rank correlation (weighted betweenness uses
+distance = 1/tie strength, DEC-017). Person+group vs. person-only (ρ=0.892-0.926) and weighted vs.
+unweighted (ρ=0.849 PageRank, 0.886 betweenness) change centrality rankings noticeably and are
+numerically tied (mean ρ 0.911 vs. 0.912); groups included vs. excluded is a smaller effect (ρ
+0.949-0.957). Girizgah inclusion, core-social filtering and relation-inference policy have negligible
+effect (ρ ≥ 0.98). Structural robustness (G0_full): against all 311 G0 nodes the network needs ~25%
+random node loss (78 nodes) before its largest component falls below half, ~31% against the
+261-node initial giant component, but only 6-9 nodes under targeted attack — a classic
+robust-yet-fragile pattern, framed strictly as graph connectivity, never narrative resilience. →
 `reports/08_sensitivity_robustness_report.md`, `outputs/statistics/audit_top5_checks.json`.
 
 ## Key Findings
@@ -109,57 +108,63 @@ See "Top 5 Strongest Defensible Findings" below.
 
 ## Limitations
 
-Seventeen itemized limitations, consolidated in `docs/limitations.md`: unknown source edition,
+Itemized limitations, consolidated in `docs/limitations.md`: unknown source edition,
 single coder, the undocumented story-level/final transformation gap, 29.6% "belirsiz" relation
 coverage, group-actor sensitivity effects, inferred-relation effects, undocumented edge-weight
 semantics, narrative-order-is-not-chronology, bipartite projection artifacts, entity-resolution
-uncertainty, the 5 concatenated-multi-actor nodes (found while building the website), the
+uncertainty, the 46 candidate composite actor nodes awaiting manual review, the
 retracted assortativity claim, the connected-component community-count artifact, the skipped
-motif analysis, the incomplete story-similarity analysis, website scope limits, and the general
-interpretation-limits disclaimer carried on every relevant page of the site.
+motif analysis, the exploratory story-similarity analysis, website scope limits, the general
+interpretation-limits disclaimer carried on every relevant page of the site, the unresolved
+source-code licence, and the fact that the paper package is not a finished manuscript.
 
 ## Website
 
-A 363-page GitHub Pages site (`docs/`) — all 14 navbar sections from the project brief, a
+A GitHub Pages site (`docs/`) — all 14 navbar sections from the project brief, a
 Cytoscape.js network explorer (3 of 12 variants), and a generated profile page for every one of
-the 332 canonical actors, not just a top-N subset. Built entirely from pipeline outputs
-(`src/build_site_data.py`, `src/build_site.py`); validated with a custom link/asset crawler
-(`src/validate_site.py`, 363/363 pages passing). Two significant bugs were found and fixed only by
+the canonical actors and stories (all reachable from the Characters and Stories indexes). Built
+entirely from pipeline outputs (`src/build_site_data.py`, `src/build_site.py`), with scientific
+numbers loaded from `outputs/results_registry.json`; validated with a custom link/asset crawler that
+also checks the generated page sets against the canonical data (`src/validate_site.py`). Two
+significant bugs were found and fixed only by
 testing against a real local HTTP server rather than a `file://` preview: relative links that
 would 404 on an actual GitHub Pages deployment, and a 239-character node ID exceeding the
 filesystem path limit. → `reports/15_16_web_portal_report.md`.
 
 ## Reproducibility
 
-`run_pipeline.py` orchestrates all 19 implemented stages (`--all`/`--stage`/`--fast`/
-`--validate-only`); 18 automated tests (schema, aggregation, network-construction invariants,
-determinism) all pass; a 192-file SHA-256 hash manifest and a 42-package pinned lockfile support
-drift detection; a GitHub Actions workflow runs the test suite and a validation-only pipeline pass
-on every push (heavy null-model/sensitivity stages intentionally excluded from CI). →
-`reports/13_14_reproducibility_report.md`.
+`run_pipeline.py` orchestrates every stage (`--all`/`--stage`/`--fast`/`--validate-only`), from data
+audit through analysis, figures, tables, the manifest, and the website build and validation (the
+stage list and count are recorded in `outputs/results_registry.json`); the automated tests (schema,
+aggregation, network-construction invariants, shortest-path distance semantics, site consistency, text
+consistency, determinism) pass; a SHA-256 hash manifest and a pinned lockfile support drift detection; a
+GitHub Actions workflow runs the test suite and a validation-only pipeline pass on every push (heavy
+null-model/sensitivity stages intentionally excluded from CI). → `reports/13_14_reproducibility_report.md`.
 
 ## Academic Outputs
 
-`paper/` (manuscript outline, methods, results, supplementary material, 8 figures, 22 table
-files) and `thesis/` (proposed structure, a research-question-by-research-question honesty
-assessment — RQ6 explicitly marked not-yet-answerable rather than force-answered — methodology and
-results mappings, figure/table inventories). → `reports/17_documentation_report.md` and the
+`paper/` — a manuscript/research package (outline, methods, results, supplementary material, figures
+and tables), **not a finished paper**: the Introduction, Discussion and References are unwritten and no
+literature review has been done — and `thesis/` (proposed structure, a research-question-by-research-question
+honesty assessment — RQ6 finally PARTIALLY ANSWERED / EXPLORATORY — methodology and results mappings,
+figure/table inventories). → `reports/17_documentation_report.md` and the
 `paper/`/`thesis/` directories directly.
 
 ## Future Work
 
 1. Obtain a real second coder and complete `validation/inter_annotator_sample.csv` to compute a
    genuine inter-annotator reliability statistic.
-2. Resolve the 5 concatenated-multi-actor nodes (DEC-013) by returning to the original narrative
-   text.
-3. Build the full story-similarity metric suite (Jaccard, cosine, relation-profile,
-   layer-composition, hierarchical clustering) to properly answer RQ6.
+2. Manually review the 46 candidate composite actor nodes (and the other open review-queue items) by
+   returning to the original narrative text (DEC-013, DEC-018).
+3. ~~Build the story-similarity metric suite~~ — built (RQ6 is PARTIALLY ANSWERED / EXPLORATORY); a robust
+   discrete story grouping would need richer story-level features than the current profile.
 4. Confirm the source edition/transcription used for the original coding
    (`validation/source_edition_metadata_required.md`).
 5. Extend the Network Explorer to all 12 network variants; build the remaining F01/F04-F05/F08-F14
    figures.
-6. Deploy the site to a live GitHub Pages URL and, when the repository owner is ready, push
-   `claude-dk-rebuild` to the remote and decide on a merge strategy with `main`.
+6. Independent review of the fix-pass branch, then — when the repository owner is ready — decide on a
+   merge strategy with `main` and deploy the site to a live GitHub Pages URL. (`claude-dk-rebuild`
+   is already on the remote; `claude-dk-fixpass` is local until the owner authorizes a push.)
 7. Fill in `CITATION.cff`'s TODO fields once the repository owner's identity and any forthcoming
    publication details are confirmed.
 
@@ -177,7 +182,9 @@ ama güvenilir sonuç" — few but reliable results).
    G0_full alone (observed 0.692 vs. null mean 0.615, z=9.9, p=0.001), so it is not an artifact of
    the 23-component fragmentation. Scope: this validates non-random modular organization, not
    independently discovered social communities (numeric labels only; whether communities align
-   with story boundaries was not tested). Louvain, not Leiden, was used in the null ensemble.
+   with story boundaries was not tested). Louvain, not Leiden, was used in the null ensemble. The
+   nine networks are related, partly nested specifications, so "7 of 9" is not seven independent
+   replications, and the observed modularity is a single Louvain partition (seed 42, unweighted).
    **Confirmatory.**
    (`reports/07_null_models_report.md` §2; `outputs/statistics/null_model_fdr_corrected.csv`;
    `outputs/statistics/audit_top5_checks.json` A)
@@ -189,17 +196,22 @@ ama güvenilir sonuç" — few but reliable results).
    withdrawn as unsupported; this is absence of evidence, not proof of no disassortativity.
    **Confirmatory (negative).** (`reports/07_null_models_report.md` §3.3;
    `outputs/statistics/null_model_fdr_corrected.csv`)
-3. **Actor-type inclusion and edge weighting are the construction choices that most change
-   centrality rankings; the others barely matter.** Of six paired modeling choices, person+group vs.
-   person-only (ρ=0.887-0.926; mean ρ 0.91, lowest), groups included vs. excluded (ρ=0.896-0.957) and
-   weighted vs. unweighted (ρ=0.849-1.000; lowest for PageRank, 0.85) change rankings noticeably,
-   while relation-inference policy, core-social filtering and prologue (girizgah) inclusion have
-   negligible effect (ρ ≥ 0.97). Rankings stay broadly stable overall (all ρ ≥ 0.85). The earlier
-   phrasing "the single most consequential decision, by a wide margin" is **not** supported: the
-   three larger-effect choices differ by only ~0.02 in mean ρ, node sets differ across pairs
-   (n=154-311), and no test of differences between ρ values was run. **Descriptive/sensitivity
-   result, not confirmatory.** (`reports/08_sensitivity_robustness_report.md` §2;
-   `outputs/tables/sensitivity_rank_stability.csv`; `outputs/statistics/audit_top5_checks.json` C)
+3. **Two construction choices — actor-type inclusion and edge weighting — change centrality
+   rankings most, and they are numerically tied; the others barely matter.** Recomputed with
+   weighted betweenness as distance = 1/tie strength (DEC-017; the "unweighted" arm is hop-count):
+   person+group vs. person-only ρ=0.916 degree / 0.892 betweenness / 0.926 PageRank (mean 0.911) and
+   weighted vs. unweighted ρ=1.000 (degree, by construction) / 0.886 betweenness / 0.849 PageRank
+   (mean 0.912) are effectively tied; groups included vs. excluded is smaller (ρ 0.949-0.957, mean
+   0.952, just below the 0.95 threshold used to define "noticeable"); relation-inference policy,
+   core-social filtering and prologue (girizgah) inclusion are negligible (ρ ≥ 0.98). All ρ ≥ 0.85.
+   No single choice is called the most influential: the leading two differ by 0.001 in mean ρ, the
+   comparisons use different node sets (n=154-311), and no test of differences between ρ values was
+   run. The qualitative ordering of the six pairs is unchanged by the DEC-017 correction, but the
+   earlier weighted-betweenness value (ρ=0.930) and the "groups included vs. excluded is a
+   larger-effect choice" reading were artifacts of using strength as distance.
+   **Descriptive/sensitivity result, not confirmatory.**
+   (`reports/08_sensitivity_robustness_report.md` §2; `outputs/tables/sensitivity_rank_stability.csv`;
+   `outputs/statistics/audit_top5_checks.json` C)
 4. **The kinship sub-network shows no detectable deviation from its degree-preserving null.**
    All four tested metrics (clustering, transitivity, assortativity, modularity) have q ≥ 0.67. G3
    is a forest (83 nodes, 61 edges, 22 components, no triangles), so clustering and transitivity
@@ -210,19 +222,23 @@ ama güvenilir sonuç" — few but reliable results).
    (negative), low power.** (`reports/07_null_models_report.md` §3.4;
    `outputs/statistics/audit_top5_checks.json` B)
 5. **The corpus network (G0_full) is robust to random disruption but fragile to targeted attack.**
-   Its largest component falls below 50% of the original node count (311) after ~25% random removal
-   (78 nodes; mean of 100 trials), versus ~2-4% (6-12 nodes) under degree- or betweenness-targeted
-   removal. Caveats: the threshold is relative to all 311 nodes, not to the original 261-node giant
-   component; targeted crossings are resolved only to one 6-node step; degree ranking is recomputed
-   after every removal but betweenness only every 15 removals; only G0_full was tested. Consistent
-   with (not proof of) the hub-dominated structure found elsewhere. **Descriptive (graph
-   connectivity only).** (`reports/08_sensitivity_robustness_report.md` §3;
-   `outputs/statistics/robustness_summary_G0_full.json`; F18; `outputs/statistics/audit_top5_checks.json` D)
+   Two separately labelled denominators: the largest component falls below 50% of **all 311 G0
+   nodes** after ~25% random removal (78 nodes; mean of 100 trials) and below 50% of the **261-node
+   initial giant component** after ~31% (96 nodes), versus only 6-9 nodes under targeted removal
+   (checked after every removal). Caveats: the degree-targeted crossing depends on tie-breaks among
+   equal-degree nodes (6-7 nodes over 200 tie-breaks) and the betweenness-targeted ranking is
+   hop-count and recomputed every 15 removals (6 nodes), so the 6-node-grid gap of 12 vs. 6 is a
+   resolution/tie-break artifact and **no claim is made that one targeted strategy is more
+   destructive than the other**; only G0_full was tested. Consistent with (not proof of) the
+   hub-dominated structure found elsewhere. **Descriptive (graph connectivity only).**
+   (`reports/08_sensitivity_robustness_report.md` §3; `outputs/statistics/robustness_summary_G0_full.json`;
+   T11; F18; `outputs/statistics/audit_top5_checks.json` D)
 
-Claim-to-evidence status after the DEC-015 audit: 5/5 verified against their output files, correct
-network model, and effect direction; #3 and #4 and #2 reworded (scope and strength), #1 and #5 gained
-explicit caveats. No claim above concerns literary or historical importance of any character — each
-is a statement about structural properties of this specific encoded relational dataset.
+Claim-to-evidence status after the DEC-015 audit and the DEC-017 correction: 5/5 verified against
+their output files, correct network model, and effect direction; #2, #3 and #4 reworded (scope and
+strength), #1 and #5 gained explicit caveats, and #3's numbers were regenerated with corrected
+weighted betweenness. No claim above concerns literary or historical importance of any character —
+each is a statement about structural properties of this specific encoded relational dataset.
 
 ---
 
@@ -263,3 +279,31 @@ Accepted wording: "Story-level similarity can be quantified and visualized, but 
 robust discrete clustering structure is limited." Paper, thesis, website, and reports use it
 consistently. The four open release blockers (source edition, inter-annotator reliability,
 merged-entity review, CITATION.cff metadata) are unchanged.
+
+---
+
+## Post-Review Fix Pass (independent review of `4e89da5`; DEC-017, DEC-018, DEC-019)
+
+An independent review of the pushed state passed the scientific core but found defects that had to be
+fixed before merge. Details, with per-issue status, are in `reports/FIX_PASS_REPORT.md`; the effects on
+this report's claims are:
+
+- **Weighted betweenness (DEC-017, MAJOR).** The edge weight is tie strength but had been passed to
+  NetworkX as a shortest-path distance, so stronger ties counted as longer paths. Weighted betweenness now
+  uses distance = 1/strength (hop-count betweenness is kept separately). Regenerated: centrality tables,
+  T04, F07, sensitivity outputs (T10, F16, F17), the site's actor metrics and character pages. Salur
+  Kazan remains first on every measure in G0, G1, G2 and G9; the earlier claim that Salur Kazan **and**
+  Bamsı Beyrek lead betweenness in every specification did not survive (Bamsı Beyrek's betweenness rank
+  depends on the definition). Top-5 finding #3 was regenerated (two choices tied); no other headline
+  finding changed.
+- **Composite nodes (DEC-018, MAJOR disclosure).** The original DEC-013 disclosure (a hand-found
+  handful of comma-joined nodes) was under-inclusive: a reproducible scan flags 46 of 332 canonical nodes as candidate composite nodes
+  (46 of 628 relations, 7.3%; 48 of 1,256 endpoints, 3.8%). All are queued for manual review; none is
+  split or merged. This remains a publication blocker.
+- **Website and wording (DEC-019, MINOR).** Stale generated pages removed and page sets validated
+  against the canonical data; story pages separate raw relation records from aggregated edges; scientific
+  numbers on the site come from a generated results registry; robustness wording states both
+  denominators; stale counts removed or derived; the Characters index lists every actor.
+- **Still open and unchanged:** source-edition metadata, a second annotator, manual entity review, the
+  `CITATION.cff` owner metadata, and the source-code licence decision. **Status: validated research
+  repository — publication blockers remain.**

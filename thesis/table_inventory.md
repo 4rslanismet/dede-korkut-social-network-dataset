@@ -7,7 +7,7 @@ All tables in `outputs/tables/publication/` (CSV + LaTeX), mirrored in `paper/ta
 |---|---|---:|---|---|
 | T01 | Dataset overview | 8 | RQ1 | Actor/relation/event counts by type |
 | T02 | Relation taxonomy | 17 | RQ3 | Family mapping + occurrence counts |
-| T03 | Story-level statistics | 14 | RQ1, RQ7 | Per-story network metrics |
+| T03 | Story-level statistics | 14 | RQ1, RQ7 | Per-story network metrics; raw relation records and aggregated-graph edges are separate columns (density/degree/clustering use the aggregated graph) |
 | T04 | Centrality results | 20 | RQ1 | Top 20 actors, G0_full |
 | T05 | Community statistics | 9 | RQ1, RQ4 | Leiden/Louvain comparison + stability |
 | T06 | Layer-specific metrics | 15 | RQ2, RQ3 | Top actors per layer |
@@ -15,7 +15,7 @@ All tables in `outputs/tables/publication/` (CSV + LaTeX), mirrored in `paper/ta
 | T08 | Story similarity | 91 | RQ6 | **Complete table, exploratory content** (post-project, DEC-014/015) — all 5 metrics, all 91 story pairs; max actor Jaccard 0.153 (low overlap) |
 | T09 | Null model tests | 36 | RQ4 | Every test, FDR-corrected |
 | T10 | Sensitivity analysis | 18 | RQ5 | 6 pairs × 3 metrics |
-| T11 | Robustness results | 6 | RQ5 | 3 strategies × 2 thresholds |
+| T11 | Robustness results | 12 | RQ5 | 3 strategies × 2 thresholds × 2 component-size denominators (all G0 nodes / initial giant component), grid and exact crossings |
 
 ## Additional Machine-Readable Outputs Not in the T01-T11 Set
 

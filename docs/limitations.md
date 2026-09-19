@@ -43,28 +43,29 @@ limitation; results should be reported both with and without the UNCERTAIN famil
 
 ## 5. Collective/Group Actor Effects
 
-125 of 332 canonical actors are `grup`-type (plus 21 more of other non-`kişi` types). Phase 8
-sensitivity analysis confirms this is not a negligible modeling choice: person+group vs.
-person-only (Spearman ρ=0.887-0.926, lowest mean ρ of the six comparisons) and groups included vs.
-excluded (ρ=0.896-0.957) change centrality rankings noticeably. Edge weighting is comparable
-(PageRank ρ=0.849), so actor-type inclusion is one of the three most consequential construction
-choices rather than a clearly single most consequential one (final audit, DEC-015).
+124 of 332 canonical actors are `grup`-type (plus 21 more of other non-`kişi` types). Phase 8
+sensitivity analysis (with weighted betweenness computed as distance = 1/strength, DEC-017) confirms
+this is not a negligible modeling choice: person+group vs. person-only (Spearman ρ=0.892-0.926, mean
+0.911) and groups included vs. excluded (ρ=0.949-0.957, mean 0.952) change centrality rankings
+noticeably. Edge weighting is numerically tied with person+group vs. person-only (mean ρ 0.912; PageRank
+ρ=0.849, betweenness ρ=0.886), so no single construction choice is identified as the most influential.
 → `reports/08_sensitivity_robustness_report.md` §2.4.
 
 ## 6. Inferred-Relation Effects (small but measured)
 
 32/628 relations (5.1%) used a non-explicit extraction method (`çıkarımsal_akrabalık`,
 `manuel_turkistan_ekleme`, `epitet_aktarım`). Excluding them changes centrality rankings only
-slightly (ρ≥0.97 across degree/betweenness/PageRank) — measured, not assumed.
+slightly (ρ≥0.98 across degree/betweenness/PageRank) — measured, not assumed.
 → `reports/08_sensitivity_robustness_report.md` §2.2.
 
 ## 7. Edge Weight (`agirlik`) Semantics Undocumented
 
 The 1-5 integer weight scale's exact meaning is not documented in the source repository. It
 behaves like an ordinal intensity/importance coding, not a repeat-interaction count (which is
-tracked separately via `interaction_count`). This matters in practice: PageRank was the metric
-most sensitive to the weighted-vs-unweighted modeling choice in Phase 8 (ρ=0.849, the lowest of
-all sensitivity comparisons).
+tracked separately via `interaction_count`). This matters in practice: PageRank (ρ=0.849) and
+weighted betweenness (ρ=0.886) were the metrics most sensitive to the weighted-vs-unweighted modeling
+choice in Phase 8. Because `weight` is treated as tie *strength*, shortest-path metrics use the
+derived distance 1/strength (DEC-017); a different reading of the 1-5 scale would change them.
 → `docs/relation_codebook.md`, `reports/08_sensitivity_robustness_report.md` §2.3.
 
 ## 8. Narrative Order ≠ Historical Time
@@ -91,16 +92,21 @@ target" cases where the alias dictionary points to a name that no longer exists 
 node table (a multi-hop v1→v2→v3 standardization chain the alias table doesn't fully capture).
 → `reports/02_data_quality_report.md` §4, `docs/decision_log.md` DEC-002.
 
-## 11. Concatenated Multi-Actor Nodes (found late, Phase 15)
+## 11. Candidate Composite Actor Nodes (found late, Phase 15; scan extended in DEC-018)
 
-Five nodes have a `canonical_name` that is a comma-joined list of multiple distinct named
-characters/groups collapsed into one node (e.g. a single node named "Beyrek, Yigenek, Kazan, Kara
-Budak, Deli Dündar, Uruz"). This passed every Phase 2 structural validation check (it doesn't
-violate uniqueness or referential integrity) and was only noticed while generating character
-pages for the website. Not fixed — would require re-deriving relations from the original text.
-All five have very low `relation_count` (0-1), so the likely impact on network-level findings is
-small but **not verified**.
-→ `docs/decision_log.md` DEC-013, `validation/HUMAN_REVIEW_QUEUE.csv` (HR0076-HR0080).
+Some canonical actor labels may denote several actors collapsed into one node (e.g. a single node
+named "Beyrek, Yigenek, Kazan, Kara Budak, Deli Dündar, Uruz"). The first discovery (DEC-013) found five
+such comma-joined nodes while generating character pages; a reproducible scan (`src/composite_nodes.py`)
+now flags **46 of 332 canonical nodes as candidate composite nodes requiring manual review** (comma
+lists, "X ve Y" constructions and sentence-like names). They touch 46 of 628 relations (7.3%) and 48 of
+1,256 relation endpoints (3.8%). A candidate is not necessarily an error — many are legitimate
+collective labels — and none has been split or merged, so every node-level statistic counts each such
+label as one actor. This passed every structural validation check (it violates neither uniqueness nor
+referential integrity). The scan under-approximates (it misses "ile" constructions and short phrases).
+Resolving them requires review against the original text; this remains a publication blocker.
+→ `docs/decision_log.md` DEC-013 and DEC-018, `validation/composite_node_candidates.csv`,
+`validation/HUMAN_REVIEW_QUEUE.csv` (HR0076-HR0080 hand-recorded; further items category
+`composite_node_candidate`).
 
 ## 12. Retracted Finding: Degree Assortativity
 
@@ -170,3 +176,18 @@ position in an encoded relational dataset**, not literary importance, narrative 
 critical sense, or historical fact about the Oghuz Turkic oral tradition. This distinction is
 stated in a disclaimer on every relevant page of the website and should be preserved in any
 academic use of this dataset.
+
+## 18. Licensing: Dataset Licence Set, Source-Code Licence Unresolved
+
+The dataset is licensed CC BY 4.0 (`LICENSE`). No separate licence has been chosen for the **source
+code** (`src/`, `tests/`, `run_pipeline.py`); Creative Commons licences are not generally recommended
+for software, so this is an open decision for the repository owner. Nothing in this repository selects
+or implies a code licence on the owner's behalf.
+
+## 19. Manuscript Package Is Not a Finished Paper
+
+The `paper/` directory is a manuscript/research package: an outline, methods, results and supplementary
+material. The Introduction, Discussion and References are not written and no literature review has been
+performed (only a search plan, `reports/literature_search_plan.md`). Publication additionally depends on
+the open external/manual items in `reports/RELEASE_CHECKLIST.md` (source-edition metadata, a second
+annotator, manual entity review, `CITATION.cff` owner metadata, the code-licence decision).

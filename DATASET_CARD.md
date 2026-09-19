@@ -10,8 +10,11 @@ notes.
 
 ## Composition
 
-- **332 canonical actors** (`data/processed/nodes.csv`): 187 person (`kişi`), 125 group (`grup`),
-  and 20 of other types (mythological/divine, animal, object/nature, place/geography).
+- **332 canonical actors** (`data/processed/nodes.csv`): 187 person (`kişi`), 124 group (`grup`),
+  and 21 of other types (mythological/divine, animal, object/nature, place/geography). Of these, 46
+  labels are flagged as **candidate composite nodes** (may denote several actors; comma lists,
+  "X ve Y" constructions, sentence-like names) that await manual review and have not been split or
+  merged (`validation/composite_node_candidates.csv`).
 - **628 event-level relations** (`data/processed/relations_event_level.csv`), aggregated into 376
   unique unordered actor pairs (`relations_aggregated.csv`).
 - **85 narrative events** (non-relational; `data/final/dede_korkut_olaylar_temiz.csv`).
@@ -33,7 +36,7 @@ observations line-by-line (`satir_no`/`narrative_order`). **The specific print e
 recorded** (see `docs/limitations.md` §1) — this is disclosed as an open gap, not filled by
 inference.
 
-This rebuild (this repository's `claude-dk-rebuild` branch) does not re-collect or re-code any
+This rebuild (developed on the `claude-dk-rebuild` and `claude-dk-fixpass` branches) does not re-collect or re-code any
 narrative content. It audits, validates, restructures, analyzes, and publishes the existing v3
 coding as a canonical dataset (`data/processed/`), preserving `data/raw/` and `data/final/`
 unchanged.
@@ -55,10 +58,10 @@ match/no-match status per relation (no silent assumptions).
 
 ## Limitations
 
-See `docs/limitations.md` for the full, itemized list (17 items) — most importantly: unknown
+See `docs/limitations.md` for the full, itemized list — most importantly: unknown
 source edition, single coder (no verified inter-annotator agreement), an undocumented
 story_level→final row-count gap, 29.6% "belirsiz" (undetermined) relation coding, unresolved
-entity-resolution ambiguity, and 5 discovered-but-unfixed concatenated-multi-actor nodes.
+entity-resolution ambiguity, and 46 candidate composite actor nodes awaiting manual review.
 
 ## Ethical Considerations
 
@@ -70,7 +73,8 @@ redistributed in this repository — only structured coding annotations and shor
 
 ## License
 
-CC BY 4.0 (see `LICENSE`).
+The dataset is licensed CC BY 4.0 (see `LICENSE`). A separate source-code licence has not been chosen
+yet (an open decision for the repository owner).
 
 ## Citation
 

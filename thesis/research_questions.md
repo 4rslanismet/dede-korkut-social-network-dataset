@@ -43,10 +43,12 @@ descriptive claim).
 ## RQ5 — How stable are the main network findings against different network-construction choices?
 
 **Answerable: yes (descriptive sensitivity analysis).** Six paired construction choices tested by
-rank correlation; actor-type inclusion (person+group vs. person-only, groups included vs. excluded)
-and edge weighting change centrality rankings noticeably (ρ 0.85-0.96), while girizgah,
-core-social filtering and relation-inference policy are negligible (ρ ≥ 0.97). The three
-larger-effect choices are not ranked against each other (mean ρ 0.91-0.93, differences untested).
+rank correlation (weighted betweenness uses distance = 1/strength, DEC-017); actor-type inclusion
+(person+group vs. person-only), edge weighting and, more weakly, groups included vs. excluded change
+centrality rankings noticeably (at least one ρ < 0.95; ρ 0.85-0.96), while girizgah, core-social
+filtering and relation-inference policy are negligible (ρ ≥ 0.98). Person+group vs. person-only and
+weighted vs. unweighted are numerically tied (mean ρ 0.911 vs. 0.912) and are not ranked against each
+other (differences untested).
 → `reports/08_sensitivity_robustness_report.md` §2.
 
 ## RQ6 — What clusterings do the Dede Korkut boy show in terms of character composition and relation profiles?

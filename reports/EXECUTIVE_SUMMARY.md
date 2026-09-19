@@ -2,6 +2,8 @@
 
 **Read time: ~4 minutes.** Full detail in `reports/FINAL_REBUILD_REPORT.md`.
 
+**Status: validated research repository — publication blockers remain** (see "What Should Happen Next").
+
 ## What Was Done
 
 Starting from an existing, manually coded dataset of characters and relations in the Book of Dede
@@ -10,10 +12,12 @@ research pipeline: a repository audit that re-verified every claimed statistic r
 trusting documentation; a structural data-validation framework; a canonical dataset with tracked
 provenance; twelve network model variants; descriptive, community, signed, directed, multilayer,
 and narrative-order analysis; statistical validation via null models with multiple-testing
-correction; sensitivity and structural-robustness testing; publication figures and tables; a
-363-page interactive website; and a full documentation, paper, and thesis package. Every stage is
-an independently re-runnable script, orchestrated by one command
-(`python run_pipeline.py --all`) and covered by 18 automated tests.
+correction; sensitivity and structural-robustness testing; publication figures and tables; an
+interactive website with a profile page for every actor and story; and a documentation, paper and
+thesis package (the paper package is an outline, methods, results and supplement — not a finished
+manuscript). Every stage is an independently re-runnable script, orchestrated by one command
+(`python run_pipeline.py --all`, which also builds and validates the website) and covered by automated tests.
+The work was independently reviewed; that review's findings were corrected in a fix pass (below).
 
 ## What Was Found
 
@@ -22,20 +26,31 @@ descriptive finding — that this corpus's actor networks are "disassortative" (
 connecting to other hubs) — **did not survive statistical validation against a null model** and
 was withdrawn as unsupported. By contrast, the community structure detected by standard algorithms
 **was** validated as a non-random signal beyond what the degree sequence alone would produce, in
-7 of 9 tested networks (and on the largest connected component alone). Separately, systematic
-sensitivity testing showed that actor-type inclusion (person+group vs. person-only, groups included
-vs. excluded) and edge weighting change which characters appear most "central" more than the
-other three construction choices tested, which barely matter; the three larger-effect choices are
-close to one another (mean Spearman ρ 0.91-0.93), so none is singled out as "the" most consequential.
-The network was also shown to be structurally robust to random disruption but fragile to a small
-number of targeted removals, consistent with its hub-dominated structure. The story-similarity
-analysis (RQ6) is exploratory: actor overlap between stories is low and evidence for discrete story
-clusters is limited.
+7 of 9 tested network specifications (which are related and partly nested, so not seven independent
+replications), and on the largest connected component alone. Separately, systematic sensitivity
+testing (weighted betweenness computed with distance = 1/tie strength) showed that actor-type
+inclusion (person+group vs. person-only) and edge weighting change which characters appear most
+"central" more than the other choices tested; those two are numerically tied (mean Spearman ρ 0.911
+vs. 0.912), so neither is singled out, and the remaining choices barely matter. The network was also
+shown to be structurally robust to random disruption but fragile to a small number of targeted
+removals (targeted removal is far more disruptive; degree- vs betweenness-targeted is not ranked),
+consistent with its hub-dominated structure. The story-similarity analysis (RQ6) is exploratory:
+actor overlap between stories is low and evidence for discrete story clusters is limited.
 
-Two data-quality issues were also surfaced honestly rather than hidden: an ~80-row gap between two
-stages of the legacy dataset with no documented explanation, and five nodes discovered late (while
-building the website) whose names are actually comma-joined lists of multiple distinct characters
-collapsed into one entry. Neither was silently corrected; both are logged for manual review.
+Data-quality issues were surfaced honestly rather than hidden: an ~80-row gap between two stages of
+the legacy dataset with no documented explanation, and 46 canonical actor labels flagged by a
+reproducible scan as candidate composite nodes (comma lists, "X ve Y" constructions, sentence-like
+names that may denote several actors; 3.8% of relation endpoints). Neither was silently corrected;
+both are logged for manual review.
+
+## What the Independent Review Changed
+
+An independent review of the pushed state found one methodological error and several disclosure and
+consistency gaps; all were corrected on the `claude-dk-fixpass` branch: weighted betweenness had used
+tie strength as path distance (now 1/strength; Salur Kazan stays first everywhere, but the claim that
+Bamsı Beyrek also leads betweenness in every specification was withdrawn); the composite-node
+disclosure was under-inclusive (5 → 46 candidates); and the website's stale pages, hand-typed numbers
+and ambiguous robustness wording were fixed. No headline finding was reversed.
 
 ## What the Scientific Contribution Is
 
@@ -45,19 +60,24 @@ collapsed into one entry. Neither was silently corrected; both are logged for ma
 2. A validated (not merely observed) community structure in this corpus.
 3. A quantified answer to "how much does my modeling choice matter": of six construction decisions
    tested, actor-type inclusion and edge weighting change centrality rankings noticeably (ρ 0.85-0.96)
-   and the other three negligibly (ρ ≥ 0.97).
+   and three others negligibly (ρ ≥ 0.98).
 4. A fully reproducible, provenance-tracked canonical dataset and pipeline that can be extended or
    re-audited by others, rather than a one-off analysis.
 
 ## What Should Happen Next
 
+Publication blockers (owner or manual action required — none can be closed by the pipeline):
+
 1. Obtain a second, independent coder to compute a genuine inter-annotator reliability statistic
    (the sampling and tooling are already built and waiting).
-2. Resolve the two disclosed data-quality issues (the provenance gap and the five merged-name
-   nodes) by returning to the original narrative text.
-3. ~~Complete the story-level similarity analysis~~ — **built, but only partially answers RQ6**: all
-   91 story pairs and 5 similarity metrics are computed, yet actor overlap is low (max Jaccard
-   0.153) and cluster-validity checks do not support a robust discrete clustering, so RQ6 is
-   PARTIALLY ANSWERED / EXPLORATORY (final academic audit, DEC-015).
-4. Decide, with the repository owner, whether and when to push this work to the remote repository
-   and deploy the website live; confirm citation metadata before any formal publication.
+2. Manually review the 46 candidate composite actor nodes and the other open items in
+   `validation/HUMAN_REVIEW_QUEUE.csv` against the original narrative text.
+3. Confirm the source edition/transcription used for the original coding
+   (`validation/source_edition_metadata_required.md`).
+4. Provide the `CITATION.cff` author and release-date metadata, and decide on a source-code licence
+   (the dataset is CC BY 4.0).
+5. For a paper: write the Introduction, Discussion and References (no literature review has been done).
+
+Not a blocker: the story-similarity analysis is built and reported as PARTIALLY ANSWERED / EXPLORATORY.
+Whether and when to merge to `main` and deploy the website is a decision for the repository owner after
+an independent review of the fix-pass branch.
