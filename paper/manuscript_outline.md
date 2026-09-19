@@ -80,16 +80,20 @@ degree/betweenness/PageRank across G0/G1/G2/G9 — framed exactly as in `reports
 
 ### 5.2 Confirmatory: null-model validation (the paper's central methodological result)
 Community modularity is significantly higher than a degree-preserving null model in 7/9 tested
-networks (Benjamini-Hochberg FDR, α=0.05) — real structural signal, not a degree-sequence artifact.
-**Degree assortativity is not significant in any of the 9 networks tested** — the earlier
-descriptive "disassortative network" observation is retracted. Report full statistics: observed
+networks (Benjamini-Hochberg FDR, α=0.05) — real structural signal, not a degree-sequence artifact
+(also holds on the giant component alone). **Degree assortativity is not significant in any of the
+9 networks tested** — the earlier descriptive "disassortative network" observation is withdrawn as
+unsupported (absence of evidence, not proof of absence). The kinship null (G3) is low-information:
+G3 is a forest, so clustering/transitivity are structurally zero. Report full statistics: observed
 value, z-score, empirical p, BH q-value for every one of the 36 tests (Table T09).
 
-### 5.3 Confirmatory: sensitivity to network-construction choices
-Person+group vs. person-only produces the largest rank disagreement (Spearman ρ=0.887-0.926) of
-six tested modeling choices; girizgah inclusion/exclusion and core-social filtering have
-negligible effect (ρ=1.000). Report as an explicit ranking of "how much does this decision matter"
-(Table T10), not as validation/invalidation of any specific centrality finding.
+### 5.3 Descriptive: sensitivity to network-construction choices
+Actor-type inclusion (person+group vs. person-only, ρ=0.887-0.926; groups included vs. excluded) and
+edge weighting (PageRank ρ=0.849) change centrality rankings noticeably; girizgah
+inclusion/exclusion, core-social filtering and relation-inference policy have negligible effect
+(ρ ≥ 0.97). Do not rank the three larger-effect choices against each other (mean ρ 0.91-0.93,
+untested differences). Report as a description of "how much does this decision matter" (Table T10),
+not as validation/invalidation of any specific centrality finding.
 
 ### 5.4 Exploratory: multilayer, signed, and directed structure
 Layer participation, signed degree profile, directed hub/authority asymmetry (Salur Kazan's HITS
@@ -118,7 +122,7 @@ Reference `docs/limitations.md` in full; do not re-litigate items already stated
 the paper's own text does not silently overstate anything the limitations document already
 qualifies (source edition, single coder, provenance gap, taxonomy coverage, group-actor effects,
 weight semantics, community-count artifact, the 5 concatenated-node data-quality issue, motif
-analysis skip, incomplete story similarity).
+analysis skip, story similarity being exploratory with limited evidence for discrete clusters).
 
 ## 8. Conclusion
 

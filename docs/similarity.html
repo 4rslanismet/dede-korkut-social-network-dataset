@@ -36,9 +36,27 @@
 <p class="lede">Five similarity measures across all 91 story pairs: actor Jaccard, actor weighted
 Jaccard, actor cosine (all three based on shared characters), relation-profile similarity, and
 layer-composition similarity (both based on narrative-relational content, independent of which
-specific actors appear). See <a href="methodology.html">Methodology</a> and
-<a href="decision_log.md">decision_log.md</a> (DEC-014) for the exact definitions and the
-hierarchical-clustering feature-space choice.</p>
+specific actors appear). <strong>Exploratory / descriptive.</strong> Story-level similarity can be
+quantified and visualized, but evidence for a robust discrete clustering structure is limited (see
+below). See <a href="methodology.html">Methodology</a> and
+<a href="decision_log.md">decision_log.md</a> (DEC-014, DEC-015) for the exact definitions, the
+hierarchical-clustering feature-space choice, and the audit that narrowed the claims.</p>
+
+<h2>How to read these numbers</h2>
+<ul>
+<li><strong>Overlap is low.</strong> Actor Jaccard has a median of 0.030 and a maximum of
+0.153; 28 of 91 pairs share no actor. &ldquo;Top&rdquo; below means <em>relatively most
+overlapping among the evaluated stories</em>, not strongly similar.</li>
+<li><strong>The top pair depends on the metric.</strong> S03&ndash;S05 leads on the two Jaccard measures only;
+it ranks 6th, 6th and 7th of 91 on actor cosine, relation-profile and layer-composition cosine.</li>
+<li><strong>Cosine values are high by construction</strong> (non-negative counts over a few categories).
+A permutation baseline (relations reassigned across stories) reaches nearly the same top values, so
+relation-profile and layer-composition similarities near 0.9 are not evidence of specific affinity.</li>
+<li><strong>Clusters are not established.</strong> A Ward dendrogram always exists. Silhouette 0.37&ndash;0.56,
+bootstrap adjusted Rand index 0.54&ndash;0.79 and disagreement between linkage methods at k=4&ndash;5 do not
+support a robust discrete grouping (<a href="downloads/outputs/statistics/story_similarity_cluster_validity.json">validity audit</a>).
+Themes such as captivity are not coded variables, so they are not a finding of this analysis.</li>
+</ul>
 
 <h2>Actor Jaccard heatmap</h2>
 <figure>
@@ -46,13 +64,14 @@ hierarchical-clustering feature-space choice.</p>
   <figcaption>Grey diagonal = self-similarity (trivially 1.0). Darker = more shared actors.</figcaption>
 </figure>
 
-<h2>Story similarity network</h2>
+<h2>Story actor-overlap network</h2>
 <figure>
-  <img src="figures/similarity/F11_story_similarity_network.png" alt="Story similarity network">
-  <figcaption>Top 15 of 91 pairs by actor Jaccard. Edge darkness/thickness = similarity strength.</figcaption>
+  <img src="figures/similarity/F11_story_similarity_network.png" alt="Story actor-overlap network">
+  <figcaption>Top 15 of 91 pairs by actor Jaccard. Edge darkness/thickness = degree of actor overlap
+  (low in absolute terms; not a cluster structure).</figcaption>
 </figure>
 
-<h2>Top 10 most similar story pairs (by shared actors)</h2>
+<h2>Top 10 most-overlapping story pairs (by shared actors)</h2>
 <div class="table-wrap"><table class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -162,9 +181,11 @@ hierarchical-clustering feature-space choice.</p>
 <h2>Full pairwise table</h2>
 <p>All 91 pairs, all 5 metrics: <a href="downloads/outputs/tables/publication/T08_story_similarity.csv">T08_story_similarity.csv</a>.</p>
 
-<div class="disclaimer">These similarity values and the hierarchical clustering built from them
-are descriptive only — no significance/null-model test has been applied to them (unlike the
-community and modularity findings on the <a href="analysis.html">Analysis</a> page).</div>
+<div class="disclaimer">RQ6 status: <strong>partially answered / exploratory</strong>. These similarity values
+are descriptive only — no significance test has been applied to them (unlike the community and
+modularity findings on the <a href="analysis.html">Analysis</a> page), and the cluster-validity
+checks do not support a robust discrete clustering. Any thematic reading of a similar pair is
+qualitative interpretation, not a network-analysis result.</div>
 
 </main>
 <footer class="site-footer">

@@ -140,8 +140,9 @@ def main():
 
     with open(OUT_STATS / "story_similarity_clustering.json", "w", encoding="utf-8") as f:
         json.dump({
-            "feature_space": "relation_family_top proportions (6-dim) + layer proportions (7-dim), z-normalized to proportions per story",
+            "feature_space": "relation_family_top proportions (6-dim) + layer proportions (7-dim); each block sums to 1 within a story (no further scaling)",
             "linkage_method": "ward",
+            "caveat": "A Ward dendrogram always exists; its existence is not evidence of discrete clusters. See story_similarity_cluster_validity.json (DEC-015): discrete clustering is NOT robustly supported.",
             "dendrogram_leaf_order": cluster_order,
             "linkage_matrix": Z.tolist(),
         }, f, ensure_ascii=False, indent=2)
@@ -164,7 +165,7 @@ def main():
     OUT_TABLES.mkdir(parents=True, exist_ok=True)
     t08.to_csv(OUT_TABLES / "T08_story_similarity.csv", index=False, encoding="utf-8-sig")
     latex = t08.to_latex(index=False, float_format=lambda x: "%.4f" % x,
-                          caption="Story similarity: all 5 metrics, all 91 story pairs (Phase 22 completion of RQ6)",
+                          caption="Story similarity (descriptive, exploratory): 5 metrics, all 91 story pairs, sorted by actor Jaccard",
                           label="tab:t08_story_similarity")
     with open(OUT_TABLES / "T08_story_similarity.tex", "w", encoding="utf-8") as f:
         f.write(latex)

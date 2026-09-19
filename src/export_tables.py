@@ -99,6 +99,11 @@ def t07_actor_story_participation():
 
 
 def t08_story_similarity():
+    # story_similarity.py (RQ6, DEC-014) authors the full 91-pair, 5-metric T08.
+    # Do not overwrite it with the older partial shared-actor projection.
+    if (ROOT / "outputs" / "matrices" / "story_similarity_actor_jaccard.csv").exists():
+        print("T08_story_similarity: authored by story_similarity.py (full 5-metric table) - left as is")
+        return
     path = ROOT / "outputs" / "matrices" / "story_projection_shared_actors.csv"
     if not path.exists():
         df = pd.DataFrame([{"status": "not_applicable", "reason": "story similarity metrics (Jaccard/cosine/etc, section 17) not yet computed - only the raw shared-actor bipartite projection exists"}])

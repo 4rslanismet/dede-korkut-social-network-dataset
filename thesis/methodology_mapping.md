@@ -25,7 +25,7 @@ and document it — so a thesis author can trace any methodological claim back t
 | Inter-annotator infrastructure | Ch.9 (future work) | `src/build_inter_annotator_sample.py`, `src/inter_annotator_stats.py` | `reports/13_14_reproducibility_report.md` §1 |
 | Reproducibility pipeline | Ch.4 | `run_pipeline.py`, `tests/` | `reports/13_14...` §2 |
 | Web portal | Appendix / companion | `src/build_site_data.py`, `src/build_site.py`, `src/validate_site.py` | `reports/15_16_web_portal_report.md` |
-| Story similarity (RQ6) | Ch.7 | `src/story_similarity.py` (post-project completion) | `docs/decision_log.md` DEC-014, `thesis/results_mapping.md` RQ6 |
+| Story similarity (RQ6, exploratory) | Ch.7 | `src/story_similarity.py`, `src/story_similarity_validity.py` (post-project) | `docs/decision_log.md` DEC-014, DEC-015, `thesis/results_mapping.md` RQ6 |
 
 Every methodological decision referenced implicitly above (e.g., *which* null model, *which*
 aggregation rule) is documented explicitly with its rationale in `docs/decision_log.md`

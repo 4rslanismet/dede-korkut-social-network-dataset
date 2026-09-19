@@ -22,8 +22,10 @@ to cite. Cross-reference `paper/results.md` for full prose treatment.
 
 ## RQ3 — Relation-specific structural roles
 
-- **Finding:** G3 (kinship) is statistically indistinguishable from its null model on all four
-  tested metrics — a genuine negative result. G4 (communication) shows validated elevated
+- **Finding:** G3 (kinship) shows no detectable deviation from its null model on any of four
+  tested metrics — a negative, low-information result (G3 is a forest: 83 nodes, 61 edges, 22
+  components, so clustering/transitivity are structurally zero; only assortativity and modularity
+  are informative). G4 (communication) shows validated elevated
   clustering (q=0.048). G6 (conflict) shows validated elevated modularity (q=0.027).
 - **Cite:** Table T09 (rows filtered by network), `reports/07_null_models_report.md` §3.4.
 
@@ -36,23 +38,36 @@ to cite. Cross-reference `paper/results.md` for full prose treatment.
 
 ## RQ5 — Sensitivity to construction choices
 
-- **Finding:** Person+group vs. person-only: ρ=0.887-0.926 (largest disagreement of 6 tested
-  pairs). Girizgah/core-social filtering: ρ=1.000 (negligible). Weighted vs. unweighted: PageRank
-  most sensitive (ρ=0.849). Structural robustness: 25.1% random vs. 1.9-3.9% targeted removal to
-  halve the giant component.
+- **Finding:** Actor-type inclusion and edge weighting change centrality rankings most: person+group
+  vs. person-only ρ=0.887-0.926 (lowest mean ρ, 0.91), groups included vs. excluded ρ=0.896-0.957,
+  weighted vs. unweighted PageRank ρ=0.849 (lowest single value). Girizgah/core-social filtering and
+  relation-inference policy: ρ ≥ 0.97 (negligible). Do not call any one of the three larger-effect
+  choices "the single most consequential" (means 0.91-0.93, untested differences, different node
+  sets). Structural robustness (G0_full): 25.1% random (78 nodes) vs. 1.9-3.9% targeted (6-12
+  nodes) removal before the largest component falls below half of the original 311 nodes.
 - **Cite:** Table T10, T11, Figure F16, F17, F18.
 
-## RQ6 — Story clustering (answered post-project, DEC-014)
+## RQ6 — Story similarity / clustering (PARTIALLY ANSWERED / EXPLORATORY; DEC-014, DEC-015)
 
-- **Finding:** S03/S05 (Jaccard=0.153) and S08/S10 (Jaccard=0.133) are the most actor-similar
-  story pairs, both also scoring highly on relation-profile and layer-composition similarity
-  (0.94-0.97) — these pairs are alike both in who appears and in what kind of relations dominate.
-  Ward hierarchical clustering on each story's relation-family/layer proportion profile shows no
-  sharp genre-like partition — several tight pairs/triples embedded in a broader continuum.
-- **Cite:** Table T08 (full 5-metric, 91-pair suite), Figure F10 (heatmap), Figure F11 (network,
-  top 15 pairs), `outputs/statistics/story_similarity_clustering.json` (dendrogram/linkage).
-- **Caveat for the thesis text:** descriptive only — no significance test was applied to the
-  clustering or similarity values themselves (unlike RQ4's null-model-tested claims).
+- **Finding (pairwise, descriptive):** actor overlap between stories is low (Jaccard median 0.030,
+  max 0.153; 28 of 91 pairs share no actor). S03/S05 (0.153) and S08/S10 (0.133) are the
+  *relatively most overlapping* pairs among the evaluated stories, not strongly similar ones. S03/S05
+  is the top pair on the two Jaccard measures only (rank 6–7 of 91 on the three cosine measures).
+  Cosine values of 0.9+ are high by construction and are matched by a permutation baseline at the
+  top of the distribution, so they carry no claim of specific affinity.
+- **Finding (clustering):** Ward always yields a dendrogram; validity checks (silhouette 0.37–0.56,
+  bootstrap ARI 0.54–0.79, linkage disagreement at k=4–5, permutation baseline) do not support a
+  robust discrete cluster structure. Write: "Story-level similarity can be quantified and visualized,
+  but evidence for a robust discrete clustering structure is limited." Do **not** write "story
+  clusters", "genres" or "highly similar stories".
+- **Interpretation rule:** captivity or any other narrative theme is not a coded variable in the
+  canonical dataset; thematic readings of similar pairs belong in the qualitative literary chapters,
+  labelled as interpretation, never as a network-analysis result.
+- **Cite:** Table T08 (full 5-metric, 91-pair suite), Figure F10 (heatmap), Figure F11 (actor-overlap
+  network, top 15 pairs), `outputs/statistics/story_similarity_clustering.json`,
+  `outputs/statistics/story_similarity_cluster_validity.json`.
+- **Caveat for the thesis text:** descriptive/exploratory — no significance test was applied to the
+  similarity values themselves (unlike RQ4's null-model-tested claims).
 
 ## RQ7 — Narrative-order evolution (exploratory only)
 

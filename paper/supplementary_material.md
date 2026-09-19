@@ -12,13 +12,15 @@ below points to the actual repository artifact — this document is an index, no
 - **T05 Community statistics** — `paper/tables/T05_community_statistics.csv`
 - **T06 Layer-specific metrics** (top 15 actors by layer participation) — `paper/tables/T06_layer_specific_metrics.csv`
 - **T07 Actor-story participation** (top 15 by story count) — `paper/tables/T07_actor_story_participation.csv`
-- **T08 Story similarity** (complete, post-project — 5 metrics × 91 pairs; DEC-014) — `paper/tables/T08_story_similarity.csv`
+- **T08 Story similarity** (descriptive/exploratory, post-project — 5 metrics × 91 pairs; DEC-014, claims narrowed by DEC-015) — `paper/tables/T08_story_similarity.csv`
 - **T09 Null model tests** (all 36 tests, observed/z/p/q) — `paper/tables/T09_null_model_tests.csv`
 - **T10 Sensitivity analysis** (all 6 pairs × 3 metrics) — `paper/tables/T10_sensitivity_analysis.csv`
 - **T11 Robustness results** — `paper/tables/T11_robustness_results.csv`
 
 Figures F10 (`paper/figures/F10_story_similarity_heatmap.png`) and F11
-(`paper/figures/F11_story_similarity_network.png`) accompany T08.
+(`paper/figures/F11_story_similarity_network.png`) accompany T08. The cluster-validity audit
+behind the caution in results section 7 is `outputs/statistics/story_similarity_cluster_validity.json`
+(script `src/story_similarity_validity.py`).
 
 LaTeX versions of every table above (`.tex`) are in the same directory for direct manuscript
 inclusion.

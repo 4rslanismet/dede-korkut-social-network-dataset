@@ -125,12 +125,16 @@ rebuild made to its own earlier findings.
 Six paired network-construction choices (person+group vs. person-only, weighted vs. unweighted,
 all-relations vs. core-social, explicit-only vs. explicit+inferred, groups included vs. excluded,
 girizgah included vs. excluded — `config/analysis.yaml::sensitivity.variants`) are compared via
-Spearman ρ, Kendall τ, and top-k rank overlap on degree/betweenness/PageRank. Person+group vs.
-person-only produced the largest rank disagreement (ρ=0.887-0.926) of the six comparisons tested;
-girizgah/core-social filtering had essentially no effect (ρ=1.000). Structural robustness (random
-vs. degree-targeted vs. betweenness-targeted node removal, `config/analysis.yaml::robustness`)
-showed the network is robust to random failure but fragile to targeted attack — a pattern
-consistent with the hub-dominated degree distribution found in Phase 5 (`reports/08...`).
+Spearman ρ, Kendall τ, and top-k rank overlap on degree/betweenness/PageRank. Actor-type inclusion
+(person+group vs. person-only, ρ=0.887-0.926; groups included vs. excluded, ρ=0.896-0.957) and edge
+weighting (PageRank ρ=0.849) changed rankings most; girizgah, core-social filtering and
+relation-inference policy had essentially no effect (ρ ≥ 0.97). The three larger-effect choices
+are close (mean ρ 0.91-0.93), were not tested against each other, and use different node sets, so
+none is called "the most consequential". Structural robustness (random vs. degree-targeted vs.
+betweenness-targeted node removal on G0_full, `config/analysis.yaml::robustness`; thresholds
+relative to the original 311 nodes; betweenness ranking recomputed every 15 removals) showed the
+network is robust to random failure but fragile to targeted attack — a pattern consistent with the
+hub-dominated degree distribution found in Phase 5 (`reports/08...`).
 
 ## 8. Figures, Tables, and the Web Portal (Phase 11-16)
 

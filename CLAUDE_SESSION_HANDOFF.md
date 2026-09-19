@@ -307,11 +307,11 @@ Yeni analiz yok — Faz 1-16'nın bilgisini kalıcı dokümanlara sentezledi: `d
 
 - 5 benzerlik metriği (actor Jaccard, weighted Jaccard, actor cosine, relation-profile similarity, layer-composition similarity), 14 boyun tüm 91 çifti için hesaplandı.
 - Hiyerarşik kümeleme (Ward), ham aktör kimliği yerine **relation_family_top + layer oranlarından oluşan 13-boyutlu sabit profil** üzerinde çalıştırıldı (DEC-014'te gerekçelendirildi — aktör vektörleri çok seyrek).
-- **En benzer çift: S03–S05 (actor Jaccard 0.153)**, ikisi de Salur Kazan/esaret temalı; relation-profile ve layer-composition benzerliği de çok yüksek (0.94-0.97). İkinci en benzer: S08–S10 (0.133).
-- Kümeleme, 14 boyun keskin ayrı kümelere değil, geniş bir süreklilik içinde birkaç sıkı çift/üçlüye (S03-S05, S08-S09-S10) ayrıldığını gösteriyor.
+- **[DÜZELTİLDİ — bkz. "FINAL ACADEMIC AUDIT" bölümü]** Göreli olarak en çok örtüşen çift: S03–S05 (actor Jaccard 0.153; mutlak örtüşme DÜŞÜK, medyan 0.030), ardından S08–S10 (0.133). İlk yazımdaki "esaret temalı" (kodlanmış değişken değil) ve "relation-profile/layer benzerliği de çok yüksek" (kosinüs doğası gereği yüksek; S03–S05 o üç ölçüde 6./6./7.) ifadeleri geri alındı.
+- **[DÜZELTİLDİ]** Ward dendrogramı her zaman üretilir; küme geçerliliği denetimi ayrık küme yapısını desteklemedi (bkz. audit bölümü).
 - Figürler: F10 (heatmap, köşegen gri maskelenmiş), F11 (network, en güçlü 15/91 çift) — ikisi de tarayıcıda görsel olarak doğrulandı.
 - `outputs/tables/publication/T08_story_similarity.csv` artık **tam** (91 satır × 5 metrik), "partial" değil.
-- `thesis/research_questions.md` RQ6 durumu **"NOT answerable" → "answered"** olarak güncellendi.
+- `thesis/research_questions.md` RQ6 durumu ilk olarak "NOT answerable" → "answered" yapıldı; **final denetimde "PARTIALLY ANSWERED / EXPLORATORY" olarak düzeltildi (DEC-015).**
 - Site yeniden build edildi (`similarity.html` artık gerçek içerik gösteriyor, tarayıcıda test edildi) + `validate_site.py`: **363/363 PASS**. `pytest` (18/18) ve `validate_release_consistency.py` yeniden çalıştırıldı: PASS.
 - `reports/RELEASE_CHECKLIST.md`, `reports/FINAL_REBUILD_REPORT.md`, `reports/EXECUTIVE_SUMMARY.md`, `docs/limitations.md` (madde 15), `paper/results.md` (§7 eklendi), `paper/supplementary_material.md`, `thesis/{results_mapping,table_inventory,figure_inventory,methodology_mapping}.md` hepsi bu tamamlanmayı yansıtacak şekilde güncellendi.
 
@@ -324,6 +324,34 @@ Yeni analiz yok — Faz 1-16'nın bilgisini kalıcı dokümanlara sentezledi: `d
 - `main`'e merge açmak.
 - Siteyi gerçek GitHub Pages URL'sinde deploy etmek (repo ayarı değişikliği gerektirir).
 - `CITATION.cff`'deki TODO alanlarını doldurmak (gerçek yazar adı/tarih bilgisi kullanıcıdan gelmeli).
+
+---
+
+## FINAL ACADEMIC AUDIT (yayın öncesi) — TAMAMLANDI ✅ — DEC-015
+
+Kullanıcı, yeni analizden önce RQ6 iddialarının ve "Top 5 findings"in denetlenmesini istedi. Sonuç: **RQ6 = PARTIALLY ANSWERED / EXPLORATORY**. Yerel commit: "Audit RQ6 story similarity claims before release". Push/merge yapılmadı.
+
+**RQ6 bulguları (mevcut artifact'ler denetlendi; benzerlik matrisleri yeniden hesaplanmadı):**
+- Maks. actor Jaccard 0.153 = düşük örtüşme (medyan 0.030; 91 çiftin 28'i hiç ortak aktör paylaşmıyor). İfade: "değerlendirilen boylar arasında göreli olarak en çok örtüşen çift". "Güçlü benzerlik / yüksek benzer hikâyeler / net küme" YASAK.
+- S03–S05 yalnızca iki Jaccard ölçüsünde birinci; actor cosine / relation-profile / layer-composition'da 6./6./7. (üç ölçünün her birinin farklı birincisi var: S12–S14, S11–S13, S11–S13). Önceki "profilde de en benzer" ifadesi yanlıştı.
+- Kosinüs 0.9+ değerleri doğası gereği yüksek; permütasyon referansında çift-maks. %95 = 0.987 (gözlenen 0.985).
+- **"Esaret teması" kanonik veride kodlanmış değişken değil → bulgu olarak kaldırıldı** (nitel yorum olarak etiketlenir). S03/S05 ortak 11 aktör (Salur Kazan, Uruz, Kafir, Deli Dündar… ) veriyle doğrulanabilir; tema değil.
+- **Küme geçerliliği:** `src/story_similarity_validity.py` → `outputs/statistics/story_similarity_cluster_validity.json`. Silhouette 0.37–0.56 (k=2 yalnızca 1-ilişkili S01'i ayırır, permütasyon referansının altında); S01 hariç k=2 silhouette 0.487, bootstrap ARI 0.746, k≥4'te ~0.54; linkage'ler k=4–5'te ayrışır; Ward cophenetic 0.73. Önceden belirlenen kural (silhouette>0.50, ARI≥0.75, perm p<0.05) hiçbir k için sağlanmadı. Kabul edilen ifade: "Story-level similarity can be quantified and visualized, but evidence for a robust discrete clustering structure is limited."
+- Not: S01-hariç duyarlılık analizi ilk sonuca bakıldıktan sonra eklendi (DEC-015'te belirtildi); aynı sabit kural uygulandı.
+
+**Top-5 doğrulaması (5/5, ifadeler düzeltildi):** `src/audit_top5_checks.py` → `outputs/statistics/audit_top5_checks.json`. #1 dev bileşende de geçerli (obs 0.692 vs null 0.615, z=9.9); #2 "geri çekildi"=desteklenmiyor (G0 ham p=0.032, q=0.089); **#3 "tek en etkili karar, geniş farkla" desteklenmedi** (aktör-tipi dahil etme + ağırlıklandırma; ortalama ρ 0.91–0.93; PageRank'ta weighted-vs-unweighted 0.849 en düşük) → ifade her yerde düzeltildi; #4 G3 bir orman (83 düğüm/61 kenar/22 bileşen) → clustering/transitivity yapısal sıfır, düşük-bilgili null; #5 eşikler özgün 311 düğüme göre, 6 düğüm çözünürlük, betweenness 15 kaldırmada bir yeniden hesaplanır, yalnızca G0_full.
+
+**Pipeline/tekrarlanabilirlik düzeltmeleri:** `run_pipeline.py`'a `story_similarity`, `story_similarity_validity`, `audit_top5_checks` aşamaları eklendi; `export_tables.t08_story_similarity` tam T08'i artık ezmiyor (önceden `--all` çalıştırması T08'i eski kısmi projeksiyonla ezecekti). F10/F11 figürleri düşük örtüşme uyarısıyla yeniden üretildi; F11 başlığı "Story Actor-Overlap Network".
+
+**Güncellenen belgeler:** paper/{results,methods,manuscript_outline,supplementary_material}.md, thesis/{research_questions,results_mapping,table_inventory,figure_inventory,methodology_mapping,proposed_structure}.md, reports/{FINAL_REBUILD_REPORT,EXECUTIVE_SUMMARY,RELEASE_CHECKLIST}.md, docs/{limitations,methodology,decision_log}.md, src/build_site.py (similarity + analysis sayfaları), paper/{figures,tables} kopyaları.
+
+**AÇIK KALAN RELEASE BLOCKER'LAR (denetim durumlarını DEĞİŞTİRMEDİ):**
+1. Kaynak baskı/transkripsiyon doğrulaması — repo sahibi girdisi (`validation/source_edition_metadata_required.md`).
+2. Inter-annotator reliability — gerçek ikinci kodlayıcı gerekir.
+3. Çözülmemiş birleşik/entity vakaları (HR0076–HR0080 ve diğer `HUMAN_REVIEW_QUEUE.csv` maddeleri) — orijinal metin incelemesi gerekir.
+4. `CITATION.cff` kişisel/bibliyografik metadata — repo sahibi.
+
+**Sıradaki önerilen adım:** `claude-dk-rebuild` branch'ini bağımsız inceleme için push etmek (yalnızca kullanıcı istediğinde).
 
 ---
 
@@ -341,7 +369,7 @@ Yeni analiz yok — Faz 1-16'nın bilgisini kalıcı dokümanlara sentezledi: `d
 10. Directed triadic census, ağın seyrekliği nedeniyle ezici çoğunlukla "003" (bağlantısız) tipte — motif-tipi yorum için null model karşılaştırması henüz yapılmadı (G9_directed'e uygun yönlü null model Faz 7 kapsamına alınmadı, backlog'da).
 11. **Faz 5'in "disassortative network" bulgusu Faz 7'de geri çekildi** — degree assortativity, 9 ağın hiçbirinde FDR-düzeltmeli null modelden anlamlı şekilde farklı değil. Negatif değerler muhtemelen derece dağılımının kendisinden kaynaklanıyor.
 12. Modularity/community yapısının (Faz 6) 7/9 ağda null modelden anlamlı yüksek olduğu doğrulandı — ama bu, 23-bileşen artefaktını (§8 yukarı) çözmüyor, yalnızca genel modularity sinyalinin rastgele olmadığını gösteriyor.
-13. Faz 8 sensitivity: **person+group vs person-only** en büyük sıralama farkını yaratan modelleme kararı (ρ=0.887-0.926); PageRank, ağırlık şemasına (`agirlik`, semantiği hâlâ belirsiz — madde 36) en duyarlı metrik (ρ=0.849). Bu iki nokta, gelecekte "en önemli karakter" tartışması yapılırken **hangi network varyantının kullanıldığının açıkça belirtilmesi gerektiğini** gösteriyor.
+13. Faz 8 sensitivity: **person+group vs person-only** ortalama ρ ile en büyük sıralama farkını yaratan çift (ρ=0.887-0.926; ORTALAMA 0.91) — ANCAK final denetimde (DEC-015) "tek en etkili karar" ifadesinin desteklenmediği görüldü: groups-dahil/hariç (0.93) ve weighted/unweighted (0.93; PageRank'ta 0.849 ile en düşük) yakın, fark testi yok; PageRank, ağırlık şemasına (`agirlik`, semantiği hâlâ belirsiz — madde 36) en duyarlı metrik (ρ=0.849). Bu iki nokta, gelecekte "en önemli karakter" tartışması yapılırken **hangi network varyantının kullanıldığının açıkça belirtilmesi gerektiğini** gösteriyor.
 14. Structural robustness yalnızca `G0_full` üzerinde çalıştırıldı, ortalama path length eğrisi hesaplanmadı (yalnızca dev bileşen boyutu) — gelecekteki bir iyileştirme.
 15. Motif/triad null karşılaştırması atlandı (DEC-010, veri yetersizliği: 44/1.77M kapalı triad).
 16. **Story similarity (madde 17) tamamlanmadı** — yalnızca ham shared-actor bipartite projeksiyonu var (`outputs/matrices/story_projection_shared_actors.csv`, `outputs/tables/publication/T08_story_similarity.csv`); actor Jaccard, weighted Jaccard, cosine, relation-profile similarity, layer-composition similarity, hierarchical clustering **henüz hesaplanmadı**. Bu, F10/F11 figürlerinin de neden üretilmediğini açıklıyor.

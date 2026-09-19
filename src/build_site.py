@@ -56,6 +56,8 @@ DOWNLOAD_FILES = [
     "outputs/networks/G1_person_only.graphml",
     "outputs/networks/G2_core_social.graphml",
     "outputs/networks/bipartite_actor_story.graphml",
+    "outputs/statistics/story_similarity_clustering.json",
+    "outputs/statistics/story_similarity_cluster_validity.json",
     "outputs/manifest_sha256.csv",
 ]
 
@@ -576,15 +578,34 @@ def build_similarity():
     jaccard = pd.read_csv(ROOT / "outputs" / "matrices" / "story_similarity_actor_jaccard.csv", index_col=0, encoding="utf-8-sig")
     t08 = pd.read_csv(ROOT / "outputs" / "tables" / "publication" / "T08_story_similarity.csv", encoding="utf-8-sig")
     top10 = t08.sort_values("actor_jaccard", ascending=False).head(10)
+    jac_median, jac_max, n_zero = float(t08["actor_jaccard"].median()), float(t08["actor_jaccard"].max()), int((t08["actor_jaccard"] == 0).sum())
 
     content = f"""
 <h1>Story Similarity</h1>
 <p class="lede">Five similarity measures across all 91 story pairs: actor Jaccard, actor weighted
 Jaccard, actor cosine (all three based on shared characters), relation-profile similarity, and
 layer-composition similarity (both based on narrative-relational content, independent of which
-specific actors appear). See <a href="methodology.html">Methodology</a> and
-<a href="decision_log.md">decision_log.md</a> (DEC-014) for the exact definitions and the
-hierarchical-clustering feature-space choice.</p>
+specific actors appear). <strong>Exploratory / descriptive.</strong> Story-level similarity can be
+quantified and visualized, but evidence for a robust discrete clustering structure is limited (see
+below). See <a href="methodology.html">Methodology</a> and
+<a href="decision_log.md">decision_log.md</a> (DEC-014, DEC-015) for the exact definitions, the
+hierarchical-clustering feature-space choice, and the audit that narrowed the claims.</p>
+
+<h2>How to read these numbers</h2>
+<ul>
+<li><strong>Overlap is low.</strong> Actor Jaccard has a median of {jac_median:.3f} and a maximum of
+{jac_max:.3f}; {n_zero} of 91 pairs share no actor. &ldquo;Top&rdquo; below means <em>relatively most
+overlapping among the evaluated stories</em>, not strongly similar.</li>
+<li><strong>The top pair depends on the metric.</strong> S03&ndash;S05 leads on the two Jaccard measures only;
+it ranks 6th, 6th and 7th of 91 on actor cosine, relation-profile and layer-composition cosine.</li>
+<li><strong>Cosine values are high by construction</strong> (non-negative counts over a few categories).
+A permutation baseline (relations reassigned across stories) reaches nearly the same top values, so
+relation-profile and layer-composition similarities near 0.9 are not evidence of specific affinity.</li>
+<li><strong>Clusters are not established.</strong> A Ward dendrogram always exists. Silhouette 0.37&ndash;0.56,
+bootstrap adjusted Rand index 0.54&ndash;0.79 and disagreement between linkage methods at k=4&ndash;5 do not
+support a robust discrete grouping (<a href="downloads/outputs/statistics/story_similarity_cluster_validity.json">validity audit</a>).
+Themes such as captivity are not coded variables, so they are not a finding of this analysis.</li>
+</ul>
 
 <h2>Actor Jaccard heatmap</h2>
 <figure>
@@ -592,21 +613,24 @@ hierarchical-clustering feature-space choice.</p>
   <figcaption>Grey diagonal = self-similarity (trivially 1.0). Darker = more shared actors.</figcaption>
 </figure>
 
-<h2>Story similarity network</h2>
+<h2>Story actor-overlap network</h2>
 <figure>
-  <img src="figures/similarity/F11_story_similarity_network.png" alt="Story similarity network">
-  <figcaption>Top 15 of 91 pairs by actor Jaccard. Edge darkness/thickness = similarity strength.</figcaption>
+  <img src="figures/similarity/F11_story_similarity_network.png" alt="Story actor-overlap network">
+  <figcaption>Top 15 of 91 pairs by actor Jaccard. Edge darkness/thickness = degree of actor overlap
+  (low in absolute terms; not a cluster structure).</figcaption>
 </figure>
 
-<h2>Top 10 most similar story pairs (by shared actors)</h2>
+<h2>Top 10 most-overlapping story pairs (by shared actors)</h2>
 {table_html(top10, ["story_a", "story_b", "actor_jaccard", "actor_weighted_jaccard", "actor_cosine", "relation_profile_similarity", "layer_composition_similarity"])}
 
 <h2>Full pairwise table</h2>
 <p>All 91 pairs, all 5 metrics: <a href="downloads/outputs/tables/publication/T08_story_similarity.csv">T08_story_similarity.csv</a>.</p>
 
-<div class="disclaimer">These similarity values and the hierarchical clustering built from them
-are descriptive only — no significance/null-model test has been applied to them (unlike the
-community and modularity findings on the <a href="analysis.html">Analysis</a> page).</div>
+<div class="disclaimer">RQ6 status: <strong>partially answered / exploratory</strong>. These similarity values
+are descriptive only — no significance test has been applied to them (unlike the community and
+modularity findings on the <a href="analysis.html">Analysis</a> page), and the cluster-validity
+checks do not support a robust discrete clustering. Any thematic reading of a similar pair is
+qualitative interpretation, not a network-analysis result.</div>
 """
     write("similarity.html", page("Similarity", "Story similarity: actor overlap, relation-profile, and layer-composition measures.", "Similarity", content))
 
@@ -633,8 +657,10 @@ significant after multiple-testing correction.</p>
 
 <h2>Null model validation</h2>
 <p>{len(sig)} / {len(fdr)} tests remain significant after Benjamini-Hochberg FDR correction (α=0.05).
-Community modularity is validated as a real signal (not a degree-sequence artifact) in most
-networks tested; degree assortativity is not validated in any network.</p>
+Community modularity is validated as a non-random signal (not a degree-sequence artifact) in 7 of 9
+networks tested; degree assortativity is not supported in any network (an earlier &ldquo;disassortative&rdquo;
+claim is withdrawn). The kinship network (G3) shows no deviation from its null, but it is a forest, so
+its clustering and transitivity tests are uninformative.</p>
 {table_html(sig, ["network", "metric", "observed", "z_score", "empirical_p", "bh_qvalue"])}
 <figure>
   <img src="figures/null_models/F15_null_model_distributions.png" alt="Null model distributions">
@@ -642,8 +668,11 @@ networks tested; degree assortativity is not validated in any network.</p>
 </figure>
 
 <h2>Sensitivity analysis</h2>
-<p>Rank-correlation of centrality across 6 network-construction choices. Person+group vs
-person-only is the single most consequential modeling decision tested.</p>
+<p>Rank-correlation of centrality across 6 network-construction choices (descriptive). Actor-type
+inclusion (person+group vs person-only; groups included vs excluded) and edge weighting change
+centrality rankings noticeably (Spearman &rho; 0.85&ndash;0.96); the other three choices barely matter
+(&rho; &ge; 0.97). The three larger-effect choices are close to each other and were not tested
+against one another, so none is singled out as the most consequential.</p>
 {table_html(sens, ["pair", "metric", "spearman_rho", "kendall_tau", "top_10_overlap_fraction"])}
 <figure>
   <img src="figures/sensitivity/F16_sensitivity_correlation_matrix.png" alt="Sensitivity correlation matrix">
@@ -651,7 +680,9 @@ person-only is the single most consequential modeling decision tested.</p>
 
 <h2>Structural robustness</h2>
 <p>Robust to random node loss, fragile to targeted (degree/betweenness) attack — a classic
-hub-driven network pattern. This describes graph connectivity only, not narrative resilience.</p>
+hub-driven network pattern (G0_full only; thresholds are relative to the original 311 nodes; targeted
+crossings are resolved to one 6-node step). This describes graph connectivity only, not narrative
+resilience.</p>
 <figure>
   <img src="figures/robustness/F18_structural_robustness_curves.png" alt="Structural robustness curves">
 </figure>

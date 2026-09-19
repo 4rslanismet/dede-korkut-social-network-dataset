@@ -52,8 +52,9 @@ a requirement — adapt to the target program's conventions.
 
 - Explicitly framed as exploratory, not confirmatory — layer participation, signed profile,
   narrative-order windowing and dynamic centrality.
-- Honest treatment of what could **not** be answered (RQ6, story-level clustering; the directed
-  motif/triad analysis skip).
+- Honest treatment of what could only be answered in part or not at all (RQ6: story similarity is
+  quantified but discrete story clusters are not robustly supported; the directed motif/triad
+  analysis skip).
 - → `thesis/results_mapping.md` RQ2, RQ6, RQ7.
 
 ## Chapter 8 — Discussion
@@ -66,7 +67,9 @@ a requirement — adapt to the target program's conventions.
 
 - → `docs/limitations.md` (17 items) as the primary source; future work should prioritize: a real
   second coder for inter-annotator reliability, resolving the 5 concatenated-multi-actor nodes,
-  completing the story-similarity metric suite (RQ6), and obtaining the source edition metadata.
+  and obtaining the source edition metadata. (The story-similarity metric suite for RQ6 now exists;
+  what remains open is whether any robust discrete story grouping exists, which would need richer
+  story-level features than the current relation-type/layer profile, e.g. coded thematic variables.)
 
 ## Chapter 10 — Conclusion
 

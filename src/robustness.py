@@ -7,8 +7,11 @@ resilience to anything.
 
 Three removal strategies on G0_full: random (averaged over
 config::robustness.n_random_trials independent runs), highest-degree-first,
-highest-betweenness-first (both recomputed after each removal, i.e. true
-adaptive/recalculated targeted attack, not a static one-shot ranking)."""
+highest-betweenness-first. Degree ranking is recomputed after every removal
+(adaptive, not a static one-shot ranking); betweenness ranking is recomputed
+only every n/20 removals (~15 for G0_full) for cost. Curves report the
+largest component relative to the ORIGINAL NODE COUNT (not the original giant
+component), at checkpoints of 2% of nodes (6 for G0_full)."""
 import json
 from pathlib import Path
 

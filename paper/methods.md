@@ -69,9 +69,10 @@ PageRank over the actor set common to both variants.
 ## Structural Robustness
 
 We simulate node removal under three strategies — uniform random removal (averaged over 100
-trials), and adaptive targeted removal ordered by highest current degree or highest current
-betweenness, recomputed as nodes are removed — and track the size of the largest connected
-component as a function of the fraction of nodes removed.
+trials), and adaptive targeted removal ordered by highest current degree (recomputed after every
+removal) or highest current betweenness (recomputed every 15 removals, i.e. about 20 times, for
+cost) — and track the size of the largest connected component, relative to the original node count,
+as a function of the fraction of nodes removed (checkpoints every 2% = 6 nodes; G0_full only).
 
 ## Implementation and Reproducibility
 

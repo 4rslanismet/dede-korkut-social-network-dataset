@@ -26,9 +26,10 @@ which carries an explicit, disclosed degree-inflation caveat and was not used fo
 
 **Answerable: yes.** G3 (kinship), G4 (communication), G5 (cooperation/support), and G6 (conflict)
 were each constructed and independently analyzed, including null-model testing. Notably, the
-kinship network (G3) was found statistically indistinguishable from a degree-preserving random
-network on every tested metric (clustering, transitivity, assortativity, modularity) — a genuine
-negative result, reported rather than hidden.
+kinship network (G3) showed no detectable deviation from a degree-preserving random network on any
+tested metric (clustering, transitivity, assortativity, modularity) — a negative result, reported
+rather than hidden, but a low-information one: G3 is a forest (83 nodes, 61 edges, 22 components),
+so clustering and transitivity are structurally zero.
 → `reports/07_null_models_report.md` §3.4 (G3_kinship null result), `docs/network_models.md`.
 
 ## RQ4 — Does the corpus network differ significantly from null networks with similar degree structure?
@@ -41,34 +42,52 @@ descriptive claim).
 
 ## RQ5 — How stable are the main network findings against different network-construction choices?
 
-**Answerable: yes.** Six paired construction choices tested by rank correlation; person+group vs.
-person-only identified as the single most consequential choice, girizgah/core-social filtering as
-negligible.
+**Answerable: yes (descriptive sensitivity analysis).** Six paired construction choices tested by
+rank correlation; actor-type inclusion (person+group vs. person-only, groups included vs. excluded)
+and edge weighting change centrality rankings noticeably (ρ 0.85-0.96), while girizgah,
+core-social filtering and relation-inference policy are negligible (ρ ≥ 0.97). The three
+larger-effect choices are not ranked against each other (mean ρ 0.91-0.93, differences untested).
 → `reports/08_sensitivity_robustness_report.md` §2.
 
 ## RQ6 — What clusterings do the Dede Korkut boy show in terms of character composition and relation profiles?
 
-**Answerable: YES — completed post-project (DEC-014).** The full similarity metric suite (actor
-Jaccard, weighted Jaccard, cosine similarity, relation-profile similarity, layer-composition
-similarity, hierarchical clustering — section 17) has been built in `src/story_similarity.py`.
+**Status: PARTIALLY ANSWERED / EXPLORATORY (DEC-014, narrowed by the DEC-015 audit).** The full
+similarity metric suite (actor Jaccard, weighted Jaccard, actor cosine, relation-profile
+similarity, layer-composition similarity, hierarchical clustering — section 17) is built in
+`src/story_similarity.py`, so story-level similarity *can be quantified and visualized*. The
+"clusterings" part of the question is **not** established: evidence for a robust discrete
+clustering structure is limited.
 
-**Character-composition finding:** S03 ("Salur Kazan'ın Evinin Yağmalandığı") and S05 ("Kazan Bey
-Oğlu Uruz Bey'in Tutsak Olduğu Boy") are the most similar pair by shared actors (Jaccard=0.153),
-consistent with both centering on Salur Kazan and a captivity/rescue narrative arc; S08–S10
-(Jaccard=0.133) is the next strongest pair. Both pairs also show high relation-profile and
-layer-composition similarity (0.94–0.97), i.e. they are similar in *which relation types and
-layers* they emphasize, not only in *which actors* appear.
+**Pairwise similarity (answered descriptively):** actor overlap between stories is low (Jaccard
+median 0.030, maximum 0.153; 28 of 91 pairs share no actor). S03 ("Salur Kazan'ın Evinin
+Yağmalandığı") and S05 ("Kazan Bey Oğlu Uruz Bey'in Tutsak Olduğu Boy") are the *relatively most
+overlapping* pair among the evaluated stories (Jaccard = 0.153, 11 shared actors including Salur
+Kazan and Uruz), followed by S08–S10 (0.133). They are the top pair on the two Jaccard measures
+only (rank 6–7 of 91 on actor cosine, relation-profile and layer-composition cosine, each of which
+has a different top pair). Relation-profile and layer-composition cosines are high by construction
+(counts over few categories); the maximum observed value (0.985) is close to what a permutation
+baseline produces (95th percentile of the pair maximum: 0.987), so they are not read as evidence of
+specific affinity. A shared narrative theme (e.g. captivity) is **not** a coded variable in the
+canonical dataset (no structured theme field; the free-text relation phrases of S03 contain none of
+esir/esaret/tutsak/kurtar/yağma, S05's contain them in 2 of 40 rows) and is therefore not a finding
+of this analysis; any thematic reading of a similar
+pair is qualitative interpretation for the literary analysis chapters, not a network-analysis result.
 
-**Relation-profile clustering finding (Ward linkage on relation-family + layer proportions):**
-the 14 stories do not separate into two or three sharply distinct clusters — leaf order
-`[S01, S04, S02, S06, S14, S03, S05, S11, S13, S07, S08, S09, S10, S12]` shows several tight
-pairs/triples (e.g. S03-S05, S08-S09-S10) embedded in a broader continuum rather than isolated
-blocks, consistent with a corpus of structurally similar boy narratives sharing the same
-underlying coding scheme rather than falling into a small number of narrative "genres."
+**Discrete clustering (not robustly supported):** Ward linkage always returns a dendrogram; that is
+not evidence of clusters. Validity checks on the 14 stories (`story_similarity_cluster_validity.json`):
+silhouette 0.37–0.56 (k=2–6; the k=2 split only isolates S01, a 1-relation story, and scores below
+its permutation baseline), bootstrap ARI 0.746 without S01 at k=2 falling to ~0.54 at k≥4, linkage
+methods disagree at k=4–5, Ward cophenetic correlation 0.73. No k passes the pre-set support rule
+(silhouette > 0.50, bootstrap ARI ≥ 0.75, permutation p < 0.05). Stories do differ in relational
+profile more than sampling noise alone would produce (silhouette exceeds the permutation baseline
+for k ≥ 3), which is consistent with a continuum as much as with discrete groups. The leaf order
+`[S01, S04, S02, S06, S14, S03, S05, S11, S13, S07, S08, S09, S10, S12]` is a visualization order, not
+a cluster assignment.
 
 → `outputs/matrices/story_similarity_*.csv` (5 matrices), `outputs/statistics/story_similarity_clustering.json`,
-`outputs/tables/publication/T08_story_similarity.csv` (full, no longer partial), Figures F10-F11,
-`docs/decision_log.md` DEC-014.
+`outputs/statistics/story_similarity_cluster_validity.json`,
+`outputs/tables/publication/T08_story_similarity.csv` (full 91-pair table), Figures F10-F11,
+`docs/decision_log.md` DEC-014 and DEC-015.
 
 ## RQ7 — How does character centrality and relational intensity change over the course of the narrative?
 
@@ -89,8 +108,8 @@ test) has not been attempted.
 |---|---|---|
 | RQ1 (structure) | Fully answered | Confirmatory (null-model validated) |
 | RQ2 (bridges) | Partially answered | Exploratory (community/layer only, not cross-story) |
-| RQ3 (relation-specific roles) | Fully answered | Confirmatory (incl. one genuine null result, G3) |
+| RQ3 (relation-specific roles) | Fully answered | Confirmatory (incl. one low-information null result, G3 — a forest) |
 | RQ4 (null-model comparison) | Fully answered | Confirmatory — this project's central finding |
-| RQ5 (construction sensitivity) | Fully answered | Confirmatory |
-| RQ6 (story clustering) | Answered (post-project completion, DEC-014) | Descriptive — no null-model or significance test applied to the clustering itself |
+| RQ5 (construction sensitivity) | Fully answered | Descriptive sensitivity analysis (no test of differences between correlations) |
+| RQ6 (story clustering) | Partially answered / exploratory (DEC-014, audited in DEC-015) | Pairwise similarity quantified descriptively; evidence for discrete clusters limited (fails pre-set validity rule) |
 | RQ7 (temporal/narrative-order evolution) | Partially answered | Exploratory only |

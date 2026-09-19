@@ -166,8 +166,10 @@ significant after multiple-testing correction.</p>
 
 <h2>Null model validation</h2>
 <p>12 / 36 tests remain significant after Benjamini-Hochberg FDR correction (α=0.05).
-Community modularity is validated as a real signal (not a degree-sequence artifact) in most
-networks tested; degree assortativity is not validated in any network.</p>
+Community modularity is validated as a non-random signal (not a degree-sequence artifact) in 7 of 9
+networks tested; degree assortativity is not supported in any network (an earlier &ldquo;disassortative&rdquo;
+claim is withdrawn). The kinship network (G3) shows no deviation from its null, but it is a forest, so
+its clustering and transitivity tests are uninformative.</p>
 <div class="table-wrap"><table class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -284,8 +286,11 @@ networks tested; degree assortativity is not validated in any network.</p>
 </figure>
 
 <h2>Sensitivity analysis</h2>
-<p>Rank-correlation of centrality across 6 network-construction choices. Person+group vs
-person-only is the single most consequential modeling decision tested.</p>
+<p>Rank-correlation of centrality across 6 network-construction choices (descriptive). Actor-type
+inclusion (person+group vs person-only; groups included vs excluded) and edge weighting change
+centrality rankings noticeably (Spearman &rho; 0.85&ndash;0.96); the other three choices barely matter
+(&rho; &ge; 0.97). The three larger-effect choices are close to each other and were not tested
+against one another, so none is singled out as the most consequential.</p>
 <div class="table-wrap"><table class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -431,7 +436,9 @@ person-only is the single most consequential modeling decision tested.</p>
 
 <h2>Structural robustness</h2>
 <p>Robust to random node loss, fragile to targeted (degree/betweenness) attack — a classic
-hub-driven network pattern. This describes graph connectivity only, not narrative resilience.</p>
+hub-driven network pattern (G0_full only; thresholds are relative to the original 311 nodes; targeted
+crossings are resolved to one 6-node step). This describes graph connectivity only, not narrative
+resilience.</p>
 <figure>
   <img src="figures/robustness/F18_structural_robustness_curves.png" alt="Structural robustness curves">
 </figure>

@@ -37,10 +37,13 @@ STAGES = [
     ("signed_and_directed", "signed_and_directed.py", []),
     ("multilayer", "multilayer.py", []),
     ("narrative_order", "narrative_order.py", []),
+    ("story_similarity", "story_similarity.py", []),  # must precede visualization (F10/F11) and export_tables (T08)
+    ("story_similarity_validity", "story_similarity_validity.py", []),
     ("null_models", "null_models.py", ["--fast"]),  # arg only appended when --fast passed to this orchestrator
     ("null_models_fdr", "null_models_fdr.py", []),
     ("sensitivity", "sensitivity.py", []),
     ("robustness", "robustness.py", []),
+    ("audit_top5_checks", "audit_top5_checks.py", []),  # DEC-015 final-audit evidence for the Top-5 findings
     ("visualization", "visualization.py", []),
     ("export_tables", "export_tables.py", []),
     ("build_inter_annotator_sample", "build_inter_annotator_sample.py", []),

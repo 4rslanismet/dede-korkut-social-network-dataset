@@ -45,9 +45,10 @@ limitation; results should be reported both with and without the UNCERTAIN famil
 
 125 of 332 canonical actors are `grup`-type (plus 21 more of other non-`kişi` types). Phase 8
 sensitivity analysis confirms this is not a negligible modeling choice: person+group vs.
-person-only produced the largest rank disagreement (Spearman ρ=0.887-0.926) of the six
-sensitivity comparisons tested — the single most consequential network-construction decision in
-this project.
+person-only (Spearman ρ=0.887-0.926, lowest mean ρ of the six comparisons) and groups included vs.
+excluded (ρ=0.896-0.957) change centrality rankings noticeably. Edge weighting is comparable
+(PageRank ρ=0.849), so actor-type inclusion is one of the three most consequential construction
+choices rather than a clearly single most consequential one (final audit, DEC-015).
 → `reports/08_sensitivity_robustness_report.md` §2.4.
 
 ## 6. Inferred-Relation Effects (small but measured)
@@ -128,16 +129,31 @@ model was available in the networkx version used, and 44 samples across 7 catego
 support a meaningful per-category enrichment test. Skipped, not forced.
 → `docs/decision_log.md` DEC-010.
 
-## 15. Story Similarity — Completed Post-Project (Update)
+## 15. Story Similarity — Built Post-Project, RQ6 Only Partially Answered (Update)
 
 *Originally, only the raw actor×story bipartite shared-actor projection had been computed and
 this item flagged RQ6 as unanswerable.* The full similarity metric suite (actor Jaccard, weighted
 Jaccard, cosine similarity, relation-profile similarity, layer-composition similarity,
 hierarchical clustering) was subsequently built (`src/story_similarity.py`, `docs/decision_log.md`
-DEC-014), completing RQ6. Remaining caveat: the similarity values and the hierarchical clustering
-built from them are descriptive only — no significance/null-model test was applied to them, unlike
-this project's community/modularity findings.
-→ `thesis/research_questions.md` RQ6, `outputs/statistics/story_similarity_clustering.json`.
+DEC-014). A final audit (DEC-015) narrowed what it supports:
+
+- Actor overlap between stories is low (Jaccard median 0.030, max 0.153; 28 of 91 pairs share no
+  actor). "Most similar pair" means relatively most overlapping among the evaluated stories, not
+  strongly similar; the top pair differs by metric.
+- Cosine similarities on the relation/layer profiles are high by construction (a permutation
+  baseline reaches the same range at the top of the distribution).
+- A Ward dendrogram always exists and is not evidence of clusters. Cluster-validity checks
+  (silhouette, cophenetic correlation, linkage agreement, bootstrap, permutation baseline;
+  `outputs/statistics/story_similarity_cluster_validity.json`) do not support a robust discrete
+  clustering. Story-level similarity can be quantified and visualized, but evidence for a robust
+  discrete clustering structure is limited.
+- Narrative themes such as captivity are not coded variables in the canonical dataset; thematic
+  readings of similar stories are qualitative interpretation, not network-analysis results.
+- No significance test was applied to the similarity values themselves.
+
+RQ6 status: **PARTIALLY ANSWERED / EXPLORATORY.**
+→ `thesis/research_questions.md` RQ6, `outputs/statistics/story_similarity_clustering.json`,
+`outputs/statistics/story_similarity_cluster_validity.json`.
 
 ## 16. Website Scope
 

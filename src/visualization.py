@@ -276,7 +276,8 @@ def figure_F10_story_similarity_heatmap():
     ax.set_yticklabels(mat.index, fontsize=8)
     fig.colorbar(im, ax=ax, label="Actor Jaccard similarity")
     ax.set_title("F10 — Story Similarity Heatmap (Actor Jaccard)", fontsize=12, fontweight="bold")
-    fig.text(0.5, -0.02, "Grey diagonal = self-similarity (trivially 1.0, excluded from color scale). See outputs/matrices/ for the other 4 similarity metrics.",
+    fig.text(0.5, -0.02, f"Grey diagonal = self-similarity (trivially 1.0, excluded from color scale). Colour scale ends at the maximum off-diagonal value ({off_diag_max:.2f}): overlap is low throughout.\n"
+                         "See outputs/matrices/ for the other 4 similarity metrics.",
               ha="center", fontsize=8, color="#444444")
     fig.tight_layout()
     save(fig, "similarity", "F10_story_similarity_heatmap")
@@ -286,8 +287,9 @@ def figure_F11_story_similarity_network():
     mat = pd.read_csv(ROOT / "outputs" / "matrices" / "story_similarity_actor_jaccard.csv", index_col=0, encoding="utf-8-sig")
     stories = pd.read_csv(ROOT / "data" / "processed" / "stories.csv", encoding="utf-8-sig").set_index("story_id")
 
-    # Keep only the strongest edges (top 15 of 91 pairs) so the network shows
-    # genuine similarity structure rather than every weak/noisy connection.
+    # Keep only the relatively most-overlapping pairs (top 15 of 91) so the
+    # figure stays legible. Absolute overlap is low (max Jaccard ~0.15), so
+    # these edges mark the relatively most overlapping pairs, not strong similarity.
     pairs = []
     for i, a in enumerate(mat.index):
         for b in mat.columns[i + 1:]:
@@ -315,9 +317,12 @@ def figure_F11_story_similarity_network():
         boy_name = stories.loc[n, "boy_name_raw"] if n in stories.index else n
         ax.annotate(boy_name[:22], pos[n], fontsize=7, ha="center", va="top",
                     xytext=(0, -16), textcoords="offset points", color="#2a2622", zorder=3)
-    ax.set_title(f"F11 — Story Similarity Network (top {len(top_pairs)} of 91 pairs by Actor Jaccard)", fontsize=12, fontweight="bold")
+    ax.set_title(f"F11 — Story Actor-Overlap Network (top {len(top_pairs)} of 91 pairs by Actor Jaccard)", fontsize=12, fontweight="bold")
     ax.axis("off")
-    fig.tight_layout()
+    fig.text(0.5, 0.01, f"Exploratory/descriptive. Absolute overlap is low (max Jaccard = {weights.max():.2f}; {sum(1 for p in pairs if p[2] == 0)} of 91 pairs share no actor): "
+                        "edges show the relatively most-overlapping pairs, not strong similarity or clusters.",
+             ha="center", fontsize=8, color="#444444", wrap=True)
+    fig.tight_layout(rect=(0, 0.03, 1, 1))
     save(fig, "similarity", "F11_story_similarity_network")
 
 
