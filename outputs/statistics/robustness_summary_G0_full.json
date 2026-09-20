@@ -1,0 +1,76 @@
+{
+  "n_nodes": 311,
+  "n_edges": 376,
+  "n_random_trials": 100,
+  "seed": 42,
+  "step_fraction": 0.02,
+  "checkpoint_step_nodes": 6,
+  "betweenness_targeted_ranking": "unweighted hop-count betweenness, recomputed every n/20 removals (category A: intentionally NOT strength-derived)",
+  "denominators": {
+    "all_nodes": 311,
+    "initial_giant_component": 261
+  },
+  "fraction_removed_below_threshold_of_all_nodes": {
+    "50pct": {
+      "random": 0.2508038585209003,
+      "degree_targeted": 0.03858520900321544,
+      "betweenness_targeted": 0.01929260450160772
+    },
+    "10pct": {
+      "random": 0.617363344051447,
+      "degree_targeted": 0.05787781350482315,
+      "betweenness_targeted": 0.05787781350482315
+    }
+  },
+  "fraction_removed_below_threshold_of_initial_giant_component": {
+    "50pct": {
+      "random": 0.3086816720257235,
+      "degree_targeted": 0.03858520900321544,
+      "betweenness_targeted": 0.03858520900321544
+    },
+    "10pct": {
+      "random": 0.6559485530546624,
+      "degree_targeted": 0.05787781350482315,
+      "betweenness_targeted": 0.05787781350482315
+    }
+  },
+  "degree_targeted_tie_break_sensitivity": {
+    "n_trials": 200,
+    "seed": 43,
+    "description": "adaptive degree-targeted removal with random tie-breaks among equal-degree nodes; nodes removed (checked after every removal) until the largest component falls below the threshold",
+    "all_nodes": {
+      "50pct": {
+        "nodes_removed_min": 6,
+        "nodes_removed_median": 7.0,
+        "nodes_removed_max": 7
+      },
+      "10pct": {
+        "nodes_removed_min": 15,
+        "nodes_removed_median": 17.0,
+        "nodes_removed_max": 17
+      }
+    },
+    "initial_giant_component": {
+      "50pct": {
+        "nodes_removed_min": 9,
+        "nodes_removed_median": 9.0,
+        "nodes_removed_max": 9
+      },
+      "10pct": {
+        "nodes_removed_min": 15,
+        "nodes_removed_median": 17.0,
+        "nodes_removed_max": 17
+      }
+    }
+  },
+  "betweenness_targeted_exact_nodes_removed": {
+    "all_nodes": {
+      "50pct": 6,
+      "10pct": 17
+    },
+    "initial_giant_component": {
+      "50pct": 9,
+      "10pct": 17
+    }
+  }
+}

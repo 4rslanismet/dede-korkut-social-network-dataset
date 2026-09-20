@@ -1,0 +1,230 @@
+{
+  "A_modularity_giant_component_null": {
+    "network": "G0_full, largest connected component only",
+    "n_nodes": 261,
+    "n_edges": 348,
+    "n_random": 1000,
+    "seed": 42,
+    "observed_louvain_modularity": 0.6919920068701282,
+    "random_mean": 0.6145376907451445,
+    "random_std": 0.007794594331838197,
+    "z_score": 9.936927160995385,
+    "empirical_p_two_sided": 0.000999000999000999,
+    "observed_exceeds_all_randomizations": true,
+    "reading": "supports the whole-network finding if z is clearly positive and p small"
+  },
+  "B_kinship_forest_check": {
+    "network": "G3_kinship",
+    "n_nodes": 83,
+    "n_edges": 61,
+    "n_components": 22,
+    "cyclomatic_number": 0,
+    "is_forest": true,
+    "n_triangles": 0,
+    "reading": "if is_forest, clustering and transitivity are structurally 0 in the observed network, so those two tests carry little information; only assortativity and modularity are informative"
+  },
+  "C_sensitivity_pair_ranking": {
+    "pairs_ranked_by_mean_rho_ascending": [
+      {
+        "pair": "person_plus_group_vs_person_only",
+        "n_common_nodes": 154,
+        "spearman_rho_mean": 0.9113,
+        "spearman_rho_min": 0.8921,
+        "spearman_rho_by_metric": {
+          "degree": 0.9157,
+          "betweenness": 0.8921,
+          "pagerank": 0.926
+        },
+        "top10_overlap_by_metric": {
+          "degree": 1.0,
+          "betweenness": 0.7,
+          "pagerank": 0.8
+        }
+      },
+      {
+        "pair": "weighted_vs_unweighted",
+        "n_common_nodes": 311,
+        "spearman_rho_mean": 0.9116,
+        "spearman_rho_min": 0.8489,
+        "spearman_rho_by_metric": {
+          "degree": 1.0,
+          "betweenness": 0.8858,
+          "pagerank": 0.8489
+        },
+        "top10_overlap_by_metric": {
+          "degree": 1.0,
+          "betweenness": 0.6,
+          "pagerank": 0.9
+        }
+      },
+      {
+        "pair": "groups_included_vs_excluded",
+        "n_common_nodes": 183,
+        "spearman_rho_mean": 0.952,
+        "spearman_rho_min": 0.9488,
+        "spearman_rho_by_metric": {
+          "degree": 0.9498,
+          "betweenness": 0.9488,
+          "pagerank": 0.9574
+        },
+        "top10_overlap_by_metric": {
+          "degree": 0.9,
+          "betweenness": 0.7,
+          "pagerank": 0.9
+        }
+      },
+      {
+        "pair": "explicit_only_vs_explicit_plus_inferred",
+        "n_common_nodes": 293,
+        "spearman_rho_mean": 0.9851,
+        "spearman_rho_min": 0.9817,
+        "spearman_rho_by_metric": {
+          "degree": 0.9817,
+          "betweenness": 0.9843,
+          "pagerank": 0.9893
+        },
+        "top10_overlap_by_metric": {
+          "degree": 1.0,
+          "betweenness": 0.7,
+          "pagerank": 1.0
+        }
+      },
+      {
+        "pair": "girizgah_included_vs_excluded",
+        "n_common_nodes": 310,
+        "spearman_rho_mean": 0.9999,
+        "spearman_rho_min": 0.9997,
+        "spearman_rho_by_metric": {
+          "degree": 1.0,
+          "betweenness": 1.0,
+          "pagerank": 0.9997
+        },
+        "top10_overlap_by_metric": {
+          "degree": 0.9,
+          "betweenness": 1.0,
+          "pagerank": 0.9
+        }
+      },
+      {
+        "pair": "all_relations_vs_core_social",
+        "n_common_nodes": 309,
+        "spearman_rho_mean": 1.0,
+        "spearman_rho_min": 0.9999,
+        "spearman_rho_by_metric": {
+          "degree": 1.0,
+          "betweenness": 1.0,
+          "pagerank": 0.9999
+        },
+        "top10_overlap_by_metric": {
+          "degree": 0.9,
+          "betweenness": 1.0,
+          "pagerank": 0.9
+        }
+      }
+    ],
+    "pair_with_lowest_rho_per_metric": {
+      "degree": "person_plus_group_vs_person_only",
+      "betweenness": "weighted_vs_unweighted",
+      "pagerank": "weighted_vs_unweighted"
+    },
+    "reading": "'most consequential' depends on the metric; compare pairs only with the caveat that n_common_nodes differs across pairs and no test of differences between rho values was run"
+  },
+  "D_robustness_reference": {
+    "n_nodes": 311,
+    "initial_giant_component_size": 261,
+    "initial_giant_fraction_of_nodes": 0.8392,
+    "removal_step_nodes": 6,
+    "thresholds": {
+      "all_G0_nodes": {
+        "50pct": {
+          "random": {
+            "fraction_removed": 0.2508,
+            "nodes_removed": 78
+          },
+          "degree_targeted": {
+            "fraction_removed": 0.0386,
+            "nodes_removed": 12
+          },
+          "betweenness_targeted": {
+            "fraction_removed": 0.0193,
+            "nodes_removed": 6
+          }
+        },
+        "10pct": {
+          "random": {
+            "fraction_removed": 0.6174,
+            "nodes_removed": 192
+          },
+          "degree_targeted": {
+            "fraction_removed": 0.0579,
+            "nodes_removed": 18
+          },
+          "betweenness_targeted": {
+            "fraction_removed": 0.0579,
+            "nodes_removed": 18
+          }
+        }
+      },
+      "initial_giant_component": {
+        "50pct": {
+          "random": {
+            "fraction_removed": 0.3087,
+            "nodes_removed": 96
+          },
+          "degree_targeted": {
+            "fraction_removed": 0.0386,
+            "nodes_removed": 12
+          },
+          "betweenness_targeted": {
+            "fraction_removed": 0.0386,
+            "nodes_removed": 12
+          }
+        },
+        "10pct": {
+          "random": {
+            "fraction_removed": 0.6559,
+            "nodes_removed": 204
+          },
+          "degree_targeted": {
+            "fraction_removed": 0.0579,
+            "nodes_removed": 18
+          },
+          "betweenness_targeted": {
+            "fraction_removed": 0.0579,
+            "nodes_removed": 18
+          }
+        }
+      }
+    },
+    "degree_targeted_tie_break_sensitivity": {
+      "n_trials": 200,
+      "seed": 43,
+      "description": "adaptive degree-targeted removal with random tie-breaks among equal-degree nodes; nodes removed (checked after every removal) until the largest component falls below the threshold",
+      "all_nodes": {
+        "50pct": {
+          "nodes_removed_min": 6,
+          "nodes_removed_median": 7.0,
+          "nodes_removed_max": 7
+        },
+        "10pct": {
+          "nodes_removed_min": 15,
+          "nodes_removed_median": 17.0,
+          "nodes_removed_max": 17
+        }
+      },
+      "initial_giant_component": {
+        "50pct": {
+          "nodes_removed_min": 9,
+          "nodes_removed_median": 9.0,
+          "nodes_removed_max": 9
+        },
+        "10pct": {
+          "nodes_removed_min": 15,
+          "nodes_removed_median": 17.0,
+          "nodes_removed_max": 17
+        }
+      }
+    },
+    "reading": "two denominators are reported separately: ALL G0 nodes (311) and the INITIAL GIANT COMPONENT (261 = 83.9% of nodes); targeted-removal crossings on the checkpoint grid are resolved only to 6 nodes (1.9%); the degree-targeted crossing depends on tie-breaks among equal-degree nodes (see degree_targeted_tie_break_sensitivity), so degree- vs betweenness-targeted order is not a supported claim; betweenness ranking is unweighted hop-count, recomputed every 15 removals"
+  }
+}

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Dede Korkut Narrative Networks</title>
+<meta name="description" content="Project scope, limitations, license, and citation.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap brand-row">
+    <div>
+      <a class="brand" href="index.html">Dede Korkut Narrative Networks</a><br>
+      <span class="subtitle">A reproducible multilayer network analysis of characters and relations in the Book of Dede Korkut</span>
+    </div>
+  </div>
+  <nav class="main-nav"><div class="wrap"><a href="index.html">Home</a>
+<a href="dataset.html">Dataset</a>
+<a href="methodology.html">Methodology</a>
+<a href="explorer.html">Network Explorer</a>
+<a href="stories.html">Stories</a>
+<a href="characters.html">Characters</a>
+<a href="layers.html">Layers</a>
+<a href="communities.html">Communities</a>
+<a href="similarity.html">Similarity</a>
+<a href="analysis.html">Analysis</a>
+<a href="evidence.html">Evidence</a>
+<a href="downloads.html">Downloads</a>
+<a href="reproduce.html">Reproduce</a>
+<a href="about.html" class="active">About</a></div></nav>
+</header>
+<main class="wrap">
+
+<h1>About</h1>
+<p class="lede">Dede Korkut Narrative Network Project (DKNN) — a working title; the repository
+name itself has not been changed.</p>
+
+<h2>Scope</h2>
+<p>This project treats the Book of Dede Korkut's encoded actor and relation data as a research
+subject for digital humanities and network science methods: a reproducible canonical dataset,
+social/complex/multilayer network analysis, story-level and bipartite analysis, statistical
+validation (null models, sensitivity, robustness), publication-ready figures and tables, and this
+interactive portal.</p>
+
+<h2>Limitations (see also Evidence)</h2>
+<ul>
+<li>Single coder — no verified inter-annotator reliability statistic yet (infrastructure exists
+in <code>validation/inter_annotator_sample.csv</code>, awaiting a second coder).</li>
+<li>The specific print edition/transcription of the Book of Dede Korkut underlying the original
+coding is not recorded in the repository — flagged as a critical open metadata gap
+(<code>validation/source_edition_metadata_required.md</code>).</li>
+<li>8.4% of relations have an unresolved provenance link back to the story-level source rows.</li>
+<li>46 canonical actor labels are candidate composite nodes awaiting manual entity-resolution review
+(see <a href="evidence.html">Evidence</a>); they are not resolved.</li>
+<li>Community counts on the core-social network are partly a connected-component artifact — see
+<a href="communities.html">Communities</a>.</li>
+</ul>
+
+<h2>License &amp; citation</h2>
+<p>The <strong>dataset</strong> is licensed CC BY 4.0 (see repository <code>LICENSE</code>). A separate licence for the
+<strong>source code</strong> has not been chosen yet (an open decision for the repository owner). A <code>CITATION.cff</code> file exists,
+but its author and release-date fields are still marked <code>TODO</code> pending the owner's confirmation; if you use this dataset or
+analysis in academic work, please cite the repository.</p>
+
+<h2>Source</h2>
+<p>Repository: <a href="https://github.com/4rslanismet/dede-korkut-social-network-dataset">github.com/4rslanismet/dede-korkut-social-network-dataset</a>.</p>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Network metrics are structural representations derived from the encoded dataset and should not be interpreted as complete literary judgments about character importance.</p>
+    <p>Built entirely from files in this repository — no analysis result on this site is hand-typed. See <a href="reproduce.html">Reproduce</a>.</p>
+  </div>
+</footer>
+</body>
+</html>

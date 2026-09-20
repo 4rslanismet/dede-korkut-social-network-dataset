@@ -1,0 +1,526 @@
+﻿raw_form,standard_form,role_context,resolves_to_current_node,validation_status
+100 kafir,100 Kafir,karakter_1,True,ok
+100 kafir,100 Kafir,karakter_2,True,ok
+16 asker ve uruz,16 Asker ve Uruz,event_aktor,True,ok
+16 bin kafir,16 Bin Kafir,karakter_1,True,ok
+24 sancak beyi,24 Sancak Beyi,karakter_2,True,ok
+300 akıncı,300 Akıncı,karakter_2,True,ok
+300 asker,300 Asker,karakter_2,True,ok
+300 kafir,300 Kafir,karakter_1,True,ok
+300 kafir,300 Kafir,karakter_2,True,ok
+40 askeri,40 Askeri,karakter_2,True,ok
+40 ince belli kız,40 Ince Belli Kız,karakter_2,True,ok
+40 yiğit,40 Yiğit,karakter_2,True,ok
+6 kafir,6 Kafir,karakter_2,True,ok
+60 kafir,60 Kafir,karakter_2,True,ok
+600 kafir,600 Kafir,karakter_1,True,ok
+600 kafir,600 Kafir,karakter_2,True,ok
+ak melik,Ak Melik,karakter_1,True,ok
+ak saka kalesi casusları,Ak Saka Kalesi Casusları,karakter_1,True,ok
+ak sakallı aruz koca,Ak Sakallı Aruz Koca,karakter_1,True,ok
+alp eren,Alp Eren,karakter_1,True,ok
+alp eren,Alp Eren,karakter_2,True,ok
+alp rüstem,Alp Rüstem,karakter_1,True,ok
+alp rüstem,Alp Rüstem,karakter_2,True,ok
+alplar başı kazan,Alplar Başı Kazan,karakter_1,True,ok
+altı bey oğlu,Altı Bey Oğlu,karakter_2,True,ok
+anne babası,Anne Babası,karakter_1,False,needs_manual_validation_stale_target
+"anne, babasının elini öpüp yola çıktı",Anne ve Babası,karakter_2,True,ok
+basatın ana babsı,Anne ve Babası,karakter_2,True,ok
+annesi,Annesi,karakter_2,True,ok
+annesi,Annesi,karakter_1,True,ok
+aruz,Aruz,karakter_1,True,ok
+aruz,Aruz,karakter_2,True,ok
+aruz emen,Aruz Emen,karakter_1,True,ok
+aruz koca,Aruz Koca,karakter_1,True,ok
+aruz koca,Aruz Koca,karakter_2,True,ok
+aruz koca (sütle besleyelim) - 1 kazan süt yetmedi,Aruz Koca,karakter_2,True,ok
+aruz ve dış oğuz beyleri,Aruz ve Dış Oğuz Beyleri,karakter_1,True,ok
+aruz ve dış oğuz beyleri,Aruz ve Dış Oğuz Beyleri,karakter_2,True,ok
+aruzun habercisi,Aruzun Habercisi,karakter_1,True,ok
+arşın oğlu direk tekfur,Arşın Oğlu Direk Tekfur,karakter_2,True,ok
+arşın oğlu direk tekfur,Arşın Oğlu Direk Tekfur,karakter_1,True,ok
+askerler,Askerler,karakter_2,True,ok
+askerleri,Askerleri,karakter_2,False,needs_manual_validation_stale_target
+aslan,Aslan,karakter_2,True,ok
+aslan,Aslan,karakter_1,True,ok
+aslan yatağı,Aslan Yatağı,karakter_2,True,ok
+at ağızlı aruz,At Ağızlı Aruz,karakter_2,True,ok
+at ağızlı aruz koca,At Ağızlı Aruz Koca,karakter_2,True,ok
+azrail,Azrail,karakter_2,True,ok
+azrail,Azrail,karakter_1,True,ok
+ağaç,Ağaç,karakter_2,True,ok
+bamsı - bezirganlar,Bamsı - Bezirganlar,karakter_2,False,needs_manual_validation_stale_target
+bamsı,Bamsı Beyrek,karakter_2,True,ok
+bamsı,Bamsı Beyrek,karakter_1,True,ok
+bamsı beyrek,Bamsı Beyrek,karakter_2,True,ok
+bamsı beyrek,Bamsı Beyrek,karakter_1,True,ok
+beyrek,Bamsı Beyrek,karakter_1,True,ok
+beyrek,Bamsı Beyrek,karakter_2,True,ok
+bamsı ve bamsının 40 yiğidi,Bamsı ve Bamsının 40 Yiğidi,karakter_2,True,ok
+bamsı'nın 40 yiğidi,Bamsı'nın 40 Yiğidi,event_aktor,True,ok
+bamsı'nın anne babası,Bamsı'nın Anne Babası,karakter_1,True,ok
+"bamsı'nın anne, babası","Bamsı'nın Anne, Babası",karakter_1,False,needs_manual_validation_stale_target
+bamsı'nın haberi gelince,Bamsı'nın Haberi Gelince,karakter_2,True,ok
+bamsı'nın haberi gelince siyah giyme yas tutma,Bamsı'nın Haberi Gelince Siyah Giyme Yas Tutma,karakter_2,True,ok
+bamsı'nın kız kardeşleri,Bamsı'nın Kız Kardeşleri,event_aktor,True,ok
+bamsı'nın naibi,Bamsı'nın Naibi,karakter_2,True,ok
+banu çiçek,Banu Çiçek,karakter_1,True,ok
+banu çiçek,Banu Çiçek,event_aktor,True,ok
+banu çiçek,Banu Çiçek,karakter_2,True,ok
+basat,Basat,karakter_1,True,ok
+basat,Basat,karakter_2,True,ok
+basat,Basat,event_aktor,True,ok
+"basat (kurtuldun mu?, basat tanrım kurtardı) çatışma",Basat,karakter_2,True,ok
+basatın dönüşünü muştuladı,Basat,event_hedef,True,ok
+basatın üzerindeki deriyi yakaladı; beni böyle vuracağını nasıl bildin diye sordu,Basat,karakter_2,True,ok
+basatın annesi,Basat'ın Annesi,karakter_2,True,ok
+bayat boyu,Bayat Boyu,karakter_2,True,ok
+bayburd hisarındaki kafirler,Bayburd Hisarındaki Kafirler,karakter_1,True,ok
+bayburt hisarı beyi,Bayburt Hisarı Beyi,karakter_2,True,ok
+bayburt hisrası meliki'nin kızı,Bayburt Hisrası Meliki'nin Kızı,karakter_2,True,ok
+bayındır han,Bayındır Han,karakter_1,True,ok
+bayındır han,Bayındır Han,karakter_2,True,ok
+"bayındır han (bu üçünü birine verelim, oğuza karakol olsun) fikir",Bayındır Han,karakter_2,True,ok
+dokuz tümen gürcistan'ın haracı geldi,Bayındır Han,event_aktor,True,ok
+bayındır han kazan,Bayındır Han Kazan,karakter_2,True,ok
+bayındır han'ın adamları,Bayındır Han'ın Adamları,karakter_2,True,ok
+begil,Begil,karakter_2,True,ok
+begil,Begil,karakter_1,True,ok
+begil,Begil,event_aktor,True,ok
+begil (bana zırhını ver düşmana karşı gideyim) ikna,Begil,karakter_2,True,ok
+begil avda ayağıı kırdı,Begil,event_aktor,True,ok
+begil bey,Begil Bey,karakter_2,False,needs_manual_validation_stale_target
+begil bey,Begil Bey,karakter_1,False,needs_manual_validation_stale_target
+begil'in adamları,Begil'in Adamları,karakter_2,True,ok
+begilin adamları,Begilin Adamları,karakter_2,False,needs_manual_validation_stale_target
+begilin atını gören kafir,Begilin Atını,event_aktor,True,ok
+begilin beyleri,Begilin Beyleri,event_aktor,True,ok
+begilin casusu,Begilin Casusu,karakter_1,True,ok
+begilin hısmı ve kavmi,Begilin Hısmı ve Kavmi,karakter_2,True,ok
+begilin karısı,Begilin Karısı,karakter_1,True,ok
+begilin karısı,Begilin Karısı,karakter_2,True,ok
+beyerek,Beyerek,karakter_2,True,ok
+beyler,Beyler,karakter_2,False,needs_manual_validation_stale_target
+beyler,Beyler,karakter_1,False,needs_manual_validation_stale_target
+beyler (diy0 ; kız çocuğum olsun diye dua edin; kızım olursa,Beyler,karakter_2,False,needs_manual_validation_stale_target
+beyleri,Beyler,karakter_1,False,needs_manual_validation_stale_target
+kendisi sarıp beyleri yanına geldi,Beyler,event_hedef,False,needs_manual_validation_stale_target
+beyler ve beyrek,Beyler ve Beyrek,karakter_2,True,ok
+beylere,Beylere,karakter_2,False,needs_manual_validation_stale_target
+beyleri,Beyleri,karakter_2,False,needs_manual_validation_stale_target
+beyrek,Beyrek,event_hedef,False,needs_manual_validation_stale_target
+"beyrek kızların yanına vardı; şurnaçları kovdu, nakaraçıları kovdu, dövdü, başını yardı",Beyrek,event_aktor,False,needs_manual_validation_stale_target
+beyrek'in yayı geldiğinde,Beyrek,event_aktor,False,needs_manual_validation_stale_target
+beyrek şölen yemeğini döktü,Beyrek Şölen Yemeğini Döktü,event_aktor,True,ok
+beyrek'in 40 adamı,Beyrek'in 40 Adamı,karakter_2,True,ok
+beyrek'in 40 yiğidi,Beyrek'in 40 Yiğidi,karakter_2,True,ok
+beyrek'in 40 yiğidi'ne kız verdi,Beyrek'in 40 Yiğidi,karakter_2,True,ok
+beyrek'in 40 yoldaşı,Beyrek'in 40 Yoldaşı,karakter_2,False,needs_manual_validation_stale_target
+beyrek'in ailesi,Beyrek'in Ailesi,event_aktor,True,ok
+beyrek'in anne babası,Beyrek'in Anne Babası,karakter_2,True,ok
+beyrek'in büyük kız kardeşi,Beyrek'in Büyük Kız Kardeşi,karakter_2,True,ok
+"beyrek'in kayın babası, kara göne","Beyrek'in Kayın Babası, Kara Göne",karakter_2,True,ok
+beyrek'in küçük kız kardeşi,Beyrek'in Küçük Kız Kardeşi,karakter_2,True,ok
+beyrek'in yedi kız kardeşi,Beyrek'in Yedi Kız Kardeşi,karakter_1,True,ok
+beyrek'in yoldaşları,Beyrek'in Yoldaşları,karakter_1,True,ok
+"beyrek, yigenek, kazan, kara budak, deli dündar, uruz","Beyrek, Yigenek, Kazan, Kara Budak, Deli Dündar, Uruz",event_aktor,True,ok
+beyrekin 40 yiğidi,Beyrekin 40 Yiğidi,karakter_2,False,needs_manual_validation_stale_target
+beyrekin adamları,Beyrekin Adamları,karakter_2,False,needs_manual_validation_stale_target
+beyrekin anne babası,Beyrekin Anne Babası,karakter_1,False,needs_manual_validation_stale_target
+bezirganlar,Bezirganlar,karakter_2,True,ok
+bezirganlar,Bezirganlar,karakter_1,True,ok
+bezirganların büyüğü pay püre'nin oğlu,Bezirganların Büyüğü Pay Püre'nin Oğlu,event_aktor,True,ok
+değil misin,Bir Kişi,karakter_1,False,needs_manual_validation_stale_target
+boyu uzun burla hatun ve 40 ince belli kız,Boyu Uzun Burla Hatun ve 40 Ince Belli Kız,karakter_1,True,ok
+boğa,Boğa,karakter_2,True,ok
+boğayı getiren kafirler,Boğayı Getiren Kafirler,karakter_1,True,ok
+boğazça fatma,Boğazça Fatma,karakter_2,True,ok
+boğazça fatma,Boğazça Fatma,karakter_1,True,ok
+boğaç,Boğaç,karakter_2,True,ok
+boğaç,Boğaç,karakter_1,True,ok
+boğaç han,Boğaç Han,karakter_1,True,ok
+boğaç han,Boğaç Han,karakter_2,True,ok
+Boğaç ve boğaç'ın 40 adamı,Boğaç ve Boğaç'ın 40 Adamı,karakter_1,True,ok
+boğaç'ın 40 adamı,Boğaç'ın 40 Adamı,karakter_2,True,ok
+boğaçuk melik,Boğaçuk Melik,karakter_2,True,ok
+burla,Burla,karakter_1,False,needs_manual_validation_stale_target
+burla,Burla,karakter_2,False,needs_manual_validation_stale_target
+burla hatun,Burla Hatun,karakter_1,True,ok
+burla hatun,Burla Hatun,karakter_2,True,ok
+buğaçuk melik,Buğaçuk Melik,karakter_2,True,ok
+bıyığı kanlı bügdüz emen,Bıyığı Kanlı Bügdüz Emen,karakter_1,True,ok
+cebrail,Cebrail,karakter_2,True,ok
+cilasun yiğitler ve kara budak,Cilasun Yiğitler ve Kara Budak,karakter_1,True,ok
+cilasun yiğitleri ve deli dündar,Cilasun Yiğitleri ve Deli Dündar,karakter_1,True,ok
+dadı,Dadı,karakter_2,True,ok
+dadı ve diğer kızlar,Dadı ve Diğer Kızlar,karakter_2,True,ok
+dadılar,Dadılar,karakter_1,True,ok
+dayalar (çevresine),Dayalar,karakter_2,True,ok
+Dede korkut,Dede Korkut,karakter_1,True,ok
+dede korkut,Dede Korkut,karakter_1,True,ok
+dede korkut,Dede Korkut,karakter_2,True,ok
+"dede korkut (her yıl altın, akçe gelirdi beylere dağıtırdık, 1 at 1 kılıç 1 çomak bunları kime verelim de hatırı hoş olsun), danışma",Dede Korkut,karakter_2,True,ok
+deli budak,Deli Budak,karakter_1,True,ok
+deli dumrul,Deli Dumrul,karakter_1,True,ok
+deli dumrul,Deli Dumrul,event_aktor,True,ok
+deli dumrul,Deli Dumrul,karakter_2,True,ok
+deli durmrul,Deli Durmrul,karakter_1,True,ok
+deli dündar,Deli Dündar,karakter_1,True,ok
+deli karçar,Deli Karçar,event_aktor,True,ok
+deli karçar,Deli Karçar,karakter_1,True,ok
+deli karçar,Deli Karçar,karakter_2,True,ok
+demir donlu mamak,Demir Donlu Mamak,karakter_1,True,ok
+demir güci,Demir Güci,karakter_2,True,ok
+deve,Deve,karakter_2,True,ok
+deyiş,Deyiş,karakter_2,True,ok
+direk tekfur,Direk Tekfur,karakter_1,True,ok
+direk tekfur,Direk Tekfur,karakter_2,True,ok
+Dirse,Dirse Han,karakter_1,True,ok
+Dirse,Dirse Han,karakter_2,True,ok
+Dirse han,Dirse Han,karakter_2,True,ok
+dirse,Dirse Han,karakter_2,True,ok
+dirse,Dirse Han,karakter_1,True,ok
+Dirse Han'ın 40 adamı,Dirse Han'ın 40 Adamı,karakter_1,True,ok
+Dirse han'ın 40 adamı,Dirse Han'ın 40 Adamı,karakter_1,True,ok
+dirse han'ın 40 adamı,Dirse Han'ın 40 Adamı,karakter_1,True,ok
+Dirse han'ın Karısı,Dirse Han'ın Karısı,karakter_2,True,ok
+Dirse'nin 40 adamı,Dirse'nin 40 Adamı,karakter_1,False,needs_manual_validation_stale_target
+Dirse'nin 40 adamı,Dirse'nin 40 Adamı,karakter_2,False,needs_manual_validation_stale_target
+dirse'nin 40 adamı,Dirse'nin 40 Adamı,karakter_1,False,needs_manual_validation_stale_target
+dirse'nin 40 adamı,Dirse'nin 40 Adamı,karakter_2,False,needs_manual_validation_stale_target
+Dirse'nin karısı,Dirse'nin Karısı,karakter_1,False,needs_manual_validation_stale_target
+dirse'nin karısı,Dirse'nin Karısı,karakter_2,False,needs_manual_validation_stale_target
+doksan tümen oğuz,Doksan Tümen Oğuz,karakter_2,True,ok
+dokuz kafir kızı,Dokuz Kafir Kızı,event_aktor,True,ok
+dokuz tümen oğuz,Dokuz Tümen Oğuz,karakter_2,True,ok
+dua,Dua,event_hedef,True,ok
+duha koca,Duha Koca,karakter_2,True,ok
+duha koca,Duha Koca,karakter_1,True,ok
+dumrul,Dumrul,karakter_2,True,ok
+dumrul,Dumrul,karakter_1,True,ok
+dumrul'un 40 adamı,Dumrul'un 40 Adamı,karakter_2,True,ok
+dumrul'un annesi,Dumrul'un Annesi,karakter_2,True,ok
+dumrul'un annesi,Dumrul'un Annesi,karakter_1,True,ok
+dumrul'un karısı,Dumrul'un Karısı,karakter_2,True,ok
+dumrul'un karısı,Dumrul'un Karısı,karakter_1,True,ok
+dönebilmez dülek evren,Dönebilmez Dülek Evren,karakter_2,True,ok
+dönebilmez dülek evren,Dönebilmez Dülek Evren,karakter_1,True,ok
+dönebilmez dülerk evren,Dönebilmez Dülerk Evren,karakter_2,True,ok
+düzen,Düzen,karakter_2,True,ok
+düzen,Düzen,event_hedef,True,ok
+alp rüstem meydana geldi,Düzen Oğlu Alp Rüstem,event_aktor,True,ok
+düzen oğlu alp rüstem,Düzen Oğlu Alp Rüstem,karakter_1,True,ok
+düzen oğlu alp rüstem,Düzen Oğlu Alp Rüstem,karakter_2,True,ok
+düzmürd kalesi tekfuru arşın,Düzmürd Kalesi Tekfuru Arşın,karakter_2,True,ok
+düğün için hazırlık,Düğün Için Hazırlık,karakter_2,False,needs_manual_validation_stale_target
+Dış Oğuz ağaları,Dış Oğuz Ağaları,karakter_2,True,ok
+dış oğuz beyleri,Dış Oğuz Beyleri,karakter_2,True,ok
+dış oğuz beyleri,Dış Oğuz Beyleri,karakter_1,True,ok
+dış oğuz beyleri,Dış Oğuz Beyleri,event_aktor,True,ok
+dış oğuz beyleri ve deli dündar,Dış Oğuz Beyleri ve Deli Dündar,karakter_1,True,ok
+egrek,Egrek,karakter_1,True,ok
+egrek,Egrek,event_aktor,True,ok
+egrek,Egrek,karakter_2,True,ok
+egrek ve 300 akıncı,Egrek ve 300 Akıncı,event_aktor,True,ok
+egrek ve 300 akıncı,Egrek ve 300 Akıncı,karakter_2,True,ok
+egrek ve segrek,Egrek ve Segrek,karakter_1,True,ok
+egreke yol gösterdi,Egreke Yol Gösterdi,karakter_2,True,ok
+emen,Emen,event_aktor,True,ok
+emen,Emen,karakter_2,True,ok
+emen,Emen,karakter_1,True,ok
+emren,Emren,karakter_1,True,ok
+emren,Emren,karakter_2,True,ok
+ense koca oğlu okçu,Ense Koca Oğlu Okçu,karakter_2,True,ok
+evnük kalesi kafirleri,Evnük Kalesi Kafirleri,karakter_1,True,ok
+evnük kalesi kafirleri,Evnük Kalesi Kafirleri,karakter_2,True,ok
+eylik koca,Eylik Koca,karakter_2,True,ok
+eylik koca dönebilmez dülek evren,Eylik Koca Dönebilmez Dülek Evren,karakter_2,True,ok
+eylik koca oğlu saru kulmaş,Eylik Koca Oğlu Saru Kulmaş,karakter_1,True,ok
+gelen diğer dadılar,Gelen Diğer Dadılar,karakter_2,True,ok
+haberci,Haberci,karakter_2,True,ok
+haberci,Haberci,karakter_1,True,ok
+han kızı boyu uzun burla hatun,Han Kızı Boyu Uzun Burla Hatun,karakter_1,False,needs_manual_validation_stale_target
+hekimler,Hekimler,karakter_2,True,ok
+imrahor,Imrahor,karakter_2,True,ok
+iç oğuz beyleri,Iç Oğuz Beyleri,karakter_2,False,needs_manual_validation_stale_target
+"iç oğuz beyleri, dış oğuz beyleri, pay püre bey, kara budak, uruz, bey yigenek, salur kazan, pay biçen","Iç Oğuz Beyleri, Dış Oğuz Beyleri, Pay Püre Bey, Kara Budak, Uruz, Bey Yigenek, Salur Kazan, Pay Biçen",karakter_2,True,ok
+iç oğuz ve kazan,Iç Oğuz ve Kazan,karakter_1,True,ok
+kadınlar,Kadınlar,karakter_1,True,ok
+kafir,Kafir,karakter_1,True,ok
+kafir,Kafir,karakter_2,True,ok
+kafir askeri,Kafir Askeri,karakter_1,True,ok
+kafir beyi'nin kızı,Kafir Beyi'nin Kızı,karakter_1,True,ok
+kafir beyinin kızı,Kafir Beyinin Kızı,karakter_1,False,needs_manual_validation_stale_target
+kafir eri,Kafir Eri,karakter_2,True,ok
+kafir gözcüsü,Kafir Gözcüsü,karakter_1,True,ok
+kafir ordusu,Kafir Ordusu,karakter_2,True,ok
+kafirin 40 atlısı,Kafirin 40 Atlısı,karakter_1,True,ok
+kafirin casusu,Kafirin Casusu,karakter_1,True,ok
+kafirin causu,Kafirin Causu,karakter_1,True,ok
+kafirin sancağını kılıçladı,Kafirin Sancağını Kılıçladı,karakter_2,True,ok
+kafirin sağına saldırdılar,Kafirin Sağına Saldırdılar,karakter_2,True,ok
+kafirin soluna saldırdılar,Kafirin Soluna Saldırdılar,karakter_2,True,ok
+kafirler,Kafirler,karakter_2,False,needs_manual_validation_stale_target
+kafirler,Kafirler,karakter_1,False,needs_manual_validation_stale_target
+kafirler,Kafirler,event_aktor,False,needs_manual_validation_stale_target
+kafirlere,Kafirlere,karakter_2,True,ok
+kafirlerin sağ cenahı,Kafirlerin Sağ Cenahı,karakter_2,True,ok
+kalenin sığır çobanı,Kalenin Sığır Çobanı,karakter_1,True,ok
+kaleye hucüm edenler,Kaleye Hücum Edenler,karakter_1,True,ok
+kam gan,Kam Gan,karakter_2,True,ok
+kan turalı,Kan Turalı,karakter_1,True,ok
+kan turalı,Kan Turalı,karakter_2,True,ok
+kan turalı ve 40 adamı,Kan Turalı ve 40 Adamı,event_aktor,True,ok
+kan turalı ve 40 adamına hürmet gösteriyor,Kan Turalı ve 40 Adamına Hürmet Gösteriyor,karakter_2,False,needs_manual_validation_stale_target
+kan turalı ve adamları,Kan Turalı ve Adamları,karakter_2,True,ok
+kan turalı ve selcan hatun,Kan Turalı ve Selcan Hatun,karakter_2,False,needs_manual_validation_stale_target
+kan turalı ve selcen hatun,Kan Turalı ve Selcen Hatun,karakter_1,True,ok
+kan turalı'nın adamları,Kan Turalı'nın Adamları,karakter_1,True,ok
+kan turalı'nın adamları,Kan Turalı'nın Adamları,karakter_2,True,ok
+kan turalı'nın40 adamı,Kan Turalı'nın40 Adamı,karakter_1,True,ok
+kan turalının 40 adamı,Kan Turalının 40 Adamı,karakter_2,True,ok
+kan turalının adamları,Kan Turalının Adamları,karakter_1,False,needs_manual_validation_stale_target
+kan turalının anne babası,Kan Turalının Anne Babası,karakter_2,True,ok
+kan turalının anne babası,Kan Turalının Anne Babası,karakter_1,True,ok
+kan turalıyı görünce ona tutuluyor keşke babam beni buna verse,Kan Turalıyı Görünce Ona Tutuluyor Keşke Babam Beni Buna Verse,karakter_1,True,ok
+kanlı koca,Kanlı Koca,karakter_2,True,ok
+kanlı koca,Kanlı Koca,karakter_1,True,ok
+kanlı koca,Kanlı Koca,event_aktor,True,ok
+kapçak melik,Kapçak Melik,karakter_1,True,ok
+kapıcı,Kapıcı,karakter_2,True,ok
+kara arslan melik,Kara Arslan Melik,karakter_2,True,ok
+kara budak,Kara Budak,karakter_2,True,ok
+kara budak,Kara Budak,karakter_1,True,ok
+"kara budak, kazan oğlu uruz, beyler başı yigenek, gaflet koca oğlu şir şemseddin, deli karçar, düğünde ok atarlar","Kara Budak, Kazan Oğlu Uruz, Beyler Başı Yigenek, Gaflet Koca Oğlu Şir Şemseddin, Deli Karçar, Düğünde Ok Atarlar",karakter_1,True,ok
+kara göne,Kara Göne,karakter_2,True,ok
+kara göne,Kara Göne,karakter_1,True,ok
+kara göne oğlu kara budak,Kara Göne Oğlu Kara Budak,karakter_1,True,ok
+kara göne ve askerler,Kara Göne ve Askerler,event_aktor,True,ok
+kara göne ve askerleri,Kara Göne ve Askerleri,karakter_2,True,ok
+"kara göne, deli dündar, kara budak","Kara Göne, Deli Dündar, Kara Budak",karakter_1,True,ok
+kara tekfur,Kara Tekfur,karakter_2,True,ok
+kara tekfurun casusu,Kara Tekfurun Casusu,karakter_1,True,ok
+kara tüken melik,Kara Tüken Melik,karakter_2,True,ok
+kara çekür,Kara Çekür,karakter_2,True,ok
+karavaş,Karavaş,karakter_2,True,ok
+karavaş,Karavaş,karakter_1,True,ok
+karaçuk çoban,Karaçuk Çoban,karakter_2,True,ok
+karaçuk çoban,Karaçuk Çoban,karakter_1,True,ok
+karaçuk çoban'ın kara köpeği,Karaçuk Çoban'ın Kara Köpeği,karakter_2,True,ok
+karısı,Karısı,karakter_2,True,ok
+karısı,Karısı,karakter_1,True,ok
+karısına,Karısına,karakter_2,True,ok
+kayın ata - kayın anası,Kayın Ata - Kayın Anası,karakter_2,True,ok
+kazan,Kazan,karakter_2,False,needs_manual_validation_stale_target
+kazan,Kazan,karakter_1,False,needs_manual_validation_stale_target
+"kazan (and iç bize düşmanlık yapmayacağına, oğuzu kötüle bizi öv, seni bırakalım); ikna; tamam gelmem",Kazan,karakter_2,False,needs_manual_validation_stale_target
+"kazan (düşmanı kovarsan, bir daha üzerimize gelmemek şartıyla seni bırakırız) ikna",Kazan,karakter_2,False,needs_manual_validation_stale_target
+kazan (kazana hucüm etti); çatışma,Kazan,karakter_2,False,needs_manual_validation_stale_target
+kazan üzüldü,Kazan,event_hedef,False,needs_manual_validation_stale_target
+"uruz, sağında kardeşi kara göne, sol tarafında dayısı at ağızlı aruz",Kazan,event_aktor,False,needs_manual_validation_stale_target
+şahin tomanın kalesine gitti,Kazan,event_aktor,False,needs_manual_validation_stale_target
+kazan bey,Kazan Bey,karakter_1,False,needs_manual_validation_stale_target
+"kazan kardeşi kara göne, kıyan selçuk oğlu deli dündar, gaflet koca oğlu şir şemseddin, beyrek, kazılık koca oğlu bey yigenek, dör boyun okşayan deli dündar, bin kavim başları düger, bin bügdüz başları emen, dokuz koca başları aruz, kazan'ın beyleri","Kazan Kardeşi Kara Göne, Kıyan Selçuk Oğlu Deli Dündar, Gaflet Koca Oğlu Şir Şemseddin, Beyrek, Kazılık Koca Oğlu Bey Yigenek, Dör Boyun Okşayan Deli Dündar, Bin Kavim Başları Düger, Bin Bügdüz Başları Emen, Dokuz Koca Başları Aruz, Kazan'ın Beyleri",karakter_1,True,ok
+kazan ve askerleri,Kazan ve Askerleri,karakter_1,True,ok
+kazan ve bayındır han,Kazan ve Bayındır Han,karakter_1,True,ok
+kazan ve beyler,Kazan ve Beyler,karakter_1,True,ok
+kazan ve karaçuk çoban,Kazan ve Karaçuk Çoban,karakter_1,True,ok
+kazan'ın adamları,Kazan'ın Adamları,karakter_1,True,ok
+kazan'ın adamları,Kazan'ın Adamları,karakter_2,True,ok
+kazan'ın adamı,Kazan'ın Adamı,karakter_2,True,ok
+kazan'ın evi,Kazan'ın Evi,karakter_2,True,ok
+kazan'ın kardeşi kara göne,Kazan'ın Kardeşi Kara Göne,karakter_1,True,ok
+kazan'ın karıçuk anası,Kazan'ın Karıçuk Anası,karakter_1,True,ok
+"kazan, uruz ve askerler","Kazan, Uruz ve Askerler",event_aktor,True,ok
+"kazan, uruz ve askerleri","Kazan, Uruz ve Askerleri",karakter_2,True,ok
+kazanın askerleri,Kazanın Askerleri,karakter_1,True,ok
+kazanın kardeşi kara göne,Kazanın Kardeşi Kara Göne,karakter_1,False,needs_manual_validation_stale_target
+kazılık koca,Kazılık Koca,event_aktor,True,ok
+kazılık koca,Kazılık Koca,karakter_2,True,ok
+kazılık koca,Kazılık Koca,karakter_1,True,ok
+kazılık koca oğlu bey yigenek,Kazılık Koca Oğlu Bey Yigenek,karakter_1,True,ok
+kendi aralarında,Kendi Aralarında,karakter_2,False,needs_manual_validation_stale_target
+kendi kendine,Kendi Kendine,karakter_2,False,needs_manual_validation_stale_target
+kendisi,Kendisi,karakter_2,False,needs_manual_validation_stale_target
+keşişler,Keşişler,karakter_2,True,ok
+kişi,Kişi,karakter_2,False,needs_manual_validation_stale_target
+kişi,Kişi,karakter_1,False,needs_manual_validation_stale_target
+kocalar,Kocalar,karakter_2,True,ok
+kocalar,Kocalar,karakter_1,True,ok
+kocaları,Kocaları,karakter_2,False,needs_manual_validation_stale_target
+konur koca sarı çoban,Konur Koca Sarı Çoban,event_aktor,True,ok
+kurt,Kurt,karakter_2,True,ok
+köprünün yanına konan oba,Köprünün Yanına Konan Oba,event_aktor,True,ok
+kılbaş,Kılbaş,karakter_2,True,ok
+kılbaş,Kılbaş,karakter_1,True,ok
+kılbaş ve kara göne,Kılbaş ve Kara Göne,karakter_1,True,ok
+kılbaş ve kara göne,Kılbaş ve Kara Göne,karakter_2,True,ok
+kırk kınuk,Kırk Kınuk,karakter_1,True,ok
+kısırca yenge,Kısırca Yenge,karakter_1,True,ok
+kısırca yenge,Kısırca Yenge,karakter_2,True,ok
+kıyan güci,Kıyan Güci,karakter_2,True,ok
+kıyan selçuk,Kıyan Selçuk,karakter_2,True,ok
+kıyan selçuk,Kıyan Selçuk,event_aktor,True,ok
+kıyan selçuk oğlu deli dündar,Kıyan Selçuk Oğlu Deli Dündar,karakter_1,True,ok
+kıyan selçuk oğlu deli dündar,Kıyan Selçuk Oğlu Deli Dündar,karakter_2,True,ok
+kıyan selçık,Kıyan Selçık,karakter_1,True,ok
+meclise (bunları kime verelim) kimse razı olmadı,Meclis,karakter_2,True,ok
+nesne,Nesne,karakter_2,True,ok
+oba,Oba,karakter_2,True,ok
+oynadığı oğlanlar,Oynadığı Oğlanlar,karakter_2,True,ok
+ozan,Ozan,karakter_2,True,ok
+oğlu ve 40 adamı,Oğlu ve 40 Adamı,karakter_2,True,ok
+oğlunu veren kadın,Oğlunu Veren Kadın,karakter_1,True,ok
+oğuz,Oğuz,karakter_2,True,ok
+oğuz,Oğuz,karakter_1,True,ok
+oğuz (diy0; yapılan anlaşmayı anlatıyor) oğuz ikna,Oğuz,karakter_2,True,ok
+oğuz askerleri,Oğuz Askerleri,karakter_1,True,ok
+oğuz askerleri,Oğuz Askerleri,karakter_2,True,ok
+oğuz beyleri,Oğuz Beyleri,karakter_2,True,ok
+oğuz beyleri,Oğuz Beyleri,event_aktor,True,ok
+oğuz beyleri,Oğuz Beyleri,karakter_1,True,ok
+oğuz han,Oğuz Han,karakter_2,True,ok
+oğuz han'ın lıkçısı,Oğuz Han'ın Lıkçısı,karakter_1,True,ok
+pay piçen bey,Pay Piçen Bey,karakter_1,True,ok
+pay püre,Pay Püre,karakter_2,True,ok
+pay püre,Pay Püre,karakter_1,True,ok
+pay püre,Pay Püre,event_aktor,True,ok
+pay püre bey,Pay Püre Bey,karakter_1,True,ok
+pay püre bey,Pay Püre Bey,karakter_2,True,ok
+pay püre bey'in ordusu,Pay Püre Bey'in Ordusu,karakter_1,True,ok
+pay püre'nin oğlu,Pay Püre'nin Oğlu,karakter_1,True,ok
+paypüre,Paypüre,karakter_2,True,ok
+peri,Peri,karakter_2,True,ok
+peri kızı,Peri Kızı,karakter_1,True,ok
+peygamber sahabesi kanlı bügdüz emen,Peygamber Sahabesi Kanlı Bügdüz Emen,karakter_1,True,ok
+saht oldu,Saht Oldu,karakter_2,True,ok
+salur kazan,Salur Kazan,karakter_1,True,ok
+sarı çoban,Sarı Çoban,karakter_1,True,ok
+sarı çoban,Sarı Çoban,karakter_2,True,ok
+segerk,Segerk,karakter_2,True,ok
+segrek,Segrek,karakter_1,True,ok
+segrek,Segrek,karakter_2,True,ok
+segrek,Segrek,event_aktor,True,ok
+segrekin karısı,Segrekin Karısı,event_aktor,True,ok
+segrekin karısı,Segrekin Karısı,karakter_1,True,ok
+selcen,Selcen,karakter_2,False,needs_manual_validation_stale_target
+selcen hatun,Selcen Hatun,karakter_1,True,ok
+selcen hatun,Selcen Hatun,karakter_2,True,ok
+selcen hatun,Selcen Hatun,event_aktor,True,ok
+su,Su,karakter_2,True,ok
+Allah Tanrı,Tanrı,karakter_2,True,ok
+Allah Tanrı,Tanrı,karakter_1,True,ok
+tanrı,Tanrı,karakter_1,True,ok
+tanrı,Tanrı,karakter_2,True,ok
+tatyan kalesi casusları,Tatyan Kalesi Casusları,karakter_1,True,ok
+tekfur,Tekfur,karakter_2,False,needs_manual_validation_stale_target
+tekfur,Tekfur,karakter_1,False,needs_manual_validation_stale_target
+tekfur,Tekfur,event_aktor,False,needs_manual_validation_stale_target
+tekfur (kazanı düşmanın üstüne gönderelim kazanı) ikna,Tekfur,karakter_2,False,needs_manual_validation_stale_target
+tekfur ve çevresi,Tekfur ve Çevresi,event_aktor,False,needs_manual_validation_stale_target
+tekfur ve şökli melik,Tekfur ve Şökli Melik,karakter_2,True,ok
+"tekfur, 100 kafir çevresinde","Tekfur, 100 Kafir Çevresinde",karakter_1,False,needs_manual_validation_stale_target
+tekfurun,Tekfurun,karakter_2,True,ok
+tekfurun adamları,Tekfurun Adamları,karakter_1,True,ok
+tekfurun adamları,Tekfurun Adamları,karakter_2,True,ok
+tekfurun askerleri,Tekfurun Askerleri,karakter_2,True,ok
+tekfurun askerleri,Tekfurun Askerleri,karakter_1,True,ok
+tekfurun beyleri,Tekfurun Beyleri,karakter_1,True,ok
+tekfurun beyleri (ben yer üstünde adam övmem bir adam getirin onun üstüne binip sizi öveyim) ikna,Tekfurun Beyleri,karakter_2,True,ok
+"tekfurun beyleri (kazanı kuyudan çıkaralım, oğuzu kötülesin, bir daha bize düşmanlık etmesin salalım) ikna",Tekfurun Beyleri,karakter_2,True,ok
+tekfurun casusu,Tekfurun Casusu,karakter_1,True,ok
+tekfurun kardeşinin oğlu,Tekfurun Kardeşinin Oğlu,karakter_1,True,ok
+tekfurun karısı,Tekfurun Karısı,karakter_1,True,ok
+tekfurun karısı,Tekfurun Karısı,karakter_2,True,ok
+tepegöz,Tepegöz,karakter_2,True,ok
+tepegöz,Tepegöz,karakter_1,True,ok
+tepegöz,Tepegöz,event_aktor,True,ok
+tepegöz (tepegözün gözüne mil çekti) çatışma,Tepegöz,karakter_2,True,ok
+tepegözden şikayetçi olan ana babalar,Tepegözden Şikayetçi Olan Ana Babalar,karakter_1,True,ok
+tepegözün peri annesi,Tepegözün Peri Annesi,karakter_1,True,ok
+ters uzamış,Ters Uzamış,karakter_1,True,ok
+ters uzamış,Ters Uzamış,karakter_2,True,ok
+trabzon tekfuru,Trabzon Tekfuru,event_aktor,True,ok
+trabzon tekfuru,Trabzon Tekfuru,karakter_1,True,ok
+trabzon tekfurunun,Trabzon Tekfuru,karakter_2,True,ok
+ulaş,Ulaş,karakter_2,True,ok
+bir kişi - uruz (sen kazanın,Uruz,karakter_2,True,ok
+uruz,Uruz,karakter_2,True,ok
+uruz,Uruz,karakter_1,True,ok
+uruz ve 300 asker,Uruz ve 300 Asker,karakter_2,True,ok
+uruz ve uruzun 40 askeri,Uruz ve Uruzun 40 Askeri,karakter_1,True,ok
+uruz'un 40 askeri,Uruz'un 40 Askeri,karakter_2,True,ok
+"uruz'un sağ yanında yer gösterdi, cübbe giydirdi","Uruz'un Sağ Yanında Yer Gösterdi, Cübbe Giydirdi",karakter_1,True,ok
+kazan'ın çevresi; karşısında,"Uruz, Kara Göne ve At Ağızlı Aruz",event_hedef,True,ok
+uruzun 40 adamını şehit ettiler,Uruzun 40 Adamını Şehit Ettiler,karakter_2,True,ok
+uruzun annesi,Uruzun Annesi,karakter_1,True,ok
+uzun boylu burla hatun,Uzun Boylu Burla Hatun,karakter_1,False,needs_manual_validation_stale_target
+uzun boylu burla hatun,Uzun Boylu Burla Hatun,karakter_2,False,needs_manual_validation_stale_target
+uşun koca,Uşun Koca,karakter_1,True,ok
+uşun koca,Uşun Koca,karakter_2,True,ok
+uşun koca oğlu,Uşun Koca Oğlu,karakter_1,True,ok
+uşun koca oğlu'nun 2 kardeşi,Uşun Koca Oğlu'nun 2 Kardeşi,karakter_1,True,ok
+uşun koca ve karısı,Uşun Koca ve Karısı,karakter_1,True,ok
+uşun koca ve karısı,Uşun Koca ve Karısı,karakter_2,True,ok
+uşun koca ve karısı,Uşun Koca ve Karısı,event_aktor,True,ok
+uşun kocanın büyük,Uşun Kocanın Büyük,karakter_2,True,ok
+uşun kocanın küçük,Uşun Kocanın Küçük,karakter_2,True,ok
+yalancı oğlu yaltaçuk,Yalancı Oğlu Yaltaçuk,karakter_1,False,needs_manual_validation_stale_target
+yalançı oğlu yaltaçuk,Yalançı Oğlu Yaltaçuk,karakter_1,True,ok
+yalançı oğlu yaltaçuk,Yalançı Oğlu Yaltaçuk,karakter_2,True,ok
+yaltaçuk,Yaltaçuk,karakter_1,False,needs_manual_validation_stale_target
+yaltaçuk,Yaltaçuk,event_aktor,False,needs_manual_validation_stale_target
+yaltaçuk,Yaltaçuk,karakter_2,False,needs_manual_validation_stale_target
+yarar kocalar,Yarar Kocalar,karakter_2,True,ok
+yaşlı kadın,Yaşlı Kadın,karakter_2,True,ok
+yaşlı kadın,Yaşlı Kadın,event_aktor,True,ok
+yedi kafir beyi,Yedi Kafir Beyi,karakter_2,True,ok
+yedi yiğit,Yedi Yiğit,karakter_2,True,ok
+yigenek,Yigenek,karakter_2,True,ok
+yigenek,Yigenek,karakter_1,True,ok
+yigenek ve sancak beyleri,Yigenek ve Sancak Beyleri,karakter_2,True,ok
+yiğit,Yiğit,karakter_1,True,ok
+yoldadşları,Yoldadşları,karakter_2,False,needs_manual_validation_stale_target
+yurt,Yurt,karakter_2,True,ok
+Yüz bin kâfir,Yüz Bin Kâfir,karakter_2,True,ok
+zindancı,Zindancı,karakter_2,True,ok
+çekişen öksüzle diğer çocuğu ayırığ tokat attı,Çekişen Öksüzle Diğer Çocuğu Ayırığ Tokat Attı,karakter_2,True,ok
+çevresindekilere,Çevresindekilere,karakter_2,False,needs_manual_validation_stale_target
+çevresine,Çevresine,karakter_2,False,needs_manual_validation_stale_target
+çevresine hediyeler dağıtıyor,Çevresine Hediyeler Dağıtıyor,karakter_2,False,needs_manual_validation_stale_target
+çoban,Çoban,karakter_2,True,ok
+çoban,Çoban,event_aktor,True,ok
+çobanlar,Çobanlar,karakter_2,True,ok
+öksüz çocuk,Öksüz Çocuk,karakter_1,True,ok
+öksüz çocuk,Öksüz Çocuk,karakter_2,True,ok
+İç Oğuz beyleri,İç Oğuz Beyleri,karakter_2,True,ok
+şir şemseddin,Şir Şemseddin,karakter_2,True,ok
+şökli melik,Şökli Melik,karakter_2,True,ok
+şökli melik,Şökli Melik,karakter_1,True,ok
+şökli melik ve adamları,Şökli Melik ve Adamları,karakter_1,True,ok
+Kazan,Salur Kazan,v2_standardizasyon,True,ok
+Kazan Bey,Salur Kazan,v2_standardizasyon,True,ok
+Beyrek,Bamsı Beyrek,v2_standardizasyon,True,ok
+Dirse'nin 40 Adamı,Dirse Han'ın 40 Adamı,v2_standardizasyon,True,ok
+Dirse'nin Karısı,Dirse Han'ın Karısı,v2_standardizasyon,True,ok
+"Bamsı'nın Anne, Babası",Bamsı'nın Anne Babası,v2_standardizasyon,True,ok
+Beyrekin 40 Yiğidi,Beyrek'in 40 Yiğidi,v2_standardizasyon,True,ok
+Beyrekin Adamları,Beyrek'in Adamları,v2_standardizasyon,True,ok
+Beyrekin Anne Babası,Beyrek'in Anne Babası,v2_standardizasyon,True,ok
+begilin adamları,Begil'in Adamları,v3_normalizasyon,True,ok
+anne babası,Anne ve Babası,v3_normalizasyon,True,ok
+kocaları,Kocalar,v3_normalizasyon,True,ok
+iç oğuz,İç Oğuz,v3_normalizasyon,True,ok
+iç oğuz beyleri,İç Oğuz Beyleri,v3_normalizasyon,True,ok
+yalancı oğlu yaltaçuk,Yalançı Oğlu Yaltaçuk,v3_normalizasyon,True,ok
+yaltaçuk,Yalançı Oğlu Yaltaçuk,v3_normalizasyon,True,ok
+selcen,Selcen Hatun,v3_normalizasyon,True,ok
+burla,Burla Hatun,v3_normalizasyon,True,ok
+uzun boylu burla hatun,Burla Hatun,v3_normalizasyon,True,ok
+begil bey,Begil,v3_normalizasyon,True,ok
+kan turalı ve selcan hatun,Kan Turalı ve Selcen Hatun,v3_normalizasyon,True,ok
+yoldadşları,Yoldaşları,v3_normalizasyon,True,ok
+beyrek'in 40 yoldaşı,Beyrek'in 40 Yoldaşları,v3_normalizasyon,True,ok
+"tekfur, 100 kafir çevresinde",Tekfur ve 100 Kafir,v3_normalizasyon,True,ok
+tekfur ve çevresi,Tekfurun Çevresi,v3_normalizasyon,True,ok

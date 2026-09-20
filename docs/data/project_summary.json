@@ -1,0 +1,33 @@
+{
+  "generated_from": "src/build_site_data.py (Phase 15)",
+  "dataset": {
+    "stories": 14,
+    "actors": 332,
+    "relations_event_level": 628,
+    "narrative_events": 85,
+    "relation_layers": 7
+  },
+  "validation_status": {
+    "status": "WARNING",
+    "fail_level_issue_count": 0,
+    "warning_level_issue_count": 468,
+    "detail_source": "outputs/validation/summary.json"
+  },
+  "corpus_network_g0": {
+    "nodes": 311,
+    "edges": 376,
+    "density": 0.0078,
+    "connected_components": 23
+  },
+  "community_detection": {
+    "network": "G2_core_social",
+    "leiden_modularity": 0.695,
+    "leiden_n_communities": 33,
+    "caveat": "G2_core_social has 23 connected components; the raw community count is partly inflated by trivial isolated-component partitions - see Methodology."
+  },
+  "pipeline": {
+    "n_stages": 27,
+    "n_network_models": 12,
+    "n_tests_collected": 70
+  }
+}

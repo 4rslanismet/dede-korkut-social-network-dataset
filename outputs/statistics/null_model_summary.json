@@ -1,0 +1,385 @@
+{
+  "mode": "full",
+  "n_random": 1000,
+  "seed": 42,
+  "results": {
+    "G0_full": {
+      "network": "G0_full",
+      "n_nodes": 311,
+      "n_edges": 376,
+      "status": "computed",
+      "n_random": 1000,
+      "seed": 42,
+      "metrics": {
+        "clustering": {
+          "observed": 0.07130364260642587,
+          "random_mean": 0.03740238634595572,
+          "random_std": 0.008603730507351866,
+          "z_score": 3.940297320040605,
+          "percentile": 99.9,
+          "empirical_p": 0.001998001998001998
+        },
+        "transitivity": {
+          "observed": 0.040797186400937865,
+          "random_mean": 0.033174676524953796,
+          "random_std": 0.005847845768505344,
+          "z_score": 1.3034731382685412,
+          "percentile": 89.1,
+          "empirical_p": 0.1978021978021978
+        },
+        "degree_assortativity": {
+          "observed": -0.19204317547924368,
+          "random_mean": -0.17250041460003285,
+          "random_std": 0.008992913020277427,
+          "z_score": -2.173129088999901,
+          "percentile": 1.7999999999999998,
+          "empirical_p": 0.03196803196803197
+        },
+        "modularity_louvain": {
+          "observed": 0.7234643786781348,
+          "random_mean": 0.6693187422193301,
+          "random_std": 0.007692667542061874,
+          "z_score": 7.038603470479898,
+          "percentile": 100.0,
+          "empirical_p": 0.000999000999000999
+        }
+      }
+    },
+    "G1_person_only": {
+      "network": "G1_person_only",
+      "n_nodes": 154,
+      "n_edges": 182,
+      "status": "computed",
+      "n_random": 1000,
+      "seed": 42,
+      "metrics": {
+        "clustering": {
+          "observed": 0.07348752608191313,
+          "random_mean": 0.038616746202613274,
+          "random_std": 0.01157283955834626,
+          "z_score": 3.013156771377796,
+          "percentile": 99.7,
+          "empirical_p": 0.003996003996003996
+        },
+        "transitivity": {
+          "observed": 0.07802013422818792,
+          "random_mean": 0.04376198212835094,
+          "random_std": 0.011401911359270583,
+          "z_score": 3.0045973013097154,
+          "percentile": 99.5,
+          "empirical_p": 0.005994005994005994
+        },
+        "degree_assortativity": {
+          "observed": -0.1651179029918892,
+          "random_mean": -0.18059123850234457,
+          "random_std": 0.022946610416718628,
+          "z_score": 0.674319005267187,
+          "percentile": 73.7,
+          "empirical_p": 0.5204795204795205
+        },
+        "modularity_louvain": {
+          "observed": 0.6906019804371453,
+          "random_mean": 0.6545201817413356,
+          "random_std": 0.011014341657823608,
+          "z_score": 3.275892451563851,
+          "percentile": 99.9,
+          "empirical_p": 0.002997002997002997
+        }
+      }
+    },
+    "G2_core_social": {
+      "network": "G2_core_social",
+      "n_nodes": 309,
+      "n_edges": 374,
+      "status": "computed",
+      "n_random": 1000,
+      "seed": 42,
+      "metrics": {
+        "clustering": {
+          "observed": 0.07191003709471995,
+          "random_mean": 0.037046508394130886,
+          "random_std": 0.008512231402320583,
+          "z_score": 4.09569794955112,
+          "percentile": 100.0,
+          "empirical_p": 0.000999000999000999
+        },
+        "transitivity": {
+          "observed": 0.04157706093189964,
+          "random_mean": 0.032795629062632885,
+          "random_std": 0.005908003662926151,
+          "z_score": 1.486361954101673,
+          "percentile": 92.5,
+          "empirical_p": 0.15484515484515485
+        },
+        "degree_assortativity": {
+          "observed": -0.1914150725586694,
+          "random_mean": -0.17298804110791183,
+          "random_std": 0.00986182742610832,
+          "z_score": -1.8685209803989913,
+          "percentile": 3.9,
+          "empirical_p": 0.061938061938061936
+        },
+        "modularity_louvain": {
+          "observed": 0.7244702450742087,
+          "random_mean": 0.6690810289113215,
+          "random_std": 0.008045345314137498,
+          "z_score": 6.884628813328341,
+          "percentile": 100.0,
+          "empirical_p": 0.000999000999000999
+        }
+      }
+    },
+    "G3_kinship": {
+      "network": "G3_kinship",
+      "n_nodes": 83,
+      "n_edges": 61,
+      "status": "computed",
+      "n_random": 1000,
+      "seed": 42,
+      "metrics": {
+        "clustering": {
+          "observed": 0.0,
+          "random_mean": 0.0033562248995983933,
+          "random_std": 0.006591687028360417,
+          "z_score": -0.5091602324501143,
+          "percentile": 0.0,
+          "empirical_p": 0.8731268731268731
+        },
+        "transitivity": {
+          "observed": 0,
+          "random_mean": 0.011,
+          "random_std": 0.018710274721801635,
+          "z_score": -0.5879122655095251,
+          "percentile": 0.0,
+          "empirical_p": 1.0
+        },
+        "degree_assortativity": {
+          "observed": -0.10755871324254983,
+          "random_mean": -0.10550732188671799,
+          "random_std": 0.07911728152964118,
+          "z_score": -0.025928486370746764,
+          "percentile": 50.2,
+          "empirical_p": 0.9790209790209791
+        },
+        "modularity_louvain": {
+          "observed": 0.8711367911851653,
+          "random_mean": 0.8577914539102393,
+          "random_std": 0.016715430049073124,
+          "z_score": 0.7983843212975572,
+          "percentile": 78.4,
+          "empirical_p": 0.4485514485514486
+        }
+      }
+    },
+    "G4_communication": {
+      "network": "G4_communication",
+      "n_nodes": 74,
+      "n_edges": 73,
+      "status": "computed",
+      "n_random": 1000,
+      "seed": 42,
+      "metrics": {
+        "clustering": {
+          "observed": 0.09045693857074931,
+          "random_mean": 0.04417089815252421,
+          "random_std": 0.02101990636546317,
+          "z_score": 2.202009828848502,
+          "percentile": 98.5,
+          "empirical_p": 0.015984015984015984
+        },
+        "transitivity": {
+          "observed": 0.061224489795918366,
+          "random_mean": 0.034390056022408966,
+          "random_std": 0.014188496285418153,
+          "z_score": 1.8912810232813586,
+          "percentile": 95.8,
+          "empirical_p": 0.07192807192807193
+        },
+        "degree_assortativity": {
+          "observed": -0.330865919554439,
+          "random_mean": -0.3630865904651349,
+          "random_std": 0.02521894080877218,
+          "z_score": 1.2776377546946083,
+          "percentile": 95.39999999999999,
+          "empirical_p": 0.14885114885114886
+        },
+        "modularity_louvain": {
+          "observed": 0.6828673297053856,
+          "random_mean": 0.6410848189153687,
+          "random_std": 0.015939076461954305,
+          "z_score": 2.621388440525357,
+          "percentile": 99.5,
+          "empirical_p": 0.01098901098901099
+        }
+      }
+    },
+    "G5_cooperation_support": {
+      "network": "G5_cooperation_support",
+      "n_nodes": 73,
+      "n_edges": 65,
+      "status": "computed",
+      "n_random": 1000,
+      "seed": 42,
+      "metrics": {
+        "clustering": {
+          "observed": 0.018378995433789954,
+          "random_mean": 0.020024206349206344,
+          "random_std": 0.015920968512052602,
+          "z_score": -0.10333610760996861,
+          "percentile": 50.8,
+          "empirical_p": 0.9180819180819181
+        },
+        "transitivity": {
+          "observed": 0.013824884792626729,
+          "random_mean": 0.02876958525345622,
+          "random_std": 0.019406312396199204,
+          "z_score": -0.7700948101689049,
+          "percentile": 12.7,
+          "empirical_p": 0.5454545454545454
+        },
+        "degree_assortativity": {
+          "observed": -0.18573271060911037,
+          "random_mean": -0.1974680984112717,
+          "random_std": 0.04962131820898435,
+          "z_score": 0.236498912679763,
+          "percentile": 55.1,
+          "empirical_p": 0.8301698301698301
+        },
+        "modularity_louvain": {
+          "observed": 0.7511242603550297,
+          "random_mean": 0.737167100591716,
+          "random_std": 0.017382060690158407,
+          "z_score": 0.8029634697579975,
+          "percentile": 78.60000000000001,
+          "empirical_p": 0.43756243756243757
+        }
+      }
+    },
+    "G6_conflict": {
+      "network": "G6_conflict",
+      "n_nodes": 114,
+      "n_edges": 92,
+      "status": "computed",
+      "n_random": 1000,
+      "seed": 42,
+      "metrics": {
+        "clustering": {
+          "observed": 0.003036437246963563,
+          "random_mean": 0.006034469185784975,
+          "random_std": 0.006571046074438457,
+          "z_score": -0.456248808006968,
+          "percentile": 42.3,
+          "empirical_p": 0.7492507492507493
+        },
+        "transitivity": {
+          "observed": 0.013333333333333334,
+          "random_mean": 0.019600000000000003,
+          "random_std": 0.01746157686655666,
+          "z_score": -0.35888320479629315,
+          "percentile": 26.200000000000003,
+          "empirical_p": 1.0
+        },
+        "degree_assortativity": {
+          "observed": -0.24052385303319776,
+          "random_mean": -0.10618641267731727,
+          "random_std": 0.07097814222648877,
+          "z_score": -1.8926592911831142,
+          "percentile": 3.0,
+          "empirical_p": 0.061938061938061936
+        },
+        "modularity_louvain": {
+          "observed": 0.869210775047259,
+          "random_mean": 0.8276557183364839,
+          "random_std": 0.01532774191327006,
+          "z_score": 2.7111010183958415,
+          "percentile": 99.8,
+          "empirical_p": 0.005994005994005994
+        }
+      }
+    },
+    "G7_positive": {
+      "network": "G7_positive",
+      "n_nodes": 127,
+      "n_edges": 116,
+      "status": "computed",
+      "n_random": 1000,
+      "seed": 42,
+      "metrics": {
+        "clustering": {
+          "observed": 0.029166140328715597,
+          "random_mean": 0.019407504877398344,
+          "random_std": 0.010484377761498938,
+          "z_score": 0.930778695055535,
+          "percentile": 83.1,
+          "empirical_p": 0.34965034965034963
+        },
+        "transitivity": {
+          "observed": 0.020380434782608696,
+          "random_mean": 0.019116847826086955,
+          "random_std": 0.009011655820708387,
+          "z_score": 0.1402169569789909,
+          "percentile": 50.1,
+          "empirical_p": 1.0
+        },
+        "degree_assortativity": {
+          "observed": -0.22636131019231437,
+          "random_mean": -0.2119613356644167,
+          "random_std": 0.015002200815946526,
+          "z_score": -0.9598574705513399,
+          "percentile": 17.299999999999997,
+          "empirical_p": 0.3306693306693307
+        },
+        "modularity_louvain": {
+          "observed": 0.7786860879904874,
+          "random_mean": 0.741498810939358,
+          "random_std": 0.013204328839723731,
+          "z_score": 2.8162943760727717,
+          "percentile": 99.7,
+          "empirical_p": 0.007992007992007992
+        }
+      }
+    },
+    "G8_negative": {
+      "network": "G8_negative",
+      "n_nodes": 126,
+      "n_edges": 102,
+      "status": "computed",
+      "n_random": 1000,
+      "seed": 42,
+      "metrics": {
+        "clustering": {
+          "observed": 0.0027657527657527657,
+          "random_mean": 0.005698360590027257,
+          "random_std": 0.006308469773819212,
+          "z_score": -0.46486833248295967,
+          "percentile": 44.0,
+          "empirical_p": 0.7432567432567433
+        },
+        "transitivity": {
+          "observed": 0.012448132780082987,
+          "random_mean": 0.01787551867219917,
+          "random_std": 0.016258538580982963,
+          "z_score": -0.3338175731528789,
+          "percentile": 27.400000000000002,
+          "empirical_p": 1.0
+        },
+        "degree_assortativity": {
+          "observed": -0.21626202744069553,
+          "random_mean": -0.09146442576085949,
+          "random_std": 0.07583045669073257,
+          "z_score": -1.645745088794749,
+          "percentile": 5.0,
+          "empirical_p": 0.1038961038961039
+        },
+        "modularity_louvain": {
+          "observed": 0.8740868896578239,
+          "random_mean": 0.8364488658208381,
+          "random_std": 0.014612507426987484,
+          "z_score": 2.5757402707952113,
+          "percentile": 99.5,
+          "empirical_p": 0.00999000999000999
+        }
+      }
+    }
+  }
+}

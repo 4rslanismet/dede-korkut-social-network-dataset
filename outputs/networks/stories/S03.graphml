@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d2" for="edge" attr.name="interaction_count" attr.type="long" />
+  <key id="d1" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d0" for="graph" attr.name="name" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="40_ince_belli_kiz" />
+    <node id="burla_hatun" />
+    <node id="600_kafir" />
+    <node id="demir_guci" />
+    <node id="karacuk_coban" />
+    <node id="kiyan_guci" />
+    <node id="agac" />
+    <node id="uruz" />
+    <node id="ak_melik" />
+    <node id="alp_eren" />
+    <node id="eylik_koca" />
+    <node id="kafirler_ev_yagmasi_boyu" />
+    <node id="aruz_koca" />
+    <node id="at_agizli_aruz_koca" />
+    <node id="salur_kazan" />
+    <node id="bamsi_beyrek" />
+    <node id="bayindir_han" />
+    <node id="beyler_ev_yagmasi_boyu" />
+    <node id="bogacuk_melik" />
+    <node id="deli_budak" />
+    <node id="boyu_uzun_burla_hatun_ve_40_ince_belli_kiz" />
+    <node id="sokli_melik" />
+    <node id="cilasun_yigitler_ve_kara_budak" />
+    <node id="deli_dundar" />
+    <node id="kara_tuken_melik" />
+    <node id="dis_oguz_beyleri_ve_deli_dundar" />
+    <node id="eylik_koca_oglu_saru_kulmas" />
+    <node id="ic_oguz_ve_kazan" />
+    <node id="kafir" />
+    <node id="kara_gone_deli_dundar_kara_budak" />
+    <node id="kazan_ve_karacuk_coban" />
+    <node id="kazilik_koca_oglu_bey_yigenek" />
+    <node id="peygamber_sahabesi_kanli_bugduz_emen" />
+    <node id="kapcak_melik" />
+    <node id="kara_budak" />
+    <node id="kara_gone" />
+    <node id="kara_gone_oglu_kara_budak" />
+    <node id="karacuk_cobanin_kara_kopegi" />
+    <node id="kazanin_evi" />
+    <node id="sokli_melik_ve_adamlari" />
+    <node id="kazanin_karicuk_anasi" />
+    <node id="kiyan_selcuk_oglu_deli_dundar" />
+    <node id="kurt" />
+    <node id="su" />
+    <node id="turkistan" />
+    <node id="ulas" />
+    <node id="uruz_ve_300_asker" />
+    <node id="yurt" />
+    <edge source="40_ince_belli_kiz" target="burla_hatun">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="burla_hatun" target="uruz">
+      <data key="d1">2.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="600_kafir" target="demir_guci">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="600_kafir" target="karacuk_coban">
+      <data key="d1">9.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="600_kafir" target="kiyan_guci">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="demir_guci" target="karacuk_coban">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="karacuk_coban" target="kiyan_guci">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="karacuk_coban" target="salur_kazan">
+      <data key="d1">10.0</data>
+      <data key="d2">4</data>
+    </edge>
+    <edge source="karacuk_coban" target="sokli_melik">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="agac" target="uruz">
+      <data key="d1">2.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="uruz" target="kafir">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ak_melik" target="alp_eren">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="alp_eren" target="eylik_koca">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="alp_eren" target="kafirler_ev_yagmasi_boyu">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kafirler_ev_yagmasi_boyu" target="aruz_koca">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kafirler_ev_yagmasi_boyu" target="bamsi_beyrek">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kafirler_ev_yagmasi_boyu" target="cilasun_yigitler_ve_kara_budak">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kafirler_ev_yagmasi_boyu" target="dis_oguz_beyleri_ve_deli_dundar">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kafirler_ev_yagmasi_boyu" target="kara_gone_deli_dundar_kara_budak">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kafirler_ev_yagmasi_boyu" target="kazan_ve_karacuk_coban">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kafirler_ev_yagmasi_boyu" target="kazilik_koca_oglu_bey_yigenek">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kafirler_ev_yagmasi_boyu" target="peygamber_sahabesi_kanli_bugduz_emen">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kafirler_ev_yagmasi_boyu" target="sokli_melik">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="at_agizli_aruz_koca" target="salur_kazan">
+      <data key="d1">10.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="salur_kazan" target="bayindir_han">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="beyler_ev_yagmasi_boyu">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="kara_gone">
+      <data key="d1">2.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="kara_gone_oglu_kara_budak">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="karacuk_cobanin_kara_kopegi">
+      <data key="d1">2.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="kiyan_selcuk_oglu_deli_dundar">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="kurt">
+      <data key="d1">2.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="sokli_melik">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="su">
+      <data key="d1">2.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="turkistan">
+      <data key="d1">5.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="salur_kazan" target="ulas">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="uruz_ve_300_asker">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="yurt">
+      <data key="d1">2.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="bogacuk_melik" target="deli_budak">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="boyu_uzun_burla_hatun_ve_40_ince_belli_kiz" target="sokli_melik">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="sokli_melik" target="eylik_koca_oglu_saru_kulmas">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="sokli_melik" target="ic_oguz_ve_kazan">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="sokli_melik" target="kazanin_karicuk_anasi">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="deli_dundar" target="kara_tuken_melik">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kapcak_melik" target="kara_budak">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kazanin_evi" target="sokli_melik_ve_adamlari">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <data key="d0">S03</data>
+  </graph>
+</graphml>

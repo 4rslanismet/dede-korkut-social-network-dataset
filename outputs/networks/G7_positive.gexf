@@ -1,0 +1,1489 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2026-09-19">
+    <creator>NetworkX 3.6.1</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="G7_positive">
+    <attributes mode="static" class="edge">
+      <attribute id="3" title="interaction_count" type="long" />
+    </attributes>
+    <attributes mode="static" class="node">
+      <attribute id="0" title="canonical_name" type="string" />
+      <attribute id="1" title="node_type" type="string" />
+      <attribute id="2" title="story_count" type="long" />
+    </attributes>
+    <nodes>
+      <node id="300_kafir" label="300_kafir">
+        <attvalues>
+          <attvalue for="0" value="300 Kafir" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="2" />
+        </attvalues>
+      </node>
+      <node id="adsiz_kisi_uruz_kurtarma_boyu" label="adsiz_kisi_uruz_kurtarma_boyu">
+        <attvalues>
+          <attvalue for="0" value="Adsız Kişi (Uruz Kurtarma Boyu)" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="ak_melik" label="ak_melik">
+        <attvalues>
+          <attvalue for="0" value="Ak Melik" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="ak_saka_kalesi_casuslari" label="ak_saka_kalesi_casuslari">
+        <attvalues>
+          <attvalue for="0" value="Ak Saka Kalesi Casusları" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="alp_eren" label="alp_eren">
+        <attvalues>
+          <attvalue for="0" value="Alp Eren" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="alp_rustem" label="alp_rustem">
+        <attvalues>
+          <attvalue for="0" value="Alp Rüstem" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="3" />
+        </attvalues>
+      </node>
+      <node id="alti_bey_oglu" label="alti_bey_oglu">
+        <attvalues>
+          <attvalue for="0" value="Altı Bey Oğlu" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="annesi" label="annesi">
+        <attvalues>
+          <attvalue for="0" value="Annesi" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="2" />
+        </attvalues>
+      </node>
+      <node id="aruz" label="aruz">
+        <attvalues>
+          <attvalue for="0" value="Aruz" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="2" />
+        </attvalues>
+      </node>
+      <node id="aruz_koca" label="aruz_koca">
+        <attvalues>
+          <attvalue for="0" value="Aruz Koca" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="2" />
+        </attvalues>
+      </node>
+      <node id="aruz_ve_dis_oguz_beyleri" label="aruz_ve_dis_oguz_beyleri">
+        <attvalues>
+          <attvalue for="0" value="Aruz ve Dış Oğuz Beyleri" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="at_agizli_aruz" label="at_agizli_aruz">
+        <attvalues>
+          <attvalue for="0" value="At Ağızlı Aruz" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="at_agizli_aruz_koca" label="at_agizli_aruz_koca">
+        <attvalues>
+          <attvalue for="0" value="At Ağızlı Aruz Koca" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="azrail" label="azrail">
+        <attvalues>
+          <attvalue for="0" value="Azrail" />
+          <attvalue for="1" value="mitolojik/ilahi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="bamsi_beyrek" label="bamsi_beyrek">
+        <attvalues>
+          <attvalue for="0" value="Bamsı Beyrek" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="4" />
+        </attvalues>
+      </node>
+      <node id="banu_cicek" label="banu_cicek">
+        <attvalues>
+          <attvalue for="0" value="Banu Çiçek" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="basat" label="basat">
+        <attvalues>
+          <attvalue for="0" value="Basat" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="2" />
+        </attvalues>
+      </node>
+      <node id="basatin_annesi" label="basatin_annesi">
+        <attvalues>
+          <attvalue for="0" value="Basat'ın Annesi" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="bayburd_hisarindaki_kafirler" label="bayburd_hisarindaki_kafirler">
+        <attvalues>
+          <attvalue for="0" value="Bayburd Hisarındaki Kafirler" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="bayburt_hisrasi_melikinin_kizi" label="bayburt_hisrasi_melikinin_kizi">
+        <attvalues>
+          <attvalue for="0" value="Bayburt Hisrası Meliki'nin Kızı" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="bayindir_han" label="bayindir_han">
+        <attvalues>
+          <attvalue for="0" value="Bayındır Han" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="7" />
+        </attvalues>
+      </node>
+      <node id="bayindir_han_kazan" label="bayindir_han_kazan">
+        <attvalues>
+          <attvalue for="0" value="Bayındır Han Kazan" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="begil" label="begil">
+        <attvalues>
+          <attvalue for="0" value="Begil" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="begilin_casusu" label="begilin_casusu">
+        <attvalues>
+          <attvalue for="0" value="Begilin Casusu" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="beyler_ve_beyrek" label="beyler_ve_beyrek">
+        <attvalues>
+          <attvalue for="0" value="Beyler ve Beyrek" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="beyrekin_40_yigidi" label="beyrekin_40_yigidi">
+        <attvalues>
+          <attvalue for="0" value="Beyrek'in 40 Yiğidi" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="2" />
+        </attvalues>
+      </node>
+      <node id="beyrekin_buyuk_kiz_kardesi" label="beyrekin_buyuk_kiz_kardesi">
+        <attvalues>
+          <attvalue for="0" value="Beyrek'in Büyük Kız Kardeşi" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="beyrekin_kayin_babasi_kara_gone" label="beyrekin_kayin_babasi_kara_gone">
+        <attvalues>
+          <attvalue for="0" value="Beyrek'in Kayın Babası, Kara Göne" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="beyrekin_yedi_kiz_kardesi" label="beyrekin_yedi_kiz_kardesi">
+        <attvalues>
+          <attvalue for="0" value="Beyrek'in Yedi Kız Kardeşi" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="bezirganlar" label="bezirganlar">
+        <attvalues>
+          <attvalue for="0" value="Bezirganlar" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="bogazca_fatma" label="bogazca_fatma">
+        <attvalues>
+          <attvalue for="0" value="Boğazça Fatma" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="bogac" label="bogac">
+        <attvalues>
+          <attvalue for="0" value="Boğaç" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="bogac_han" label="bogac_han">
+        <attvalues>
+          <attvalue for="0" value="Boğaç Han" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="dede_korkut" label="dede_korkut">
+        <attvalues>
+          <attvalue for="0" value="Dede Korkut" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="5" />
+        </attvalues>
+      </node>
+      <node id="deli_dumrul" label="deli_dumrul">
+        <attvalues>
+          <attvalue for="0" value="Deli Dumrul" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="deli_durmrul" label="deli_durmrul">
+        <attvalues>
+          <attvalue for="0" value="Deli Durmrul" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="deli_dundar" label="deli_dundar">
+        <attvalues>
+          <attvalue for="0" value="Deli Dündar" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="3" />
+        </attvalues>
+      </node>
+      <node id="deli_karcar" label="deli_karcar">
+        <attvalues>
+          <attvalue for="0" value="Deli Karçar" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="direk_tekfur" label="direk_tekfur">
+        <attvalues>
+          <attvalue for="0" value="Direk Tekfur" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="dirse_han" label="dirse_han">
+        <attvalues>
+          <attvalue for="0" value="Dirse Han" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="doksan_tumen_oguz" label="doksan_tumen_oguz">
+        <attvalues>
+          <attvalue for="0" value="Doksan Tümen Oğuz" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="duha_koca" label="duha_koca">
+        <attvalues>
+          <attvalue for="0" value="Duha Koca" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="dumrul" label="dumrul">
+        <attvalues>
+          <attvalue for="0" value="Dumrul" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="dumrulun_40_adami" label="dumrulun_40_adami">
+        <attvalues>
+          <attvalue for="0" value="Dumrul'un 40 Adamı" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="dumrulun_karisi" label="dumrulun_karisi">
+        <attvalues>
+          <attvalue for="0" value="Dumrul'un Karısı" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="duzen" label="duzen">
+        <attvalues>
+          <attvalue for="0" value="Düzen" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="2" />
+        </attvalues>
+      </node>
+      <node id="duzmurd_kalesi_tekfuru_arsin" label="duzmurd_kalesi_tekfuru_arsin">
+        <attvalues>
+          <attvalue for="0" value="Düzmürd Kalesi Tekfuru Arşın" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="dis_oguz" label="dis_oguz">
+        <attvalues>
+          <attvalue for="0" value="Dış Oğuz" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="dis_oguz_agalari" label="dis_oguz_agalari">
+        <attvalues>
+          <attvalue for="0" value="Dış Oğuz Ağaları" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="dis_oguz_beyleri" label="dis_oguz_beyleri">
+        <attvalues>
+          <attvalue for="0" value="Dış Oğuz Beyleri" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="egrek" label="egrek">
+        <attvalues>
+          <attvalue for="0" value="Egrek" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="emen" label="emen">
+        <attvalues>
+          <attvalue for="0" value="Emen" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="3" />
+        </attvalues>
+      </node>
+      <node id="emren" label="emren">
+        <attvalues>
+          <attvalue for="0" value="Emren" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="eylik_koca" label="eylik_koca">
+        <attvalues>
+          <attvalue for="0" value="Eylik Koca" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="han_afsar" label="han_afsar">
+        <attvalues>
+          <attvalue for="0" value="Han Afşar" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="hekimler" label="hekimler">
+        <attvalues>
+          <attvalue for="0" value="Hekimler" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="hizir" label="hizir">
+        <attvalues>
+          <attvalue for="0" value="Hızır" />
+          <attvalue for="1" value="mitolojik/ilahi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="imrahor" label="imrahor">
+        <attvalues>
+          <attvalue for="0" value="Imrahor" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="ic_oguz_beyleri_dis_oguz_beyleri_pay_pure_bey_kara_budak_uruz_bey_yigenek_salur_kazan_pay_bicen" label="ic_oguz_beyleri_dis_oguz_beyleri_pay_pure_bey_kara_budak_uruz_bey_yigenek_salur_kazan_pay_bicen">
+        <attvalues>
+          <attvalue for="0" value="Iç Oğuz Beyleri, Dış Oğuz Beyleri, Pay Püre Bey, Kara Budak, Uruz, Bey Yigenek, Salur Kazan, Pay Biçen" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="kadinlar" label="kadinlar">
+        <attvalues>
+          <attvalue for="0" value="Kadınlar" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="kafir" label="kafir">
+        <attvalues>
+          <attvalue for="0" value="Kafir" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="5" />
+        </attvalues>
+      </node>
+      <node id="kafir_beyinin_kizi" label="kafir_beyinin_kizi">
+        <attvalues>
+          <attvalue for="0" value="Kafir Beyi'nin Kızı" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="kafir_eri" label="kafir_eri">
+        <attvalues>
+          <attvalue for="0" value="Kafir Eri" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="kafirler_uruz_kurtarma_boyu" label="kafirler_uruz_kurtarma_boyu">
+        <attvalues>
+          <attvalue for="0" value="Kafirler (Uruz Kurtarma Boyu)" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="kam_gan" label="kam_gan">
+        <attvalues>
+          <attvalue for="0" value="Kam Gan" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="4" />
+        </attvalues>
+      </node>
+      <node id="kan_turali" label="kan_turali">
+        <attvalues>
+          <attvalue for="0" value="Kan Turalı" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="kan_turalinin_adamlari" label="kan_turalinin_adamlari">
+        <attvalues>
+          <attvalue for="0" value="Kan Turalı'nın Adamları" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="kan_turalinin_anne_babasi" label="kan_turalinin_anne_babasi">
+        <attvalues>
+          <attvalue for="0" value="Kan Turalının Anne Babası" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="kan_turaliyi_gorunce_ona_tutuluyor_keske_babam_beni_buna_verse" label="kan_turaliyi_gorunce_ona_tutuluyor_keske_babam_beni_buna_verse">
+        <attvalues>
+          <attvalue for="0" value="Kan Turalıyı Görünce Ona Tutuluyor Keşke Babam Beni Buna Verse" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="kanli_koca" label="kanli_koca">
+        <attvalues>
+          <attvalue for="0" value="Kanlı Koca" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="kara_budak" label="kara_budak">
+        <attvalues>
+          <attvalue for="0" value="Kara Budak" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="5" />
+        </attvalues>
+      </node>
+      <node id="kara_budak_kazan_oglu_uruz_beyler_basi_yigenek_gaflet_koca_oglu_sir_semseddin_deli_karcar_dugunde_ok_atarlar" label="kara_budak_kazan_oglu_uruz_beyler_basi_yigenek_gaflet_koca_oglu_sir_semseddin_deli_karcar_dugunde_ok_atarlar">
+        <attvalues>
+          <attvalue for="0" value="Kara Budak, Kazan Oğlu Uruz, Beyler Başı Yigenek, Gaflet Koca Oğlu Şir Şemseddin, Deli Karçar, Düğünde Ok Atarlar" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="kara_gone" label="kara_gone">
+        <attvalues>
+          <attvalue for="0" value="Kara Göne" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="4" />
+        </attvalues>
+      </node>
+      <node id="kara_gone_oglu_kara_budak" label="kara_gone_oglu_kara_budak">
+        <attvalues>
+          <attvalue for="0" value="Kara Göne Oğlu Kara Budak" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="kara_cekur" label="kara_cekur">
+        <attvalues>
+          <attvalue for="0" value="Kara Çekür" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="karacuk_coban" label="karacuk_coban">
+        <attvalues>
+          <attvalue for="0" value="Karaçuk Çoban" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="karisi" label="karisi">
+        <attvalues>
+          <attvalue for="0" value="Karısı" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="karisina" label="karisina">
+        <attvalues>
+          <attvalue for="0" value="Karısına" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="kazan_ve_bayindir_han" label="kazan_ve_bayindir_han">
+        <attvalues>
+          <attvalue for="0" value="Kazan ve Bayındır Han" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="kazanin_askerleri" label="kazanin_askerleri">
+        <attvalues>
+          <attvalue for="0" value="Kazanın Askerleri" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="2" />
+        </attvalues>
+      </node>
+      <node id="kazilik_koca" label="kazilik_koca">
+        <attvalues>
+          <attvalue for="0" value="Kazılık Koca" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="kilbas" label="kilbas">
+        <attvalues>
+          <attvalue for="0" value="Kılbaş" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="kirk_kinuk" label="kirk_kinuk">
+        <attvalues>
+          <attvalue for="0" value="Kırk Kınuk" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="kisirca_yenge" label="kisirca_yenge">
+        <attvalues>
+          <attvalue for="0" value="Kısırca Yenge" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="kiyan_oglu_deli_dundar" label="kiyan_oglu_deli_dundar">
+        <attvalues>
+          <attvalue for="0" value="Kıyan Oğlu Deli Dündar" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="kiyan_selcuk" label="kiyan_selcuk">
+        <attvalues>
+          <attvalue for="0" value="Kıyan Selçuk" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="2" />
+        </attvalues>
+      </node>
+      <node id="kiyan_selcuk_oglu_deli_dundar" label="kiyan_selcuk_oglu_deli_dundar">
+        <attvalues>
+          <attvalue for="0" value="Kıyan Selçuk Oğlu Deli Dündar" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="2" />
+        </attvalues>
+      </node>
+      <node id="lala_kilbas" label="lala_kilbas">
+        <attvalues>
+          <attvalue for="0" value="Lala Kılbaş" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="oguz_beyleri" label="oguz_beyleri">
+        <attvalues>
+          <attvalue for="0" value="Oğuz Beyleri" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="2" />
+        </attvalues>
+      </node>
+      <node id="oguz_han" label="oguz_han">
+        <attvalues>
+          <attvalue for="0" value="Oğuz Han" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="pay_pure" label="pay_pure">
+        <attvalues>
+          <attvalue for="0" value="Pay Püre" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="pay_pure_bey" label="pay_pure_bey">
+        <attvalues>
+          <attvalue for="0" value="Pay Püre Bey" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="pay_purenin_oglu" label="pay_purenin_oglu">
+        <attvalues>
+          <attvalue for="0" value="Pay Püre'nin Oğlu" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="paypure" label="paypure">
+        <attvalues>
+          <attvalue for="0" value="Paypüre" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="salur_kazan" label="salur_kazan">
+        <attvalues>
+          <attvalue for="0" value="Salur Kazan" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="9" />
+        </attvalues>
+      </node>
+      <node id="segrek" label="segrek">
+        <attvalues>
+          <attvalue for="0" value="Segrek" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="selcen_hatun" label="selcen_hatun">
+        <attvalues>
+          <attvalue for="0" value="Selcen Hatun" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="tanri" label="tanri">
+        <attvalues>
+          <attvalue for="0" value="Tanrı" />
+          <attvalue for="1" value="mitolojik/ilahi" />
+          <attvalue for="2" value="4" />
+        </attvalues>
+      </node>
+      <node id="tatyan_kalesi_casuslari" label="tatyan_kalesi_casuslari">
+        <attvalues>
+          <attvalue for="0" value="Tatyan Kalesi Casusları" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="tekfur_begil_boyu" label="tekfur_begil_boyu">
+        <attvalues>
+          <attvalue for="0" value="Tekfur (Begil Boyu)" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="tekfur_kan_turali_boyu" label="tekfur_kan_turali_boyu">
+        <attvalues>
+          <attvalue for="0" value="Tekfur (Kan Turalı Boyu)" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="tekfur_uruz_tutsak_boyu" label="tekfur_uruz_tutsak_boyu">
+        <attvalues>
+          <attvalue for="0" value="Tekfur (Uruz Tutsak Boyu)" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="tekfurun" label="tekfurun">
+        <attvalues>
+          <attvalue for="0" value="Tekfurun" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="tekfurun_adamlari" label="tekfurun_adamlari">
+        <attvalues>
+          <attvalue for="0" value="Tekfurun Adamları" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="2" />
+        </attvalues>
+      </node>
+      <node id="tekfurun_askerleri" label="tekfurun_askerleri">
+        <attvalues>
+          <attvalue for="0" value="Tekfurun Askerleri" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="2" />
+        </attvalues>
+      </node>
+      <node id="tekfurun_kardesinin_oglu" label="tekfurun_kardesinin_oglu">
+        <attvalues>
+          <attvalue for="0" value="Tekfurun Kardeşinin Oğlu" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="tekfurun_karisi" label="tekfurun_karisi">
+        <attvalues>
+          <attvalue for="0" value="Tekfurun Karısı" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="tepegoz" label="tepegoz">
+        <attvalues>
+          <attvalue for="0" value="Tepegöz" />
+          <attvalue for="1" value="mitolojik/ilahi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="trabzon_tekfuru" label="trabzon_tekfuru">
+        <attvalues>
+          <attvalue for="0" value="Trabzon Tekfuru" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="2" />
+        </attvalues>
+      </node>
+      <node id="turkistan" label="turkistan">
+        <attvalues>
+          <attvalue for="0" value="Türkistan" />
+          <attvalue for="1" value="yer/coğrafya" />
+          <attvalue for="2" value="2" />
+        </attvalues>
+      </node>
+      <node id="ulas" label="ulas">
+        <attvalues>
+          <attvalue for="0" value="Ulaş" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="2" />
+        </attvalues>
+      </node>
+      <node id="uruz" label="uruz">
+        <attvalues>
+          <attvalue for="0" value="Uruz" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="4" />
+        </attvalues>
+      </node>
+      <node id="uruzun_sag_yaninda_yer_gosterdi_cubbe_giydirdi" label="uruzun_sag_yaninda_yer_gosterdi_cubbe_giydirdi">
+        <attvalues>
+          <attvalue for="0" value="Uruz'un Sağ Yanında Yer Gösterdi, Cübbe Giydirdi" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="ustalar" label="ustalar">
+        <attvalues>
+          <attvalue for="0" value="Ustalar" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="usun_koca_oglu" label="usun_koca_oglu">
+        <attvalues>
+          <attvalue for="0" value="Uşun Koca Oğlu" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="usun_koca_oglunun_2_kardesi" label="usun_koca_oglunun_2_kardesi">
+        <attvalues>
+          <attvalue for="0" value="Uşun Koca Oğlu'nun 2 Kardeşi" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="usun_koca_ve_karisi" label="usun_koca_ve_karisi">
+        <attvalues>
+          <attvalue for="0" value="Uşun Koca ve Karısı" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="usun_kocanin_buyuk" label="usun_kocanin_buyuk">
+        <attvalues>
+          <attvalue for="0" value="Uşun Kocanın Büyük" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="usun_kocanin_kucuk" label="usun_kocanin_kucuk">
+        <attvalues>
+          <attvalue for="0" value="Uşun Kocanın Küçük" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="yalanci_oglu_yaltacuk" label="yalanci_oglu_yaltacuk">
+        <attvalues>
+          <attvalue for="0" value="Yalançı Oğlu Yaltaçuk" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="yasli_kadin" label="yasli_kadin">
+        <attvalues>
+          <attvalue for="0" value="Yaşlı Kadın" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="yedi_yigit" label="yedi_yigit">
+        <attvalues>
+          <attvalue for="0" value="Yedi Yiğit" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="yigenek" label="yigenek">
+        <attvalues>
+          <attvalue for="0" value="Yigenek" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="2" />
+        </attvalues>
+      </node>
+      <node id="cevresindekiler" label="cevresindekiler">
+        <attvalues>
+          <attvalue for="0" value="Çevresindekiler" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="4" />
+        </attvalues>
+      </node>
+      <node id="oksuz_cocuk" label="oksuz_cocuk">
+        <attvalues>
+          <attvalue for="0" value="Öksüz Çocuk" />
+          <attvalue for="1" value="kişi" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="ic_oguz" label="ic_oguz">
+        <attvalues>
+          <attvalue for="0" value="İç Oğuz" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="1" />
+        </attvalues>
+      </node>
+      <node id="ic_oguz_beyleri" label="ic_oguz_beyleri">
+        <attvalues>
+          <attvalue for="0" value="İç Oğuz Beyleri" />
+          <attvalue for="1" value="grup" />
+          <attvalue for="2" value="2" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="300_kafir" target="egrek" id="0" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="adsiz_kisi_uruz_kurtarma_boyu" target="uruz" id="1" weight="7.0">
+        <attvalues>
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="ak_melik" target="alp_eren" id="2" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="ak_saka_kalesi_casuslari" target="tekfur_uruz_tutsak_boyu" id="3" weight="2.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="alp_eren" target="eylik_koca" id="4" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="alp_rustem" target="duzen" id="5" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="alti_bey_oglu" target="salur_kazan" id="6" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="annesi" target="uruz" id="7" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="aruz" target="basat" id="8" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="aruz" target="dis_oguz_beyleri" id="9" weight="6.0">
+        <attvalues>
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="aruz" target="oguz_han" id="10" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="aruz_koca" target="basat" id="11" weight="10.0">
+        <attvalues>
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="aruz_ve_dis_oguz_beyleri" target="bamsi_beyrek" id="12" weight="4.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="at_agizli_aruz" target="salur_kazan" id="13" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="at_agizli_aruz_koca" target="salur_kazan" id="14" weight="10.0">
+        <attvalues>
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="azrail" target="tanri" id="15" weight="6.0">
+        <attvalues>
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="bamsi_beyrek" target="banu_cicek" id="16" weight="13.0">
+        <attvalues>
+          <attvalue for="3" value="3" />
+        </attvalues>
+      </edge>
+      <edge source="bamsi_beyrek" target="bayburd_hisarindaki_kafirler" id="17" weight="4.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="bamsi_beyrek" target="bayburt_hisrasi_melikinin_kizi" id="18" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="bamsi_beyrek" target="beyrekin_40_yigidi" id="19" weight="4.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="bamsi_beyrek" target="beyrekin_buyuk_kiz_kardesi" id="20" weight="4.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="bamsi_beyrek" target="bezirganlar" id="21" weight="8.0">
+        <attvalues>
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="bamsi_beyrek" target="kafir_beyinin_kizi" id="22" weight="9.0">
+        <attvalues>
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="bamsi_beyrek" target="kisirca_yenge" id="23" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="bamsi_beyrek" target="pay_pure" id="24" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="bamsi_beyrek" target="salur_kazan" id="25" weight="22.0">
+        <attvalues>
+          <attvalue for="3" value="6" />
+        </attvalues>
+      </edge>
+      <edge source="bamsi_beyrek" target="yalanci_oglu_yaltacuk" id="26" weight="4.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="basat" target="basatin_annesi" id="27" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="basat" target="dede_korkut" id="28" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="basat" target="tepegoz" id="29" weight="4.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="basat" target="yasli_kadin" id="30" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="bayindir_han" target="begil" id="31" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="bayindir_han" target="ic_oguz_beyleri_dis_oguz_beyleri_pay_pure_bey_kara_budak_uruz_bey_yigenek_salur_kazan_pay_bicen" id="32" weight="2.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="bayindir_han" target="kam_gan" id="33" weight="20.0">
+        <attvalues>
+          <attvalue for="3" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="bayindir_han" target="salur_kazan" id="34" weight="21.0">
+        <attvalues>
+          <attvalue for="3" value="6" />
+        </attvalues>
+      </edge>
+      <edge source="bayindir_han" target="yigenek" id="35" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="bayindir_han_kazan" target="uruzun_sag_yaninda_yer_gosterdi_cubbe_giydirdi" id="36" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="begil" target="begilin_casusu" id="37" weight="4.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="begil" target="emren" id="38" weight="13.0">
+        <attvalues>
+          <attvalue for="3" value="3" />
+        </attvalues>
+      </edge>
+      <edge source="beyler_ve_beyrek" target="salur_kazan" id="39" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="beyrekin_40_yigidi" target="kazan_ve_bayindir_han" id="40" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="beyrekin_kayin_babasi_kara_gone" target="kara_budak_kazan_oglu_uruz_beyler_basi_yigenek_gaflet_koca_oglu_sir_semseddin_deli_karcar_dugunde_ok_atarlar" id="41" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="beyrekin_yedi_kiz_kardesi" target="yedi_yigit" id="42" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="bezirganlar" target="pay_pure" id="43" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="bezirganlar" target="pay_pure_bey" id="44" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="bogazca_fatma" target="kadinlar" id="45" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="bogac" target="dirse_han" id="46" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="bogac" target="hekimler" id="47" weight="4.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="bogac" target="hizir" id="48" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="bogac_han" target="dirse_han" id="49" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="dede_korkut" target="deli_karcar" id="50" weight="14.0">
+        <attvalues>
+          <attvalue for="3" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="dede_korkut" target="pay_pure" id="51" weight="6.0">
+        <attvalues>
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="dede_korkut" target="salur_kazan" id="52" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="deli_dumrul" target="duha_koca" id="53" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="deli_dumrul" target="tanri" id="54" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="deli_durmrul" target="dumrulun_40_adami" id="55" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="deli_dundar" target="kiyan_selcuk" id="56" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="direk_tekfur" target="duzmurd_kalesi_tekfuru_arsin" id="57" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="doksan_tumen_oguz" target="salur_kazan" id="58" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="dumrul" target="dumrulun_karisi" id="59" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="dis_oguz" target="salur_kazan" id="60" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="dis_oguz_agalari" target="salur_kazan" id="61" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="dis_oguz_beyleri" target="salur_kazan" id="62" weight="8.0">
+        <attvalues>
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="egrek" target="segrek" id="63" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="egrek" target="usun_kocanin_buyuk" id="64" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="emen" target="kafir" id="65" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="han_afsar" target="salur_kazan" id="66" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="imrahor" target="pay_purenin_oglu" id="67" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kafir" target="uruz" id="68" weight="4.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kafir_eri" target="salur_kazan" id="69" weight="4.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kafirler_uruz_kurtarma_boyu" target="salur_kazan" id="70" weight="4.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kan_turali" target="kan_turalinin_adamlari" id="71" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kan_turali" target="kanli_koca" id="72" weight="16.0">
+        <attvalues>
+          <attvalue for="3" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="kan_turali" target="selcen_hatun" id="73" weight="2.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kan_turali" target="tekfur_kan_turali_boyu" id="74" weight="15.0">
+        <attvalues>
+          <attvalue for="3" value="3" />
+        </attvalues>
+      </edge>
+      <edge source="kan_turalinin_anne_babasi" target="selcen_hatun" id="75" weight="4.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kan_turaliyi_gorunce_ona_tutuluyor_keske_babam_beni_buna_verse" target="tekfurun" id="76" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kara_budak" target="kara_gone" id="77" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kara_budak" target="salur_kazan" id="78" weight="9.0">
+        <attvalues>
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="kara_budak" target="yigenek" id="79" weight="4.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kara_gone" target="kilbas" id="80" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kara_gone" target="salur_kazan" id="81" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kara_gone_oglu_kara_budak" target="salur_kazan" id="82" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kara_cekur" target="kirk_kinuk" id="83" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="karacuk_coban" target="salur_kazan" id="84" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="karisi" target="segrek" id="85" weight="9.0">
+        <attvalues>
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="karisina" target="segrek" id="86" weight="2.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kazanin_askerleri" target="salur_kazan" id="87" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kazilik_koca" target="yigenek" id="88" weight="10.0">
+        <attvalues>
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="kiyan_oglu_deli_dundar" target="salur_kazan" id="89" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="kiyan_selcuk_oglu_deli_dundar" target="salur_kazan" id="90" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="lala_kilbas" target="salur_kazan" id="91" weight="16.0">
+        <attvalues>
+          <attvalue for="3" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="lala_kilbas" target="ustalar" id="92" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="oguz_beyleri" target="pay_pure_bey" id="93" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="pay_pure" target="salur_kazan" id="94" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="paypure" target="salur_kazan" id="95" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="salur_kazan" target="ic_oguz" id="96" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="salur_kazan" target="ic_oguz_beyleri" id="97" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="salur_kazan" target="tanri" id="98" weight="7.0">
+        <attvalues>
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="salur_kazan" target="tekfurun_karisi" id="99" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="salur_kazan" target="trabzon_tekfuru" id="100" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="salur_kazan" target="turkistan" id="101" weight="9.0">
+        <attvalues>
+          <attvalue for="3" value="3" />
+        </attvalues>
+      </edge>
+      <edge source="salur_kazan" target="ulas" id="102" weight="10.0">
+        <attvalues>
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="salur_kazan" target="uruz" id="103" weight="20.0">
+        <attvalues>
+          <attvalue for="3" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="salur_kazan" target="ustalar" id="104" weight="3.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="salur_kazan" target="usun_koca_ve_karisi" id="105" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="segrek" target="oksuz_cocuk" id="106" weight="4.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="segrek" target="usun_kocanin_kucuk" id="107" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="selcen_hatun" target="trabzon_tekfuru" id="108" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="tatyan_kalesi_casuslari" target="tekfur_uruz_tutsak_boyu" id="109" weight="2.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="tekfur_begil_boyu" target="tekfurun_askerleri" id="110" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="tekfur_kan_turali_boyu" target="cevresindekiler" id="111" weight="10.0">
+        <attvalues>
+          <attvalue for="3" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="tekfur_kan_turali_boyu" target="tekfurun_adamlari" id="112" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="tekfur_kan_turali_boyu" target="tekfurun_kardesinin_oglu" id="113" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="tepegoz" target="usun_koca_oglu" id="114" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="tepegoz" target="usun_koca_oglunun_2_kardesi" id="115" weight="5.0">
+        <attvalues>
+          <attvalue for="3" value="1" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

@@ -1,0 +1,1380 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d0" for="node" attr.name="bipartite" attr.type="long" />
+  <graph edgedefault="undirected">
+    <node id="100_kafir">
+      <data key="d0">0</data>
+    </node>
+    <node id="16_bin_kafir">
+      <data key="d0">0</data>
+    </node>
+    <node id="24_sancak_beyi">
+      <data key="d0">0</data>
+    </node>
+    <node id="300_akinci">
+      <data key="d0">0</data>
+    </node>
+    <node id="300_asker">
+      <data key="d0">0</data>
+    </node>
+    <node id="300_kafir">
+      <data key="d0">0</data>
+    </node>
+    <node id="40_askeri">
+      <data key="d0">0</data>
+    </node>
+    <node id="40_ince_belli_kiz">
+      <data key="d0">0</data>
+    </node>
+    <node id="40_yigit">
+      <data key="d0">0</data>
+    </node>
+    <node id="600_kafir">
+      <data key="d0">0</data>
+    </node>
+    <node id="60_kafir">
+      <data key="d0">0</data>
+    </node>
+    <node id="6_kafir">
+      <data key="d0">0</data>
+    </node>
+    <node id="adsiz_kisi_uruz_kurtarma_boyu">
+      <data key="d0">0</data>
+    </node>
+    <node id="agac">
+      <data key="d0">0</data>
+    </node>
+    <node id="ak_melik">
+      <data key="d0">0</data>
+    </node>
+    <node id="ak_saka_kalesi_casuslari">
+      <data key="d0">0</data>
+    </node>
+    <node id="ak_sakalli_aruz_koca">
+      <data key="d0">0</data>
+    </node>
+    <node id="alp_eren">
+      <data key="d0">0</data>
+    </node>
+    <node id="alp_rustem">
+      <data key="d0">0</data>
+    </node>
+    <node id="alplar_basi_kazan">
+      <data key="d0">0</data>
+    </node>
+    <node id="alti_bey_oglu">
+      <data key="d0">0</data>
+    </node>
+    <node id="anne_ve_babasi">
+      <data key="d0">0</data>
+    </node>
+    <node id="annesi">
+      <data key="d0">0</data>
+    </node>
+    <node id="arsin_oglu_direk_tekfur">
+      <data key="d0">0</data>
+    </node>
+    <node id="aruz">
+      <data key="d0">0</data>
+    </node>
+    <node id="aruz_koca">
+      <data key="d0">0</data>
+    </node>
+    <node id="aruz_ve_dis_oguz_beyleri">
+      <data key="d0">0</data>
+    </node>
+    <node id="aruzun_habercisi">
+      <data key="d0">0</data>
+    </node>
+    <node id="askerler">
+      <data key="d0">0</data>
+    </node>
+    <node id="aslan">
+      <data key="d0">0</data>
+    </node>
+    <node id="aslan_yatagi">
+      <data key="d0">0</data>
+    </node>
+    <node id="at_agizli_aruz">
+      <data key="d0">0</data>
+    </node>
+    <node id="at_agizli_aruz_koca">
+      <data key="d0">0</data>
+    </node>
+    <node id="azrail">
+      <data key="d0">0</data>
+    </node>
+    <node id="bamsi_beyrek">
+      <data key="d0">0</data>
+    </node>
+    <node id="bamsi_ve_bamsinin_40_yigidi">
+      <data key="d0">0</data>
+    </node>
+    <node id="bamsinin_anne_babasi">
+      <data key="d0">0</data>
+    </node>
+    <node id="bamsinin_haberi_gelince">
+      <data key="d0">0</data>
+    </node>
+    <node id="bamsinin_haberi_gelince_siyah_giyme_yas_tutma">
+      <data key="d0">0</data>
+    </node>
+    <node id="bamsinin_naibi">
+      <data key="d0">0</data>
+    </node>
+    <node id="banu_cicek">
+      <data key="d0">0</data>
+    </node>
+    <node id="bas_acik">
+      <data key="d0">0</data>
+    </node>
+    <node id="basat">
+      <data key="d0">0</data>
+    </node>
+    <node id="basatin_annesi">
+      <data key="d0">0</data>
+    </node>
+    <node id="bayat_boyu">
+      <data key="d0">0</data>
+    </node>
+    <node id="bayburd_hisarindaki_kafirler">
+      <data key="d0">0</data>
+    </node>
+    <node id="bayburt_hisari_beyi">
+      <data key="d0">0</data>
+    </node>
+    <node id="bayburt_hisrasi_melikinin_kizi">
+      <data key="d0">0</data>
+    </node>
+    <node id="bayindir_han">
+      <data key="d0">0</data>
+    </node>
+    <node id="bayindir_han_kazan">
+      <data key="d0">0</data>
+    </node>
+    <node id="bayindir_hanin_adamlari">
+      <data key="d0">0</data>
+    </node>
+    <node id="begil">
+      <data key="d0">0</data>
+    </node>
+    <node id="begilin_adamlari">
+      <data key="d0">0</data>
+    </node>
+    <node id="begilin_casusu">
+      <data key="d0">0</data>
+    </node>
+    <node id="begilin_hismi_ve_kavmi">
+      <data key="d0">0</data>
+    </node>
+    <node id="begilin_karisi">
+      <data key="d0">0</data>
+    </node>
+    <node id="beyerek">
+      <data key="d0">0</data>
+    </node>
+    <node id="beyler_bamsi_beyrek_boyu">
+      <data key="d0">0</data>
+    </node>
+    <node id="beyler_basat_boyu">
+      <data key="d0">0</data>
+    </node>
+    <node id="beyler_begil_boyu">
+      <data key="d0">0</data>
+    </node>
+    <node id="beyler_ev_yagmasi_boyu">
+      <data key="d0">0</data>
+    </node>
+    <node id="beyler_uruz_kurtarma_boyu">
+      <data key="d0">0</data>
+    </node>
+    <node id="beyler_uruz_tutsak_boyu">
+      <data key="d0">0</data>
+    </node>
+    <node id="beyler_ve_beyrek">
+      <data key="d0">0</data>
+    </node>
+    <node id="beyrek_in_40_yoldaslari">
+      <data key="d0">0</data>
+    </node>
+    <node id="beyrekin_40_adami">
+      <data key="d0">0</data>
+    </node>
+    <node id="beyrekin_40_yigidi">
+      <data key="d0">0</data>
+    </node>
+    <node id="beyrekin_adamlari">
+      <data key="d0">0</data>
+    </node>
+    <node id="beyrekin_anne_babasi">
+      <data key="d0">0</data>
+    </node>
+    <node id="beyrekin_buyuk_kiz_kardesi">
+      <data key="d0">0</data>
+    </node>
+    <node id="beyrekin_kayin_babasi_kara_gone">
+      <data key="d0">0</data>
+    </node>
+    <node id="beyrekin_kucuk_kiz_kardesi">
+      <data key="d0">0</data>
+    </node>
+    <node id="beyrekin_yedi_kiz_kardesi">
+      <data key="d0">0</data>
+    </node>
+    <node id="beyrekin_yoldaslari">
+      <data key="d0">0</data>
+    </node>
+    <node id="bezirganlar">
+      <data key="d0">0</data>
+    </node>
+    <node id="biyigi_kanli_bugduz_emen">
+      <data key="d0">0</data>
+    </node>
+    <node id="boga">
+      <data key="d0">0</data>
+    </node>
+    <node id="bogac">
+      <data key="d0">0</data>
+    </node>
+    <node id="bogac_han">
+      <data key="d0">0</data>
+    </node>
+    <node id="bogac_ve_bogacin_40_adami">
+      <data key="d0">0</data>
+    </node>
+    <node id="bogacin_40_adami">
+      <data key="d0">0</data>
+    </node>
+    <node id="bogacuk_melik">
+      <data key="d0">0</data>
+    </node>
+    <node id="bogazca_fatma">
+      <data key="d0">0</data>
+    </node>
+    <node id="boyu_uzun_burla_hatun_ve_40_ince_belli_kiz">
+      <data key="d0">0</data>
+    </node>
+    <node id="bugacuk_melik">
+      <data key="d0">0</data>
+    </node>
+    <node id="burla_hatun">
+      <data key="d0">0</data>
+    </node>
+    <node id="cebrail">
+      <data key="d0">0</data>
+    </node>
+    <node id="cekisen_oksuzle_diger_cocugu_ayirig_tokat_atti">
+      <data key="d0">0</data>
+    </node>
+    <node id="cevresindekiler">
+      <data key="d0">0</data>
+    </node>
+    <node id="cilasun_yigitler_ve_kara_budak">
+      <data key="d0">0</data>
+    </node>
+    <node id="cilasun_yigitleri_ve_deli_dundar">
+      <data key="d0">0</data>
+    </node>
+    <node id="coban">
+      <data key="d0">0</data>
+    </node>
+    <node id="cobanlar">
+      <data key="d0">0</data>
+    </node>
+    <node id="dadi">
+      <data key="d0">0</data>
+    </node>
+    <node id="dadi_ve_diger_kizlar">
+      <data key="d0">0</data>
+    </node>
+    <node id="dadilar">
+      <data key="d0">0</data>
+    </node>
+    <node id="dayalar">
+      <data key="d0">0</data>
+    </node>
+    <node id="dede_korkut">
+      <data key="d0">0</data>
+    </node>
+    <node id="deli_budak">
+      <data key="d0">0</data>
+    </node>
+    <node id="deli_dumrul">
+      <data key="d0">0</data>
+    </node>
+    <node id="deli_dundar">
+      <data key="d0">0</data>
+    </node>
+    <node id="deli_durmrul">
+      <data key="d0">0</data>
+    </node>
+    <node id="deli_karcar">
+      <data key="d0">0</data>
+    </node>
+    <node id="demir_donlu_mamak">
+      <data key="d0">0</data>
+    </node>
+    <node id="demir_guci">
+      <data key="d0">0</data>
+    </node>
+    <node id="deve">
+      <data key="d0">0</data>
+    </node>
+    <node id="deyis">
+      <data key="d0">0</data>
+    </node>
+    <node id="dire">
+      <data key="d0">0</data>
+    </node>
+    <node id="direk_tekfur">
+      <data key="d0">0</data>
+    </node>
+    <node id="dirse_han">
+      <data key="d0">0</data>
+    </node>
+    <node id="dirse_hanin_40_adami">
+      <data key="d0">0</data>
+    </node>
+    <node id="dirse_hanin_karisi">
+      <data key="d0">0</data>
+    </node>
+    <node id="dis_oguz">
+      <data key="d0">0</data>
+    </node>
+    <node id="dis_oguz_agalari">
+      <data key="d0">0</data>
+    </node>
+    <node id="dis_oguz_beyleri">
+      <data key="d0">0</data>
+    </node>
+    <node id="dis_oguz_beyleri_ve_deli_dundar">
+      <data key="d0">0</data>
+    </node>
+    <node id="doksan_tumen_oguz">
+      <data key="d0">0</data>
+    </node>
+    <node id="dokuz_tumen_oguz">
+      <data key="d0">0</data>
+    </node>
+    <node id="donebilmez_dulek_evren">
+      <data key="d0">0</data>
+    </node>
+    <node id="donebilmez_dulerk_evren">
+      <data key="d0">0</data>
+    </node>
+    <node id="duha_koca">
+      <data key="d0">0</data>
+    </node>
+    <node id="dumrul">
+      <data key="d0">0</data>
+    </node>
+    <node id="dumrulun_40_adami">
+      <data key="d0">0</data>
+    </node>
+    <node id="dumrulun_annesi">
+      <data key="d0">0</data>
+    </node>
+    <node id="dumrulun_karisi">
+      <data key="d0">0</data>
+    </node>
+    <node id="duzen">
+      <data key="d0">0</data>
+    </node>
+    <node id="duzen_oglu_alp_rustem">
+      <data key="d0">0</data>
+    </node>
+    <node id="duzmurd_kalesi_tekfuru_arsin">
+      <data key="d0">0</data>
+    </node>
+    <node id="egrek">
+      <data key="d0">0</data>
+    </node>
+    <node id="egrek_ve_300_akinci">
+      <data key="d0">0</data>
+    </node>
+    <node id="egrek_ve_segrek">
+      <data key="d0">0</data>
+    </node>
+    <node id="egreke_yol_gosterdi">
+      <data key="d0">0</data>
+    </node>
+    <node id="emen">
+      <data key="d0">0</data>
+    </node>
+    <node id="emren">
+      <data key="d0">0</data>
+    </node>
+    <node id="ense_koca_oglu_okcu">
+      <data key="d0">0</data>
+    </node>
+    <node id="evnuk_kalesi_kafirleri">
+      <data key="d0">0</data>
+    </node>
+    <node id="eylik_koca">
+      <data key="d0">0</data>
+    </node>
+    <node id="eylik_koca_donebilmez_dulek_evren">
+      <data key="d0">0</data>
+    </node>
+    <node id="eylik_koca_oglu_saru_kulmas">
+      <data key="d0">0</data>
+    </node>
+    <node id="gelen_diger_dadilar">
+      <data key="d0">0</data>
+    </node>
+    <node id="haberci">
+      <data key="d0">0</data>
+    </node>
+    <node id="han_afsar">
+      <data key="d0">0</data>
+    </node>
+    <node id="hekimler">
+      <data key="d0">0</data>
+    </node>
+    <node id="hizir">
+      <data key="d0">0</data>
+    </node>
+    <node id="ic_oguz">
+      <data key="d0">0</data>
+    </node>
+    <node id="ic_oguz_beyleri">
+      <data key="d0">0</data>
+    </node>
+    <node id="ic_oguz_beyleri_dis_oguz_beyleri_pay_pure_bey_kara_budak_uruz_bey_yigenek_salur_kazan_pay_bicen">
+      <data key="d0">0</data>
+    </node>
+    <node id="ic_oguz_ve_kazan">
+      <data key="d0">0</data>
+    </node>
+    <node id="imrahor">
+      <data key="d0">0</data>
+    </node>
+    <node id="kadinlar">
+      <data key="d0">0</data>
+    </node>
+    <node id="kafir">
+      <data key="d0">0</data>
+    </node>
+    <node id="kafir_askeri">
+      <data key="d0">0</data>
+    </node>
+    <node id="kafir_beyinin_kizi">
+      <data key="d0">0</data>
+    </node>
+    <node id="kafir_eri">
+      <data key="d0">0</data>
+    </node>
+    <node id="kafir_gozcusu">
+      <data key="d0">0</data>
+    </node>
+    <node id="kafir_ordusu">
+      <data key="d0">0</data>
+    </node>
+    <node id="kafirin_40_atlisi">
+      <data key="d0">0</data>
+    </node>
+    <node id="kafirin_casusu">
+      <data key="d0">0</data>
+    </node>
+    <node id="kafirin_causu">
+      <data key="d0">0</data>
+    </node>
+    <node id="kafirin_sagina_saldirdilar">
+      <data key="d0">0</data>
+    </node>
+    <node id="kafirin_sancagini_kilicladi">
+      <data key="d0">0</data>
+    </node>
+    <node id="kafirin_soluna_saldirdilar">
+      <data key="d0">0</data>
+    </node>
+    <node id="kafirler_bamsi_beyrek_boyu">
+      <data key="d0">0</data>
+    </node>
+    <node id="kafirler_ev_yagmasi_boyu">
+      <data key="d0">0</data>
+    </node>
+    <node id="kafirler_kan_turali_boyu">
+      <data key="d0">0</data>
+    </node>
+    <node id="kafirler_segrek_boyu">
+      <data key="d0">0</data>
+    </node>
+    <node id="kafirler_uruz_kurtarma_boyu">
+      <data key="d0">0</data>
+    </node>
+    <node id="kafirler_uruz_tutsak_boyu">
+      <data key="d0">0</data>
+    </node>
+    <node id="kafirlere">
+      <data key="d0">0</data>
+    </node>
+    <node id="kafirlerin_sag_cenahi">
+      <data key="d0">0</data>
+    </node>
+    <node id="kalenin_sigir_cobani">
+      <data key="d0">0</data>
+    </node>
+    <node id="kaleye_hucum_edenler">
+      <data key="d0">0</data>
+    </node>
+    <node id="kam_gan">
+      <data key="d0">0</data>
+    </node>
+    <node id="kan_turali">
+      <data key="d0">0</data>
+    </node>
+    <node id="kan_turali_ve_adamlari">
+      <data key="d0">0</data>
+    </node>
+    <node id="kan_turali_ve_selcen_hatun">
+      <data key="d0">0</data>
+    </node>
+    <node id="kan_turalinin_40_adami">
+      <data key="d0">0</data>
+    </node>
+    <node id="kan_turalinin_adamlari">
+      <data key="d0">0</data>
+    </node>
+    <node id="kan_turalinin_anne_babasi">
+      <data key="d0">0</data>
+    </node>
+    <node id="kan_turaliyi_gorunce_ona_tutuluyor_keske_babam_beni_buna_verse">
+      <data key="d0">0</data>
+    </node>
+    <node id="kanli_koca">
+      <data key="d0">0</data>
+    </node>
+    <node id="kapcak_melik">
+      <data key="d0">0</data>
+    </node>
+    <node id="kapici">
+      <data key="d0">0</data>
+    </node>
+    <node id="kara_arslan_melik">
+      <data key="d0">0</data>
+    </node>
+    <node id="kara_budak">
+      <data key="d0">0</data>
+    </node>
+    <node id="kara_budak_kazan_oglu_uruz_beyler_basi_yigenek_gaflet_koca_oglu_sir_semseddin_deli_karcar_dugunde_ok_atarlar">
+      <data key="d0">0</data>
+    </node>
+    <node id="kara_cekur">
+      <data key="d0">0</data>
+    </node>
+    <node id="kara_gone">
+      <data key="d0">0</data>
+    </node>
+    <node id="kara_gone_deli_dundar_kara_budak">
+      <data key="d0">0</data>
+    </node>
+    <node id="kara_gone_oglu_kara_budak">
+      <data key="d0">0</data>
+    </node>
+    <node id="kara_gone_ve_askerleri">
+      <data key="d0">0</data>
+    </node>
+    <node id="kara_tekfur">
+      <data key="d0">0</data>
+    </node>
+    <node id="kara_tekfurun_casusu">
+      <data key="d0">0</data>
+    </node>
+    <node id="kara_tuken_melik">
+      <data key="d0">0</data>
+    </node>
+    <node id="karacuk_coban">
+      <data key="d0">0</data>
+    </node>
+    <node id="karacuk_cobanin_kara_kopegi">
+      <data key="d0">0</data>
+    </node>
+    <node id="karavas">
+      <data key="d0">0</data>
+    </node>
+    <node id="karisi">
+      <data key="d0">0</data>
+    </node>
+    <node id="karisina">
+      <data key="d0">0</data>
+    </node>
+    <node id="kayin_ata_kayin_anasi">
+      <data key="d0">0</data>
+    </node>
+    <node id="kazan_kardesi_kara_gone_kiyan_selcuk_oglu_deli_dundar_gaflet_koca_oglu_sir_semseddin_beyrek_kazilik_koca_oglu_bey_yigenek_dor_boyun_oksayan_deli_dundar_bin_kavim_baslari_duger_bin_bugduz_baslari_emen_dokuz_koca_baslari_aruz_kazanin_beyleri">
+      <data key="d0">0</data>
+    </node>
+    <node id="kazan_uruz_ve_askerleri">
+      <data key="d0">0</data>
+    </node>
+    <node id="kazan_ve_askerleri">
+      <data key="d0">0</data>
+    </node>
+    <node id="kazan_ve_bayindir_han">
+      <data key="d0">0</data>
+    </node>
+    <node id="kazan_ve_beyler">
+      <data key="d0">0</data>
+    </node>
+    <node id="kazan_ve_karacuk_coban">
+      <data key="d0">0</data>
+    </node>
+    <node id="kazanin_adami">
+      <data key="d0">0</data>
+    </node>
+    <node id="kazanin_adamlari">
+      <data key="d0">0</data>
+    </node>
+    <node id="kazanin_askerleri">
+      <data key="d0">0</data>
+    </node>
+    <node id="kazanin_evi">
+      <data key="d0">0</data>
+    </node>
+    <node id="kazanin_kardesi_kara_gone">
+      <data key="d0">0</data>
+    </node>
+    <node id="kazanin_karicuk_anasi">
+      <data key="d0">0</data>
+    </node>
+    <node id="kazilik_koca">
+      <data key="d0">0</data>
+    </node>
+    <node id="kazilik_koca_oglu_bey_yigenek">
+      <data key="d0">0</data>
+    </node>
+    <node id="kesisler">
+      <data key="d0">0</data>
+    </node>
+    <node id="kilbas">
+      <data key="d0">0</data>
+    </node>
+    <node id="kilbas_ve_kara_gone">
+      <data key="d0">0</data>
+    </node>
+    <node id="kirk_kinuk">
+      <data key="d0">0</data>
+    </node>
+    <node id="kisirca_yenge">
+      <data key="d0">0</data>
+    </node>
+    <node id="kiyan_guci">
+      <data key="d0">0</data>
+    </node>
+    <node id="kiyan_oglu_deli_dundar">
+      <data key="d0">0</data>
+    </node>
+    <node id="kiyan_selcik">
+      <data key="d0">0</data>
+    </node>
+    <node id="kiyan_selcuk">
+      <data key="d0">0</data>
+    </node>
+    <node id="kiyan_selcuk_oglu_deli_dundar">
+      <data key="d0">0</data>
+    </node>
+    <node id="kocalar">
+      <data key="d0">0</data>
+    </node>
+    <node id="kurt">
+      <data key="d0">0</data>
+    </node>
+    <node id="lala_kilbas">
+      <data key="d0">0</data>
+    </node>
+    <node id="meclis">
+      <data key="d0">0</data>
+    </node>
+    <node id="nesne">
+      <data key="d0">0</data>
+    </node>
+    <node id="oba">
+      <data key="d0">0</data>
+    </node>
+    <node id="oglu_ve_40_adami">
+      <data key="d0">0</data>
+    </node>
+    <node id="oglunu_veren_kadin">
+      <data key="d0">0</data>
+    </node>
+    <node id="oguz">
+      <data key="d0">0</data>
+    </node>
+    <node id="oguz_askerleri">
+      <data key="d0">0</data>
+    </node>
+    <node id="oguz_beyleri">
+      <data key="d0">0</data>
+    </node>
+    <node id="oguz_han">
+      <data key="d0">0</data>
+    </node>
+    <node id="oguz_hanin_likcisi">
+      <data key="d0">0</data>
+    </node>
+    <node id="oksuz_cocuk">
+      <data key="d0">0</data>
+    </node>
+    <node id="oynadigi_oglanlar">
+      <data key="d0">0</data>
+    </node>
+    <node id="ozan">
+      <data key="d0">0</data>
+    </node>
+    <node id="pay_picen_bey">
+      <data key="d0">0</data>
+    </node>
+    <node id="pay_pure">
+      <data key="d0">0</data>
+    </node>
+    <node id="pay_pure_bey">
+      <data key="d0">0</data>
+    </node>
+    <node id="pay_pure_beyin_ordusu">
+      <data key="d0">0</data>
+    </node>
+    <node id="pay_purenin_oglu">
+      <data key="d0">0</data>
+    </node>
+    <node id="paypure">
+      <data key="d0">0</data>
+    </node>
+    <node id="peri">
+      <data key="d0">0</data>
+    </node>
+    <node id="peri_kizi">
+      <data key="d0">0</data>
+    </node>
+    <node id="peygamber_sahabesi_kanli_bugduz_emen">
+      <data key="d0">0</data>
+    </node>
+    <node id="saht_oldu">
+      <data key="d0">0</data>
+    </node>
+    <node id="salur_kazan">
+      <data key="d0">0</data>
+    </node>
+    <node id="sari_coban">
+      <data key="d0">0</data>
+    </node>
+    <node id="segerk">
+      <data key="d0">0</data>
+    </node>
+    <node id="segrek">
+      <data key="d0">0</data>
+    </node>
+    <node id="segrekin_karisi">
+      <data key="d0">0</data>
+    </node>
+    <node id="selcen_hatun">
+      <data key="d0">0</data>
+    </node>
+    <node id="serhat_beylerinden_ulak">
+      <data key="d0">0</data>
+    </node>
+    <node id="sir_semseddin">
+      <data key="d0">0</data>
+    </node>
+    <node id="sokli_melik">
+      <data key="d0">0</data>
+    </node>
+    <node id="sokli_melik_ve_adamlari">
+      <data key="d0">0</data>
+    </node>
+    <node id="su">
+      <data key="d0">0</data>
+    </node>
+    <node id="tanri">
+      <data key="d0">0</data>
+    </node>
+    <node id="tatyan_kalesi_casuslari">
+      <data key="d0">0</data>
+    </node>
+    <node id="tekfur_begil_boyu">
+      <data key="d0">0</data>
+    </node>
+    <node id="tekfur_kan_turali_boyu">
+      <data key="d0">0</data>
+    </node>
+    <node id="tekfur_segrek_boyu">
+      <data key="d0">0</data>
+    </node>
+    <node id="tekfur_uruz_kurtarma_boyu">
+      <data key="d0">0</data>
+    </node>
+    <node id="tekfur_uruz_tutsak_boyu">
+      <data key="d0">0</data>
+    </node>
+    <node id="tekfur_ve_100_kafir">
+      <data key="d0">0</data>
+    </node>
+    <node id="tekfur_ve_sokli_melik">
+      <data key="d0">0</data>
+    </node>
+    <node id="tekfurun">
+      <data key="d0">0</data>
+    </node>
+    <node id="tekfurun_adamlari">
+      <data key="d0">0</data>
+    </node>
+    <node id="tekfurun_askerleri">
+      <data key="d0">0</data>
+    </node>
+    <node id="tekfurun_beyleri">
+      <data key="d0">0</data>
+    </node>
+    <node id="tekfurun_casusu">
+      <data key="d0">0</data>
+    </node>
+    <node id="tekfurun_kardesinin_oglu">
+      <data key="d0">0</data>
+    </node>
+    <node id="tekfurun_karisi">
+      <data key="d0">0</data>
+    </node>
+    <node id="tepegoz">
+      <data key="d0">0</data>
+    </node>
+    <node id="tepegozden_sikayetci_olan_ana_babalar">
+      <data key="d0">0</data>
+    </node>
+    <node id="tepegozun_peri_annesi">
+      <data key="d0">0</data>
+    </node>
+    <node id="ters_uzamis">
+      <data key="d0">0</data>
+    </node>
+    <node id="trabzon_tekfuru">
+      <data key="d0">0</data>
+    </node>
+    <node id="turkistan">
+      <data key="d0">0</data>
+    </node>
+    <node id="ulas">
+      <data key="d0">0</data>
+    </node>
+    <node id="uruz">
+      <data key="d0">0</data>
+    </node>
+    <node id="uruz_ve_300_asker">
+      <data key="d0">0</data>
+    </node>
+    <node id="uruz_ve_uruzun_40_askeri">
+      <data key="d0">0</data>
+    </node>
+    <node id="uruzun_40_adamini_sehit_ettiler">
+      <data key="d0">0</data>
+    </node>
+    <node id="uruzun_40_askeri">
+      <data key="d0">0</data>
+    </node>
+    <node id="uruzun_annesi">
+      <data key="d0">0</data>
+    </node>
+    <node id="uruzun_sag_yaninda_yer_gosterdi_cubbe_giydirdi">
+      <data key="d0">0</data>
+    </node>
+    <node id="ustalar">
+      <data key="d0">0</data>
+    </node>
+    <node id="usun_koca">
+      <data key="d0">0</data>
+    </node>
+    <node id="usun_koca_oglu">
+      <data key="d0">0</data>
+    </node>
+    <node id="usun_koca_oglunun_2_kardesi">
+      <data key="d0">0</data>
+    </node>
+    <node id="usun_koca_ve_karisi">
+      <data key="d0">0</data>
+    </node>
+    <node id="usun_kocanin_buyuk">
+      <data key="d0">0</data>
+    </node>
+    <node id="usun_kocanin_kucuk">
+      <data key="d0">0</data>
+    </node>
+    <node id="yalanci_oglu_yaltacuk">
+      <data key="d0">0</data>
+    </node>
+    <node id="yarar_kocalar">
+      <data key="d0">0</data>
+    </node>
+    <node id="yasli_kadin">
+      <data key="d0">0</data>
+    </node>
+    <node id="yedi_basli_ejderha">
+      <data key="d0">0</data>
+    </node>
+    <node id="yedi_kafir_beyi">
+      <data key="d0">0</data>
+    </node>
+    <node id="yedi_yigit">
+      <data key="d0">0</data>
+    </node>
+    <node id="yigenek">
+      <data key="d0">0</data>
+    </node>
+    <node id="yigenek_ve_sancak_beyleri">
+      <data key="d0">0</data>
+    </node>
+    <node id="yigit">
+      <data key="d0">0</data>
+    </node>
+    <node id="yoldaslari">
+      <data key="d0">0</data>
+    </node>
+    <node id="yurt">
+      <data key="d0">0</data>
+    </node>
+    <node id="yuz_bin_kafir">
+      <data key="d0">0</data>
+    </node>
+    <node id="zindanci">
+      <data key="d0">0</data>
+    </node>
+    <node id="S01">
+      <data key="d0">1</data>
+    </node>
+    <node id="S02">
+      <data key="d0">1</data>
+    </node>
+    <node id="S03">
+      <data key="d0">1</data>
+    </node>
+    <node id="S04">
+      <data key="d0">1</data>
+    </node>
+    <node id="S05">
+      <data key="d0">1</data>
+    </node>
+    <node id="S06">
+      <data key="d0">1</data>
+    </node>
+    <node id="S07">
+      <data key="d0">1</data>
+    </node>
+    <node id="S08">
+      <data key="d0">1</data>
+    </node>
+    <node id="S09">
+      <data key="d0">1</data>
+    </node>
+    <node id="S10">
+      <data key="d0">1</data>
+    </node>
+    <node id="S11">
+      <data key="d0">1</data>
+    </node>
+    <node id="S12">
+      <data key="d0">1</data>
+    </node>
+    <node id="S13">
+      <data key="d0">1</data>
+    </node>
+    <node id="S14">
+      <data key="d0">1</data>
+    </node>
+    <edge source="100_kafir" target="S10" />
+    <edge source="100_kafir" target="S11" />
+    <edge source="16_bin_kafir" target="S05" />
+    <edge source="24_sancak_beyi" target="S08" />
+    <edge source="300_akinci" target="S11" />
+    <edge source="300_asker" target="S05" />
+    <edge source="300_asker" target="S10" />
+    <edge source="300_kafir" target="S04" />
+    <edge source="300_kafir" target="S11" />
+    <edge source="40_askeri" target="S05" />
+    <edge source="40_ince_belli_kiz" target="S02" />
+    <edge source="40_ince_belli_kiz" target="S03" />
+    <edge source="40_ince_belli_kiz" target="S05" />
+    <edge source="40_yigit" target="S06" />
+    <edge source="600_kafir" target="S03" />
+    <edge source="600_kafir" target="S07" />
+    <edge source="600_kafir" target="S11" />
+    <edge source="60_kafir" target="S11" />
+    <edge source="6_kafir" target="S11" />
+    <edge source="adsiz_kisi_uruz_kurtarma_boyu" target="S12" />
+    <edge source="agac" target="S03" />
+    <edge source="ak_melik" target="S03" />
+    <edge source="ak_saka_kalesi_casuslari" target="S05" />
+    <edge source="ak_sakalli_aruz_koca" target="S09" />
+    <edge source="alp_eren" target="S03" />
+    <edge source="alp_rustem" target="S10" />
+    <edge source="alp_rustem" target="S12" />
+    <edge source="alp_rustem" target="S13" />
+    <edge source="alplar_basi_kazan" target="S09" />
+    <edge source="alti_bey_oglu" target="S14" />
+    <edge source="anne_ve_babasi" target="S09" />
+    <edge source="anne_ve_babasi" target="S10" />
+    <edge source="anne_ve_babasi" target="S11" />
+    <edge source="annesi" target="S11" />
+    <edge source="annesi" target="S12" />
+    <edge source="arsin_oglu_direk_tekfur" target="S08" />
+    <edge source="aruz" target="S09" />
+    <edge source="aruz" target="S13" />
+    <edge source="aruz_koca" target="S03" />
+    <edge source="aruz_koca" target="S09" />
+    <edge source="aruz_ve_dis_oguz_beyleri" target="S13" />
+    <edge source="aruzun_habercisi" target="S13" />
+    <edge source="askerler" target="S12" />
+    <edge source="aslan" target="S07" />
+    <edge source="aslan" target="S09" />
+    <edge source="aslan_yatagi" target="S09" />
+    <edge source="at_agizli_aruz" target="S05" />
+    <edge source="at_agizli_aruz_koca" target="S03" />
+    <edge source="azrail" target="S06" />
+    <edge source="bamsi_beyrek" target="S03" />
+    <edge source="bamsi_beyrek" target="S04" />
+    <edge source="bamsi_beyrek" target="S12" />
+    <edge source="bamsi_beyrek" target="S13" />
+    <edge source="bamsi_ve_bamsinin_40_yigidi" target="S04" />
+    <edge source="bamsinin_anne_babasi" target="S04" />
+    <edge source="bamsinin_haberi_gelince" target="S04" />
+    <edge source="bamsinin_haberi_gelince_siyah_giyme_yas_tutma" target="S04" />
+    <edge source="bamsinin_naibi" target="S04" />
+    <edge source="banu_cicek" target="S04" />
+    <edge source="bas_acik" target="S14" />
+    <edge source="basat" target="S09" />
+    <edge source="basat" target="S13" />
+    <edge source="basatin_annesi" target="S09" />
+    <edge source="bayat_boyu" target="S01" />
+    <edge source="bayburd_hisarindaki_kafirler" target="S04" />
+    <edge source="bayburt_hisari_beyi" target="S04" />
+    <edge source="bayburt_hisrasi_melikinin_kizi" target="S04" />
+    <edge source="bayindir_han" target="S02" />
+    <edge source="bayindir_han" target="S03" />
+    <edge source="bayindir_han" target="S04" />
+    <edge source="bayindir_han" target="S08" />
+    <edge source="bayindir_han" target="S09" />
+    <edge source="bayindir_han" target="S10" />
+    <edge source="bayindir_han" target="S14" />
+    <edge source="bayindir_han_kazan" target="S10" />
+    <edge source="bayindir_hanin_adamlari" target="S02" />
+    <edge source="begil" target="S10" />
+    <edge source="begilin_adamlari" target="S10" />
+    <edge source="begilin_casusu" target="S10" />
+    <edge source="begilin_hismi_ve_kavmi" target="S10" />
+    <edge source="begilin_karisi" target="S10" />
+    <edge source="beyerek" target="S13" />
+    <edge source="beyler_bamsi_beyrek_boyu" target="S04" />
+    <edge source="beyler_basat_boyu" target="S09" />
+    <edge source="beyler_begil_boyu" target="S10" />
+    <edge source="beyler_ev_yagmasi_boyu" target="S03" />
+    <edge source="beyler_uruz_kurtarma_boyu" target="S12" />
+    <edge source="beyler_uruz_tutsak_boyu" target="S05" />
+    <edge source="beyler_ve_beyrek" target="S04" />
+    <edge source="beyrek_in_40_yoldaslari" target="S04" />
+    <edge source="beyrekin_40_adami" target="S04" />
+    <edge source="beyrekin_40_yigidi" target="S04" />
+    <edge source="beyrekin_40_yigidi" target="S13" />
+    <edge source="beyrekin_adamlari" target="S13" />
+    <edge source="beyrekin_anne_babasi" target="S04" />
+    <edge source="beyrekin_anne_babasi" target="S13" />
+    <edge source="beyrekin_buyuk_kiz_kardesi" target="S04" />
+    <edge source="beyrekin_kayin_babasi_kara_gone" target="S04" />
+    <edge source="beyrekin_kucuk_kiz_kardesi" target="S04" />
+    <edge source="beyrekin_yedi_kiz_kardesi" target="S04" />
+    <edge source="beyrekin_yoldaslari" target="S04" />
+    <edge source="bezirganlar" target="S04" />
+    <edge source="biyigi_kanli_bugduz_emen" target="S09" />
+    <edge source="boga" target="S07" />
+    <edge source="bogac" target="S02" />
+    <edge source="bogac_han" target="S02" />
+    <edge source="bogac_ve_bogacin_40_adami" target="S02" />
+    <edge source="bogacin_40_adami" target="S02" />
+    <edge source="bogacuk_melik" target="S03" />
+    <edge source="bogazca_fatma" target="S04" />
+    <edge source="boyu_uzun_burla_hatun_ve_40_ince_belli_kiz" target="S03" />
+    <edge source="bugacuk_melik" target="S05" />
+    <edge source="burla_hatun" target="S03" />
+    <edge source="burla_hatun" target="S04" />
+    <edge source="burla_hatun" target="S05" />
+    <edge source="cebrail" target="S08" />
+    <edge source="cebrail" target="S10" />
+    <edge source="cekisen_oksuzle_diger_cocugu_ayirig_tokat_atti" target="S11" />
+    <edge source="cevresindekiler" target="S04" />
+    <edge source="cevresindekiler" target="S07" />
+    <edge source="cevresindekiler" target="S09" />
+    <edge source="cilasun_yigitler_ve_kara_budak" target="S03" />
+    <edge source="cilasun_yigitleri_ve_deli_dundar" target="S05" />
+    <edge source="coban" target="S09" />
+    <edge source="cobanlar" target="S04" />
+    <edge source="dadi" target="S09" />
+    <edge source="dadi_ve_diger_kizlar" target="S04" />
+    <edge source="dadilar" target="S09" />
+    <edge source="dayalar" target="S04" />
+    <edge source="dede_korkut" target="S01" />
+    <edge source="dede_korkut" target="S04" />
+    <edge source="dede_korkut" target="S09" />
+    <edge source="dede_korkut" target="S10" />
+    <edge source="dede_korkut" target="S14" />
+    <edge source="deli_budak" target="S03" />
+    <edge source="deli_dumrul" target="S06" />
+    <edge source="deli_dundar" target="S03" />
+    <edge source="deli_dundar" target="S04" />
+    <edge source="deli_dundar" target="S05" />
+    <edge source="deli_durmrul" target="S06" />
+    <edge source="deli_karcar" target="S04" />
+    <edge source="demir_donlu_mamak" target="S09" />
+    <edge source="demir_guci" target="S03" />
+    <edge source="deve" target="S07" />
+    <edge source="deyis" target="S04" />
+    <edge source="dire" target="S02" />
+    <edge source="direk_tekfur" target="S08" />
+    <edge source="dirse_han" target="S02" />
+    <edge source="dirse_hanin_40_adami" target="S02" />
+    <edge source="dirse_hanin_karisi" target="S02" />
+    <edge source="dis_oguz" target="S14" />
+    <edge source="dis_oguz_agalari" target="S14" />
+    <edge source="dis_oguz_beyleri" target="S13" />
+    <edge source="dis_oguz_beyleri_ve_deli_dundar" target="S03" />
+    <edge source="dis_oguz_beyleri_ve_deli_dundar" target="S05" />
+    <edge source="doksan_tumen_oguz" target="S05" />
+    <edge source="dokuz_tumen_oguz" target="S05" />
+    <edge source="donebilmez_dulek_evren" target="S08" />
+    <edge source="donebilmez_dulek_evren" target="S12" />
+    <edge source="donebilmez_dulerk_evren" target="S12" />
+    <edge source="duha_koca" target="S06" />
+    <edge source="dumrul" target="S06" />
+    <edge source="dumrulun_40_adami" target="S06" />
+    <edge source="dumrulun_annesi" target="S06" />
+    <edge source="dumrulun_karisi" target="S06" />
+    <edge source="duzen" target="S10" />
+    <edge source="duzen_oglu_alp_rustem" target="S09" />
+    <edge source="duzen_oglu_alp_rustem" target="S12" />
+    <edge source="duzmurd_kalesi_tekfuru_arsin" target="S08" />
+    <edge source="egrek" target="S11" />
+    <edge source="egrek_ve_300_akinci" target="S11" />
+    <edge source="egrek_ve_segrek" target="S11" />
+    <edge source="egreke_yol_gosterdi" target="S11" />
+    <edge source="emen" target="S08" />
+    <edge source="emen" target="S10" />
+    <edge source="emen" target="S13" />
+    <edge source="emren" target="S10" />
+    <edge source="ense_koca_oglu_okcu" target="S13" />
+    <edge source="evnuk_kalesi_kafirleri" target="S04" />
+    <edge source="eylik_koca" target="S03" />
+    <edge source="eylik_koca_donebilmez_dulek_evren" target="S12" />
+    <edge source="eylik_koca_oglu_saru_kulmas" target="S03" />
+    <edge source="gelen_diger_dadilar" target="S09" />
+    <edge source="haberci" target="S10" />
+    <edge source="haberci" target="S11" />
+    <edge source="han_afsar" target="S14" />
+    <edge source="hekimler" target="S02" />
+    <edge source="hizir" target="S02" />
+    <edge source="ic_oguz" target="S14" />
+    <edge source="ic_oguz_beyleri" target="S13" />
+    <edge source="ic_oguz_beyleri" target="S14" />
+    <edge source="ic_oguz_beyleri_dis_oguz_beyleri_pay_pure_bey_kara_budak_uruz_bey_yigenek_salur_kazan_pay_bicen" target="S04" />
+    <edge source="ic_oguz_ve_kazan" target="S03" />
+    <edge source="imrahor" target="S04" />
+    <edge source="kadinlar" target="S04" />
+    <edge source="kafir" target="S03" />
+    <edge source="kafir" target="S05" />
+    <edge source="kafir" target="S08" />
+    <edge source="kafir" target="S10" />
+    <edge source="kafir" target="S12" />
+    <edge source="kafir_askeri" target="S12" />
+    <edge source="kafir_beyinin_kizi" target="S04" />
+    <edge source="kafir_eri" target="S12" />
+    <edge source="kafir_gozcusu" target="S10" />
+    <edge source="kafir_ordusu" target="S10" />
+    <edge source="kafirin_40_atlisi" target="S04" />
+    <edge source="kafirin_casusu" target="S04" />
+    <edge source="kafirin_causu" target="S10" />
+    <edge source="kafirin_sagina_saldirdilar" target="S05" />
+    <edge source="kafirin_sancagini_kilicladi" target="S05" />
+    <edge source="kafirin_soluna_saldirdilar" target="S05" />
+    <edge source="kafirler_bamsi_beyrek_boyu" target="S04" />
+    <edge source="kafirler_ev_yagmasi_boyu" target="S03" />
+    <edge source="kafirler_kan_turali_boyu" target="S07" />
+    <edge source="kafirler_segrek_boyu" target="S11" />
+    <edge source="kafirler_uruz_kurtarma_boyu" target="S12" />
+    <edge source="kafirler_uruz_tutsak_boyu" target="S05" />
+    <edge source="kafirlere" target="S10" />
+    <edge source="kafirlerin_sag_cenahi" target="S05" />
+    <edge source="kalenin_sigir_cobani" target="S12" />
+    <edge source="kaleye_hucum_edenler" target="S04" />
+    <edge source="kam_gan" target="S02" />
+    <edge source="kam_gan" target="S04" />
+    <edge source="kam_gan" target="S08" />
+    <edge source="kam_gan" target="S10" />
+    <edge source="kan_turali" target="S07" />
+    <edge source="kan_turali_ve_adamlari" target="S07" />
+    <edge source="kan_turali_ve_selcen_hatun" target="S07" />
+    <edge source="kan_turalinin_40_adami" target="S07" />
+    <edge source="kan_turalinin_adamlari" target="S07" />
+    <edge source="kan_turalinin_anne_babasi" target="S07" />
+    <edge source="kan_turaliyi_gorunce_ona_tutuluyor_keske_babam_beni_buna_verse" target="S07" />
+    <edge source="kanli_koca" target="S07" />
+    <edge source="kapcak_melik" target="S03" />
+    <edge source="kapici" target="S10" />
+    <edge source="kara_arslan_melik" target="S04" />
+    <edge source="kara_budak" target="S03" />
+    <edge source="kara_budak" target="S04" />
+    <edge source="kara_budak" target="S05" />
+    <edge source="kara_budak" target="S08" />
+    <edge source="kara_budak" target="S14" />
+    <edge source="kara_budak_kazan_oglu_uruz_beyler_basi_yigenek_gaflet_koca_oglu_sir_semseddin_deli_karcar_dugunde_ok_atarlar" target="S04" />
+    <edge source="kara_cekur" target="S07" />
+    <edge source="kara_gone" target="S03" />
+    <edge source="kara_gone" target="S05" />
+    <edge source="kara_gone" target="S08" />
+    <edge source="kara_gone" target="S13" />
+    <edge source="kara_gone_deli_dundar_kara_budak" target="S03" />
+    <edge source="kara_gone_oglu_kara_budak" target="S03" />
+    <edge source="kara_gone_ve_askerleri" target="S12" />
+    <edge source="kara_tekfur" target="S04" />
+    <edge source="kara_tekfur" target="S11" />
+    <edge source="kara_tekfurun_casusu" target="S11" />
+    <edge source="kara_tuken_melik" target="S03" />
+    <edge source="kara_tuken_melik" target="S05" />
+    <edge source="karacuk_coban" target="S03" />
+    <edge source="karacuk_cobanin_kara_kopegi" target="S03" />
+    <edge source="karavas" target="S10" />
+    <edge source="karisi" target="S11" />
+    <edge source="karisina" target="S11" />
+    <edge source="kayin_ata_kayin_anasi" target="S11" />
+    <edge source="kazan_kardesi_kara_gone_kiyan_selcuk_oglu_deli_dundar_gaflet_koca_oglu_sir_semseddin_beyrek_kazilik_koca_oglu_bey_yigenek_dor_boyun_oksayan_deli_dundar_bin_kavim_baslari_duger_bin_bugduz_baslari_emen_dokuz_koca_baslari_aruz_kazanin_beyleri" target="S05" />
+    <edge source="kazan_uruz_ve_askerleri" target="S05" />
+    <edge source="kazan_ve_askerleri" target="S05" />
+    <edge source="kazan_ve_bayindir_han" target="S04" />
+    <edge source="kazan_ve_beyler" target="S12" />
+    <edge source="kazan_ve_karacuk_coban" target="S03" />
+    <edge source="kazanin_adami" target="S04" />
+    <edge source="kazanin_adamlari" target="S04" />
+    <edge source="kazanin_askerleri" target="S12" />
+    <edge source="kazanin_askerleri" target="S14" />
+    <edge source="kazanin_evi" target="S03" />
+    <edge source="kazanin_kardesi_kara_gone" target="S09" />
+    <edge source="kazanin_kardesi_kara_gone" target="S13" />
+    <edge source="kazanin_karicuk_anasi" target="S03" />
+    <edge source="kazilik_koca" target="S08" />
+    <edge source="kazilik_koca_oglu_bey_yigenek" target="S03" />
+    <edge source="kesisler" target="S04" />
+    <edge source="kilbas" target="S13" />
+    <edge source="kilbas_ve_kara_gone" target="S13" />
+    <edge source="kirk_kinuk" target="S07" />
+    <edge source="kisirca_yenge" target="S04" />
+    <edge source="kiyan_guci" target="S03" />
+    <edge source="kiyan_oglu_deli_dundar" target="S14" />
+    <edge source="kiyan_selcik" target="S09" />
+    <edge source="kiyan_selcuk" target="S04" />
+    <edge source="kiyan_selcuk_oglu_deli_dundar" target="S03" />
+    <edge source="kiyan_selcuk_oglu_deli_dundar" target="S08" />
+    <edge source="kocalar" target="S09" />
+    <edge source="kurt" target="S03" />
+    <edge source="lala_kilbas" target="S14" />
+    <edge source="meclis" target="S10" />
+    <edge source="nesne" target="S09" />
+    <edge source="oba" target="S06" />
+    <edge source="oglu_ve_40_adami" target="S02" />
+    <edge source="oglunu_veren_kadin" target="S09" />
+    <edge source="oguz" target="S09" />
+    <edge source="oguz_askerleri" target="S12" />
+    <edge source="oguz_beyleri" target="S04" />
+    <edge source="oguz_beyleri" target="S09" />
+    <edge source="oguz_han" target="S09" />
+    <edge source="oguz_hanin_likcisi" target="S09" />
+    <edge source="oksuz_cocuk" target="S11" />
+    <edge source="oynadigi_oglanlar" target="S09" />
+    <edge source="ozan" target="S04" />
+    <edge source="pay_picen_bey" target="S04" />
+    <edge source="pay_pure" target="S04" />
+    <edge source="pay_pure_bey" target="S04" />
+    <edge source="pay_pure_beyin_ordusu" target="S04" />
+    <edge source="pay_purenin_oglu" target="S04" />
+    <edge source="paypure" target="S04" />
+    <edge source="peri" target="S09" />
+    <edge source="peri_kizi" target="S09" />
+    <edge source="peygamber_sahabesi_kanli_bugduz_emen" target="S03" />
+    <edge source="saht_oldu" target="S13" />
+    <edge source="salur_kazan" target="S03" />
+    <edge source="salur_kazan" target="S04" />
+    <edge source="salur_kazan" target="S05" />
+    <edge source="salur_kazan" target="S09" />
+    <edge source="salur_kazan" target="S10" />
+    <edge source="salur_kazan" target="S11" />
+    <edge source="salur_kazan" target="S12" />
+    <edge source="salur_kazan" target="S13" />
+    <edge source="salur_kazan" target="S14" />
+    <edge source="sari_coban" target="S09" />
+    <edge source="segerk" target="S11" />
+    <edge source="segrek" target="S11" />
+    <edge source="segrekin_karisi" target="S11" />
+    <edge source="selcen_hatun" target="S07" />
+    <edge source="serhat_beylerinden_ulak" target="S14" />
+    <edge source="sir_semseddin" target="S04" />
+    <edge source="sokli_melik" target="S03" />
+    <edge source="sokli_melik" target="S04" />
+    <edge source="sokli_melik_ve_adamlari" target="S03" />
+    <edge source="su" target="S03" />
+    <edge source="tanri" target="S06" />
+    <edge source="tanri" target="S08" />
+    <edge source="tanri" target="S10" />
+    <edge source="tanri" target="S14" />
+    <edge source="tatyan_kalesi_casuslari" target="S05" />
+    <edge source="tekfur_begil_boyu" target="S10" />
+    <edge source="tekfur_kan_turali_boyu" target="S07" />
+    <edge source="tekfur_segrek_boyu" target="S11" />
+    <edge source="tekfur_uruz_kurtarma_boyu" target="S12" />
+    <edge source="tekfur_uruz_tutsak_boyu" target="S05" />
+    <edge source="tekfur_ve_100_kafir" target="S07" />
+    <edge source="tekfur_ve_sokli_melik" target="S05" />
+    <edge source="tekfurun" target="S07" />
+    <edge source="tekfurun_adamlari" target="S07" />
+    <edge source="tekfurun_adamlari" target="S12" />
+    <edge source="tekfurun_askerleri" target="S10" />
+    <edge source="tekfurun_askerleri" target="S12" />
+    <edge source="tekfurun_beyleri" target="S12" />
+    <edge source="tekfurun_casusu" target="S11" />
+    <edge source="tekfurun_casusu" target="S12" />
+    <edge source="tekfurun_kardesinin_oglu" target="S07" />
+    <edge source="tekfurun_karisi" target="S12" />
+    <edge source="tepegoz" target="S09" />
+    <edge source="tepegozden_sikayetci_olan_ana_babalar" target="S09" />
+    <edge source="tepegozun_peri_annesi" target="S09" />
+    <edge source="ters_uzamis" target="S11" />
+    <edge source="ters_uzamis" target="S13" />
+    <edge source="trabzon_tekfuru" target="S07" />
+    <edge source="trabzon_tekfuru" target="S12" />
+    <edge source="turkistan" target="S03" />
+    <edge source="turkistan" target="S14" />
+    <edge source="ulas" target="S03" />
+    <edge source="ulas" target="S05" />
+    <edge source="uruz" target="S03" />
+    <edge source="uruz" target="S04" />
+    <edge source="uruz" target="S05" />
+    <edge source="uruz" target="S12" />
+    <edge source="uruz_ve_300_asker" target="S03" />
+    <edge source="uruz_ve_uruzun_40_askeri" target="S05" />
+    <edge source="uruzun_40_adamini_sehit_ettiler" target="S05" />
+    <edge source="uruzun_40_askeri" target="S05" />
+    <edge source="uruzun_annesi" target="S12" />
+    <edge source="uruzun_sag_yaninda_yer_gosterdi_cubbe_giydirdi" target="S10" />
+    <edge source="ustalar" target="S14" />
+    <edge source="usun_koca" target="S11" />
+    <edge source="usun_koca_oglu" target="S09" />
+    <edge source="usun_koca_oglunun_2_kardesi" target="S09" />
+    <edge source="usun_koca_ve_karisi" target="S11" />
+    <edge source="usun_kocanin_buyuk" target="S11" />
+    <edge source="usun_kocanin_kucuk" target="S11" />
+    <edge source="yalanci_oglu_yaltacuk" target="S04" />
+    <edge source="yarar_kocalar" target="S08" />
+    <edge source="yasli_kadin" target="S09" />
+    <edge source="yedi_basli_ejderha" target="S14" />
+    <edge source="yedi_kafir_beyi" target="S04" />
+    <edge source="yedi_yigit" target="S04" />
+    <edge source="yigenek" target="S04" />
+    <edge source="yigenek" target="S08" />
+    <edge source="yigenek_ve_sancak_beyleri" target="S08" />
+    <edge source="yigit" target="S09" />
+    <edge source="yoldaslari" target="S08" />
+    <edge source="yurt" target="S03" />
+    <edge source="yuz_bin_kafir" target="S14" />
+    <edge source="zindanci" target="S12" />
+  </graph>
+</graphml>

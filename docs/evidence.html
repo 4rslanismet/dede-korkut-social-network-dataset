@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence — Dede Korkut Narrative Networks</title>
+<meta name="description" content="Data lineage, validation results, hash manifest, decision log.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap brand-row">
+    <div>
+      <a class="brand" href="index.html">Dede Korkut Narrative Networks</a><br>
+      <span class="subtitle">A reproducible multilayer network analysis of characters and relations in the Book of Dede Korkut</span>
+    </div>
+  </div>
+  <nav class="main-nav"><div class="wrap"><a href="index.html">Home</a>
+<a href="dataset.html">Dataset</a>
+<a href="methodology.html">Methodology</a>
+<a href="explorer.html">Network Explorer</a>
+<a href="stories.html">Stories</a>
+<a href="characters.html">Characters</a>
+<a href="layers.html">Layers</a>
+<a href="communities.html">Communities</a>
+<a href="similarity.html">Similarity</a>
+<a href="analysis.html">Analysis</a>
+<a href="evidence.html" class="active">Evidence</a>
+<a href="downloads.html">Downloads</a>
+<a href="reproduce.html">Reproduce</a>
+<a href="about.html">About</a></div></nav>
+</header>
+<main class="wrap">
+
+<h1>Evidence</h1>
+<p class="lede">Scientific transparency: how every number on this site was produced, and what is
+still unresolved.</p>
+
+<h2>Data lineage</h2>
+<pre>data/raw/ (immutable) → data/story_level/ → data/final/ (legacy v3)
+    → data/processed/ (canonical rebuild, Phase 3) → outputs/ → docs/ (this site)</pre>
+<p><strong>Known provenance gap:</strong> 8.4% of event-level relations could not be matched
+back to a specific <code>data/story_level/</code> row (see <code>data/processed/provenance.csv</code>,
+<code>source_row_status == 'unmatched_provenance_gap'</code>). This is disclosed, not hidden.</p>
+
+<h2>Validation test results</h2>
+<div class="table-wrap"><table><thead><tr><th>Category</th><th>Check</th><th>Flagged rows</th></tr></thead>
+<tbody><tr><td>node</td><td>duplicate_node_id</td><td>0</td></tr><tr><td>node</td><td>same_name_multiple_ids</td><td>2</td></tr><tr><td>node</td><td>capitalization_variants</td><td>0</td></tr><tr><td>node</td><td>empty_or_blank_node_name</td><td>0</td></tr><tr><td>node</td><td>whitespace_in_node_name</td><td>0</td></tr><tr><td>node</td><td>invalid_id_format</td><td>0</td></tr><tr><td>edge</td><td>missing_source</td><td>0</td></tr><tr><td>edge</td><td>missing_target</td><td>0</td></tr><tr><td>edge</td><td>orphan_source_endpoint</td><td>0</td></tr><tr><td>edge</td><td>orphan_target_endpoint</td><td>0</td></tr><tr><td>edge</td><td>_observed_relation_types</td><td>17</td></tr><tr><td>edge</td><td>invalid_layer</td><td>0</td></tr><tr><td>edge</td><td>invalid_polarity</td><td>0</td></tr><tr><td>edge</td><td>invalid_weight</td><td>0</td></tr><tr><td>edge</td><td>invalid_directionality</td><td>0</td></tr><tr><td>edge</td><td>unexpected_self_loop</td><td>1</td></tr><tr><td>edge</td><td>exact_duplicate_relationship_same_line</td><td>2</td></tr><tr><td>edge</td><td>repeated_actor_pair_relation_pattern</td><td>114</td></tr><tr><td>edge</td><td>duplicate_kayit_id</td><td>0</td></tr><tr><td>event</td><td>missing_actor</td><td>0</td></tr><tr><td>event</td><td>orphan_actor</td><td>0</td></tr><tr><td>event</td><td>unsupported_target</td><td>0</td></tr><tr><td>event</td><td>duplicate_kayit_id</td><td>0</td></tr><tr><td>event</td><td>duplicate_event_pattern</td><td>11</td></tr><tr><td>alias</td><td>duplicate_original_alias</td><td>248</td></tr><tr><td>alias</td><td>alias_maps_to_multiple_targets</td><td>17</td></tr><tr><td>alias</td><td>alias_target_not_in_node_table</td><td>73</td></tr></tbody></table></div>
+<p>Full detail: <code>outputs/validation/summary.json</code>, <code>validation/HUMAN_REVIEW_QUEUE.csv</code>
+(121 open items awaiting manual review: stale_alias_target: 45, composite_node_candidate: 41, entity_resolution: 18, provenance_gap: 11, concatenated_multi_actor_node: 5, unexpected_self_loop: 1).</p>
+
+<h2>Candidate composite nodes (manual review pending)</h2>
+<p>A reproducible scan (<code>src/composite_nodes.py</code>) flags <strong>46 of 332</strong>
+canonical actor labels as <em>candidate composite nodes</em> &mdash; comma lists, &ldquo;X ve Y&rdquo; constructions or sentence-like names that
+may denote several actors collapsed into one node. They touch 46 of 628 relations
+(7.3%) and 48 of 1256 relation endpoints
+(3.8%). A candidate is <strong>not</strong> necessarily an error (many are legitimate collective labels);
+none has been split or merged automatically. The list is in <a href="downloads/validation/composite_node_candidates.csv">composite_node_candidates.csv</a>.
+The scan under-approximates (it misses &ldquo;ile&rdquo; constructions and short phrases). This remains an open manual entity-resolution task.</p>
+
+<h2>Hash manifest</h2>
+<p>207 files hashed (SHA-256) for reproducibility verification —
+<a href="downloads/outputs/manifest_sha256.csv">outputs/manifest_sha256.csv</a>.</p>
+
+<h2>Decision log</h2>
+<p>Every irreversible or interpretive methodological choice is recorded with its rationale in
+<a href="decision_log.md">decision_log.md</a> (19 decisions).</p>
+
+<h2>Reproduction status</h2>
+<p>70 automated tests are collected by pytest (<code>tests/</code>); their pass/fail status is reported by <code>pytest</code> and by CI, not asserted on this page.
+CI (<code>.github/workflows/validate.yml</code>) runs the test suite and a validation-only pipeline pass on every push.</p>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Network metrics are structural representations derived from the encoded dataset and should not be interpreted as complete literary judgments about character importance.</p>
+    <p>Built entirely from files in this repository — no analysis result on this site is hand-typed. See <a href="reproduce.html">Reproduce</a>.</p>
+  </div>
+</footer>
+</body>
+</html>

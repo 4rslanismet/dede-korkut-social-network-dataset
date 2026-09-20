@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology — Dede Korkut Narrative Networks</title>
+<meta name="description" content="Pipeline, modeling decisions, and what this project does not claim.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap brand-row">
+    <div>
+      <a class="brand" href="index.html">Dede Korkut Narrative Networks</a><br>
+      <span class="subtitle">A reproducible multilayer network analysis of characters and relations in the Book of Dede Korkut</span>
+    </div>
+  </div>
+  <nav class="main-nav"><div class="wrap"><a href="index.html">Home</a>
+<a href="dataset.html">Dataset</a>
+<a href="methodology.html" class="active">Methodology</a>
+<a href="explorer.html">Network Explorer</a>
+<a href="stories.html">Stories</a>
+<a href="characters.html">Characters</a>
+<a href="layers.html">Layers</a>
+<a href="communities.html">Communities</a>
+<a href="similarity.html">Similarity</a>
+<a href="analysis.html">Analysis</a>
+<a href="evidence.html">Evidence</a>
+<a href="downloads.html">Downloads</a>
+<a href="reproduce.html">Reproduce</a>
+<a href="about.html">About</a></div></nav>
+</header>
+<main class="wrap">
+
+<h1>Methodology</h1>
+<p class="lede">Every step below is implemented as a standalone, re-runnable script under
+<code>src/</code>, orchestrated by <code>run_pipeline.py</code>.</p>
+
+<h2>Pipeline overview</h2>
+<pre>Raw coding (data/raw/, data/story_level/)
+     ↓  (legacy v1-v3 standardization, outside this rebuild's scope)
+Legacy final dataset (data/final/, v3)
+     ↓  src/audit.py — repository audit, README claim verification
+     ↓  src/validate.py, src/entity_resolution.py — data quality framework
+Canonical dataset (data/processed/) — src/build_canonical.py
+     ↓  src/build_networks.py, src/story_networks.py — G0-G11 network models
+     ↓  src/metrics.py — descriptive corpus/centrality metrics
+     ↓  src/communities.py, src/signed_and_directed.py, src/multilayer.py, src/narrative_order.py
+     ↓  src/null_models.py, src/null_models_fdr.py — statistical validation
+     ↓  src/sensitivity.py, src/robustness.py — sensitivity & structural robustness
+     ↓  src/visualization.py, src/export_tables.py — figures & publication tables
+Website (docs/) — src/build_site_data.py, src/build_site.py
+</pre>
+<figure>
+  <img src="architecture_diagram.svg" alt="Pipeline architecture diagram">
+  <figcaption>Full data-flow diagram (SVG). Every arrow is a re-runnable src/*.py script.</figcaption>
+</figure>
+
+<h2>Key modeling decisions</h2>
+<p>Every non-obvious methodological choice is logged with its rationale in
+<a href="decision_log.md">decision_log.md</a>. Highlights:</p>
+<div class="dec-log">
+<p><strong>Aggregation rule (DEC-003):</strong> event-level relations are aggregated into
+<code>relations_aggregated.csv</code> by <em>unordered</em> actor pair — directionality is
+preserved as flags, not lost.</p>
+<p><strong>Relation taxonomy (DEC-004):</strong> the 17 observed relation types are mapped to
+SOCIAL / KINSHIP / AUTHORITY / SEMANTIC / OTHER / UNCERTAIN families — an interpretive scheme,
+not a raw-data fact.</p>
+<p><strong>Directed network construction (DEC-005):</strong> the directed variant (G9) uses only
+relations explicitly coded as directional — undirected relations are excluded, never assigned an
+arbitrary direction.</p>
+<p><strong>Community substrate (DEC-007):</strong> community detection runs on the core-social
+network (identity/title relations excluded), and the 23-connected-component caveat (see
+<a href="communities.html">Communities</a>) is carried through every downstream use.</p>
+<p><strong>Null model method (DEC-008):</strong> degree-preserving randomization
+(<code>networkx.double_edge_swap</code>), Benjamini-Hochberg FDR correction across all 36 tests.</p>
+<p><strong>Shortest-path distance vs. tie strength (DEC-017):</strong> the edge attribute
+<code>weight</code> is tie <em>strength</em>. Weighted betweenness therefore uses the derived distance
+<code>1 / strength</code> (a stronger tie is a shorter path); unweighted hop-count betweenness is kept as a
+separate measure. Strength is never passed directly to a shortest-path routine.</p>
+</div>
+
+<h2>Network model definitions</h2>
+<p>All 12 network variants (G0-G11) are defined in one place, <code>src/networks.py</code>, and
+documented in full in <a href="network_models.md">network_models.md</a>. Every variant is reproducible by
+re-running <code>python run_pipeline.py --stage build_networks</code>.</p>
+
+<h2>Further reading</h2>
+<p>
+<a href="data_dictionary.md">Data Dictionary</a> ·
+<a href="relation_codebook.md">Relation Codebook</a> ·
+<a href="limitations.md">Limitations</a> (19 items) ·
+<a href="inter_annotator_protocol.md">Inter-Annotator Protocol</a>
+</p>
+
+<h2>What this project does not claim</h2>
+<ul>
+<li>Network centrality is not equated with literary importance anywhere in this project.</li>
+<li>Degree assortativity ("disassortative network") was an early descriptive observation that
+did <strong>not</strong> survive null-model statistical validation — see <a href="analysis.html">Analysis</a>.</li>
+<li>Community labels are numeric IDs, never invented cultural or sociological names.</li>
+<li>Narrative order (<code>satir_no</code>) is never treated as historical chronology.</li>
+</ul>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Network metrics are structural representations derived from the encoded dataset and should not be interpreted as complete literary judgments about character importance.</p>
+    <p>Built entirely from files in this repository — no analysis result on this site is hand-typed. See <a href="reproduce.html">Reproduce</a>.</p>
+  </div>
+</footer>
+</body>
+</html>

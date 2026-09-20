@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dataset — Dede Korkut Narrative Networks</title>
+<meta name="description" content="Canonical dataset schema, composition, and provenance.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap brand-row">
+    <div>
+      <a class="brand" href="index.html">Dede Korkut Narrative Networks</a><br>
+      <span class="subtitle">A reproducible multilayer network analysis of characters and relations in the Book of Dede Korkut</span>
+    </div>
+  </div>
+  <nav class="main-nav"><div class="wrap"><a href="index.html">Home</a>
+<a href="dataset.html" class="active">Dataset</a>
+<a href="methodology.html">Methodology</a>
+<a href="explorer.html">Network Explorer</a>
+<a href="stories.html">Stories</a>
+<a href="characters.html">Characters</a>
+<a href="layers.html">Layers</a>
+<a href="communities.html">Communities</a>
+<a href="similarity.html">Similarity</a>
+<a href="analysis.html">Analysis</a>
+<a href="evidence.html">Evidence</a>
+<a href="downloads.html">Downloads</a>
+<a href="reproduce.html">Reproduce</a>
+<a href="about.html">About</a></div></nav>
+</header>
+<main class="wrap">
+
+<h1>Dataset</h1>
+<p class="lede">The canonical dataset (Phase 3 rebuild) lives under <code>data/processed/</code>.
+It is derived from, but does not overwrite, the original repository's <code>data/final/</code>
+(v3) dataset — see <a href="evidence.html">Evidence</a> for the full provenance chain.</p>
+
+<h2>Actor type composition</h2>
+<table><thead><tr><th>node_type</th><th>count</th></tr></thead><tbody><tr><td>kişi</td><td>187</td></tr><tr><td>grup</td><td>124</td></tr><tr><td>mitolojik/ilahi</td><td>8</td></tr><tr><td>hayvan</td><td>6</td></tr><tr><td>nesne/doğa</td><td>6</td></tr><tr><td>yer/coğrafya</td><td>1</td></tr></tbody></table>
+
+<h2>Schema</h2>
+<h3>nodes.csv</h3>
+<p><code>node_id</code>, <code>canonical_name</code>, <code>node_type</code>, <code>aliases</code>, <code>first_story</code>, <code>story_count</code>, <code>relation_count</code>, <code>event_count</code>, <code>validation_status</code>, <code>source</code>, <code>notes</code></p>
+<h3>relations_event_level.csv</h3>
+<p><code>relation_id</code>, <code>story_id</code>, <code>story_name</code>, <code>section_type</code>, <code>narrative_order</code>, <code>source_id</code>, <code>source_name</code>, <code>source_type</code>, <code>target_id</code>, <code>target_name</code>, <code>target_type</code>, <code>raw_relation</code>, <code>standard_relation</code>, <code>relation_family</code>, <code>relation_family_top</code>, <code>layer</code>, <code>weight</code>, <code>polarity</code>, <code>directionality</code>, <code>extraction_method</code>, <code>confidence</code>, <code>source_file</code>, <code>source_row</code>, <code>raw_evidence</code>, <code>validation_status</code>, <code>notes</code>, <code>source_row_status</code></p>
+
+<h2>Relation taxonomy</h2>
+<p>17 observed relation types, mapped to interpretive families (this mapping is an
+analytical construct, not a raw-data fact — see <a href="methodology.html">Methodology</a> and
+<a href="decision_log.md">decision_log.md</a> DEC-004).</p>
+<div class="table-wrap"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>standard_relation</th>
+      <th>relation_family</th>
+      <th>relation_family_top</th>
+      <th>n_occurrences</th>
+      <th>share_of_all_edges_pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>belirsiz</td>
+      <td>uncertain</td>
+      <td>UNCERTAIN</td>
+      <td>186</td>
+      <td>29.62</td>
+    </tr>
+    <tr>
+      <td>çatışma</td>
+      <td>conflict</td>
+      <td>SOCIAL</td>
+      <td>102</td>
+      <td>16.24</td>
+    </tr>
+    <tr>
+      <td>akrabalık</td>
+      <td>kinship</td>
+      <td>KINSHIP</td>
+      <td>68</td>
+      <td>10.83</td>
+    </tr>
+    <tr>
+      <td>otorite/emir</td>
+      <td>authority</td>
+      <td>AUTHORITY</td>
+      <td>57</td>
+      <td>9.08</td>
+    </tr>
+    <tr>
+      <td>diyalog_nötr</td>
+      <td>communication</td>
+      <td>SOCIAL</td>
+      <td>54</td>
+      <td>8.60</td>
+    </tr>
+    <tr>
+      <td>ikna/müzakere</td>
+      <td>cooperation</td>
+      <td>SOCIAL</td>
+      <td>42</td>
+      <td>6.69</td>
+    </tr>
+    <tr>
+      <td>diyalog_olumlu</td>
+      <td>communication</td>
+      <td>SOCIAL</td>
+      <td>29</td>
+      <td>4.62</td>
+    </tr>
+    <tr>
+      <td>destek/yardım</td>
+      <td>support</td>
+      <td>SOCIAL</td>
+      <td>27</td>
+      <td>4.30</td>
+    </tr>
+    <tr>
+      <td>diyalog_olumsuz</td>
+      <td>communication</td>
+      <td>SOCIAL</td>
+      <td>12</td>
+      <td>1.91</td>
+    </tr>
+    <tr>
+      <td>evlilik/bağlaşıklık</td>
+      <td>marriage_alliance</td>
+      <td>KINSHIP</td>
+      <td>10</td>
+      <td>1.59</td>
+    </tr>
+    <tr>
+      <td>ödül/değişim</td>
+      <td>cooperation</td>
+      <td>SOCIAL</td>
+      <td>9</td>
+      <td>1.43</td>
+    </tr>
+    <tr>
+      <td>hareket/eylem</td>
+      <td>other</td>
+      <td>OTHER</td>
+      <td>9</td>
+      <td>1.43</td>
+    </tr>
+    <tr>
+      <td>gerilim</td>
+      <td>conflict</td>
+      <td>SOCIAL</td>
+      <td>7</td>
+      <td>1.11</td>
+    </tr>
+    <tr>
+      <td>tören/ritüel</td>
+      <td>other</td>
+      <td>OTHER</td>
+      <td>7</td>
+      <td>1.11</td>
+    </tr>
+    <tr>
+      <td>duygusal_tepki</td>
+      <td>other</td>
+      <td>OTHER</td>
+      <td>4</td>
+      <td>0.64</td>
+    </tr>
+    <tr>
+      <td>coğrafi_epitet</td>
+      <td>identity_title</td>
+      <td>SEMANTIC</td>
+      <td>3</td>
+      <td>0.48</td>
+    </tr>
+    <tr>
+      <td>kimlik/unvan</td>
+      <td>identity_title</td>
+      <td>SEMANTIC</td>
+      <td>2</td>
+      <td>0.32</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<h2>Version</h2>
+<p>Canonical rebuild version: <code>processed-v4-rebuild</code> (see <code>data/processed/provenance.csv</code>).
+Legacy dataset version: v3 (<code>data/final/</code>, documented in <code>docs/README_v3.md</code>).</p>
+
+<h2>Downloads</h2>
+<p>See the <a href="downloads.html">Downloads</a> page for direct links to every processed file.</p>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Network metrics are structural representations derived from the encoded dataset and should not be interpreted as complete literary judgments about character importance.</p>
+    <p>Built entirely from files in this repository — no analysis result on this site is hand-typed. See <a href="reproduce.html">Reproduce</a>.</p>
+  </div>
+</footer>
+</body>
+</html>

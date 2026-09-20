@@ -1,0 +1,52 @@
+# Central configuration for the Dede Korkut Narrative Network pipeline.
+# Every stochastic step in src/ must read its seed/parameters from here,
+# not from inline literals, so the pipeline is reproducible end to end.
+
+seed: 42
+
+community:
+  algorithm: leiden        # primary; louvain run alongside for comparison (section 21)
+  n_seeds: 10               # number of random seeds run per network for stability check
+  resolution_values: [0.5, 0.75, 1.0, 1.25, 1.5]   # resolution sensitivity sweep
+  objective_function: modularity
+
+null_models:
+  n_random: 1000
+  model: configuration_model   # degree-preserving randomization
+
+sensitivity:
+  enabled: true
+  variants:
+    - person_plus_group
+    - person_only
+    - weighted
+    - unweighted
+    - all_relations
+    - core_social_only
+    - explicit_only
+    - explicit_plus_inferred
+    - groups_included
+    - groups_excluded
+    - girizgah_included
+    - girizgah_excluded
+
+robustness:
+  removal_strategies: [random, high_degree, high_betweenness]
+  n_random_trials: 100
+
+embeddings:
+  node2vec:
+    dimensions: 64
+    walk_length: 30
+    walks_per_node: 200
+    p: 1.0
+    q: 1.0
+
+multiple_testing:
+  method: benjamini_hochberg
+  alpha: 0.05
+
+paths:
+  processed: data/processed
+  derived: data/derived
+  outputs: outputs

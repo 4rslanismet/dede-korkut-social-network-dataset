@@ -1,0 +1,88 @@
+<svg viewBox="0 0 720 1180" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7a4b2a"/>
+    </marker>
+  </defs>
+  <rect width="720" height="1180" fill="#faf9f6"/>
+  <text x="360" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#2a2622">Dede Korkut Narrative Networks — Pipeline Architecture</text>
+
+  <!-- helper macro via repeated groups -->
+  <!-- Box 1: Raw coding -->
+  <rect x="210" y="60" width="300" height="54" rx="6" fill="#ffffff" stroke="#ddd6c9"/>
+  <text x="360" y="82" text-anchor="middle" font-size="13" font-weight="600" fill="#2a2622">Raw Coding</text>
+  <text x="360" y="100" text-anchor="middle" font-size="11" fill="#5b5449">data/raw/, data/story_level/ (immutable)</text>
+  <line x1="360" y1="114" x2="360" y2="146" stroke="#7a4b2a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Box 2: Legacy final -->
+  <rect x="210" y="148" width="300" height="54" rx="6" fill="#ffffff" stroke="#ddd6c9"/>
+  <text x="360" y="170" text-anchor="middle" font-size="13" font-weight="600" fill="#2a2622">Legacy Final Dataset (v3)</text>
+  <text x="360" y="188" text-anchor="middle" font-size="11" fill="#5b5449">data/final/ — 333 nodes, 628 edges, 85 events</text>
+  <line x1="360" y1="202" x2="360" y2="234" stroke="#7a4b2a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Box 3: Audit + Validation -->
+  <rect x="180" y="236" width="360" height="66" rx="6" fill="#ffffff" stroke="#ddd6c9"/>
+  <text x="360" y="258" text-anchor="middle" font-size="13" font-weight="600" fill="#2a2622">Repository Audit &amp; Validation (Phase 1-2)</text>
+  <text x="360" y="276" text-anchor="middle" font-size="11" fill="#5b5449">src/audit.py, src/validate.py, src/entity_resolution.py</text>
+  <text x="360" y="292" text-anchor="middle" font-size="11" fill="#5b5449">reports/01, reports/02 · validation/HUMAN_REVIEW_QUEUE.csv</text>
+  <line x1="360" y1="302" x2="360" y2="334" stroke="#7a4b2a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Box 4: Canonical dataset -->
+  <rect x="180" y="336" width="360" height="66" rx="6" fill="#ffffff" stroke="#ddd6c9"/>
+  <text x="360" y="358" text-anchor="middle" font-size="13" font-weight="600" fill="#2a2622">Canonical Dataset (Phase 3)</text>
+  <text x="360" y="376" text-anchor="middle" font-size="11" fill="#5b5449">src/build_canonical.py → data/processed/*.csv</text>
+  <text x="360" y="392" text-anchor="middle" font-size="11" fill="#5b5449">332 nodes · 628 relations · 376 aggregated pairs</text>
+  <line x1="360" y1="402" x2="360" y2="434" stroke="#7a4b2a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Box 5: Network construction -->
+  <rect x="180" y="436" width="360" height="66" rx="6" fill="#ffffff" stroke="#ddd6c9"/>
+  <text x="360" y="458" text-anchor="middle" font-size="13" font-weight="600" fill="#2a2622">Network Construction (Phase 4)</text>
+  <text x="360" y="476" text-anchor="middle" font-size="11" fill="#5b5449">src/networks.py, build_networks.py, story_networks.py</text>
+  <text x="360" y="492" text-anchor="middle" font-size="11" fill="#5b5449">G0-G11 · 14 story networks · actor×story bipartite</text>
+  <line x1="360" y1="502" x2="360" y2="534" stroke="#7a4b2a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Box 6: Analysis -->
+  <rect x="150" y="536" width="420" height="86" rx="6" fill="#ffffff" stroke="#ddd6c9"/>
+  <text x="360" y="558" text-anchor="middle" font-size="13" font-weight="600" fill="#2a2622">Descriptive &amp; Advanced Analysis (Phase 5-6)</text>
+  <text x="360" y="576" text-anchor="middle" font-size="11" fill="#5b5449">metrics.py · communities.py · signed_and_directed.py</text>
+  <text x="360" y="592" text-anchor="middle" font-size="11" fill="#5b5449">multilayer.py · narrative_order.py</text>
+  <text x="360" y="610" text-anchor="middle" font-size="11" fill="#5b5449">centrality · Leiden/Louvain · signed/directed · versatility</text>
+  <line x1="360" y1="622" x2="360" y2="654" stroke="#7a4b2a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Box 7: Statistical validation -->
+  <rect x="150" y="656" width="420" height="66" rx="6" fill="#ffffff" stroke="#ddd6c9"/>
+  <text x="360" y="678" text-anchor="middle" font-size="13" font-weight="600" fill="#2a2622">Statistical Validation (Phase 7)</text>
+  <text x="360" y="696" text-anchor="middle" font-size="11" fill="#5b5449">null_models.py, null_models_fdr.py</text>
+  <text x="360" y="712" text-anchor="middle" font-size="11" fill="#5b5449">degree-preserving null models · Benjamini-Hochberg FDR (36 tests)</text>
+  <line x1="360" y1="722" x2="360" y2="754" stroke="#7a4b2a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Box 8: Sensitivity/Robustness -->
+  <rect x="150" y="756" width="420" height="66" rx="6" fill="#ffffff" stroke="#ddd6c9"/>
+  <text x="360" y="778" text-anchor="middle" font-size="13" font-weight="600" fill="#2a2622">Sensitivity &amp; Structural Robustness (Phase 8)</text>
+  <text x="360" y="796" text-anchor="middle" font-size="11" fill="#5b5449">sensitivity.py, robustness.py</text>
+  <text x="360" y="812" text-anchor="middle" font-size="11" fill="#5b5449">6 construction-choice comparisons · targeted/random node removal</text>
+  <line x1="360" y1="822" x2="360" y2="854" stroke="#7a4b2a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Box 9: Figures/Tables -->
+  <rect x="150" y="856" width="420" height="66" rx="6" fill="#ffffff" stroke="#ddd6c9"/>
+  <text x="360" y="878" text-anchor="middle" font-size="13" font-weight="600" fill="#2a2622">Figures &amp; Publication Tables (Phase 9-12)</text>
+  <text x="360" y="896" text-anchor="middle" font-size="11" fill="#5b5449">visualization.py, export_tables.py</text>
+  <text x="360" y="912" text-anchor="middle" font-size="11" fill="#5b5449">outputs/figures/ (F02,F03,F06,F07,F15-F18) · outputs/tables/publication/ (T01-T11)</text>
+  <line x1="360" y1="922" x2="360" y2="954" stroke="#7a4b2a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Box 10: Reproducibility -->
+  <rect x="150" y="956" width="420" height="66" rx="6" fill="#ffffff" stroke="#ddd6c9"/>
+  <text x="360" y="978" text-anchor="middle" font-size="13" font-weight="600" fill="#2a2622">Reproducibility Layer (Phase 13-14)</text>
+  <text x="360" y="996" text-anchor="middle" font-size="11" fill="#5b5449">run_pipeline.py · tests/ (pytest suite) · manifest_sha256.csv</text>
+  <text x="360" y="1012" text-anchor="middle" font-size="11" fill="#5b5449">.github/workflows/validate.yml · inter-annotator infrastructure</text>
+  <line x1="360" y1="1022" x2="360" y2="1054" stroke="#7a4b2a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Box 11: Website -->
+  <rect x="150" y="1056" width="420" height="66" rx="6" fill="#f1efe9" stroke="#c9a27a"/>
+  <text x="360" y="1078" text-anchor="middle" font-size="13" font-weight="700" fill="#2a2622">Website / Academic Package (Phase 15-19)</text>
+  <text x="360" y="1096" text-anchor="middle" font-size="11" fill="#5b5449">docs/ (generated GitHub Pages site) · paper/ · thesis/</text>
+  <text x="360" y="1112" text-anchor="middle" font-size="11" fill="#5b5449">build_site_data.py, build_site.py, validate_site.py</text>
+
+  <text x="360" y="1150" text-anchor="middle" font-size="10" fill="#5b5449">Every arrow is a re-runnable src/*.py script orchestrated by run_pipeline.py.</text>
+  <text x="360" y="1166" text-anchor="middle" font-size="10" fill="#5b5449">data/raw/ and data/final/ are never modified by anything downstream of them.</text>
+</svg>

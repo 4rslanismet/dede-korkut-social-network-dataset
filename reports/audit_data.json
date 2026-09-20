@@ -1,0 +1,1265 @@
+{
+  "raw_dir": {},
+  "raw_xlsx": {
+    "path": "data/raw/dede korkut karakterler.xlsx",
+    "size_bytes": 33046,
+    "sheets": {
+      "Dirse Han Oğlu Boğaç Han Boyu": {
+        "n_rows": 15,
+        "n_cols": 4,
+        "columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "n_exact_duplicate_rows": 0,
+        "null_counts": {}
+      },
+      "Salur Kazan'ın Evinin Yağmalanm": {
+        "n_rows": 22,
+        "n_cols": 4,
+        "columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "n_exact_duplicate_rows": 0,
+        "null_counts": {}
+      },
+      "Kam Püre'nin Oğlu Bamsı Beyrek ": {
+        "n_rows": 20,
+        "n_cols": 4,
+        "columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "n_exact_duplicate_rows": 0,
+        "null_counts": {}
+      },
+      "Kazan Bey Oğlu Uruz Bey'in Tuts": {
+        "n_rows": 23,
+        "n_cols": 4,
+        "columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "n_exact_duplicate_rows": 0,
+        "null_counts": {}
+      },
+      "Duha Koca Oğlu Deli Dumrul": {
+        "n_rows": 9,
+        "n_cols": 4,
+        "columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "n_exact_duplicate_rows": 0,
+        "null_counts": {}
+      },
+      "Kanlı Koca Oğlu Kan Turalı": {
+        "n_rows": 13,
+        "n_cols": 4,
+        "columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "n_exact_duplicate_rows": 0,
+        "null_counts": {}
+      },
+      "Kazılık Koca Oğlu Yigenek Boyu": {
+        "n_rows": 16,
+        "n_cols": 4,
+        "columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "n_exact_duplicate_rows": 0,
+        "null_counts": {}
+      },
+      "Basat'ın Tepegöz'ü Öldürdüğü Bo": {
+        "n_rows": 13,
+        "n_cols": 4,
+        "columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "n_exact_duplicate_rows": 0,
+        "null_counts": {}
+      },
+      "Begil Oğlu Emren'in Boyu": {
+        "n_rows": 13,
+        "n_cols": 4,
+        "columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "n_exact_duplicate_rows": 0,
+        "null_counts": {}
+      },
+      "Uşun Koca Oğlu Segrek Boyu": {
+        "n_rows": 17,
+        "n_cols": 4,
+        "columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "n_exact_duplicate_rows": 0,
+        "null_counts": {}
+      },
+      "Salur Kazan Tutsak Olup Oğlu Ur": {
+        "n_rows": 21,
+        "n_cols": 4,
+        "columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "n_exact_duplicate_rows": 0,
+        "null_counts": {}
+      },
+      "İç Oğuz'a Dış Oğuz Asi Olup Bey": {
+        "n_rows": 16,
+        "n_cols": 4,
+        "columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "n_exact_duplicate_rows": 0,
+        "null_counts": {}
+      },
+      "Salur Kazan'ın Yedi Başlı Ejder": {
+        "n_rows": 7,
+        "n_cols": 4,
+        "columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "n_exact_duplicate_rows": 0,
+        "null_counts": {}
+      }
+    },
+    "n_sheets": 13
+  },
+  "story_level": {
+    "01_girizgah.csv": {
+      "path": "data/story_level/01_girizgah.csv",
+      "size_bytes": 486,
+      "encoding_used": "utf-8-sig",
+      "n_rows": 1,
+      "n_cols": 21,
+      "columns": [
+        "kayit_id",
+        "satir_no",
+        "boy",
+        "bolum_tipi",
+        "karakter_1",
+        "karakter_1_id",
+        "karakter_1_tipi",
+        "karakter_2",
+        "karakter_2_id",
+        "karakter_2_tipi",
+        "iliski_ham",
+        "iliski_turu",
+        "katman",
+        "agirlik",
+        "kutupluluk",
+        "yonluluk",
+        "cikarma_yontemi",
+        "not",
+        "ham_satir",
+        "kaynak_notu",
+        "source_file"
+      ],
+      "null_counts": {
+        "not": 1
+      },
+      "fully_null_columns": [
+        "not"
+      ],
+      "n_exact_duplicate_rows": 0,
+      "leading_trailing_whitespace_by_col": {},
+      "n_duplicate_kayit_id": 0
+    },
+    "02_dirse_han_oglu_bogac_han_boyu.csv": {
+      "path": "data/story_level/02_dirse_han_oglu_bogac_han_boyu.csv",
+      "size_bytes": 8419,
+      "encoding_used": "utf-8-sig",
+      "n_rows": 23,
+      "n_cols": 21,
+      "columns": [
+        "kayit_id",
+        "satir_no",
+        "boy",
+        "bolum_tipi",
+        "karakter_1",
+        "karakter_1_id",
+        "karakter_1_tipi",
+        "karakter_2",
+        "karakter_2_id",
+        "karakter_2_tipi",
+        "iliski_ham",
+        "iliski_turu",
+        "katman",
+        "agirlik",
+        "kutupluluk",
+        "yonluluk",
+        "cikarma_yontemi",
+        "not",
+        "ham_satir",
+        "kaynak_notu",
+        "source_file"
+      ],
+      "null_counts": {
+        "not": 1
+      },
+      "fully_null_columns": [],
+      "n_exact_duplicate_rows": 0,
+      "leading_trailing_whitespace_by_col": {},
+      "n_duplicate_kayit_id": 0
+    },
+    "03_salur_kazanin_evinin_yagmalandigi.csv": {
+      "path": "data/story_level/03_salur_kazanin_evinin_yagmalandigi.csv",
+      "size_bytes": 18800,
+      "encoding_used": "utf-8-sig",
+      "n_rows": 51,
+      "n_cols": 21,
+      "columns": [
+        "kayit_id",
+        "satir_no",
+        "boy",
+        "bolum_tipi",
+        "karakter_1",
+        "karakter_1_id",
+        "karakter_1_tipi",
+        "karakter_2",
+        "karakter_2_id",
+        "karakter_2_tipi",
+        "iliski_ham",
+        "iliski_turu",
+        "katman",
+        "agirlik",
+        "kutupluluk",
+        "yonluluk",
+        "cikarma_yontemi",
+        "not",
+        "ham_satir",
+        "kaynak_notu",
+        "source_file"
+      ],
+      "null_counts": {
+        "satir_no": 2,
+        "not": 4
+      },
+      "fully_null_columns": [],
+      "n_exact_duplicate_rows": 0,
+      "leading_trailing_whitespace_by_col": {},
+      "n_duplicate_kayit_id": 0
+    },
+    "04_kam_purenin_oglu_bamsi_beyrek_boyu.csv": {
+      "path": "data/story_level/04_kam_purenin_oglu_bamsi_beyrek_boyu.csv",
+      "size_bytes": 45425,
+      "encoding_used": "utf-8-sig",
+      "n_rows": 109,
+      "n_cols": 21,
+      "columns": [
+        "kayit_id",
+        "satir_no",
+        "boy",
+        "bolum_tipi",
+        "karakter_1",
+        "karakter_1_id",
+        "karakter_1_tipi",
+        "karakter_2",
+        "karakter_2_id",
+        "karakter_2_tipi",
+        "iliski_ham",
+        "iliski_turu",
+        "katman",
+        "agirlik",
+        "kutupluluk",
+        "yonluluk",
+        "cikarma_yontemi",
+        "not",
+        "ham_satir",
+        "kaynak_notu",
+        "source_file"
+      ],
+      "null_counts": {
+        "iliski_ham": 3,
+        "not": 4
+      },
+      "fully_null_columns": [],
+      "n_exact_duplicate_rows": 0,
+      "leading_trailing_whitespace_by_col": {},
+      "n_duplicate_kayit_id": 0
+    },
+    "05_kazan_bey_oglu_uruz_beyin_tutsak_oldugu_boy.csv": {
+      "path": "data/story_level/05_kazan_bey_oglu_uruz_beyin_tutsak_oldugu_boy.csv",
+      "size_bytes": 18283,
+      "encoding_used": "utf-8-sig",
+      "n_rows": 41,
+      "n_cols": 21,
+      "columns": [
+        "kayit_id",
+        "satir_no",
+        "boy",
+        "bolum_tipi",
+        "karakter_1",
+        "karakter_1_id",
+        "karakter_1_tipi",
+        "karakter_2",
+        "karakter_2_id",
+        "karakter_2_tipi",
+        "iliski_ham",
+        "iliski_turu",
+        "katman",
+        "agirlik",
+        "kutupluluk",
+        "yonluluk",
+        "cikarma_yontemi",
+        "not",
+        "ham_satir",
+        "kaynak_notu",
+        "source_file"
+      ],
+      "null_counts": {
+        "not": 1
+      },
+      "fully_null_columns": [],
+      "n_exact_duplicate_rows": 0,
+      "leading_trailing_whitespace_by_col": {},
+      "n_duplicate_kayit_id": 0
+    },
+    "06_duha_koca_oglu_deli_dumrul.csv": {
+      "path": "data/story_level/06_duha_koca_oglu_deli_dumrul.csv",
+      "size_bytes": 8737,
+      "encoding_used": "utf-8-sig",
+      "n_rows": 22,
+      "n_cols": 21,
+      "columns": [
+        "kayit_id",
+        "satir_no",
+        "boy",
+        "bolum_tipi",
+        "karakter_1",
+        "karakter_1_id",
+        "karakter_1_tipi",
+        "karakter_2",
+        "karakter_2_id",
+        "karakter_2_tipi",
+        "iliski_ham",
+        "iliski_turu",
+        "katman",
+        "agirlik",
+        "kutupluluk",
+        "yonluluk",
+        "cikarma_yontemi",
+        "not",
+        "ham_satir",
+        "kaynak_notu",
+        "source_file"
+      ],
+      "null_counts": {
+        "not": 1
+      },
+      "fully_null_columns": [],
+      "n_exact_duplicate_rows": 0,
+      "leading_trailing_whitespace_by_col": {},
+      "n_duplicate_kayit_id": 0
+    },
+    "07_kanli_koca_oglu_kan_turali_boyu.csv": {
+      "path": "data/story_level/07_kanli_koca_oglu_kan_turali_boyu.csv",
+      "size_bytes": 17008,
+      "encoding_used": "utf-8-sig",
+      "n_rows": 41,
+      "n_cols": 21,
+      "columns": [
+        "kayit_id",
+        "satir_no",
+        "boy",
+        "bolum_tipi",
+        "karakter_1",
+        "karakter_1_id",
+        "karakter_1_tipi",
+        "karakter_2",
+        "karakter_2_id",
+        "karakter_2_tipi",
+        "iliski_ham",
+        "iliski_turu",
+        "katman",
+        "agirlik",
+        "kutupluluk",
+        "yonluluk",
+        "cikarma_yontemi",
+        "not",
+        "ham_satir",
+        "kaynak_notu",
+        "source_file"
+      ],
+      "null_counts": {
+        "iliski_ham": 1,
+        "not": 5
+      },
+      "fully_null_columns": [],
+      "n_exact_duplicate_rows": 0,
+      "leading_trailing_whitespace_by_col": {},
+      "n_duplicate_kayit_id": 0
+    },
+    "08_kazilik_koca_oglu_yigenek_boyu.csv": {
+      "path": "data/story_level/08_kazilik_koca_oglu_yigenek_boyu.csv",
+      "size_bytes": 10367,
+      "encoding_used": "utf-8-sig",
+      "n_rows": 24,
+      "n_cols": 21,
+      "columns": [
+        "kayit_id",
+        "satir_no",
+        "boy",
+        "bolum_tipi",
+        "karakter_1",
+        "karakter_1_id",
+        "karakter_1_tipi",
+        "karakter_2",
+        "karakter_2_id",
+        "karakter_2_tipi",
+        "iliski_ham",
+        "iliski_turu",
+        "katman",
+        "agirlik",
+        "kutupluluk",
+        "yonluluk",
+        "cikarma_yontemi",
+        "not",
+        "ham_satir",
+        "kaynak_notu",
+        "source_file"
+      ],
+      "null_counts": {
+        "not": 3
+      },
+      "fully_null_columns": [],
+      "n_exact_duplicate_rows": 0,
+      "leading_trailing_whitespace_by_col": {},
+      "n_duplicate_kayit_id": 0
+    },
+    "09_basatin_tepegozu_oldurdugu_boy.csv": {
+      "path": "data/story_level/09_basatin_tepegozu_oldurdugu_boy.csv",
+      "size_bytes": 27362,
+      "encoding_used": "utf-8-sig",
+      "n_rows": 65,
+      "n_cols": 21,
+      "columns": [
+        "kayit_id",
+        "satir_no",
+        "boy",
+        "bolum_tipi",
+        "karakter_1",
+        "karakter_1_id",
+        "karakter_1_tipi",
+        "karakter_2",
+        "karakter_2_id",
+        "karakter_2_tipi",
+        "iliski_ham",
+        "iliski_turu",
+        "katman",
+        "agirlik",
+        "kutupluluk",
+        "yonluluk",
+        "cikarma_yontemi",
+        "not",
+        "ham_satir",
+        "kaynak_notu",
+        "source_file"
+      ],
+      "null_counts": {
+        "iliski_ham": 5,
+        "not": 6
+      },
+      "fully_null_columns": [],
+      "n_exact_duplicate_rows": 0,
+      "leading_trailing_whitespace_by_col": {},
+      "n_duplicate_kayit_id": 0
+    },
+    "10_begil_oglu_emrenin_boyu.csv": {
+      "path": "data/story_level/10_begil_oglu_emrenin_boyu.csv",
+      "size_bytes": 22103,
+      "encoding_used": "utf-8-sig",
+      "n_rows": 59,
+      "n_cols": 21,
+      "columns": [
+        "kayit_id",
+        "satir_no",
+        "boy",
+        "bolum_tipi",
+        "karakter_1",
+        "karakter_1_id",
+        "karakter_1_tipi",
+        "karakter_2",
+        "karakter_2_id",
+        "karakter_2_tipi",
+        "iliski_ham",
+        "iliski_turu",
+        "katman",
+        "agirlik",
+        "kutupluluk",
+        "yonluluk",
+        "cikarma_yontemi",
+        "not",
+        "ham_satir",
+        "kaynak_notu",
+        "source_file"
+      ],
+      "null_counts": {
+        "iliski_ham": 5,
+        "not": 8
+      },
+      "fully_null_columns": [],
+      "n_exact_duplicate_rows": 0,
+      "leading_trailing_whitespace_by_col": {},
+      "n_duplicate_kayit_id": 0
+    },
+    "11_usun_koca_oglu_seyrek_boyu.csv": {
+      "path": "data/story_level/11_usun_koca_oglu_seyrek_boyu.csv",
+      "size_bytes": 21268,
+      "encoding_used": "utf-8-sig",
+      "n_rows": 54,
+      "n_cols": 21,
+      "columns": [
+        "kayit_id",
+        "satir_no",
+        "boy",
+        "bolum_tipi",
+        "karakter_1",
+        "karakter_1_id",
+        "karakter_1_tipi",
+        "karakter_2",
+        "karakter_2_id",
+        "karakter_2_tipi",
+        "iliski_ham",
+        "iliski_turu",
+        "katman",
+        "agirlik",
+        "kutupluluk",
+        "yonluluk",
+        "cikarma_yontemi",
+        "not",
+        "ham_satir",
+        "kaynak_notu",
+        "source_file"
+      ],
+      "null_counts": {
+        "iliski_ham": 2,
+        "not": 4
+      },
+      "fully_null_columns": [],
+      "n_exact_duplicate_rows": 0,
+      "leading_trailing_whitespace_by_col": {},
+      "n_duplicate_kayit_id": 0
+    },
+    "12_salur_kazanin_tutsak_olup_oglu_uruzun_kurtardigi_boy.csv": {
+      "path": "data/story_level/12_salur_kazanin_tutsak_olup_oglu_uruzun_kurtardigi_boy.csv",
+      "size_bytes": 31621,
+      "encoding_used": "utf-8-sig",
+      "n_rows": 68,
+      "n_cols": 21,
+      "columns": [
+        "kayit_id",
+        "satir_no",
+        "boy",
+        "bolum_tipi",
+        "karakter_1",
+        "karakter_1_id",
+        "karakter_1_tipi",
+        "karakter_2",
+        "karakter_2_id",
+        "karakter_2_tipi",
+        "iliski_ham",
+        "iliski_turu",
+        "katman",
+        "agirlik",
+        "kutupluluk",
+        "yonluluk",
+        "cikarma_yontemi",
+        "not",
+        "ham_satir",
+        "kaynak_notu",
+        "source_file"
+      ],
+      "null_counts": {
+        "iliski_ham": 6,
+        "not": 7
+      },
+      "fully_null_columns": [],
+      "n_exact_duplicate_rows": 0,
+      "leading_trailing_whitespace_by_col": {},
+      "n_duplicate_kayit_id": 0
+    },
+    "13_ic_oguza_dis_oguzun_asi_olup_beyreki_oldurdugu.csv": {
+      "path": "data/story_level/13_ic_oguza_dis_oguzun_asi_olup_beyreki_oldurdugu.csv",
+      "size_bytes": 17909,
+      "encoding_used": "utf-8-sig",
+      "n_rows": 39,
+      "n_cols": 21,
+      "columns": [
+        "kayit_id",
+        "satir_no",
+        "boy",
+        "bolum_tipi",
+        "karakter_1",
+        "karakter_1_id",
+        "karakter_1_tipi",
+        "karakter_2",
+        "karakter_2_id",
+        "karakter_2_tipi",
+        "iliski_ham",
+        "iliski_turu",
+        "katman",
+        "agirlik",
+        "kutupluluk",
+        "yonluluk",
+        "cikarma_yontemi",
+        "not",
+        "ham_satir",
+        "kaynak_notu",
+        "source_file"
+      ],
+      "null_counts": {
+        "iliski_ham": 1,
+        "not": 2
+      },
+      "fully_null_columns": [],
+      "n_exact_duplicate_rows": 0,
+      "leading_trailing_whitespace_by_col": {},
+      "n_duplicate_kayit_id": 0
+    },
+    "14_salur_kazanin_yedi_basli_ejderhayi_oldurmesi_boyu.csv": {
+      "path": "data/story_level/14_salur_kazanin_yedi_basli_ejderhayi_oldurmesi_boyu.csv",
+      "size_bytes": 15015,
+      "encoding_used": "utf-8-sig",
+      "n_rows": 36,
+      "n_cols": 21,
+      "columns": [
+        "kayit_id",
+        "satir_no",
+        "boy",
+        "bolum_tipi",
+        "karakter_1",
+        "karakter_1_id",
+        "karakter_1_tipi",
+        "karakter_2",
+        "karakter_2_id",
+        "karakter_2_tipi",
+        "iliski_ham",
+        "iliski_turu",
+        "katman",
+        "agirlik",
+        "kutupluluk",
+        "yonluluk",
+        "cikarma_yontemi",
+        "not",
+        "ham_satir",
+        "kaynak_notu",
+        "source_file"
+      ],
+      "null_counts": {},
+      "fully_null_columns": [],
+      "n_exact_duplicate_rows": 0,
+      "leading_trailing_whitespace_by_col": {},
+      "n_duplicate_kayit_id": 0
+    }
+  },
+  "final": {
+    "00_boy_dataset_indeksi_temiz.csv": {
+      "path": "data/final/00_boy_dataset_indeksi_temiz.csv",
+      "size_bytes": 777,
+      "encoding_used": "utf-8-sig",
+      "n_rows": 14,
+      "n_cols": 4,
+      "columns": [
+        "source_file",
+        "edge_kaydi",
+        "event_kaydi",
+        "dugum_sayisi"
+      ],
+      "null_counts": {},
+      "fully_null_columns": [],
+      "n_exact_duplicate_rows": 0,
+      "leading_trailing_whitespace_by_col": {}
+    },
+    "dede_korkut_alias_sozlugu.csv": {
+      "path": "data/final/dede_korkut_alias_sozlugu.csv",
+      "size_bytes": 26230,
+      "encoding_used": "utf-8-sig",
+      "n_rows": 525,
+      "n_cols": 3,
+      "columns": [
+        "orijinal_ad",
+        "standart_ad",
+        "taraf"
+      ],
+      "null_counts": {},
+      "fully_null_columns": [],
+      "n_exact_duplicate_rows": 0,
+      "leading_trailing_whitespace_by_col": {}
+    },
+    "dede_korkut_degisim_logu.csv": {
+      "path": "data/final/dede_korkut_degisim_logu.csv",
+      "size_bytes": 51740,
+      "encoding_used": "utf-8-sig",
+      "n_rows": 346,
+      "n_cols": 8,
+      "columns": [
+        "kayit_id",
+        "source_file",
+        "degisim_tipi",
+        "alan",
+        "eski_deger",
+        "yeni_deger",
+        "gerekce",
+        "duzenleme_turu"
+      ],
+      "null_counts": {
+        "source_file": 66,
+        "degisim_tipi": 66,
+        "duzenleme_turu": 280
+      },
+      "fully_null_columns": [],
+      "n_exact_duplicate_rows": 0,
+      "leading_trailing_whitespace_by_col": {},
+      "n_duplicate_kayit_id": 80
+    },
+    "dede_korkut_degisim_logu_v3_only.csv": {
+      "path": "data/final/dede_korkut_degisim_logu_v3_only.csv",
+      "size_bytes": 7165,
+      "encoding_used": "utf-8-sig",
+      "n_rows": 66,
+      "n_cols": 6,
+      "columns": [
+        "duzenleme_turu",
+        "kayit_id",
+        "alan",
+        "eski_deger",
+        "yeni_deger",
+        "gerekce"
+      ],
+      "null_counts": {},
+      "fully_null_columns": [],
+      "n_exact_duplicate_rows": 0,
+      "leading_trailing_whitespace_by_col": {},
+      "n_duplicate_kayit_id": 13
+    },
+    "dede_korkut_dugumler_temiz.csv": {
+      "path": "data/final/dede_korkut_dugumler_temiz.csv",
+      "size_bytes": 17801,
+      "encoding_used": "utf-8-sig",
+      "n_rows": 333,
+      "n_cols": 7,
+      "columns": [
+        "dugum_id",
+        "dugum_adi",
+        "dugum_tipi",
+        "toplam_gorunum",
+        "edge_gorunumu",
+        "event_gorunumu",
+        "boy_sayisi"
+      ],
+      "null_counts": {},
+      "fully_null_columns": [],
+      "n_exact_duplicate_rows": 0,
+      "leading_trailing_whitespace_by_col": {}
+    },
+    "dede_korkut_kenarlar_temiz.csv": {
+      "path": "data/final/dede_korkut_kenarlar_temiz.csv",
+      "size_bytes": 260705,
+      "encoding_used": "utf-8-sig",
+      "n_rows": 628,
+      "n_cols": 21,
+      "columns": [
+        "kayit_id",
+        "satir_no",
+        "boy",
+        "bolum_tipi",
+        "karakter_1",
+        "karakter_1_id",
+        "karakter_1_tipi",
+        "karakter_2",
+        "karakter_2_id",
+        "karakter_2_tipi",
+        "iliski_ham",
+        "iliski_turu",
+        "katman",
+        "agirlik",
+        "kutupluluk",
+        "yonluluk",
+        "cikarma_yontemi",
+        "not",
+        "ham_satir",
+        "kaynak_notu",
+        "source_file"
+      ],
+      "null_counts": {
+        "satir_no": 2,
+        "iliski_ham": 21,
+        "not": 45
+      },
+      "fully_null_columns": [],
+      "n_exact_duplicate_rows": 0,
+      "leading_trailing_whitespace_by_col": {},
+      "n_duplicate_kayit_id": 0
+    },
+    "dede_korkut_olaylar_temiz.csv": {
+      "path": "data/final/dede_korkut_olaylar_temiz.csv",
+      "size_bytes": 29249,
+      "encoding_used": "utf-8-sig",
+      "n_rows": 85,
+      "n_cols": 13,
+      "columns": [
+        "kayit_id",
+        "boy",
+        "source_file",
+        "aktor",
+        "aktor_id",
+        "aktor_tipi",
+        "hedef",
+        "hedef_id",
+        "hedef_tipi",
+        "event_turu",
+        "not",
+        "ham_satir",
+        "kaynak_notu"
+      ],
+      "null_counts": {
+        "hedef": 75,
+        "hedef_id": 75,
+        "hedef_tipi": 75,
+        "not": 2
+      },
+      "fully_null_columns": [],
+      "n_exact_duplicate_rows": 0,
+      "leading_trailing_whitespace_by_col": {},
+      "n_duplicate_kayit_id": 0
+    }
+  },
+  "headline_numbers": {
+    "readme_claims": {
+      "stories": 14,
+      "nodes": 333,
+      "edges": 628,
+      "narrative_events": 85
+    },
+    "recomputed": {
+      "stories_from_index_file_rows": 14,
+      "stories_unique_boy_in_edges": 14,
+      "stories_unique_source_file_in_edges": 14,
+      "nodes_rows": 333,
+      "nodes_unique_dugum_id": 333,
+      "edges_rows": 628,
+      "events_rows": 85,
+      "aliases_rows": 525,
+      "changelog_rows": 346
+    },
+    "per_story_consistency": [
+      {
+        "source_file": "01_girizgah.csv",
+        "index_edge_kaydi": 1,
+        "index_event_kaydi": 0,
+        "story_level_file_rows": 1,
+        "final_kenarlar_rows_for_story": 1,
+        "final_olaylar_rows_for_story": 0
+      },
+      {
+        "source_file": "02_dirse_han_oglu_bogac_han_boyu.csv",
+        "index_edge_kaydi": 23,
+        "index_event_kaydi": 3,
+        "story_level_file_rows": 23,
+        "final_kenarlar_rows_for_story": 23,
+        "final_olaylar_rows_for_story": 3
+      },
+      {
+        "source_file": "03_salur_kazanin_evinin_yagmalandigi.csv",
+        "index_edge_kaydi": 51,
+        "index_event_kaydi": 0,
+        "story_level_file_rows": 51,
+        "final_kenarlar_rows_for_story": 51,
+        "final_olaylar_rows_for_story": 0
+      },
+      {
+        "source_file": "04_kam_purenin_oglu_bamsi_beyrek_boyu.csv",
+        "index_edge_kaydi": 107,
+        "index_event_kaydi": 21,
+        "story_level_file_rows": 109,
+        "final_kenarlar_rows_for_story": 107,
+        "final_olaylar_rows_for_story": 21
+      },
+      {
+        "source_file": "05_kazan_bey_oglu_uruz_beyin_tutsak_oldugu_boy.csv",
+        "index_edge_kaydi": 40,
+        "index_event_kaydi": 6,
+        "story_level_file_rows": 41,
+        "final_kenarlar_rows_for_story": 40,
+        "final_olaylar_rows_for_story": 6
+      },
+      {
+        "source_file": "06_duha_koca_oglu_deli_dumrul.csv",
+        "index_edge_kaydi": 22,
+        "index_event_kaydi": 2,
+        "story_level_file_rows": 22,
+        "final_kenarlar_rows_for_story": 22,
+        "final_olaylar_rows_for_story": 2
+      },
+      {
+        "source_file": "07_kanli_koca_oglu_kan_turali_boyu.csv",
+        "index_edge_kaydi": 40,
+        "index_event_kaydi": 12,
+        "story_level_file_rows": 41,
+        "final_kenarlar_rows_for_story": 40,
+        "final_olaylar_rows_for_story": 12
+      },
+      {
+        "source_file": "08_kazilik_koca_oglu_yigenek_boyu.csv",
+        "index_edge_kaydi": 24,
+        "index_event_kaydi": 4,
+        "story_level_file_rows": 24,
+        "final_kenarlar_rows_for_story": 24,
+        "final_olaylar_rows_for_story": 4
+      },
+      {
+        "source_file": "09_basatin_tepegozu_oldurdugu_boy.csv",
+        "index_edge_kaydi": 65,
+        "index_event_kaydi": 9,
+        "story_level_file_rows": 65,
+        "final_kenarlar_rows_for_story": 65,
+        "final_olaylar_rows_for_story": 9
+      },
+      {
+        "source_file": "10_begil_oglu_emrenin_boyu.csv",
+        "index_edge_kaydi": 59,
+        "index_event_kaydi": 6,
+        "story_level_file_rows": 59,
+        "final_kenarlar_rows_for_story": 59,
+        "final_olaylar_rows_for_story": 6
+      },
+      {
+        "source_file": "11_usun_koca_oglu_seyrek_boyu.csv",
+        "index_edge_kaydi": 54,
+        "index_event_kaydi": 7,
+        "story_level_file_rows": 54,
+        "final_kenarlar_rows_for_story": 54,
+        "final_olaylar_rows_for_story": 7
+      },
+      {
+        "source_file": "12_salur_kazanin_tutsak_olup_oglu_uruzun_kurtardigi_boy.csv",
+        "index_edge_kaydi": 67,
+        "index_event_kaydi": 13,
+        "story_level_file_rows": 68,
+        "final_kenarlar_rows_for_story": 67,
+        "final_olaylar_rows_for_story": 13
+      },
+      {
+        "source_file": "13_ic_oguza_dis_oguzun_asi_olup_beyreki_oldurdugu.csv",
+        "index_edge_kaydi": 39,
+        "index_event_kaydi": 2,
+        "story_level_file_rows": 39,
+        "final_kenarlar_rows_for_story": 39,
+        "final_olaylar_rows_for_story": 2
+      },
+      {
+        "source_file": "14_salur_kazanin_yedi_basli_ejderhayi_oldurmesi_boyu.csv",
+        "index_edge_kaydi": 36,
+        "index_event_kaydi": 0,
+        "story_level_file_rows": 36,
+        "final_kenarlar_rows_for_story": 36,
+        "final_olaylar_rows_for_story": 0
+      }
+    ]
+  },
+  "node_edge_consistency": {
+    "n_nodes": 333,
+    "n_orphan_edge_endpoints": 0,
+    "orphan_edge_endpoints_sample": [],
+    "n_orphan_event_actor_ids": 0,
+    "orphan_event_actor_ids_sample": [],
+    "n_unreferenced_nodes": 0,
+    "unreferenced_nodes_sample": [],
+    "n_names_mapping_to_multiple_ids": 1,
+    "names_mapping_to_multiple_ids_sample": [
+      {
+        "dugum_adi": "Begil'in Adamları",
+        "dugum_id": 2
+      }
+    ],
+    "n_duplicate_node_id_rows": 0,
+    "n_self_loop_edges": 1,
+    "self_loop_sample": [
+      {
+        "kayit_id": "DKR0220",
+        "boy": "Kam Püre'nin Oğlu Bamsı Beyrek Boyu",
+        "karakter_1": "Bamsı Beyrek",
+        "karakter_2": "Bamsı Beyrek"
+      }
+    ],
+    "n_edges_missing_endpoint": 0,
+    "n_exact_duplicate_relationship_rows": 114
+  },
+  "relation_layer_overview": {
+    "iliski_turu": {
+      "belirsiz": 186,
+      "çatışma": 102,
+      "akrabalık": 68,
+      "otorite/emir": 57,
+      "diyalog_nötr": 54,
+      "ikna/müzakere": 42,
+      "diyalog_olumlu": 29,
+      "destek/yardım": 27,
+      "diyalog_olumsuz": 12,
+      "evlilik/bağlaşıklık": 10,
+      "hareket/eylem": 9,
+      "ödül/değişim": 9,
+      "gerilim": 7,
+      "tören/ritüel": 7,
+      "duygusal_tepki": 4,
+      "coğrafi_epitet": 3,
+      "kimlik/unvan": 2
+    },
+    "katman": {
+      "olay": 230,
+      "iletişim": 140,
+      "çatışma": 109,
+      "akrabalık": 78,
+      "otorite": 66,
+      "mekân": 3,
+      "kimlik": 2
+    },
+    "kutupluluk": {
+      "nötr": 315,
+      "pozitif": 166,
+      "negatif": 119,
+      "karışık": 28
+    },
+    "yonluluk": {
+      "yönlü": 441,
+      "yönsüz": 187
+    },
+    "cikarma_yontemi": {
+      "açık_ilişki": 596,
+      "çıkarımsal_akrabalık": 29,
+      "manuel_turkistan_ekleme": 2,
+      "epitet_aktarım": 1
+    },
+    "bolum_tipi": {
+      "boy": 627,
+      "girizgah": 1
+    },
+    "karakter_1_tipi": {
+      "kişi": 520,
+      "grup": 81,
+      "mitolojik/ilahi": 26,
+      "hayvan": 1
+    },
+    "karakter_2_tipi": {
+      "kişi": 435,
+      "grup": 146,
+      "mitolojik/ilahi": 33,
+      "nesne/doğa": 6,
+      "hayvan": 5,
+      "yer/coğrafya": 3
+    },
+    "_agirlik_stats": {
+      "n_non_numeric": 0,
+      "min": 1.0,
+      "max": 5.0,
+      "unique_values": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  "raw_vs_processed": {
+    "n_raw_sheets": 13,
+    "n_story_level_files": 14,
+    "comparison": [
+      {
+        "raw_sheet": "Dirse Han Oğlu Boğaç Han Boyu",
+        "raw_rows": 15,
+        "raw_columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "matched_boy_in_final": null,
+        "final_kenarlar_rows_for_matched_boy": null
+      },
+      {
+        "raw_sheet": "Salur Kazan'ın Evinin Yağmalanm",
+        "raw_rows": 22,
+        "raw_columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "matched_boy_in_final": "Salur Kazan'ın Evinin Yağmalandığı",
+        "final_kenarlar_rows_for_matched_boy": 51
+      },
+      {
+        "raw_sheet": "Kam Püre'nin Oğlu Bamsı Beyrek ",
+        "raw_rows": 20,
+        "raw_columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "matched_boy_in_final": "Kam Püre'nin Oğlu Bamsı Beyrek Boyu",
+        "final_kenarlar_rows_for_matched_boy": 107
+      },
+      {
+        "raw_sheet": "Kazan Bey Oğlu Uruz Bey'in Tuts",
+        "raw_rows": 23,
+        "raw_columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "matched_boy_in_final": "Kazan Bey Oğlu Uruz Bey'in Tutsak Olduğu Boy",
+        "final_kenarlar_rows_for_matched_boy": 40
+      },
+      {
+        "raw_sheet": "Duha Koca Oğlu Deli Dumrul",
+        "raw_rows": 9,
+        "raw_columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "matched_boy_in_final": "Duha Koca Oğlu Deli Dumrul",
+        "final_kenarlar_rows_for_matched_boy": 22
+      },
+      {
+        "raw_sheet": "Kanlı Koca Oğlu Kan Turalı",
+        "raw_rows": 13,
+        "raw_columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "matched_boy_in_final": "Kanlı Koca Oğlu Kan Turalı Boyu",
+        "final_kenarlar_rows_for_matched_boy": 40
+      },
+      {
+        "raw_sheet": "Kazılık Koca Oğlu Yigenek Boyu",
+        "raw_rows": 16,
+        "raw_columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "matched_boy_in_final": "Kazılık koca oğlu yigenek boyu",
+        "final_kenarlar_rows_for_matched_boy": 24
+      },
+      {
+        "raw_sheet": "Basat'ın Tepegöz'ü Öldürdüğü Bo",
+        "raw_rows": 13,
+        "raw_columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "matched_boy_in_final": "Basat'ın Tepegözü Öldürdüğü Boy",
+        "final_kenarlar_rows_for_matched_boy": 65
+      },
+      {
+        "raw_sheet": "Begil Oğlu Emren'in Boyu",
+        "raw_rows": 13,
+        "raw_columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "matched_boy_in_final": "Begil Oğlu Emrenin boyu",
+        "final_kenarlar_rows_for_matched_boy": 59
+      },
+      {
+        "raw_sheet": "Uşun Koca Oğlu Segrek Boyu",
+        "raw_rows": 17,
+        "raw_columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "matched_boy_in_final": "uşun koca oğlu seyrek boyu",
+        "final_kenarlar_rows_for_matched_boy": 54
+      },
+      {
+        "raw_sheet": "Salur Kazan Tutsak Olup Oğlu Ur",
+        "raw_rows": 21,
+        "raw_columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "matched_boy_in_final": null,
+        "final_kenarlar_rows_for_matched_boy": null
+      },
+      {
+        "raw_sheet": "İç Oğuz'a Dış Oğuz Asi Olup Bey",
+        "raw_rows": 16,
+        "raw_columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "matched_boy_in_final": "İç Oğuz'a Dış Oğuz'un Asi Olup Beyrek'i Öldürdüğü",
+        "final_kenarlar_rows_for_matched_boy": 39
+      },
+      {
+        "raw_sheet": "Salur Kazan'ın Yedi Başlı Ejder",
+        "raw_rows": 7,
+        "raw_columns": [
+          "Source",
+          "Target",
+          "Weight",
+          "Type"
+        ],
+        "matched_boy_in_final": "Salur Kazan'ın Evinin Yağmalandığı",
+        "final_kenarlar_rows_for_matched_boy": 51
+      }
+    ]
+  }
+}

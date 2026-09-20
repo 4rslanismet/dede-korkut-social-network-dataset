@@ -1,0 +1,487 @@
+{
+  "purpose": "Single source for scientific values quoted by the website and checked by tests (DEC-019). Generated; do not edit.",
+  "dataset": {
+    "provenance_status_counts": {
+      "matched_unique": 571,
+      "unmatched_provenance_gap": 53,
+      "matched_ambiguous": 4
+    },
+    "provenance_gap_share": 0.0844,
+    "n_canonical_nodes": 332,
+    "node_type_counts": {
+      "kişi": 187,
+      "grup": 124,
+      "mitolojik/ilahi": 8,
+      "hayvan": 6,
+      "nesne/doğa": 6,
+      "yer/coğrafya": 1
+    },
+    "n_person_nodes": 187,
+    "n_group_nodes": 124,
+    "n_other_type_nodes": 21,
+    "n_relations_event_level": 628,
+    "n_aggregated_pairs": 376,
+    "n_stories": 14,
+    "n_boy_stories": 13,
+    "n_non_boy_sections": 1,
+    "n_narrative_events": 85,
+    "n_relation_layers": 7,
+    "n_relation_types": 17,
+    "n_relation_families_top": 6,
+    "share_uncertain_relations": 0.2962,
+    "n_inferred_relations": 32
+  },
+  "networks": {
+    "n_models": 12,
+    "models": {
+      "G0_full": {
+        "n_nodes": 311,
+        "n_edges": 376,
+        "n_components": 23,
+        "largest_component_size": 261
+      },
+      "G1_person_only": {
+        "n_nodes": 154,
+        "n_edges": 182,
+        "n_components": 14,
+        "largest_component_size": 121
+      },
+      "G2_core_social": {
+        "n_nodes": 309,
+        "n_edges": 374,
+        "n_components": 23,
+        "largest_component_size": 259
+      },
+      "G3_kinship": {
+        "n_nodes": 83,
+        "n_edges": 61,
+        "n_components": 22,
+        "largest_component_size": 24
+      },
+      "G4_communication": {
+        "n_nodes": 74,
+        "n_edges": 73,
+        "n_components": 11,
+        "largest_component_size": 43
+      },
+      "G5_cooperation_support": {
+        "n_nodes": 73,
+        "n_edges": 65,
+        "n_components": 12,
+        "largest_component_size": 45
+      },
+      "G6_conflict": {
+        "n_nodes": 114,
+        "n_edges": 92,
+        "n_components": 23,
+        "largest_component_size": 43
+      },
+      "G7_positive": {
+        "n_nodes": 127,
+        "n_edges": 116,
+        "n_components": 18,
+        "largest_component_size": 82
+      },
+      "G8_negative": {
+        "n_nodes": 126,
+        "n_edges": 102,
+        "n_components": 25,
+        "largest_component_size": 57
+      },
+      "G9_directed": {
+        "n_nodes": 221,
+        "n_edges": 324,
+        "n_components": 13,
+        "largest_component_size": 194
+      },
+      "G10_weighted": {
+        "n_nodes": 311,
+        "n_edges": 376,
+        "n_components": 23,
+        "largest_component_size": 261
+      },
+      "G11_unweighted": {
+        "n_nodes": 311,
+        "n_edges": 376,
+        "n_components": 23,
+        "largest_component_size": 261
+      }
+    },
+    "g2_core_social": {
+      "n_components": 23,
+      "giant_component_size": 259,
+      "n_smaller_components": 22
+    }
+  },
+  "null_models": {
+    "mode": "full",
+    "n_random": 1000,
+    "seed": 42,
+    "randomization": "networkx.double_edge_swap on the simple (weight-stripped) graph, 10 x n_edges swap attempts",
+    "n_tests": 36,
+    "n_significant": 12,
+    "fdr_method": "Benjamini-Hochberg",
+    "alpha": 0.05,
+    "n_networks_tested": 9,
+    "per_metric": {
+      "clustering": {
+        "n_tested": 9,
+        "n_significant": 4,
+        "significant_networks": [
+          "G0_full",
+          "G1_person_only",
+          "G2_core_social",
+          "G4_communication"
+        ]
+      },
+      "degree_assortativity": {
+        "n_tested": 9,
+        "n_significant": 0,
+        "significant_networks": []
+      },
+      "modularity_louvain": {
+        "n_tested": 9,
+        "n_significant": 7,
+        "significant_networks": [
+          "G0_full",
+          "G1_person_only",
+          "G2_core_social",
+          "G4_communication",
+          "G6_conflict",
+          "G7_positive",
+          "G8_negative"
+        ]
+      },
+      "transitivity": {
+        "n_tested": 9,
+        "n_significant": 1,
+        "significant_networks": [
+          "G1_person_only"
+        ]
+      }
+    },
+    "modularity_z_range_significant": [
+      2.58,
+      7.04
+    ],
+    "observed_modularity_procedure": "single Louvain partition (networkx louvain_communities, seed = config seed, weight=None); each randomized graph gets one Louvain run with seed+i",
+    "independence_note": "the tested networks are related/nested specifications (e.g. G1 and G2 are subsets/variants of G0); significant results across them are not independent replications"
+  },
+  "sensitivity": {
+    "betweenness_definition": "weighted betweenness uses distance = 1/tie strength (DEC-017); the 'unweighted' arm (G11) has all strengths 1, i.e. hop-count betweenness",
+    "pairs": {
+      "all_relations_vs_core_social": {
+        "n_common_nodes": 309,
+        "spearman_rho": {
+          "degree": 0.999999578920892,
+          "betweenness": 0.9999992809436034,
+          "pagerank": 0.9999213432454428
+        },
+        "mean_rho": 1.0,
+        "min_rho": 0.9999,
+        "top10_overlap": {
+          "degree": 0.9,
+          "betweenness": 1.0,
+          "pagerank": 0.9
+        }
+      },
+      "explicit_only_vs_explicit_plus_inferred": {
+        "n_common_nodes": 293,
+        "spearman_rho": {
+          "degree": 0.9816759529051566,
+          "betweenness": 0.984253789780102,
+          "pagerank": 0.989341574132362
+        },
+        "mean_rho": 0.9851,
+        "min_rho": 0.9817,
+        "top10_overlap": {
+          "degree": 1.0,
+          "betweenness": 0.7,
+          "pagerank": 1.0
+        }
+      },
+      "girizgah_included_vs_excluded": {
+        "n_common_nodes": 310,
+        "spearman_rho": {
+          "degree": 0.9999995821809652,
+          "betweenness": 0.9999992861790342,
+          "pagerank": 0.9996730768493406
+        },
+        "mean_rho": 0.9999,
+        "min_rho": 0.9997,
+        "top10_overlap": {
+          "degree": 0.9,
+          "betweenness": 1.0,
+          "pagerank": 0.9
+        }
+      },
+      "groups_included_vs_excluded": {
+        "n_common_nodes": 183,
+        "spearman_rho": {
+          "degree": 0.9498048410297082,
+          "betweenness": 0.9488164054529896,
+          "pagerank": 0.957364020292252
+        },
+        "mean_rho": 0.952,
+        "min_rho": 0.9488,
+        "top10_overlap": {
+          "degree": 0.9,
+          "betweenness": 0.7,
+          "pagerank": 0.9
+        }
+      },
+      "person_plus_group_vs_person_only": {
+        "n_common_nodes": 154,
+        "spearman_rho": {
+          "degree": 0.9157452457267308,
+          "betweenness": 0.8921467587526797,
+          "pagerank": 0.9259979897249088
+        },
+        "mean_rho": 0.9113,
+        "min_rho": 0.8921,
+        "top10_overlap": {
+          "degree": 1.0,
+          "betweenness": 0.7,
+          "pagerank": 0.8
+        }
+      },
+      "weighted_vs_unweighted": {
+        "n_common_nodes": 311,
+        "spearman_rho": {
+          "degree": 1.0,
+          "betweenness": 0.885794555458881,
+          "pagerank": 0.8489062985830346
+        },
+        "mean_rho": 0.9116,
+        "min_rho": 0.8489,
+        "top10_overlap": {
+          "degree": 1.0,
+          "betweenness": 0.6,
+          "pagerank": 0.9
+        }
+      }
+    },
+    "n_pairs": 6,
+    "tier_rule": "'noticeable' = at least one measure with Spearman rho < 0.95; otherwise 'negligible'",
+    "noticeable_pairs": [
+      "person_plus_group_vs_person_only",
+      "weighted_vs_unweighted",
+      "groups_included_vs_excluded"
+    ],
+    "negligible_pairs": [
+      "explicit_only_vs_explicit_plus_inferred",
+      "girizgah_included_vs_excluded",
+      "all_relations_vs_core_social"
+    ],
+    "rho_range_noticeable": [
+      0.849,
+      0.957
+    ],
+    "min_rho_negligible": 0.982,
+    "min_rho_overall": 0.849,
+    "lowest_rho_pair_per_metric": {
+      "degree": "person_plus_group_vs_person_only",
+      "betweenness": "weighted_vs_unweighted",
+      "pagerank": "weighted_vs_unweighted"
+    },
+    "ordering_by_mean_rho_ascending": [
+      "person_plus_group_vs_person_only",
+      "weighted_vs_unweighted",
+      "groups_included_vs_excluded",
+      "explicit_only_vs_explicit_plus_inferred",
+      "girizgah_included_vs_excluded",
+      "all_relations_vs_core_social"
+    ],
+    "max_mean_rho_gap_among_noticeable": 0.0407
+  },
+  "robustness": {
+    "n_nodes": 311,
+    "n_edges": 376,
+    "n_random_trials": 100,
+    "seed": 42,
+    "checkpoint_step_nodes": 6,
+    "denominators": {
+      "all_nodes": 311,
+      "initial_giant_component": 261
+    },
+    "fraction_removed_below_threshold_of_all_nodes": {
+      "50pct": {
+        "random": 0.2508038585209003,
+        "degree_targeted": 0.03858520900321544,
+        "betweenness_targeted": 0.01929260450160772
+      },
+      "10pct": {
+        "random": 0.617363344051447,
+        "degree_targeted": 0.05787781350482315,
+        "betweenness_targeted": 0.05787781350482315
+      }
+    },
+    "fraction_removed_below_threshold_of_initial_giant_component": {
+      "50pct": {
+        "random": 0.3086816720257235,
+        "degree_targeted": 0.03858520900321544,
+        "betweenness_targeted": 0.03858520900321544
+      },
+      "10pct": {
+        "random": 0.6559485530546624,
+        "degree_targeted": 0.05787781350482315,
+        "betweenness_targeted": 0.05787781350482315
+      }
+    },
+    "degree_targeted_tie_break_sensitivity": {
+      "n_trials": 200,
+      "seed": 43,
+      "description": "adaptive degree-targeted removal with random tie-breaks among equal-degree nodes; nodes removed (checked after every removal) until the largest component falls below the threshold",
+      "all_nodes": {
+        "50pct": {
+          "nodes_removed_min": 6,
+          "nodes_removed_median": 7.0,
+          "nodes_removed_max": 7
+        },
+        "10pct": {
+          "nodes_removed_min": 15,
+          "nodes_removed_median": 17.0,
+          "nodes_removed_max": 17
+        }
+      },
+      "initial_giant_component": {
+        "50pct": {
+          "nodes_removed_min": 9,
+          "nodes_removed_median": 9.0,
+          "nodes_removed_max": 9
+        },
+        "10pct": {
+          "nodes_removed_min": 15,
+          "nodes_removed_median": 17.0,
+          "nodes_removed_max": 17
+        }
+      }
+    },
+    "betweenness_targeted_exact_nodes_removed": {
+      "all_nodes": {
+        "50pct": 6,
+        "10pct": 17
+      },
+      "initial_giant_component": {
+        "50pct": 9,
+        "10pct": 17
+      }
+    },
+    "betweenness_targeted_ranking": "unweighted hop-count betweenness, recomputed every n/20 removals (category A: intentionally NOT strength-derived)"
+  },
+  "story_similarity": {
+    "n_stories": 14,
+    "n_pairs": 91,
+    "n_metrics": 5,
+    "actor_jaccard": {
+      "median": 0.0303,
+      "max": 0.1528,
+      "n_zero_pairs": 28
+    },
+    "leading_pair_by_actor_jaccard": "S03-S05",
+    "leading_pair_rank_per_metric": {
+      "actor_jaccard": 1,
+      "actor_weighted_jaccard": 1,
+      "actor_cosine": 6,
+      "relation_profile_similarity": 6,
+      "layer_composition_similarity": 7
+    },
+    "top_pair_per_metric": {
+      "actor_jaccard": "S03-S05",
+      "actor_weighted_jaccard": "S03-S05",
+      "actor_cosine": "S12-S14",
+      "relation_profile_similarity": "S11-S13",
+      "layer_composition_similarity": "S11-S13"
+    },
+    "cluster_validity": {
+      "verdict_all_14": "not_robustly_supported",
+      "verdict_excluding_S01": "not_robustly_supported",
+      "silhouette_range_all_k_both_analyses": [
+        0.37,
+        0.56
+      ],
+      "bootstrap_ari_range_both_analyses": [
+        0.54,
+        0.79
+      ],
+      "ward_cophenetic_correlation_all_14": 0.7338,
+      "k_where_linkage_methods_disagree": [
+        4,
+        5
+      ],
+      "pre_set_rule": "supported only if best-k Ward silhouette > 0.50 AND bootstrap mean ARI >= 0.75 AND permutation p < 0.05; thresholds fixed before inspecting results (Kaufman & Rousseeuw 1990 silhouette convention; ARI >= 0.75 = good agreement by common convention)"
+    }
+  },
+  "composite_nodes": {
+    "purpose": "Candidate composite actor labels requiring manual entity-resolution review (DEC-018). Not auto-resolved; a candidate is not necessarily an error.",
+    "detector": {
+      "triggers": [
+        "comma_list",
+        "ve_conjunction",
+        "slash_plus_amp",
+        "long_phrase(>=6 words)"
+      ],
+      "not_detected": "' ile ' constructions and shorter sentence-like phrases (under-approximation)"
+    },
+    "n_canonical_nodes": 332,
+    "n_candidate_nodes": 46,
+    "share_of_nodes": 0.1386,
+    "by_priority": {
+      "low": 31,
+      "high": 11,
+      "medium": 4
+    },
+    "by_trigger": {
+      "comma_list": 10,
+      "long_phrase": 12,
+      "ve_conjunction": 36
+    },
+    "by_current_type": {
+      "grup": 39,
+      "kişi": 7
+    },
+    "n_already_in_queue_from_dec013": 5,
+    "n_new_queue_items_added": 41,
+    "relations_total": 628,
+    "relations_touching_candidates": 46,
+    "share_of_relations": 0.0732,
+    "relation_endpoints_total": 1256,
+    "relation_endpoints_on_candidates": 48,
+    "share_of_endpoints": 0.0382,
+    "candidates_with_zero_relations": 6
+  },
+  "pipeline": {
+    "n_stages": 27,
+    "stage_names": [
+      "audit",
+      "validate",
+      "entity_resolution",
+      "build_canonical",
+      "composite_nodes",
+      "build_networks",
+      "story_networks",
+      "metrics",
+      "communities",
+      "signed_and_directed",
+      "multilayer",
+      "narrative_order",
+      "story_similarity",
+      "story_similarity_validity",
+      "null_models",
+      "null_models_fdr",
+      "sensitivity",
+      "robustness",
+      "audit_top5_checks",
+      "results_registry",
+      "visualization",
+      "export_tables",
+      "build_inter_annotator_sample",
+      "inter_annotator_stats",
+      "hash_manifest",
+      "build_site",
+      "validate_site"
+    ],
+    "n_tests_collected": 70,
+    "test_count_note": "collected test functions; whether they pass is reported by pytest / CI, not by this registry"
+  }
+}
