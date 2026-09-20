@@ -4,10 +4,36 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). This pro
 versions before this rebuild (v1, v2, v3) are documented in `docs/README_v2.md` and
 `docs/README_v3.md` — they are not repeated here.
 
+## [processed-v4-rebuild, post-review] — claude-dk-fixpass branch (2026-09)
+
+Corrections after two independent reviews of the rebuild below. No canonical data, raw data or headline
+finding changed; current counts live in `outputs/results_registry.json`, `outputs/manifest_sha256.csv` and
+`outputs/validation/site_validation_report.json`, not in this file. Details: `reports/FIX_PASS_REPORT.md`.
+
+### Fixed
+
+- Weighted betweenness now uses shortest-path distance = 1 / tie strength (DEC-017); hop-count betweenness
+  is kept as a separate measure. Affected rankings, the sensitivity analysis and their tables were
+  regenerated; the claim that two actors lead betweenness in every specification was withdrawn.
+- Composite-node disclosure replaced by a reproducible scan (`src/composite_nodes.py`, DEC-018); the review
+  queue was expanded and nothing was split or merged. The scan is a heuristic and under-inclusive.
+- Website: generated character/story page sets derived from the data, stale pages removed, story pages
+  separate raw relation records from aggregated edges, all scientific numbers loaded from the results
+  registry (DEC-019); the pipeline now also builds and validates the site.
+- Release-consistency validator derives its counts instead of carrying typed constants; stale status text,
+  pre-correction sensitivity values, machine-specific paths and an unlabelled pre-fix betweenness value
+  were corrected.
+
+### Superseded
+
+- The test count, page count and composite-node count quoted in the entry below describe the initial
+  rebuild only.
+
 ## [processed-v4-rebuild] — claude-dk-rebuild branch (2026-09)
 
 Full, from-scratch rebuild of the analysis and publication layer on top of the existing v3
-dataset. `data/raw/` and `data/final/` (v3) are untouched; everything below is new.
+dataset. `data/raw/` and `data/final/` (v3) are untouched; everything below is new. (Counts in this
+entry are as of the initial rebuild; see the post-review entry above for what changed.)
 
 ### Added
 

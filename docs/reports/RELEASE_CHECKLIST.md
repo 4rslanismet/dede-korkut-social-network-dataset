@@ -4,9 +4,11 @@ Per master prompt section 123 (release preparation) and section 142 (final quali
 Phase 20; updated after the story-similarity addendum (DEC-014), the final academic audit (DEC-015), the full
 end-to-end pipeline verification (DEC-016) and the independent-review fix pass (DEC-017/018/019).
 
-**Status: VALIDATED RESEARCH REPOSITORY — PUBLICATION BLOCKERS REMAIN.** A technical release candidate: the
-pipeline, tests and site validation pass and the scientific core was independently reviewed and corrected, but the
-open owner/manual items below must be closed before anything is published or presented as final. Current counts
+**Status: TECHNICALLY VALIDATED — READY FOR PR / TECHNICAL MERGE REVIEW. PUBLICATION BLOCKERS REMAIN.** The
+pipeline, tests and site validation pass and the scientific core was independently reviewed twice (the second,
+independent re-review of `claude-dk-fixpass` at `e5989c3` found 0 critical and 0 major issues and verified the
+Top-5 findings 5/5), but the open owner/manual items below must be closed before anything is published or
+presented as final. The project is **not** publication-ready. Current counts
 (pipeline stages, tests, manifest entries, composite candidates) are generated into `outputs/results_registry.json`,
 `outputs/manifest_sha256.csv` and `outputs/validation/site_validation_report.json`, not typed here.
 
@@ -50,7 +52,11 @@ None of these can be closed by the pipeline; each needs the repository owner, a 
 - No verified inter-annotator reliability statistic — single coder; infrastructure ready but correctly refuses to fabricate a value (`docs/limitations.md` item 2).
 - Motif/triad null-model enrichment skipped — insufficient sample, no directed null model available (`docs/decision_log.md` DEC-010).
 - The nine null-model networks are related, partly nested specifications, so "7 of 9" is not seven independent replications; observed modularity is a single Louvain partition.
-- Site not deployed to a live GitHub Pages URL; `claude-dk-rebuild` is on the remote, `claude-dk-fixpass` is local only.
+- Site not deployed to a live GitHub Pages URL. `claude-dk-rebuild` and `claude-dk-fixpass` are on the remote
+  (the latter independently re-reviewed at `e5989c3`); `main` is untouched, no tag or release exists.
+- The composite-node scan is a heuristic and under-inclusive by design: it does not flag " ile " constructions,
+  hyphen-joined names or phrases shorter than six words (e.g. "Egreke Yol Gösterdi", "Kayın Ata - Kayın Anası").
+  Manual review therefore has to cover the whole node list (`docs/limitations.md` §11).
 
 ## History
 

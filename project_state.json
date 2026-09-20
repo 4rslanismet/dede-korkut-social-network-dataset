@@ -2,13 +2,13 @@
   "project": "Dede Korkut Digital Humanities & Network Science Project (DKNN)",
   "repository": "4rslanismet/dede-korkut-social-network-dataset",
   "branch": "claude-dk-fixpass",
-  "reviewed_branch": "claude-dk-rebuild (independently reviewed at 4e89da5; pushed to origin)",
-  "last_commit_before_this_update": "4e89da5",
-  "last_updated": "2026-09-19",
-  "project_status": "VALIDATED RESEARCH REPOSITORY - PUBLICATION BLOCKERS REMAIN (technical release candidate; not publication-ready)",
+  "reviewed_branch": "claude-dk-rebuild (first independent review at 4e89da5; pushed to origin)",
+  "last_commit_before_this_update": "e5989c3",
+  "last_updated": "2026-09-20",
+  "project_status": "TECHNICALLY VALIDATED - READY FOR PR / TECHNICAL MERGE REVIEW; PUBLICATION BLOCKERS REMAIN (not publication-ready)",
   "completed_phases": [1, 2, 3, 4, 5, 6, 7, 8, "9-10 (skipped, DEC-010)", 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, "post-release: story similarity RQ6 (DEC-014)", "final academic audit before release (DEC-015)", "full end-to-end pipeline verification (DEC-016)", "independent review fix pass (DEC-017, DEC-018, DEC-019)"],
-  "current_phase": "POST_REVIEW_FIX_PASS_COMPLETE_PENDING_INDEPENDENT_RE_REVIEW",
-  "current_phase_status": "independent_review_findings_corrected_full_pipeline_regenerated_all_validations_run_publication_blockers_remain",
+  "current_phase": "FINAL_MERGE_PREP_CLEANUP_COMPLETE_PENDING_OWNER_PR_REVIEW",
+  "current_phase_status": "fix_pass_independently_re_reviewed_ready_for_technical_merge_minor_cleanup_applied_publication_blockers_remain",
   "fix_pass": {
     "starting_reviewed_commit": "4e89da5",
     "report": "reports/FIX_PASS_REPORT.md",
@@ -17,7 +17,13 @@
     "top5_finding_3": "regenerated with corrected betweenness: person+group vs person-only and weighted vs unweighted numerically tied (mean rho 0.911 vs 0.912); groups incl/excl smaller (0.952); others >= 0.98",
     "headline_finding_reversed": false,
     "withdrawn_claim": "'Salur Kazan and Bamsi Beyrek lead betweenness across G0/G1/G2/G9' - Bamsi Beyrek betweenness rank depends on the definition",
-    "not_pushed": "claude-dk-fixpass is local only; no push/merge/deploy without explicit owner authorization"
+    "remote_state": "claude-dk-fixpass is on origin (independently re-reviewed at e5989c3: READY FOR TECHNICAL MERGE, 0 critical / 0 major / 7 minor issues; Top-5 findings 5/5 verified); the merge-prep cleanup commit follows it. main is untouched, GitHub Pages is not deployed, no tag or release exists; merging, Pages deployment, tags and releases need explicit owner authorization"
+  },
+  "merge_prep_cleanup": {
+    "scope": "the 7 minor findings of the independent re-review; no scientific output, canonical data or methodology changed",
+    "fixed": ["release-consistency validator derives page/test/node counts instead of typed constants (tests/test_release_consistency.py)", "stale sensitivity values in paper/manuscript_outline.md replaced with the registry values", "stale push-status text updated to the current remote state", "site generator derives the G2 component count, story count and story-pair count (F11 figure title too)", "machine-specific absolute paths removed from tracked files", "pre-fix betweenness value in reports/15_16_web_portal_report.md labelled SUPERSEDED"],
+    "documented_not_changed": "composite-node detector remains a heuristic, under-inclusive by design (limitation and examples documented in docs/limitations.md and src/composite_nodes.py); 46 candidates and the 121-row review queue are unchanged",
+    "publication_status": "NOT publication-ready - six external/manual blockers remain (see reports/RELEASE_CHECKLIST.md)"
   },
   "full_pipeline_verification": {
     "note": "HISTORICAL record of the DEC-016 verification (state 4e89da5); all counts below are as of that run and are superseded by fix_pass / outputs/results_registry.json",
@@ -201,7 +207,7 @@
     "paper/ and thesis/ packages complete - RQ6 (story similarity/clustering) built in a post-release addendum (DEC-014) and then audited: PARTIALLY ANSWERED / EXPLORATORY (DEC-015); all 7 original research questions have a status in thesis/research_questions.md",
     "OPEN PUBLICATION BLOCKERS (external/manual, unchanged by DEC-015..019): (1) source edition/transcription verification - repo owner; (2) inter-annotator reliability - needs a second coder; (3) manual review of unresolved entity items incl. candidate composite nodes - needs original text; (4) CITATION.cff personal/bibliographic metadata - repo owner; (5) source-code licence not chosen (dataset is CC BY 4.0) - repo owner; also: paper Introduction/Discussion/References unwritten, no literature review",
     "ALL 21 PHASES COMPLETE - reports/RELEASE_CHECKLIST.md (15/15 PASS or disclosed-gap), reports/FINAL_REBUILD_REPORT.md, reports/EXECUTIVE_SUMMARY.md all written",
-    "repository has never been pushed to remote - all work is local commits on claude-dk-rebuild only - do not push without explicit user instruction",
+    "claude-dk-rebuild (4e89da5) and claude-dk-fixpass are on origin; main is untouched - merging to main, pushing main, Pages deployment, tags and releases need explicit owner authorization",
     "site not yet deployed to a live GitHub Pages URL - tested locally only",
     "CITATION.cff has TODO placeholders for author name/date - do not fill in without user confirmation",
     "one minor terminology inconsistency found and fixed during Phase 20 consistency check: DATASET_CARD.md said 'narrative units' instead of 'stories' - src/validate_release_consistency.py now PASSes"
@@ -210,6 +216,6 @@
     "os": "Windows 11 Pro N (win32)",
     "python_version": "3.12.10",
     "venv_path": ".venv (not committed to git, excluded via .gitignore)",
-    "repo_absolute_path": "F:\\Recovered_D2\\v4gus\\Computer Since Master\\Articles\\dede korkut ai"
+    "repo_root": "the directory containing run_pipeline.py (run every command from there; no machine-specific path is recorded)"
   }
 }

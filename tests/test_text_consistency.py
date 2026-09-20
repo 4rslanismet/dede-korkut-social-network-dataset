@@ -129,3 +129,86 @@ def test_t04_and_actor_metrics_json_match_the_corrected_centrality_table():
     cent_id = pd.read_csv(ROOT / "outputs" / "tables" / "centrality_G0_full.csv", encoding="utf-8-sig").set_index("node_id")
     for nid in list(cent_id.index)[:40]:
         assert am[nid]["betweenness"] == pytest.approx(cent_id.loc[nid, "betweenness"], abs=1e-9)
+
+
+# ---------------------------------------------------------------------------
+# Final merge-prep pass: stale status wording, pre-correction values, machine paths
+# ---------------------------------------------------------------------------
+STATUS_TEXT_FILES = ["NEXT_TASK.md", "project_state.json", "README.md", "DATASET_CARD.md",
+                     "reports/RELEASE_CHECKLIST.md", "reports/FINAL_REBUILD_REPORT.md", "reports/EXECUTIVE_SUMMARY.md"]
+
+
+def test_status_documents_do_not_claim_the_branch_is_unpublished():
+    """The reviewed branch is on the remote; current-status documents must not say otherwise."""
+    rx = re.compile(r"never pushed|(?:has|have) not been pushed|not (?:yet )?been pushed|local only|local-only|"
+                    r"remote (?:is )?untouched|not published to (?:the )?remote", re.I)
+    bad = []
+    for name in STATUS_TEXT_FILES:
+        for i, line in enumerate((ROOT / name).read_text(encoding="utf-8").splitlines(), start=1):
+            if rx.search(line):
+                bad.append(f"{name}:{i}: {line.strip()[:120]}")
+    assert not bad, "stale push-status statements:\n" + "\n".join(bad)
+
+
+def test_no_pre_correction_sensitivity_values_in_current_docs():
+    hits = _hits(r"0\.887(?!\d)|0\.91\s*[-\u2013]\s*0\.93|(?:\u03c1|rho)\s*(?:\u2265|>=)\s*0\.97")
+    assert not hits, "pre-correction sensitivity values (DEC-017):\n" + "\n".join(hits)
+
+
+def test_manuscript_outline_sensitivity_values_come_from_the_registry():
+    s = json.loads((ROOT / "outputs" / "results_registry.json").read_text(encoding="utf-8"))["sensitivity"]
+    outline = (ROOT / "paper" / "manuscript_outline.md").read_text(encoding="utf-8")
+    pg = s["pairs"]["person_plus_group_vs_person_only"]
+    wu = s["pairs"]["weighted_vs_unweighted"]
+    for value in (pg["mean_rho"], wu["mean_rho"], s["pairs"]["groups_included_vs_excluded"]["mean_rho"], s["min_rho_overall"]):
+        assert f"{value:.3f}" in outline, f"paper/manuscript_outline.md does not quote the current sensitivity value {value:.3f}"
+    assert f"{pg['min_rho']:.3f}" in outline
+    assert re.search(r"tied", outline, re.I), "the outline must say the two leading sensitivity effects are tied"
+
+
+def test_paper_and_thesis_name_no_transient_branch():
+    bad = []
+    for f in sorted((ROOT / "paper").glob("*.md")) + sorted((ROOT / "thesis").glob("*.md")):
+        for i, line in enumerate(f.read_text(encoding="utf-8").splitlines(), start=1):
+            if "claude-dk-" in line:
+                bad.append(f"{f.relative_to(ROOT)}:{i}: {line.strip()[:100]}")
+    assert not bad, "transient development branch named in permanent manuscript text:\n" + "\n".join(bad)
+
+
+def test_no_machine_specific_absolute_paths_in_tracked_text():
+    rx = re.compile(r"[A-Za-z]:\\{1,2}(?:Users|Recovered)|Recovered_D2|/Users/[a-z]|/home/[a-z]+/")
+    files = []
+    for pattern in ("*.md", "*.json", "*.cff", "*.yml", "*.py", "*.txt", "reports/*.md", "docs/*.md", "docs/*.html",
+                    "paper/*.md", "thesis/*.md", "src/*.py", ".github/workflows/*.yml"):
+        files.extend(ROOT.glob(pattern))
+    bad = []
+    for f in sorted(set(files)):
+        for i, line in enumerate(f.read_text(encoding="utf-8", errors="replace").splitlines(), start=1):
+            if rx.search(line):
+                bad.append(f"{f.relative_to(ROOT)}:{i}: {line.strip()[:100]}")
+    assert not bad, "machine-specific absolute paths in tracked files:\n" + "\n".join(bad)
+
+
+def test_pre_fix_betweenness_value_is_labelled_superseded_wherever_it_survives():
+    """0.3879 was Salur Kazan's betweenness before DEC-017 (strength used as distance)."""
+    bad = []
+    for f in sorted((ROOT / "reports").glob("*.md")):
+        for i, line in enumerate(f.read_text(encoding="utf-8").splitlines(), start=1):
+            if "0.3879" in line and not re.search(r"SUPERSEDED|PRE-FIX|superseded", line):
+                bad.append(f"{f.relative_to(ROOT)}:{i}: {line.strip()[:100]}")
+    assert not bad, "pre-fix betweenness value not labelled as superseded:\n" + "\n".join(bad)
+
+
+def test_architecture_diagram_carries_no_typed_counts():
+    svg = (ROOT / "docs" / "architecture_diagram.svg").read_text(encoding="utf-8")
+    # "(36 tests)" in the null-model box is the BH-FDR test count, a scientific value; only the pytest-suite and
+    # site-page counts are volatile.
+    assert not re.search(r"tests/\s*\(\d+ tests?\)|\d+-page|docs/\s*\(\d+ pages?\)", svg), "docs/architecture_diagram.svg states a typed pytest/page count"
+
+
+def test_composite_detector_limitation_is_documented_with_examples():
+    lim = (ROOT / "docs" / "limitations.md").read_text(encoding="utf-8")
+    src = (ROOT / "src" / "composite_nodes.py").read_text(encoding="utf-8")
+    assert re.search(r"heuristic", lim, re.I) and re.search(r"under-inclusive|under-approximat", lim, re.I)
+    for example in ("Egreke Yol G\u00f6sterdi", "Kay\u0131n Ata - Kay\u0131n Anas\u0131"):
+        assert example in lim and example in src, f"detector limitation example {example!r} must be documented"

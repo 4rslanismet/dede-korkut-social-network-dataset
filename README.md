@@ -13,10 +13,11 @@ source data, all re-runnable with one command.
 
 **Website:** https://4rslanismet.github.io/dede-korkut-social-network-dataset/ (once deployed —
 see [Reproduce](docs/reproduce.html))
-**Development branches:** `claude-dk-rebuild` (independently reviewed state) and `claude-dk-fixpass`
-(post-review corrections); neither has been merged to `main`.
-**Status:** validated research repository — publication blockers remain (source-edition metadata,
-second annotator, manual entity review, `CITATION.cff` owner metadata, code-licence decision); see
+**Development history:** the rebuild was developed on the `claude-dk-rebuild` and `claude-dk-fixpass`
+branches and independently reviewed twice (see [`CHANGELOG.md`](CHANGELOG.md)).
+**Status:** technically validated — publication blockers remain (source-edition metadata, second
+annotator, manual entity review, `CITATION.cff` owner metadata, code-licence decision, unwritten
+Introduction/Discussion/References); the project is not publication-ready. See
 [`reports/RELEASE_CHECKLIST.md`](reports/RELEASE_CHECKLIST.md).
 
 ## Key Features

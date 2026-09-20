@@ -67,6 +67,10 @@ FIGURES_TO_COPY = [
 
 REPORTS_TO_COPY_GLOB = "reports/*.md"
 
+# Display limit of the F11 story-overlap figure ("show at most this many pairs"); a UI constant, not a
+# scientific result. It must equal F11_TOP_PAIRS in src/visualization.py (enforced by tests/test_site_consistency.py).
+F11_TOP_PAIRS = 15
+
 DOWNLOAD_FILES = [
     "data/processed/nodes.csv",
     "data/processed/aliases.csv",
@@ -244,6 +248,7 @@ def build_methodology():
     n_tests_fdr = need(reg["null_models"]["n_tests"], "null_models.n_tests")
     n_limitations = count_headings("docs/limitations.md", r"^## \d+\.")
     n_models = need(reg["networks"]["n_models"], "networks.n_models")
+    n_comp_g2 = need(reg["networks"]["g2_core_social"]["n_components"], "networks.g2_core_social.n_components")
     content = f"""
 <h1>Methodology</h1>
 <p class="lede">Every step below is implemented as a standalone, re-runnable script under
@@ -283,7 +288,7 @@ not a raw-data fact.</p>
 relations explicitly coded as directional — undirected relations are excluded, never assigned an
 arbitrary direction.</p>
 <p><strong>Community substrate (DEC-007):</strong> community detection runs on the core-social
-network (identity/title relations excluded), and the 23-connected-component caveat (see
+network (identity/title relations excluded), and the {n_comp_g2}-connected-component caveat (see
 <a href="communities.html">Communities</a>) is carried through every downstream use.</p>
 <p><strong>Null model method (DEC-008):</strong> degree-preserving randomization
 (<code>networkx.double_edge_swap</code>), Benjamini-Hochberg FDR correction across all {n_tests_fdr} tests.</p>
@@ -403,7 +408,7 @@ way as the corpus-level graphs (see <a href="methodology.html">Methodology</a>).
 aggregated undirected graph (one per unordered actor pair); &ldquo;relation records&rdquo; = raw coded relation rows.</p>
 <div class="grid-list">{tiles}</div>
 """
-    write("stories.html", page("Stories", "The 14 stories (boy) of the corpus, each with its own network.", "Stories", content))
+    write("stories.html", page("Stories", f"The {len(stories)} story units of the corpus ({n_boy} boy + {len(stories) - n_boy} {other_sections}), each with its own network.", "Stories", content))
 
     nodes = df("data/processed/nodes.csv")
     rel = df("data/processed/relations_event_level.csv")
@@ -437,7 +442,7 @@ aggregated undirected graph (one per unordered actor pair); &ldquo;relation reco
         content = f"""
 <p><a href="../stories.html">&larr; All stories</a></p>
 <h1>{r.story_id} — {r.boy_name_raw}</h1>
-<p class="lede">Corpus order: {r.corpus_order} / 14 · Section type: {r.section_type} · Source file:
+<p class="lede">Corpus order: {r.corpus_order} / {len(stories)} · Section type: {r.section_type} · Source file:
 <code>{r.source_file}</code></p>
 
 <div class="card-grid">{''.join(metric_bits)}</div>
@@ -708,7 +713,7 @@ Themes such as captivity are not coded variables, so they are not a finding of t
 <h2>Story actor-overlap network</h2>
 <figure>
   <img src="figures/similarity/F11_story_similarity_network.png" alt="Story actor-overlap network">
-  <figcaption>Top 15 of 91 pairs by actor Jaccard. Edge darkness/thickness = degree of actor overlap
+  <figcaption>Top {F11_TOP_PAIRS} of {n_pairs} pairs by actor Jaccard. Edge darkness/thickness = degree of actor overlap
   (low in absolute terms; not a cluster structure).</figcaption>
 </figure>
 

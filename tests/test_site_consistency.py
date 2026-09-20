@@ -116,8 +116,34 @@ def test_site_generator_has_no_hardcoded_scientific_constants():
     for name in ("build_site.py", "build_site_data.py"):
         text = (ROOT / "src" / name).read_text(encoding="utf-8")
         for bad in ("18/18", '"n_network_models": 12', '"reproducible": True', "7 of 9", "261-node",
-                    "23 connected components", "Spearman &rho; 0.85", "0.37&ndash;0.56", "0.54&ndash;0.79"):
+                    "23 connected components", "Spearman &rho; 0.85", "0.37&ndash;0.56", "0.54&ndash;0.79",
+                    "23-connected-component", "of 91 pairs", "The 14 stories", "/ 14 ·"):
             assert bad not in text, f"{name} still contains the hard-coded value {bad!r}"
+    # the F11 figure code must not carry the pair count either (it is derived from the similarity matrix)
+    viz = (ROOT / "src" / "visualization.py").read_text(encoding="utf-8")
+    assert "of 91 pairs" not in viz, "src/visualization.py still hard-codes the number of story pairs"
+
+
+def test_f11_display_limit_is_the_same_in_generator_and_figure_code():
+    """'Top N pairs' is a display limit shared by the figure and its site caption; the two copies must agree."""
+    limits = []
+    for name in ("build_site.py", "visualization.py"):
+        m = re.search(r"^F11_TOP_PAIRS\s*=\s*(\d+)", (ROOT / "src" / name).read_text(encoding="utf-8"), flags=re.M)
+        assert m, f"src/{name} must define F11_TOP_PAIRS"
+        limits.append(int(m.group(1)))
+    assert limits[0] == limits[1], f"F11_TOP_PAIRS differs between build_site.py and visualization.py: {limits}"
+
+
+def test_site_counts_shown_on_pages_come_from_the_data():
+    """The stories/methodology pages must show the CURRENT story count, pair count and G2 component count."""
+    reg = json.loads((ROOT / "outputs" / "results_registry.json").read_text(encoding="utf-8"))
+    n_units, n_pairs = reg["dataset"]["n_stories"], reg["story_similarity"]["n_pairs"]
+    n_comp = reg["networks"]["g2_core_social"]["n_components"]
+    stories_html = (ROOT / "docs" / "stories.html").read_text(encoding="utf-8")
+    assert f"The {n_units} story units" in stories_html
+    assert f"{n_comp}-connected-component caveat" in (ROOT / "docs" / "methodology.html").read_text(encoding="utf-8")
+    assert f"of {n_pairs} pairs by actor Jaccard" in (ROOT / "docs" / "similarity.html").read_text(encoding="utf-8")
+    assert f"/ {n_units} ·" in (ROOT / "docs" / "stories" / "S01.html").read_text(encoding="utf-8")
 
 
 def test_validate_site_detects_an_orphan_page(tmp_path, monkeypatch):

@@ -6,9 +6,14 @@
     "narrative_events": 85,
     "relation_types": 17,
     "relation_layers": 7,
-    "site_html_files": 363,
+    "site_html_files": 360,
+    "site_html_files_on_disk": 360,
+    "site_html_files_validated": 360,
     "site_validation_issues": 0,
-    "pytest_tests": 18
+    "pytest_tests": 70,
+    "registry_canonical_nodes": 332,
+    "registry_stories": 14,
+    "registry_event_level_relations": 628
   },
   "issues": []
 }

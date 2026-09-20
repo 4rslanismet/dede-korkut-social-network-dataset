@@ -102,8 +102,13 @@ lists, "X ve Y" constructions and sentence-like names). They touch 46 of 628 rel
 1,256 relation endpoints (3.8%). A candidate is not necessarily an error — many are legitimate
 collective labels — and none has been split or merged, so every node-level statistic counts each such
 label as one actor. This passed every structural validation check (it violates neither uniqueness nor
-referential integrity). The scan under-approximates (it misses "ile" constructions and short phrases).
-Resolving them requires review against the original text; this remains a publication blocker.
+referential integrity). The scan is a heuristic and is under-inclusive by design: it does not flag "ile"
+constructions, hyphen-joined names or phrases shorter than six words. For example "Egreke Yol Gösterdi"
+(a possible sentence fragment) and "Kayın Ata - Kayın Anası" (possibly two kin terms in one node) are
+canonical nodes it does not flag and that are not in the review queue, so the set of nodes worth
+reviewing is larger than the flagged 46. Neither the scan nor this note splits, merges or recodes any
+node. Resolving them requires manual entity review of the node list against the original text; this
+remains a publication blocker.
 → `docs/decision_log.md` DEC-013 and DEC-018, `validation/composite_node_candidates.csv`,
 `validation/HUMAN_REVIEW_QUEUE.csv` (HR0076-HR0080 hand-recorded; further items category
 `composite_node_candidate`).

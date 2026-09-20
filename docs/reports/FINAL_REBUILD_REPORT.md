@@ -1,7 +1,10 @@
 # Final Rebuild Report
 
 **Project:** Dede Korkut Narrative Network Project (DKNN) — working title
-**Branch:** `claude-dk-rebuild` (never merged to `main`, never pushed to remote)
+**Branches:** `claude-dk-rebuild` (first independently reviewed state) and `claude-dk-fixpass` (post-review
+corrections, independently re-reviewed at `e5989c3`); both are on the remote, neither is merged to `main`
+(`main` is untouched; a pull request awaits the owner's decision). **Status:** technically validated, ready for
+technical merge review; publication blockers remain — not publication-ready.
 **Scope:** Full rebuild per `docs/MASTER_PROMPT.md` (147-item specification), Phases 1-21
 
 This report synthesizes `reports/01` through `reports/17`, `paper/`, and `thesis/` into one
@@ -162,9 +165,10 @@ figure/table inventories). → `reports/17_documentation_report.md` and the
    (`validation/source_edition_metadata_required.md`).
 5. Extend the Network Explorer to all 12 network variants; build the remaining F01/F04-F05/F08-F14
    figures.
-6. Independent review of the fix-pass branch, then — when the repository owner is ready — decide on a
-   merge strategy with `main` and deploy the site to a live GitHub Pages URL. (`claude-dk-rebuild`
-   is already on the remote; `claude-dk-fixpass` is local until the owner authorizes a push.)
+6. Review the pull request from `claude-dk-fixpass` into `main` (the fix-pass branch was independently
+   re-reviewed at `e5989c3`: READY FOR TECHNICAL MERGE) and — when the repository owner is ready — decide
+   on the merge and on deploying the site to a live GitHub Pages URL. Both branches are on the remote;
+   `main` and GitHub Pages have not been touched, and no tag or release exists.
 7. Fill in `CITATION.cff`'s TODO fields once the repository owner's identity and any forthcoming
    publication details are confirmed.
 

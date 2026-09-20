@@ -2,7 +2,8 @@
 
 **Read time: ~4 minutes.** Full detail in `reports/FINAL_REBUILD_REPORT.md`.
 
-**Status: validated research repository — publication blockers remain** (see "What Should Happen Next").
+**Status: technically validated — ready for PR / technical merge review; publication blockers remain** (the
+project is not publication-ready; see "What Should Happen Next").
 
 ## What Was Done
 
@@ -50,7 +51,10 @@ consistency gaps; all were corrected on the `claude-dk-fixpass` branch: weighted
 tie strength as path distance (now 1/strength; Salur Kazan stays first everywhere, but the claim that
 Bamsı Beyrek also leads betweenness in every specification was withdrawn); the composite-node
 disclosure was under-inclusive (5 → 46 candidates); and the website's stale pages, hand-typed numbers
-and ambiguous robustness wording were fixed. No headline finding was reversed.
+and ambiguous robustness wording were fixed. No headline finding was reversed. A second, independent
+re-review of `claude-dk-fixpass` (at `e5989c3`) re-derived the results from the code and data, found no
+critical or major issues, verified the Top-5 findings 5/5 and listed seven minor cleanup items, which the
+final merge-prep commit addresses (last section of `reports/FIX_PASS_REPORT.md`).
 
 ## What the Scientific Contribution Is
 
@@ -71,7 +75,9 @@ Publication blockers (owner or manual action required — none can be closed by 
 1. Obtain a second, independent coder to compute a genuine inter-annotator reliability statistic
    (the sampling and tooling are already built and waiting).
 2. Manually review the 46 candidate composite actor nodes and the other open items in
-   `validation/HUMAN_REVIEW_QUEUE.csv` against the original narrative text.
+   `validation/HUMAN_REVIEW_QUEUE.csv` against the original narrative text. The composite scan is a
+   heuristic and under-inclusive by design, so the review should cover the whole node list, not only the
+   flagged candidates (`docs/limitations.md` §11).
 3. Confirm the source edition/transcription used for the original coding
    (`validation/source_edition_metadata_required.md`).
 4. Provide the `CITATION.cff` author and release-date metadata, and decide on a source-code licence
@@ -79,5 +85,6 @@ Publication blockers (owner or manual action required — none can be closed by 
 5. For a paper: write the Introduction, Discussion and References (no literature review has been done).
 
 Not a blocker: the story-similarity analysis is built and reported as PARTIALLY ANSWERED / EXPLORATORY.
-Whether and when to merge to `main` and deploy the website is a decision for the repository owner after
-an independent review of the fix-pass branch.
+Whether and when to merge to `main` and deploy the website is a decision for the repository owner, who is
+asked to review the pull request from `claude-dk-fixpass` into `main` (the branch has already been through an
+independent re-review). The paper should not be published before the blockers above are closed.

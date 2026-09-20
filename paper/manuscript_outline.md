@@ -95,12 +95,17 @@ G3 is a forest, so clustering/transitivity are structurally zero. Report full st
 value, z-score, empirical p, BH q-value for every one of the 36 tests (Table T09).
 
 ### 5.3 Descriptive: sensitivity to network-construction choices
-Actor-type inclusion (person+group vs. person-only, ρ=0.887-0.926; groups included vs. excluded) and
-edge weighting (PageRank ρ=0.849) change centrality rankings noticeably; girizgah
-inclusion/exclusion, core-social filtering and relation-inference policy have negligible effect
-(ρ ≥ 0.97). Do not rank the three larger-effect choices against each other (mean ρ 0.91-0.93,
-untested differences). Report as a description of "how much does this decision matter" (Table T10),
-not as validation/invalidation of any specific centrality finding.
+Three choices change centrality rankings noticeably (at least one Spearman ρ < 0.95): actor-type
+inclusion (person+group vs. person-only: ρ=0.916 degree, 0.892 betweenness, 0.926 PageRank; mean
+0.911), edge weighting (weighted vs. unweighted, betweenness distance = 1/strength: ρ=0.886
+betweenness, 0.849 PageRank, degree identical by construction; mean 0.912) and groups included vs.
+excluded (mean 0.952, just below the threshold). The first two are numerically tied (mean ρ 0.911 vs.
+0.912, on different node sets, differences between correlations untested), so do not declare either
+the "most influential" choice or rank the three against each other. Girizgah inclusion/exclusion,
+core-social filtering and relation-inference policy have negligible effect (ρ ≥ 0.98). Take the
+values from `outputs/results_registry.json` / Table T10, not from this outline. Report as a
+description of "how much does this decision matter", not as validation/invalidation of any specific
+centrality finding.
 
 ### 5.4 Exploratory: multilayer, signed, and directed structure
 Layer participation, signed degree profile, directed hub/authority asymmetry (Salur Kazan's HITS
@@ -140,8 +145,9 @@ overclaiming literary insight.
 
 ## 9. Data and Code Availability
 
-Repository URL, branch (`claude-dk-rebuild`), license (CC BY 4.0), and the reproduction command
-(`python run_pipeline.py --all`). Point to the website (`docs/`) as the interactive companion to
+Repository URL, the commit hash or release tag frozen at submission time (no tag or release exists
+yet), dataset licence (CC BY 4.0; the source-code licence is still to be decided), and the
+reproduction command (`python run_pipeline.py --all`). Point to the website (`docs/`) as the interactive companion to
 the paper.
 
 ---

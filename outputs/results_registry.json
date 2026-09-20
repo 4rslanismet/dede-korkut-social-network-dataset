@@ -481,7 +481,7 @@
       "build_site",
       "validate_site"
     ],
-    "n_tests_collected": 53,
+    "n_tests_collected": 70,
     "test_count_note": "collected test functions; whether they pass is reported by pytest / CI, not by this registry"
   }
 }

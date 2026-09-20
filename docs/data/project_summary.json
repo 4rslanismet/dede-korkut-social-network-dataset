@@ -28,6 +28,6 @@
   "pipeline": {
     "n_stages": 27,
     "n_network_models": 12,
-    "n_tests_collected": 53
+    "n_tests_collected": 70
   }
 }

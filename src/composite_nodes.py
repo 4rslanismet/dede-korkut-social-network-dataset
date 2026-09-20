@@ -13,8 +13,14 @@ Triggers (a candidate can match several; none of them implies an error):
   ve_conjunction   name contains the conjunction " ve "
   slash_plus_amp   name contains "/", "+" or "&"
   long_phrase      name has >= 6 whitespace-separated words (sentence-like)
-Limitation: " ile " ("with") constructions and phrases shorter than 6 words are
-not detected; the detector under-approximates and is a triage aid, not proof.
+Limitation (by design): this is a HEURISTIC and it is under-inclusive. " ile " ("with")
+constructions, hyphen-joined names and phrases shorter than 6 words are not detected. Known
+examples it does not flag: "Egreke Yol Gösterdi" (a possible sentence fragment) and
+"Kayın Ata - Kayın Anası" (possibly two kin terms in one node). A flag is a triage aid, not
+proof, and the absence of a flag does not mean a node is a single actor; the flagged count is the
+output of the rules above, not an estimate of how many nodes are truly composite. Manual entity
+review against the original text remains required (a publication blocker), and this script
+never splits, merges or recodes a node.
 
 Outputs
   validation/composite_node_candidates.csv

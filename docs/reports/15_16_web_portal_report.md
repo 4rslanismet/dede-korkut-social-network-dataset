@@ -1,5 +1,11 @@
 # Web Portal & Website Validation — Faz 15-16
 
+> **TARİHSEL KAYIT (Faz 15-16 anı) — güncel sonuç değildir.** Bu rapordaki sayılar o günkü durumu yansıtır:
+> "363 sayfa" 3 eski (orphan) sayfa içeriyordu; güncel beklenen sayfa kümesi veriden türetilir (14 statik + 14 boy + 332
+> karakter = 360, `outputs/validation/site_validation_report.json`). **PRE-FIX / SUPERSEDED:** betweenness 0.3879
+> DEC-017 düzeltmesinden önce, mesafe = güç kullanılarak üretilmişti; güncel yöntem ve değerler için
+> `docs/decision_log.md` DEC-017 ve `outputs/tables/publication/T04_centrality_results.csv`'ye bakın.
+
 **Scriptler:** [`src/build_site_data.py`](../src/build_site_data.py), [`src/build_site.py`](../src/build_site.py), [`src/site_layout.py`](../src/site_layout.py), [`docs/assets/explorer.js`](../docs/assets/explorer.js), [`src/validate_site.py`](../src/validate_site.py)
 
 ---
@@ -43,7 +49,7 @@ Bu, muhtemelen v1-v3 kodlama sürecinde aynı satırda birden fazla karakterin b
 VALIDATION STATUS: PASS - no broken internal links, missing assets, or invalid JSON found.
 ```
 
-Ayrıca gerçek bir tarayıcıda (Python `http.server`, port 8123) manuel olarak test edildi: Home, Network Explorer (arama+tıklama), Communities (23-bileşen uyarısı + figür), Analysis (3 figür), Evidence (manifest linki), bir karakter sayfası (Salur Kazan — sayılar Faz 5 ile birebir tutarlı: degree=72, strength=436, betweenness=0.3879, pagerank=0.0921).
+Ayrıca gerçek bir tarayıcıda (Python `http.server`, port 8123) manuel olarak test edildi: Home, Network Explorer (arama+tıklama), Communities (23-bileşen uyarısı + figür), Analysis (3 figür), Evidence (manifest linki), bir karakter sayfası (Salur Kazan — sayılar Faz 5 ile birebir tutarlı: degree=72, strength=436, betweenness=0.3879 **[PRE-FIX / SUPERSEDED: DEC-017'den önce, mesafe = güç ile üretilmişti; güncel bilimsel sonuç olarak kullanılmamalı — düzeltilmiş mesafe-ağırlıklı betweenness (mesafe = 1/strength) 0.598, bkz. T04]**, pagerank=0.0921).
 
 ---
 

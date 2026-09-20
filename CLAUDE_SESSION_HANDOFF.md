@@ -1,6 +1,6 @@
 # CLAUDE SESSION HANDOFF
 
-> **GÜNCEL DURUM (önce bunu oku):** VALIDATED RESEARCH REPOSITORY — PUBLICATION BLOCKERS REMAIN. Tüm 21 faz + RQ6 eki + final audit + tam pipeline doğrulaması + bağımsız-inceleme düzeltme turu tamamlandı. En güncel iş: aşağıdaki **"INDEPENDENT REVIEW FIX PASS"** bölümü ve `reports/FIX_PASS_REPORT.md`. Bu dosyanın geri kalanı aşama-aşama TARİHSEL kayıttır (özellikle "henüz yapılmadı" diyen ilk bölümler artık geçerli değildir); güncel bilimsel sayılar için `outputs/results_registry.json`, açık işler için `NEXT_TASK.md`.
+> **GÜNCEL DURUM (önce bunu oku):** **TECHNICALLY VALIDATED — READY FOR PR / TECHNICAL MERGE REVIEW. PUBLICATION BLOCKERS REMAIN** (proje yayına hazır DEĞİLDİR). Tüm 21 faz + RQ6 eki + final audit + tam pipeline doğrulaması + bağımsız-inceleme düzeltme turu + bağımsız yeniden inceleme (`e5989c3`: READY FOR TECHNICAL MERGE, 0 critical / 0 major, Top-5 bulgu 5/5 doğrulandı) + son merge-prep temizliği tamamlandı. Git durumu: `claude-dk-rebuild` ve `claude-dk-fixpass` remote'ta; `main` dokunulmadı; GitHub Pages deploy edilmedi; tag/release yok; `claude-dk-fixpass` → `main` pull request'inin merge kararı repo sahibine aittir. Açık yayın engelleri (harici/manuel): kaynak baskı/transkripsiyon, ikinci kodlayıcı, çözülmemiş entity incelemesi, `CITATION.cff` sahip metadatası, kod lisansı, yazılmamış Introduction/Discussion/References. Bu dosyanın geri kalanı aşama-aşama TARİHSEL kayıttır (özellikle "henüz yapılmadı", "yerel", "push edilmedi" diyen bölümler ve eski sensitivity/betweenness değerleri kendi anlarına aittir, artık geçerli değildir); güncel bilimsel sayılar için `outputs/results_registry.json`, açık işler için `NEXT_TASK.md`, düzeltme ayrıntıları için `reports/FIX_PASS_REPORT.md`.
 
 **Bu dosya, önceki konuşmaya erişimi olmayan yeni bir Claude Code oturumunun bu projeye kaldığı yerden devam edebilmesi için yazılmıştır.** Tüm sayılar bu checkpoint anında repository'deki gerçek dosyalardan programatik olarak doğrulanmıştır (aşağıda her sayının kaynağı gösterilmiştir). Yeni oturum, bu dosyayı okuduktan sonra kendi çalışmasına başlamadan önce aynı doğrulamayı (dosyaları açıp gerçek satır/değer saymayı) tekrar yapmalıdır — burada yazılanlar "doğrulanmış" olsa da, zamanla dosyalar değişmiş olabilir.
 
@@ -60,8 +60,8 @@ Bu kurallar her yeni analiz adımında geçerlidir; hiçbiri şu ana kadar ihlal
 Bu bilgiler checkpoint anında gerçek komutlarla doğrulanmıştır:
 
 - **OS:** Windows 11 Pro N (win32), PowerShell 5.1
-- **Repository absolute path:** `F:\Recovered_D2\v4gus\Computer Since Master\Articles\dede korkut ai`
-- **Git:** repository var, aktif branch = `claude-dk-rebuild`, `main` branch'e hiç yazılmadı, hiçbir zaman push denenmedi (remote auth hazır değil / istenmedi)
+- **Repository root:** `run_pipeline.py`'nin bulunduğu dizin (tüm komutlar buradan çalıştırılır; makineye özgü mutlak yol kaydedilmez)
+- **Git (Faz 5 checkpoint anındaki durum — TARİHSEL, güncel değil; güncel git durumu için sayfa başındaki blok):** repository var, aktif branch = `claude-dk-rebuild`, `main` branch'e hiç yazılmadı, o anda push denenmemişti (remote auth hazır değildi / istenmedi)
 - **Son commit (checkpoint öncesi):** `3840993` — "Add Phase 5 corpus-level metrics and centrality profiles; combined Phase 4-5 report"
 - **Python:** 3.12.10, sanal ortam `.\.venv\` (repo kökünde, **git'e commit edilmedi**, `.gitignore`'da hariç tutuluyor)
 - **Ortamı aktive etme:** Bu Windows makinesinde `git`/`python` PATH'e winget kurulumu sonrası düzgün yansımıyor olabilir; en güvenilir yöntem **doğrudan `.venv` içindeki python'u çağırmak**:
@@ -224,7 +224,7 @@ G0–G11 (12 varyant) tanımlandı ve inşa edildi — tam tanımlar `docs/netwo
 - İhmal edilebilir: girizgah dahil/hariç (ρ=1.000), tüm ilişkiler vs core-social (ρ=1.000)
 - Küçük: explicit-only vs explicit+inferred (ρ=0.97-0.99)
 - Orta: weighted vs unweighted (PageRank ρ=0.849 — en duyarlı metrik), groups dahil/hariç (ρ=0.90-0.96)
-- **En büyük etki: person+group vs person-only** (ρ=0.887-0.926) — kolektif aktörleri çıkarmak sıralamayı en çok değiştiren tek karar.
+- **En büyük etki: person+group vs person-only** (ρ=0.887-0.926) — kolektif aktörleri çıkarmak sıralamayı en çok değiştiren tek karar. **[TARİHSEL / SUPERSEDED — Faz 8 anı, DEC-017'den önce: bu değerler ve "tek karar" ifadesi geçersizdir. Güncel: person+group vs person-only ρ=0.892-0.926 (ort. 0.911) ile weighted vs unweighted (ort. 0.912) sayısal olarak eşittir; kazanan ilan edilmez. Kaynak: `outputs/results_registry.json`.]**
 
 **Structural Robustness (madde 30-31, "narrative resilience" DEĞİL):** `G0_full` üzerinde random/degree-targeted/betweenness-targeted kaldırma. Klasik "robust yet fragile" örüntüsü: dev bileşenin %50 altına düşmesi için rastgele kaldırmada **%25.1** node gerekirken, hedefli (degree/betweenness) kaldırmada yalnızca **%1.9-3.9** yeterli.
 
@@ -322,7 +322,7 @@ Yeni analiz yok — Faz 1-16'nın bilgisini kalıcı dokümanlara sentezledi: `d
 **Önemli teknik not (yeni oturum için):** Bu makinede scipy'nin bazı alt modülleri (`scipy.cluster.hierarchy` → `scipy.spatial`/`scipy.sparse`) **ilk import'ta** bir Application Control Policy/antivirüs DLL taraması nedeniyle 120s+ sürebiliyor ve timeout'a uğrayabiliyor. Bu geçicidir — aynı komutu (gerekirse daha uzun timeout ile, örn. 150000ms) tekrar çalıştırmak genellikle çalışır. Gerçek bir engelleme değil, yalnızca ilk-çalıştırma gecikmesi.
 
 **Bundan sonra kullanıcıyla görüşülmeden yapılmayacaklar** (NEXT_TASK.md'de de belirtildi):
-- `claude-dk-rebuild` branch'ini remote'a push etmek (hiç push denenmedi, auth hazır değildi/istenmedi).
+- `claude-dk-rebuild` branch'ini remote'a push etmek (TARİHSEL: o anda push denenmemişti; sonradan kullanıcı izniyle push edildi — güncel durum için sayfa başındaki blok).
 - `main`'e merge açmak.
 - Siteyi gerçek GitHub Pages URL'sinde deploy etmek (repo ayarı değişikliği gerektirir).
 - `CITATION.cff`'deki TODO alanlarını doldurmak (gerçek yazar adı/tarih bilgisi kullanıcıdan gelmeli).
@@ -353,7 +353,7 @@ Kullanıcı, yeni analizden önce RQ6 iddialarının ve "Top 5 findings"in denet
 3. Çözülmemiş birleşik/entity vakaları (HR0076–HR0080 ve diğer `HUMAN_REVIEW_QUEUE.csv` maddeleri) — orijinal metin incelemesi gerekir.
 4. `CITATION.cff` kişisel/bibliyografik metadata — repo sahibi.
 
-**Sıradaki önerilen adım:** `claude-dk-rebuild` branch'ini bağımsız inceleme için push etmek (yalnızca kullanıcı istediğinde).
+**Sıradaki önerilen adım (TARİHSEL — yapıldı):** `claude-dk-rebuild` branch'ini bağımsız inceleme için push etmek. Güncel önerilen adım: sayfa başındaki blok ve `NEXT_TASK.md`.
 
 ---
 
@@ -373,7 +373,7 @@ Kullanıcı, yeni analizden önce RQ6 iddialarının ve "Top 5 findings"in denet
 
 ## INDEPENDENT REVIEW FIX PASS — TAMAMLANDI ✅ (yerel branch `claude-dk-fixpass`, başlangıç `4e89da5`) — DEC-017/018/019
 
-Bağımsız inceleme (`4e89da5`) bilimsel çekirdeği onayladı ama merge öncesi düzeltme turu gerektirdi. Ayrıntı: **`reports/FIX_PASS_REPORT.md`** (her bulgu için FIXED / DISCLOSED / DEFERRED). Push/merge/deploy YAPILMADI; `claude-dk-fixpass` yalnızca yerel.
+Bağımsız inceleme (`4e89da5`) bilimsel çekirdeği onayladı ama merge öncesi düzeltme turu gerektirdi. Ayrıntı: **`reports/FIX_PASS_REPORT.md`** (her bulgu için FIXED / DISCLOSED / DEFERRED). O anda (fix pass bittiğinde) push/merge/deploy yapılmamıştı; `claude-dk-fixpass` sonradan push edildi ve bağımsız olarak yeniden incelendi (`e5989c3`: READY FOR TECHNICAL MERGE) — güncel durum için sayfa başındaki blok.
 
 - **DEC-017 (MAJOR): ağırlıklı betweenness.** `weight` ilişki *gücü* iken NetworkX'e mesafe olarak veriliyordu. Artık `distance = 1/strength` (`src/networks.py::strength_to_distance/with_distance`, ≤0 güç reddedilir); hop-count betweenness ayrı (`betweenness_hop`). Sadece `metrics.py` (kategori B) düzeltildi; `robustness.py`'nin 2 çağrısı kasıtlı hop-count (kategori A). Testler: `tests/test_distance_semantics.py`. Yeniden üretilenler: centrality tabloları, T04, F07, sensitivity (T10, F16, F17), `actor_metrics.json`, karakter sayfaları, paper/thesis/reports metinleri. **Salur Kazan tüm belirtimlerde ilk; "Salur Kazan VE Bamsı Beyrek her belirtimde betweenness'te önde" iddiası geri çekildi.** Top-5 #3 yeniden üretildi: person+group vs person-only ile weighted vs unweighted sayısal olarak eşit (ort. ρ 0.911 vs 0.912). Hiçbir headline bulgu tersine dönmedi.
 - **DEC-018 (MAJOR açıklama): composite-node adayları.** `src/composite_nodes.py` (pipeline'da `build_canonical` sonrası) → `validation/composite_node_candidates.csv`, `outputs/statistics/composite_node_summary.json`, `HUMAN_REVIEW_QUEUE.csv`'ye `composite_node_candidate` satırları (idempotent, DEC-013'ün elle 5 maddesi korunur). Otomatik birleştirme/bölme YOK. Güncel sayılar `outputs/results_registry.json` → `composite_nodes`. "5 concatenated node" ifadeleri her yerde düzeltildi; paper ana metnine (Results §8, Methods) sınırlılık eklendi. **Publication blocker olarak AÇIK.**
@@ -398,7 +398,7 @@ Bağımsız inceleme (`4e89da5`) bilimsel çekirdeği onayladı ama merge önces
 10. Directed triadic census, ağın seyrekliği nedeniyle ezici çoğunlukla "003" (bağlantısız) tipte — motif-tipi yorum için null model karşılaştırması henüz yapılmadı (G9_directed'e uygun yönlü null model Faz 7 kapsamına alınmadı, backlog'da).
 11. **Faz 5'in "disassortative network" bulgusu Faz 7'de geri çekildi** — degree assortativity, 9 ağın hiçbirinde FDR-düzeltmeli null modelden anlamlı şekilde farklı değil. Negatif değerler muhtemelen derece dağılımının kendisinden kaynaklanıyor.
 12. Modularity/community yapısının (Faz 6) 7/9 ağda null modelden anlamlı yüksek olduğu doğrulandı — ama bu, 23-bileşen artefaktını (§8 yukarı) çözmüyor, yalnızca genel modularity sinyalinin rastgele olmadığını gösteriyor.
-13. Faz 8 sensitivity: **person+group vs person-only** ortalama ρ ile en büyük sıralama farkını yaratan çift (ρ=0.887-0.926; ORTALAMA 0.91) — ANCAK final denetimde (DEC-015) "tek en etkili karar" ifadesinin desteklenmediği görüldü: groups-dahil/hariç (0.93) ve weighted/unweighted (0.93; PageRank'ta 0.849 ile en düşük) yakın, fark testi yok; PageRank, ağırlık şemasına (`agirlik`, semantiği hâlâ belirsiz — madde 36) en duyarlı metrik (ρ=0.849). Bu iki nokta, gelecekte "en önemli karakter" tartışması yapılırken **hangi network varyantının kullanıldığının açıkça belirtilmesi gerektiğini** gösteriyor.
+13. **[TARİHSEL — değerler DEC-017 öncesi; güncel değerler: person+group vs person-only ρ=0.892-0.926, ort. 0.911; weighted vs unweighted ort. 0.912; sayısal olarak eşit]** Faz 8 sensitivity: **person+group vs person-only** ortalama ρ ile en büyük sıralama farkını yaratan çift (ρ=0.887-0.926; ORTALAMA 0.91) — ANCAK final denetimde (DEC-015) "tek en etkili karar" ifadesinin desteklenmediği görüldü: groups-dahil/hariç (0.93) ve weighted/unweighted (0.93; PageRank'ta 0.849 ile en düşük) yakın, fark testi yok; PageRank, ağırlık şemasına (`agirlik`, semantiği hâlâ belirsiz — madde 36) en duyarlı metrik (ρ=0.849). Bu iki nokta, gelecekte "en önemli karakter" tartışması yapılırken **hangi network varyantının kullanıldığının açıkça belirtilmesi gerektiğini** gösteriyor.
 14. Structural robustness yalnızca `G0_full` üzerinde çalıştırıldı, ortalama path length eğrisi hesaplanmadı (yalnızca dev bileşen boyutu) — gelecekteki bir iyileştirme.
 15. Motif/triad null karşılaştırması atlandı (DEC-010, veri yetersizliği: 44/1.77M kapalı triad).
 16. **Story similarity (madde 17) tamamlanmadı** — yalnızca ham shared-actor bipartite projeksiyonu var (`outputs/matrices/story_projection_shared_actors.csv`, `outputs/tables/publication/T08_story_similarity.csv`); actor Jaccard, weighted Jaccard, cosine, relation-profile similarity, layer-composition similarity, hierarchical clustering **henüz hesaplanmadı**. Bu, F10/F11 figürlerinin de neden üretilmediğini açıklıyor.
@@ -406,9 +406,9 @@ Bağımsız inceleme (`4e89da5`) bilimsel çekirdeği onayladı ama merge önces
 18. Inter-annotator kappa/alpha hesaplanamadı (gerçek ikinci kodlayıcı yok, beklenen durum) — `not_applicable`.
 19. ~~`run_pipeline.py --all` (FULL mode) uçtan uca test edilmedi.~~ **Çözüldü (2026-09-19, DEC-016):** FULL mode iki kez çalıştırıldı, 23/23 PASS. Kalan kapsam notu: `build_site.py`/`validate_site.py` orkestratörün `STAGES` listesinde değil, ayrıca çalıştırılıyor.
 20. ~~Web portal, website validation~~ ✅ tamamlandı (Faz 15-16). Documentation (data dictionary/relation codebook/methodology/limitations), paper/thesis package, final validation/release raporları **henüz hiç başlamadı**.
-21. **Website inşası sırasında 5 yeni "birleştirilmiş çoklu-aktör node" bulundu** (DEC-013, `validation/HUMAN_REVIEW_QUEUE.csv` HR0076-HR0080) — Faz 2'nin otomatik testlerini geçmişti ama içerik/anlamsal bir kalite sorunu. Düzeltilmedi, açık.
+21. **Website inşası sırasında 5 yeni "birleştirilmiş çoklu-aktör node" bulundu** (DEC-013, `validation/HUMAN_REVIEW_QUEUE.csv` HR0076-HR0080) — Faz 2'nin otomatik testlerini geçmişti ama içerik/anlamsal bir kalite sorunu. Düzeltilmedi, açık. (TARİHSEL sayı: DEC-018 ile yeniden üretilebilir tarama 46 aday buldu; güncel sayı `outputs/results_registry.json`'da, çözüm hâlâ manuel inceleme bekliyor.)
 22. Site yalnızca 3 network varyantını (G0/G1/G2) Explorer'da sunuyor; G3-G11 export edilmedi. Similarity sayfası artık tam 5-metrik seti gösteriyor (RQ6 = PARTIALLY ANSWERED / EXPLORATORY uyarılarıyla; DEC-014/015). TR/EN dil altyapısı yok. Mobil/erişilebilirlik sistematik test edilmedi.
-23. Site henüz GitHub'a push edilmedi / gerçek Pages URL'sinde deploy edilmedi — yalnızca yerel `python -m http.server` ile test edildi.
+23. (TARİHSEL: Faz 21 anı) Site GitHub'a push edilmemişti; **hâlâ geçerli olan kısım:** gerçek Pages URL'sinde deploy edilmedi — yalnızca yerel `python -m http.server` ile test edildi. Branch'ler sonradan push edildi (sayfa başındaki blok).
 
 ---
 
@@ -443,8 +443,9 @@ If the user asks to continue, prioritize in this order (from `reports/FINAL_REBU
 4. Confirm the source edition metadata (`validation/source_edition_metadata_required.md`).
 5. Extend the Network Explorer to G3-G11; build remaining figures F01/F04-F05/F08-F14.
 6. **Only if the user explicitly asks:** push `claude-dk-rebuild` to remote, deploy the site to a
-   live GitHub Pages URL, or open a PR to `main`. None of these have been done — this entire
-   project exists only as local commits so far.
+   live GitHub Pages URL, or open a PR to `main`. (HISTORICAL — Phase 21 wording; the branches were
+   later pushed with the owner's authorization, see the current-state block at the top. Merging to
+   `main` and deploying Pages have still not been done.)
 7. Fill in `CITATION.cff`'s TODO fields once the repository owner confirms their name/publication
    details.
 
