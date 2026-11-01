@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d2" for="edge" attr.name="interaction_count" attr.type="long" />
+  <key id="d1" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d0" for="graph" attr.name="name" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="24_sancak_beyi" />
+    <node id="arsin_oglu_direk_tekfur" />
+    <node id="yigenek" />
+    <node id="donebilmez_dulek_evren" />
+    <node id="kafir" />
+    <node id="kazilik_koca" />
+    <node id="kiyan_selcuk_oglu_deli_dundar" />
+    <node id="yigenek_ve_sancak_beyleri" />
+    <node id="bayindir_han" />
+    <node id="kam_gan" />
+    <node id="cebrail" />
+    <node id="tanri" />
+    <node id="direk_tekfur" />
+    <node id="duzmurd_kalesi_tekfuru_arsin" />
+    <node id="emen" />
+    <node id="kara_budak" />
+    <node id="kara_gone" />
+    <node id="yarar_kocalar" />
+    <node id="yoldaslari" />
+    <edge source="24_sancak_beyi" target="arsin_oglu_direk_tekfur">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="24_sancak_beyi" target="yigenek">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="arsin_oglu_direk_tekfur" target="donebilmez_dulek_evren">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="arsin_oglu_direk_tekfur" target="kafir">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="arsin_oglu_direk_tekfur" target="kazilik_koca">
+      <data key="d1">10.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="arsin_oglu_direk_tekfur" target="kiyan_selcuk_oglu_deli_dundar">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="arsin_oglu_direk_tekfur" target="yigenek_ve_sancak_beyleri">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="yigenek" target="bayindir_han">
+      <data key="d1">8.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="yigenek" target="direk_tekfur">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="yigenek" target="emen">
+      <data key="d1">2.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="yigenek" target="kara_budak">
+      <data key="d1">4.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="yigenek" target="kazilik_koca">
+      <data key="d1">10.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="yigenek" target="tanri">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="yigenek" target="yoldaslari">
+      <data key="d1">2.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kazilik_koca" target="bayindir_han">
+      <data key="d1">4.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="kazilik_koca" target="yarar_kocalar">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="bayindir_han" target="kam_gan">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="cebrail" target="tanri">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="direk_tekfur" target="duzmurd_kalesi_tekfuru_arsin">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kara_budak" target="kara_gone">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <data key="d0">S08</data>
+  </graph>
+</graphml>

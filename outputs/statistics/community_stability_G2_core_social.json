@@ -1,0 +1,8 @@
+{
+  "n_seeds": 10,
+  "modularity_mean": 0.698081872515657,
+  "modularity_std": 0.0027951665250759462,
+  "n_communities_mean": 33.0,
+  "n_communities_std": 0.0,
+  "mean_pairwise_adjusted_rand_index": 0.9078457078353954
+}

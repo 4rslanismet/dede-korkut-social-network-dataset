@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d2" for="edge" attr.name="interaction_count" attr.type="long" />
+  <key id="d1" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d0" for="graph" attr.name="name" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="alp_rustem" />
+    <node id="ense_koca_oglu_okcu" />
+    <node id="aruz" />
+    <node id="bamsi_beyrek" />
+    <node id="basat" />
+    <node id="dis_oguz_beyleri" />
+    <node id="kara_gone" />
+    <node id="kilbas" />
+    <node id="saht_oldu" />
+    <node id="salur_kazan" />
+    <node id="aruz_ve_dis_oguz_beyleri" />
+    <node id="aruzun_habercisi" />
+    <node id="beyerek" />
+    <node id="beyrekin_40_yigidi" />
+    <node id="beyrekin_adamlari" />
+    <node id="beyrekin_anne_babasi" />
+    <node id="emen" />
+    <node id="ters_uzamis" />
+    <node id="ic_oguz_beyleri" />
+    <node id="kazanin_kardesi_kara_gone" />
+    <node id="kilbas_ve_kara_gone" />
+    <edge source="alp_rustem" target="ense_koca_oglu_okcu">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="aruz" target="bamsi_beyrek">
+      <data key="d1">4.0</data>
+      <data key="d2">4</data>
+    </edge>
+    <edge source="aruz" target="basat">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="aruz" target="dis_oguz_beyleri">
+      <data key="d1">14.0</data>
+      <data key="d2">6</data>
+    </edge>
+    <edge source="aruz" target="kara_gone">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="aruz" target="kilbas">
+      <data key="d1">3.0</data>
+      <data key="d2">3</data>
+    </edge>
+    <edge source="aruz" target="saht_oldu">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="aruz" target="salur_kazan">
+      <data key="d1">6.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="bamsi_beyrek" target="aruz_ve_dis_oguz_beyleri">
+      <data key="d1">5.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="bamsi_beyrek" target="beyrekin_40_yigidi">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="bamsi_beyrek" target="beyrekin_adamlari">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="bamsi_beyrek" target="dis_oguz_beyleri">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="dis_oguz_beyleri" target="salur_kazan">
+      <data key="d1">8.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="kara_gone" target="kilbas">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kilbas" target="kazanin_kardesi_kara_gone">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kilbas" target="salur_kazan">
+      <data key="d1">6.0</data>
+      <data key="d2">5</data>
+    </edge>
+    <edge source="salur_kazan" target="beyrekin_anne_babasi">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="ic_oguz_beyleri">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="kilbas_ve_kara_gone">
+      <data key="d1">2.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="aruzun_habercisi" target="beyerek">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="emen" target="ters_uzamis">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <data key="d0">S13</data>
+  </graph>
+</graphml>

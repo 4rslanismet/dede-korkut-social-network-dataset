@@ -1,0 +1,67 @@
+duzenleme_turu,kayit_id,alan,eski_deger,yeni_deger,gerekce
+ad_standartlastirma,DKR0540,karakter_2,Begilin Adamları,Begil'in Adamları,imla ve aidiyet standardizasyonu
+ad_standartlastirma,DKR0624,karakter_1,Anne Babası,Anne ve Babası,ebeveyn grubu standardizasyonu
+ad_standartlastirma,DKR0503,karakter_2,Kocaları,Kocalar,kolektif aktör standardizasyonu
+ad_standartlastirma,DKR0847,karakter_1,Iç Oğuz,İç Oğuz,Türkçe karakter standardizasyonu
+ad_standartlastirma,DKR0803,karakter_2,Iç Oğuz Beyleri,İç Oğuz Beyleri,Türkçe karakter standardizasyonu
+ad_standartlastirma,DKR0160,karakter_1,Yalancı Oğlu Yaltaçuk,Yalançı Oğlu Yaltaçuk,aynı anlatı kişisinin ad varyantlarının birleştirilmesi
+ad_standartlastirma,DKR0161,karakter_1,Yalancı Oğlu Yaltaçuk,Yalançı Oğlu Yaltaçuk,aynı anlatı kişisinin ad varyantlarının birleştirilmesi
+ad_standartlastirma,DKR0167,karakter_1,Yalancı Oğlu Yaltaçuk,Yalançı Oğlu Yaltaçuk,aynı anlatı kişisinin ad varyantlarının birleştirilmesi
+ad_standartlastirma,DKR0191,karakter_1,Yaltaçuk,Yalançı Oğlu Yaltaçuk,aynı anlatı kişisinin kısa/ad varyantının birleştirilmesi
+ad_standartlastirma,DKR0229,karakter_2,Yaltaçuk,Yalançı Oğlu Yaltaçuk,aynı anlatı kişisinin kısa/ad varyantının birleştirilmesi
+ad_standartlastirma,DKR0230,karakter_2,Yaltaçuk,Yalançı Oğlu Yaltaçuk,aynı anlatı kişisinin kısa/ad varyantının birleştirilmesi
+ad_standartlastirma,DKR0228,aktor,Yaltaçuk,Yalançı Oğlu Yaltaçuk,aynı anlatı kişisinin kısa/ad varyantının birleştirilmesi
+ad_standartlastirma,DKR0376,karakter_2,Selcen,Selcen Hatun,aynı anlatı kişisinin kısa/ad varyantının birleştirilmesi
+ad_standartlastirma,DKR0278,karakter_1,Burla,Burla Hatun,aynı anlatı kişisinin kısa/ad varyantının birleştirilmesi
+ad_standartlastirma,DKR0279,karakter_1,Burla,Burla Hatun,aynı anlatı kişisinin kısa/ad varyantının birleştirilmesi
+ad_standartlastirma,DKR0287,karakter_1,Burla,Burla Hatun,aynı anlatı kişisinin kısa/ad varyantının birleştirilmesi
+ad_standartlastirma,DKR0288,karakter_2,Burla,Burla Hatun,aynı anlatı kişisinin kısa/ad varyantının birleştirilmesi
+ad_standartlastirma,DKR0205,karakter_1,Uzun Boylu Burla Hatun,Burla Hatun,aynı anlatı kişisinin unvan varyantının birleştirilmesi
+ad_standartlastirma,DKR0207,karakter_1,Uzun Boylu Burla Hatun,Burla Hatun,aynı anlatı kişisinin unvan varyantının birleştirilmesi
+ad_standartlastirma,DKR0206,karakter_2,Uzun Boylu Burla Hatun,Burla Hatun,aynı anlatı kişisinin unvan varyantının birleştirilmesi
+ad_standartlastirma,DKR0525,karakter_1,Begil Bey,Begil,aynı anlatı kişisinin unvan varyantının birleştirilmesi
+ad_standartlastirma,DKR0524,karakter_2,Begil Bey,Begil,aynı anlatı kişisinin unvan varyantının birleştirilmesi
+baglamsal_grup_standardizasyonu,DKR0355,karakter_2,Çevresine,Çevresindekiler,bağlama göre muhatap topluluk ortaklaştırıldı
+baglamsal_grup_standardizasyonu,DKR0360,karakter_2,Çevresine,Çevresindekiler,bağlama göre muhatap topluluk ortaklaştırıldı
+baglamsal_grup_standardizasyonu,DKR0444,karakter_2,Çevresine,Çevresindekiler,bağlama göre muhatap topluluk ortaklaştırıldı
+baglamsal_grup_standardizasyonu,DKR0207,karakter_2,Çevresindekilere,Çevresindekiler,bağlama göre muhatap topluluk ortaklaştırıldı
+baglamsal_grup_standardizasyonu,DKR0191,karakter_2,Beylere,Beyler (Bamsı Beyrek Boyu),dolaylı çoğul muhatap boy bağlamına göre standartlaştırıldı
+baglamsal_grup_standardizasyonu,DKR0555,karakter_2,Askerleri,Tekfurun Askerleri,bağlama göre ait olunan topluluk netleştirildi
+baglamsal_grup_standardizasyonu,DKR0725,karakter_2,Beyleri,Tekfurun Beyleri,bağlama göre ait olunan topluluk netleştirildi
+baglamsal_grup_standardizasyonu,DKR0730,karakter_2,Askerleri,Tekfurun Askerleri,bağlama göre ait olunan topluluk netleştirildi
+baglamsal_grup_standardizasyonu,DKR0827,karakter_2,Beyleri,İç Oğuz Beyleri,bağlama göre ait olunan topluluk netleştirildi
+baglamsal_grup_standardizasyonu,DKR0828,karakter_2,Askerleri,Kazanın Askerleri,bağlama göre ait olunan topluluk netleştirildi
+edge_to_event,DKR0252,kayit_turu,edge,event,düğüm alanına sızmış eylem/öz-durum ifadesi olay listesine taşındı
+edge_to_event,DKR0345,kayit_turu,edge,event,düğüm alanına sızmış eylem/öz-durum ifadesi olay listesine taşındı
+edge_to_event,DKR0708,kayit_turu,edge,event,düğüm alanına sızmış eylem/öz-durum ifadesi olay listesine taşındı
+edge_to_event,DKR0122,kayit_turu,edge,event,düğüm alanına sızmış eylem/öz-durum ifadesi olay listesine taşındı
+edge_to_event,DKR0167,kayit_turu,edge,event,düğüm alanına sızmış eylem/öz-durum ifadesi olay listesine taşındı
+ad_standartlastirma,DKR0277,aktor,Han Kızı Boyu Uzun Burla Hatun,Burla Hatun,aynı anlatı kişisinin unvan varyantı olay kaydında birleştirildi
+ad_standartlastirma,DKR0372,karakter_2,Kan Turalı ve Selcan Hatun,Kan Turalı ve Selcen Hatun,aynı çift düğümünün yazım varyantları birleştirildi
+tip_duzeltme,DKR0680,karakter_1_tipi,kişi,grup,kolektif asker topluluğu
+tip_duzeltme,DKR0555,karakter_2_tipi,grup,grup,kolektif asker topluluğu
+tip_duzeltme,DKR0679,karakter_2_tipi,kişi,grup,kolektif asker topluluğu
+tip_duzeltme,DKR0730,karakter_2_tipi,grup,grup,kolektif asker topluluğu
+tip_duzeltme,DKR0693,karakter_1_tipi,kişi,grup,kolektif beyler topluluğu
+tip_duzeltme,DKR0694,karakter_1_tipi,kişi,grup,kolektif beyler topluluğu
+tip_duzeltme,DKR0695,karakter_1_tipi,kişi,grup,kolektif beyler topluluğu
+tip_duzeltme,DKR0692,karakter_2_tipi,kişi,grup,kolektif beyler topluluğu
+tip_duzeltme,DKR0696,karakter_2_tipi,kişi,grup,kolektif beyler topluluğu
+tip_duzeltme,DKR0725,karakter_2_tipi,grup,grup,kolektif beyler topluluğu
+tip_duzeltme,DKR0556,karakter_1_tipi,grup,kişi,tekil casus figürü
+tip_duzeltme,DKR0493,karakter_1_tipi,grup,grup,çoğul topluluk
+tip_duzeltme,DKR0491,karakter_2_tipi,grup,grup,çoğul topluluk
+tip_duzeltme,DKR0492,karakter_2_tipi,grup,grup,çoğul topluluk
+tip_duzeltme,DKR0494,karakter_2_tipi,grup,grup,çoğul topluluk
+tip_duzeltme,DKR0503,karakter_2_tipi,grup,grup,çoğul topluluk
+tip_duzeltme,DKR0392,karakter_2_tipi,kişi,grup,çoğul topluluk
+tip_duzeltme,DKR0207,karakter_2_tipi,grup,grup,topluluk
+tip_duzeltme,DKR0355,karakter_2_tipi,grup,grup,topluluk
+tip_duzeltme,DKR0360,karakter_2_tipi,grup,grup,topluluk
+tip_duzeltme,DKR0444,karakter_2_tipi,grup,grup,topluluk
+tip_duzeltme,DKR0679,karakter_1_tipi,grup,grup,kolektif asker topluluğu
+tip_duzeltme,DKR0828,karakter_2_tipi,grup,grup,kolektif asker topluluğu
+ad_standartlastirma,DKR0402,karakter_2,Yoldadşları,Yoldaşları,imla standardizasyonu
+ad_standartlastirma,DKR0148,karakter_2,Beyrek'in 40 Yoldaşı,Beyrek'in 40 Yoldaşları,çoğul topluluk standardizasyonu
+ad_standartlastirma,DKR0343,karakter_1,"Tekfur, 100 Kafir Çevresinde",Tekfur ve 100 Kafir,sahne ifadesi kolektif aktör adına indirgend i
+ad_standartlastirma,DKR0697,aktor,Tekfur ve Çevresi,Tekfurun Çevresi,kolektif aktör standardizasyonu

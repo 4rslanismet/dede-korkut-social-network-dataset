@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d2" for="edge" attr.name="interaction_count" attr.type="long" />
+  <key id="d1" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d0" for="graph" attr.name="name" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="adsiz_kisi_uruz_kurtarma_boyu" />
+    <node id="uruz" />
+    <node id="alp_rustem" />
+    <node id="salur_kazan" />
+    <node id="annesi" />
+    <node id="askerler" />
+    <node id="bamsi_beyrek" />
+    <node id="beyler_uruz_kurtarma_boyu" />
+    <node id="tekfur_uruz_kurtarma_boyu" />
+    <node id="donebilmez_dulek_evren" />
+    <node id="donebilmez_dulerk_evren" />
+    <node id="duzen_oglu_alp_rustem" />
+    <node id="eylik_koca_donebilmez_dulek_evren" />
+    <node id="kafir" />
+    <node id="oguz_askerleri" />
+    <node id="kafir_askeri" />
+    <node id="kafir_eri" />
+    <node id="kafirler_uruz_kurtarma_boyu" />
+    <node id="kara_gone_ve_askerleri" />
+    <node id="kazan_ve_beyler" />
+    <node id="kalenin_sigir_cobani" />
+    <node id="kazanin_askerleri" />
+    <node id="tekfurun_askerleri" />
+    <node id="tekfurun_beyleri" />
+    <node id="tekfurun_karisi" />
+    <node id="trabzon_tekfuru" />
+    <node id="tekfurun_adamlari" />
+    <node id="tekfurun_casusu" />
+    <node id="zindanci" />
+    <node id="uruzun_annesi" />
+    <edge source="adsiz_kisi_uruz_kurtarma_boyu" target="uruz">
+      <data key="d1">10.0</data>
+      <data key="d2">5</data>
+    </edge>
+    <edge source="uruz" target="annesi">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="uruz" target="askerler">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="uruz" target="salur_kazan">
+      <data key="d1">11.0</data>
+      <data key="d2">3</data>
+    </edge>
+    <edge source="uruz" target="uruzun_annesi">
+      <data key="d1">2.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="alp_rustem" target="salur_kazan">
+      <data key="d1">6.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="salur_kazan" target="bamsi_beyrek">
+      <data key="d1">22.0</data>
+      <data key="d2">6</data>
+    </edge>
+    <edge source="salur_kazan" target="beyler_uruz_kurtarma_boyu">
+      <data key="d1">3.0</data>
+      <data key="d2">3</data>
+    </edge>
+    <edge source="salur_kazan" target="donebilmez_dulek_evren">
+      <data key="d1">7.0</data>
+      <data key="d2">3</data>
+    </edge>
+    <edge source="salur_kazan" target="donebilmez_dulerk_evren">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="duzen_oglu_alp_rustem">
+      <data key="d1">3.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="salur_kazan" target="eylik_koca_donebilmez_dulek_evren">
+      <data key="d1">2.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="kafir_askeri">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="kafir_eri">
+      <data key="d1">4.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="kafirler_uruz_kurtarma_boyu">
+      <data key="d1">9.0</data>
+      <data key="d2">6</data>
+    </edge>
+    <edge source="salur_kazan" target="oguz_askerleri">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="tekfur_uruz_kurtarma_boyu">
+      <data key="d1">4.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="salur_kazan" target="tekfurun_askerleri">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="tekfurun_beyleri">
+      <data key="d1">8.0</data>
+      <data key="d2">4</data>
+    </edge>
+    <edge source="salur_kazan" target="tekfurun_karisi">
+      <data key="d1">8.0</data>
+      <data key="d2">4</data>
+    </edge>
+    <edge source="salur_kazan" target="trabzon_tekfuru">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="beyler_uruz_kurtarma_boyu" target="tekfur_uruz_kurtarma_boyu">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tekfur_uruz_kurtarma_boyu" target="kalenin_sigir_cobani">
+      <data key="d1">2.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tekfur_uruz_kurtarma_boyu" target="tekfurun_adamlari">
+      <data key="d1">5.0</data>
+      <data key="d2">3</data>
+    </edge>
+    <edge source="tekfur_uruz_kurtarma_boyu" target="tekfurun_askerleri">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tekfur_uruz_kurtarma_boyu" target="tekfurun_beyleri">
+      <data key="d1">4.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="tekfur_uruz_kurtarma_boyu" target="tekfurun_casusu">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tekfur_uruz_kurtarma_boyu" target="tekfurun_karisi">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kafir" target="oguz_askerleri">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kafirler_uruz_kurtarma_boyu" target="kara_gone_ve_askerleri">
+      <data key="d1">4.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="kafirler_uruz_kurtarma_boyu" target="kazan_ve_beyler">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kazanin_askerleri" target="tekfurun_askerleri">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tekfurun_karisi" target="zindanci">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <data key="d0">S12</data>
+  </graph>
+</graphml>

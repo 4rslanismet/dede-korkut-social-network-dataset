@@ -1,0 +1,38 @@
+{
+  "purpose": "Candidate composite actor labels requiring manual entity-resolution review (DEC-018). Not auto-resolved; a candidate is not necessarily an error.",
+  "detector": {
+    "triggers": [
+      "comma_list",
+      "ve_conjunction",
+      "slash_plus_amp",
+      "long_phrase(>=6 words)"
+    ],
+    "not_detected": "' ile ' constructions and shorter sentence-like phrases (under-approximation)"
+  },
+  "n_canonical_nodes": 332,
+  "n_candidate_nodes": 46,
+  "share_of_nodes": 0.1386,
+  "by_priority": {
+    "low": 31,
+    "high": 11,
+    "medium": 4
+  },
+  "by_trigger": {
+    "comma_list": 10,
+    "long_phrase": 12,
+    "ve_conjunction": 36
+  },
+  "by_current_type": {
+    "grup": 39,
+    "kişi": 7
+  },
+  "n_already_in_queue_from_dec013": 5,
+  "n_new_queue_items_added": 41,
+  "relations_total": 628,
+  "relations_touching_candidates": 46,
+  "share_of_relations": 0.0732,
+  "relation_endpoints_total": 1256,
+  "relation_endpoints_on_candidates": 48,
+  "share_of_endpoints": 0.0382,
+  "candidates_with_zero_relations": 6
+}

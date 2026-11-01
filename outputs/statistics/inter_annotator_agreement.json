@@ -1,0 +1,14 @@
+{
+  "relation": {
+    "status": "not_applicable",
+    "reason": "coder2_relation is empty for all 70 rows - no second-coder data yet. See docs/inter_annotator_protocol.md."
+  },
+  "layer": {
+    "status": "not_applicable",
+    "reason": "coder2_layer is empty for all 70 rows - no second-coder data yet. See docs/inter_annotator_protocol.md."
+  },
+  "polarity": {
+    "status": "not_applicable",
+    "reason": "coder2_polarity is empty for all 70 rows - no second-coder data yet. See docs/inter_annotator_protocol.md."
+  }
+}

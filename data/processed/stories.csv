@@ -1,0 +1,15 @@
+﻿story_id,corpus_order,source_file,boy_name_raw,section_type,n_edges,n_events,n_nodes_declared_in_index
+S01,1,01_girizgah.csv,Girizgah,girizgah,1,0,2
+S02,2,02_dirse_han_oglu_bogac_han_boyu.csv,Dirse Han Oglu boğaç Han Boyu,boy,23,3,15
+S03,3,03_salur_kazanin_evinin_yagmalandigi.csv,Salur Kazan'ın Evinin Yağmalandığı,boy,51,0,48
+S04,4,04_kam_purenin_oglu_bamsi_beyrek_boyu.csv,Kam Püre'nin Oğlu Bamsı Beyrek Boyu,boy,107,21,76
+S05,5,05_kazan_bey_oglu_uruz_beyin_tutsak_oldugu_boy.csv,Kazan Bey Oğlu Uruz Bey'in Tutsak Olduğu Boy,boy,40,6,39
+S06,6,06_duha_koca_oglu_deli_dumrul.csv,Duha Koca Oğlu Deli Dumrul,boy,22,2,13
+S07,7,07_kanli_koca_oglu_kan_turali_boyu.csv,Kanlı Koca Oğlu Kan Turalı Boyu,boy,40,12,26
+S08,8,08_kazilik_koca_oglu_yigenek_boyu.csv,Kazılık koca oğlu yigenek boyu,boy,24,4,19
+S09,9,09_basatin_tepegozu_oldurdugu_boy.csv,Basat'ın Tepegözü Öldürdüğü Boy,boy,65,9,43
+S10,10,10_begil_oglu_emrenin_boyu.csv,Begil Oğlu Emrenin boyu,boy,59,6,35
+S11,11,11_usun_koca_oglu_seyrek_boyu.csv,uşun koca oğlu seyrek boyu,boy,54,7,32
+S12,12,12_salur_kazanin_tutsak_olup_oglu_uruzun_kurtardigi_boy.csv,Salur Kazan'ın tutsak olup oğlu uruz'un kurtardığı boy,boy,67,13,34
+S13,13,13_ic_oguza_dis_oguzun_asi_olup_beyreki_oldurdugu.csv,İç Oğuz'a Dış Oğuz'un Asi Olup Beyrek'i Öldürdüğü,boy,39,2,22
+S14,14,14_salur_kazanin_yedi_basli_ejderhayi_oldurmesi_boyu.csv,13. Boy: Salur Kazan'ın Yedi Başlı Ejderhayı Öldürmesi,boy,36,0,20

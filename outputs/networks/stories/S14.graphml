@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d2" for="edge" attr.name="interaction_count" attr.type="long" />
+  <key id="d1" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d0" for="graph" attr.name="name" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="alti_bey_oglu" />
+    <node id="salur_kazan" />
+    <node id="bas_acik" />
+    <node id="bayindir_han" />
+    <node id="kara_budak" />
+    <node id="dede_korkut" />
+    <node id="dis_oguz" />
+    <node id="dis_oguz_agalari" />
+    <node id="han_afsar" />
+    <node id="ic_oguz" />
+    <node id="ic_oguz_beyleri" />
+    <node id="kazanin_askerleri" />
+    <node id="kiyan_oglu_deli_dundar" />
+    <node id="lala_kilbas" />
+    <node id="ustalar" />
+    <node id="serhat_beylerinden_ulak" />
+    <node id="tanri" />
+    <node id="turkistan" />
+    <node id="yedi_basli_ejderha" />
+    <node id="yuz_bin_kafir" />
+    <edge source="alti_bey_oglu" target="salur_kazan">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="bas_acik">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="bayindir_han">
+      <data key="d1">11.0</data>
+      <data key="d2">4</data>
+    </edge>
+    <edge source="salur_kazan" target="dede_korkut">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="dis_oguz">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="dis_oguz_agalari">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="han_afsar">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="ic_oguz">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="ic_oguz_beyleri">
+      <data key="d1">5.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="salur_kazan" target="kara_budak">
+      <data key="d1">13.0</data>
+      <data key="d2">3</data>
+    </edge>
+    <edge source="salur_kazan" target="kazanin_askerleri">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="kiyan_oglu_deli_dundar">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="lala_kilbas">
+      <data key="d1">18.0</data>
+      <data key="d2">6</data>
+    </edge>
+    <edge source="salur_kazan" target="serhat_beylerinden_ulak">
+      <data key="d1">2.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="tanri">
+      <data key="d1">7.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="salur_kazan" target="turkistan">
+      <data key="d1">4.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="ustalar">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="yedi_basli_ejderha">
+      <data key="d1">19.0</data>
+      <data key="d2">4</data>
+    </edge>
+    <edge source="salur_kazan" target="yuz_bin_kafir">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="bayindir_han" target="kara_budak">
+      <data key="d1">2.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="lala_kilbas" target="ustalar">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <data key="d0">S14</data>
+  </graph>
+</graphml>

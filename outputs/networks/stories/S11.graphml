@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d2" for="edge" attr.name="interaction_count" attr.type="long" />
+  <key id="d1" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d0" for="graph" attr.name="name" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="100_kafir" />
+    <node id="segrek" />
+    <node id="300_akinci" />
+    <node id="egrek" />
+    <node id="300_kafir" />
+    <node id="egrek_ve_segrek" />
+    <node id="egreke_yol_gosterdi" />
+    <node id="600_kafir" />
+    <node id="egrek_ve_300_akinci" />
+    <node id="60_kafir" />
+    <node id="6_kafir" />
+    <node id="anne_ve_babasi" />
+    <node id="annesi" />
+    <node id="cekisen_oksuzle_diger_cocugu_ayirig_tokat_atti" />
+    <node id="kafirler_segrek_boyu" />
+    <node id="salur_kazan" />
+    <node id="ters_uzamis" />
+    <node id="usun_kocanin_buyuk" />
+    <node id="haberci" />
+    <node id="usun_koca" />
+    <node id="tekfur_segrek_boyu" />
+    <node id="kara_tekfur" />
+    <node id="kara_tekfurun_casusu" />
+    <node id="karisi" />
+    <node id="karisina" />
+    <node id="kayin_ata_kayin_anasi" />
+    <node id="segrekin_karisi" />
+    <node id="oksuz_cocuk" />
+    <node id="usun_koca_ve_karisi" />
+    <node id="segerk" />
+    <node id="usun_kocanin_kucuk" />
+    <node id="tekfurun_casusu" />
+    <edge source="100_kafir" target="segrek">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="segrek" target="60_kafir">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="segrek" target="6_kafir">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="segrek" target="anne_ve_babasi">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="segrek" target="annesi">
+      <data key="d1">3.0</data>
+      <data key="d2">3</data>
+    </edge>
+    <edge source="segrek" target="cekisen_oksuzle_diger_cocugu_ayirig_tokat_atti">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="segrek" target="egrek">
+      <data key="d1">7.0</data>
+      <data key="d2">3</data>
+    </edge>
+    <edge source="segrek" target="haberci">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="segrek" target="karisi">
+      <data key="d1">12.0</data>
+      <data key="d2">5</data>
+    </edge>
+    <edge source="segrek" target="karisina">
+      <data key="d1">2.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="segrek" target="oksuz_cocuk">
+      <data key="d1">6.0</data>
+      <data key="d2">3</data>
+    </edge>
+    <edge source="segrek" target="usun_koca">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="segrek" target="usun_kocanin_kucuk">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="300_akinci" target="egrek">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="egrek" target="300_kafir">
+      <data key="d1">13.0</data>
+      <data key="d2">7</data>
+    </edge>
+    <edge source="egrek" target="kafirler_segrek_boyu">
+      <data key="d1">2.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="egrek" target="salur_kazan">
+      <data key="d1">2.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="egrek" target="ters_uzamis">
+      <data key="d1">3.0</data>
+      <data key="d2">3</data>
+    </edge>
+    <edge source="egrek" target="usun_kocanin_buyuk">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="300_kafir" target="egrek_ve_segrek">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="300_kafir" target="egreke_yol_gosterdi">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="600_kafir" target="egrek_ve_300_akinci">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kafirler_segrek_boyu" target="tekfur_segrek_boyu">
+      <data key="d1">7.0</data>
+      <data key="d2">5</data>
+    </edge>
+    <edge source="salur_kazan" target="usun_koca_ve_karisi">
+      <data key="d1">6.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="haberci" target="usun_koca">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="usun_koca" target="segerk">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tekfur_segrek_boyu" target="tekfurun_casusu">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kara_tekfur" target="kara_tekfurun_casusu">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kayin_ata_kayin_anasi" target="segrekin_karisi">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <data key="d0">S11</data>
+  </graph>
+</graphml>

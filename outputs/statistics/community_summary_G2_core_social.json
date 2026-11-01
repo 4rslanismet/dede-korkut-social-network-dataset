@@ -1,0 +1,8 @@
+{
+  "network": "G2_core_social",
+  "leiden_modularity_res1.0_seed42": 0.6949762646915844,
+  "leiden_n_communities_res1.0_seed42": 33,
+  "louvain_modularity_seed42": 0.7113647776746863,
+  "louvain_n_communities_seed42": 34,
+  "adjusted_rand_index_leiden_vs_louvain": 0.8987579269237412
+}

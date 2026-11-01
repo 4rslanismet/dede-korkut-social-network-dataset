@@ -1,0 +1,492 @@
+{
+  "purpose": "Cluster-validity audit of the DEC-014 Ward clustering (DEC-015). A dendrogram always exists; this asks whether discrete clusters are actually supported.",
+  "feature_space": "relation_family_top proportions (6-dim) + layer proportions (7-dim), each story's proportions (rows sum to 1 within each block); Euclidean distance",
+  "verdict_rule": "supported only if best-k Ward silhouette > 0.50 AND bootstrap mean ARI >= 0.75 AND permutation p < 0.05; thresholds fixed before inspecting results (Kaufman & Rousseeuw 1990 silhouette convention; ARI >= 0.75 = good agreement by common convention)",
+  "all_14_stories": {
+    "stories": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S09",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14"
+    ],
+    "n_stories": 14,
+    "relations_per_story": {
+      "S01": 1,
+      "S02": 23,
+      "S03": 51,
+      "S04": 107,
+      "S05": 40,
+      "S06": 22,
+      "S07": 40,
+      "S08": 24,
+      "S09": 65,
+      "S10": 59,
+      "S11": 54,
+      "S12": 67,
+      "S13": 39,
+      "S14": 36
+    },
+    "observed": {
+      "ward": {
+        "cophenetic_correlation": 0.7338,
+        "silhouette_by_k": {
+          "2": 0.5639,
+          "3": 0.4521,
+          "4": 0.4141,
+          "5": 0.4203,
+          "6": 0.3701
+        }
+      },
+      "average": {
+        "cophenetic_correlation": 0.9099,
+        "silhouette_by_k": {
+          "2": 0.5639,
+          "3": 0.4521,
+          "4": 0.4141,
+          "5": 0.4203,
+          "6": 0.3701
+        }
+      },
+      "complete": {
+        "cophenetic_correlation": 0.8343,
+        "silhouette_by_k": {
+          "2": 0.5639,
+          "3": 0.4521,
+          "4": 0.4141,
+          "5": 0.3273,
+          "6": 0.3701
+        }
+      },
+      "single": {
+        "cophenetic_correlation": 0.8162,
+        "silhouette_by_k": {
+          "2": 0.5639,
+          "3": 0.4521,
+          "4": 0.3217,
+          "5": 0.3273,
+          "6": 0.3701
+        }
+      }
+    },
+    "ward_cluster_sizes_by_k": {
+      "2": [
+        13,
+        1
+      ],
+      "3": [
+        7,
+        6,
+        1
+      ],
+      "4": [
+        6,
+        5,
+        2,
+        1
+      ],
+      "5": [
+        6,
+        3,
+        2,
+        2,
+        1
+      ],
+      "6": [
+        3,
+        3,
+        3,
+        2,
+        2,
+        1
+      ]
+    },
+    "best_k_by_ward_silhouette": 2,
+    "cross_linkage_agreement_ari": {
+      "2": {
+        "ward_vs_average": 1.0,
+        "ward_vs_complete": 1.0,
+        "ward_vs_single": 1.0,
+        "average_vs_complete": 1.0,
+        "average_vs_single": 1.0,
+        "complete_vs_single": 1.0
+      },
+      "3": {
+        "ward_vs_average": 1.0,
+        "ward_vs_complete": 1.0,
+        "ward_vs_single": 1.0,
+        "average_vs_complete": 1.0,
+        "average_vs_single": 1.0,
+        "complete_vs_single": 1.0
+      },
+      "4": {
+        "ward_vs_average": 1.0,
+        "ward_vs_complete": 1.0,
+        "ward_vs_single": 0.4943,
+        "average_vs_complete": 1.0,
+        "average_vs_single": 0.4943,
+        "complete_vs_single": 0.4943
+      },
+      "5": {
+        "ward_vs_average": 1.0,
+        "ward_vs_complete": 0.492,
+        "ward_vs_single": 0.492,
+        "average_vs_complete": 0.492,
+        "average_vs_single": 0.492,
+        "complete_vs_single": 1.0
+      },
+      "6": {
+        "ward_vs_average": 1.0,
+        "ward_vs_complete": 1.0,
+        "ward_vs_single": 1.0,
+        "average_vs_complete": 1.0,
+        "average_vs_single": 1.0,
+        "complete_vs_single": 1.0
+      }
+    },
+    "bootstrap_stability_ward": {
+      "n_bootstrap": 1000,
+      "seed": 42,
+      "resampling": "relations resampled with replacement within each story",
+      "by_k": {
+        "2": {
+          "mean_ari": 0.7889,
+          "ci95_low": -0.0633,
+          "ci95_high": 1.0
+        },
+        "3": {
+          "mean_ari": 0.7758,
+          "ci95_low": 0.3299,
+          "ci95_high": 1.0
+        },
+        "4": {
+          "mean_ari": 0.7064,
+          "ci95_low": 0.247,
+          "ci95_high": 1.0
+        },
+        "5": {
+          "mean_ari": 0.5586,
+          "ci95_low": 0.2211,
+          "ci95_high": 1.0
+        },
+        "6": {
+          "mean_ari": 0.5615,
+          "ci95_low": 0.2324,
+          "ci95_high": 1.0
+        }
+      }
+    },
+    "permutation_reference": {
+      "n_permutations": 1000,
+      "seed": 42,
+      "silhouette_by_k": {
+        "2": {
+          "observed": 0.5639,
+          "null_mean": 0.7292,
+          "null_95th_percentile": 0.782,
+          "p_one_sided": 1.0
+        },
+        "3": {
+          "observed": 0.4521,
+          "null_mean": 0.2865,
+          "null_95th_percentile": 0.4227,
+          "p_one_sided": 0.03
+        },
+        "4": {
+          "observed": 0.4141,
+          "null_mean": 0.2418,
+          "null_95th_percentile": 0.3346,
+          "p_one_sided": 0.002
+        },
+        "5": {
+          "observed": 0.4203,
+          "null_mean": 0.2254,
+          "null_95th_percentile": 0.3087,
+          "p_one_sided": 0.002
+        },
+        "6": {
+          "observed": 0.3701,
+          "null_mean": 0.2106,
+          "null_95th_percentile": 0.2863,
+          "p_one_sided": 0.003
+        }
+      },
+      "cophenetic_correlation_ward": {
+        "observed": 0.7338,
+        "null_mean": 0.9625,
+        "null_95th_percentile": 0.9867,
+        "p_one_sided": 1.0
+      }
+    },
+    "similarity_value_reference": {
+      "relation_profile_cosine": {
+        "observed_median": 0.5672,
+        "observed_max": 0.9849,
+        "permutation_null_median_of_pair_values": 0.8857,
+        "permutation_null_95th_percentile_of_pair_max": 0.9871
+      },
+      "layer_composition_cosine": {
+        "observed_median": 0.6119,
+        "observed_max": 0.9884,
+        "permutation_null_median_of_pair_values": 0.9336,
+        "permutation_null_95th_percentile_of_pair_max": 0.9987
+      }
+    },
+    "verdict_discrete_clusters": "not_robustly_supported"
+  },
+  "sensitivity_excluding_S01": {
+    "stories": [
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "S09",
+      "S10",
+      "S11",
+      "S12",
+      "S13",
+      "S14"
+    ],
+    "n_stories": 13,
+    "relations_per_story": {
+      "S02": 23,
+      "S03": 51,
+      "S04": 107,
+      "S05": 40,
+      "S06": 22,
+      "S07": 40,
+      "S08": 24,
+      "S09": 65,
+      "S10": 59,
+      "S11": 54,
+      "S12": 67,
+      "S13": 39,
+      "S14": 36
+    },
+    "observed": {
+      "ward": {
+        "cophenetic_correlation": 0.7479,
+        "silhouette_by_k": {
+          "2": 0.4869,
+          "3": 0.446,
+          "4": 0.4526,
+          "5": 0.3985,
+          "6": 0.3821
+        }
+      },
+      "average": {
+        "cophenetic_correlation": 0.7565,
+        "silhouette_by_k": {
+          "2": 0.4869,
+          "3": 0.446,
+          "4": 0.4526,
+          "5": 0.3985,
+          "6": 0.3821
+        }
+      },
+      "complete": {
+        "cophenetic_correlation": 0.7544,
+        "silhouette_by_k": {
+          "2": 0.4869,
+          "3": 0.446,
+          "4": 0.3525,
+          "5": 0.3985,
+          "6": 0.3821
+        }
+      },
+      "single": {
+        "cophenetic_correlation": 0.6779,
+        "silhouette_by_k": {
+          "2": 0.4869,
+          "3": 0.3465,
+          "4": 0.3525,
+          "5": 0.3985,
+          "6": 0.3411
+        }
+      }
+    },
+    "ward_cluster_sizes_by_k": {
+      "2": [
+        7,
+        6
+      ],
+      "3": [
+        6,
+        5,
+        2
+      ],
+      "4": [
+        6,
+        3,
+        2,
+        2
+      ],
+      "5": [
+        3,
+        3,
+        3,
+        2,
+        2
+      ],
+      "6": [
+        3,
+        3,
+        2,
+        2,
+        2,
+        1
+      ]
+    },
+    "best_k_by_ward_silhouette": 2,
+    "cross_linkage_agreement_ari": {
+      "2": {
+        "ward_vs_average": 1.0,
+        "ward_vs_complete": 1.0,
+        "ward_vs_single": 1.0,
+        "average_vs_complete": 1.0,
+        "average_vs_single": 1.0,
+        "complete_vs_single": 1.0
+      },
+      "3": {
+        "ward_vs_average": 1.0,
+        "ward_vs_complete": 1.0,
+        "ward_vs_single": 0.4571,
+        "average_vs_complete": 1.0,
+        "average_vs_single": 0.4571,
+        "complete_vs_single": 0.4571
+      },
+      "4": {
+        "ward_vs_average": 1.0,
+        "ward_vs_complete": 0.4696,
+        "ward_vs_single": 0.4696,
+        "average_vs_complete": 0.4696,
+        "average_vs_single": 0.4696,
+        "complete_vs_single": 1.0
+      },
+      "5": {
+        "ward_vs_average": 1.0,
+        "ward_vs_complete": 1.0,
+        "ward_vs_single": 1.0,
+        "average_vs_complete": 1.0,
+        "average_vs_single": 1.0,
+        "complete_vs_single": 1.0
+      },
+      "6": {
+        "ward_vs_average": 1.0,
+        "ward_vs_complete": 1.0,
+        "ward_vs_single": 0.7488,
+        "average_vs_complete": 1.0,
+        "average_vs_single": 0.7488,
+        "complete_vs_single": 0.7488
+      }
+    },
+    "bootstrap_stability_ward": {
+      "n_bootstrap": 1000,
+      "seed": 42,
+      "resampling": "relations resampled with replacement within each story",
+      "by_k": {
+        "2": {
+          "mean_ari": 0.7459,
+          "ci95_low": 0.2353,
+          "ci95_high": 1.0
+        },
+        "3": {
+          "mean_ari": 0.6858,
+          "ci95_low": 0.198,
+          "ci95_high": 1.0
+        },
+        "4": {
+          "mean_ari": 0.5386,
+          "ci95_low": 0.1868,
+          "ci95_high": 1.0
+        },
+        "5": {
+          "mean_ari": 0.55,
+          "ci95_low": 0.2126,
+          "ci95_high": 1.0
+        },
+        "6": {
+          "mean_ari": 0.5462,
+          "ci95_low": 0.1772,
+          "ci95_high": 1.0
+        }
+      }
+    },
+    "permutation_reference": {
+      "n_permutations": 1000,
+      "seed": 42,
+      "silhouette_by_k": {
+        "2": {
+          "observed": 0.4869,
+          "null_mean": 0.3121,
+          "null_95th_percentile": 0.4701,
+          "p_one_sided": 0.033
+        },
+        "3": {
+          "observed": 0.446,
+          "null_mean": 0.2608,
+          "null_95th_percentile": 0.358,
+          "p_one_sided": 0.002
+        },
+        "4": {
+          "observed": 0.4526,
+          "null_mean": 0.2402,
+          "null_95th_percentile": 0.3268,
+          "p_one_sided": 0.001
+        },
+        "5": {
+          "observed": 0.3985,
+          "null_mean": 0.2261,
+          "null_95th_percentile": 0.3134,
+          "p_one_sided": 0.003
+        },
+        "6": {
+          "observed": 0.3821,
+          "null_mean": 0.2103,
+          "null_95th_percentile": 0.2891,
+          "p_one_sided": 0.003
+        }
+      },
+      "cophenetic_correlation_ward": {
+        "observed": 0.7479,
+        "null_mean": 0.6756,
+        "null_95th_percentile": 0.8408,
+        "p_one_sided": 0.2248
+      }
+    },
+    "similarity_value_reference": {
+      "relation_profile_cosine": {
+        "observed_median": 0.5949,
+        "observed_max": 0.9849,
+        "permutation_null_median_of_pair_values": 0.8994,
+        "permutation_null_95th_percentile_of_pair_max": 0.9872
+      },
+      "layer_composition_cosine": {
+        "observed_median": 0.7137,
+        "observed_max": 0.9884,
+        "permutation_null_median_of_pair_values": 0.9448,
+        "permutation_null_95th_percentile_of_pair_max": 0.9987
+      }
+    },
+    "verdict_discrete_clusters": "not_robustly_supported"
+  },
+  "actor_jaccard_distribution": {
+    "n_pairs": 91,
+    "n_pairs_zero_overlap": 28,
+    "median": 0.0303,
+    "mean": 0.0311,
+    "max": 0.1528
+  }
+}

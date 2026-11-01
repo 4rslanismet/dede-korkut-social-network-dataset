@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d2" for="edge" attr.name="interaction_count" attr.type="long" />
+  <key id="d1" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d0" for="graph" attr.name="name" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="16_bin_kafir" />
+    <node id="kazan_uruz_ve_askerleri" />
+    <node id="300_asker" />
+    <node id="salur_kazan" />
+    <node id="40_askeri" />
+    <node id="uruz" />
+    <node id="40_ince_belli_kiz" />
+    <node id="burla_hatun" />
+    <node id="ak_saka_kalesi_casuslari" />
+    <node id="tekfur_uruz_tutsak_boyu" />
+    <node id="at_agizli_aruz" />
+    <node id="beyler_uruz_tutsak_boyu" />
+    <node id="bugacuk_melik" />
+    <node id="kara_budak" />
+    <node id="kafirin_sancagini_kilicladi" />
+    <node id="cilasun_yigitleri_ve_deli_dundar" />
+    <node id="kafirin_soluna_saldirdilar" />
+    <node id="deli_dundar" />
+    <node id="kara_tuken_melik" />
+    <node id="dis_oguz_beyleri_ve_deli_dundar" />
+    <node id="kafirin_sagina_saldirdilar" />
+    <node id="doksan_tumen_oguz" />
+    <node id="dokuz_tumen_oguz" />
+    <node id="kafir" />
+    <node id="kafirler_uruz_tutsak_boyu" />
+    <node id="kazan_kardesi_kara_gone_kiyan_selcuk_oglu_deli_dundar_gaflet_koca_oglu_sir_semseddin_beyrek_kazilik_koca_oglu_bey_yigenek_dor_boyun_oksayan_deli_dundar_bin_kavim_baslari_duger_bin_bugduz_baslari_emen_dokuz_koca_baslari_aruz_kazanin_beyleri" />
+    <node id="kazan_ve_askerleri" />
+    <node id="uruzun_40_adamini_sehit_ettiler" />
+    <node id="kafirlerin_sag_cenahi" />
+    <node id="uruz_ve_uruzun_40_askeri" />
+    <node id="kara_gone" />
+    <node id="tekfur_ve_sokli_melik" />
+    <node id="ulas" />
+    <node id="tatyan_kalesi_casuslari" />
+    <node id="uruzun_40_askeri" />
+    <edge source="16_bin_kafir" target="kazan_uruz_ve_askerleri">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="300_asker" target="salur_kazan">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="at_agizli_aruz">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="beyler_uruz_tutsak_boyu">
+      <data key="d1">5.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="salur_kazan" target="burla_hatun">
+      <data key="d1">7.0</data>
+      <data key="d2">3</data>
+    </edge>
+    <edge source="salur_kazan" target="doksan_tumen_oguz">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="dokuz_tumen_oguz">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="kafirler_uruz_tutsak_boyu">
+      <data key="d1">10.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="salur_kazan" target="kara_gone">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="tekfur_ve_sokli_melik">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="ulas">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="salur_kazan" target="uruz">
+      <data key="d1">28.0</data>
+      <data key="d2">8</data>
+    </edge>
+    <edge source="40_askeri" target="uruz">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="uruz" target="kafir">
+      <data key="d1">9.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="uruz" target="kafirler_uruz_tutsak_boyu">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="uruz" target="uruzun_40_askeri">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="40_ince_belli_kiz" target="burla_hatun">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="burla_hatun" target="kafirin_sancagini_kilicladi">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="ak_saka_kalesi_casuslari" target="tekfur_uruz_tutsak_boyu">
+      <data key="d1">2.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="tekfur_uruz_tutsak_boyu" target="tatyan_kalesi_casuslari">
+      <data key="d1">2.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="bugacuk_melik" target="kara_budak">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="cilasun_yigitleri_ve_deli_dundar" target="kafirin_soluna_saldirdilar">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="deli_dundar" target="kara_tuken_melik">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="dis_oguz_beyleri_ve_deli_dundar" target="kafirin_sagina_saldirdilar">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kafirler_uruz_tutsak_boyu" target="kazan_kardesi_kara_gone_kiyan_selcuk_oglu_deli_dundar_gaflet_koca_oglu_sir_semseddin_beyrek_kazilik_koca_oglu_bey_yigenek_dor_boyun_oksayan_deli_dundar_bin_kavim_baslari_duger_bin_bugduz_baslari_emen_dokuz_koca_baslari_aruz_kazanin_beyleri">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kafirler_uruz_tutsak_boyu" target="kazan_ve_askerleri">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kafirler_uruz_tutsak_boyu" target="uruzun_40_adamini_sehit_ettiler">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="kafirlerin_sag_cenahi" target="uruz_ve_uruzun_40_askeri">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <data key="d0">S05</data>
+  </graph>
+</graphml>

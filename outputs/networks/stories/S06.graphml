@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d2" for="edge" attr.name="interaction_count" attr.type="long" />
+  <key id="d1" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d0" for="graph" attr.name="name" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="40_yigit" />
+    <node id="deli_dumrul" />
+    <node id="azrail" />
+    <node id="dumrul" />
+    <node id="tanri" />
+    <node id="duha_koca" />
+    <node id="oba" />
+    <node id="deli_durmrul" />
+    <node id="dumrulun_40_adami" />
+    <node id="dumrulun_annesi" />
+    <node id="dumrulun_karisi" />
+    <edge source="40_yigit" target="deli_dumrul">
+      <data key="d1">1.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="deli_dumrul" target="azrail">
+      <data key="d1">7.0</data>
+      <data key="d2">3</data>
+    </edge>
+    <edge source="deli_dumrul" target="duha_koca">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="deli_dumrul" target="oba">
+      <data key="d1">2.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="deli_dumrul" target="tanri">
+      <data key="d1">8.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="azrail" target="dumrul">
+      <data key="d1">5.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="azrail" target="tanri">
+      <data key="d1">12.0</data>
+      <data key="d2">4</data>
+    </edge>
+    <edge source="dumrul" target="duha_koca">
+      <data key="d1">5.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="dumrul" target="dumrulun_annesi">
+      <data key="d1">5.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="dumrul" target="dumrulun_karisi">
+      <data key="d1">5.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="dumrul" target="tanri">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="deli_durmrul" target="dumrulun_40_adami">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <data key="d0">S06</data>
+  </graph>
+</graphml>

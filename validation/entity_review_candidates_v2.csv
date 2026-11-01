@@ -1,0 +1,91 @@
+﻿node_id,name,node_type,trigger,confidence,automatic_action,human_review_required,reason,relation_count,story_count,notes
+beyrek_yigenek_kazan_kara_budak_deli_dundar_uruz,"Beyrek, Yigenek, Kazan, Kara Budak, Deli Dündar, Uruz",kişi,comma_list+long_phrase+role_phrase,high,NONE,TRUE,Matched 3 trigger(s),0,1,
+boyu_uzun_burla_hatun_ve_40_ince_belli_kiz,Boyu Uzun Burla Hatun ve 40 Ince Belli Kız,grup,long_phrase+role_phrase+ve_conjunction,high,NONE,TRUE,Matched 3 trigger(s),1,1,
+deli_dumrul,Deli Dumrul,kişi,near_duplicate,high,NONE,TRUE,Near-duplicate (similarity=0.957) with another node,8,1,Similar to: deli_durmrul
+deli_durmrul,Deli Durmrul,kişi,near_duplicate,high,NONE,TRUE,Near-duplicate (similarity=0.957) with another node,1,1,Similar to: deli_dumrul
+dis_oguz_beyleri_ve_deli_dundar,Dış Oğuz Beyleri ve Deli Dündar,grup,long_phrase+role_phrase+ve_conjunction,high,NONE,TRUE,Matched 3 trigger(s),2,2,
+donebilmez_dulek_evren,Dönebilmez Dülek Evren,kişi,near_duplicate,high,NONE,TRUE,Near-duplicate (similarity=0.978) with another node,4,2,Similar to: donebilmez_dulerk_evren
+donebilmez_dulerk_evren,Dönebilmez Dülerk Evren,kişi,near_duplicate,high,NONE,TRUE,Near-duplicate (similarity=0.978) with another node,1,1,Similar to: donebilmez_dulek_evren
+ic_oguz_beyleri_dis_oguz_beyleri_pay_pure_bey_kara_budak_uruz_bey_yigenek_salur_kazan_pay_bicen,"Iç Oğuz Beyleri, Dış Oğuz Beyleri, Pay Püre Bey, Kara Budak, Uruz, Bey Yigenek, Salur Kazan, Pay Biçen",grup,comma_list+long_phrase+role_phrase,high,NONE,TRUE,Matched 3 trigger(s),1,1,
+kafirin_casusu,Kafirin Casusu,kişi,near_duplicate,high,NONE,TRUE,Near-duplicate (similarity=0.963) with another node,1,1,Similar to: kafirin_causu
+kafirin_causu,Kafirin Causu,kişi,near_duplicate,high,NONE,TRUE,Near-duplicate (similarity=0.963) with another node,1,1,Similar to: kafirin_casusu
+kan_turalinin40_adami,Kan Turalı'nın40 Adamı,grup,near_duplicate,high,NONE,TRUE,Near-duplicate (similarity=0.955) with another node,0,1,Similar to: kan_turalinin_40_adami
+kan_turalinin_40_adami,Kan Turalının 40 Adamı,grup,near_duplicate,high,NONE,TRUE,Near-duplicate (similarity=0.955) with another node,1,1,Similar to: kan_turalinin40_adami
+kara_budak_kazan_oglu_uruz_beyler_basi_yigenek_gaflet_koca_oglu_sir_semseddin_deli_karcar_dugunde_ok_atarlar,"Kara Budak, Kazan Oğlu Uruz, Beyler Başı Yigenek, Gaflet Koca Oğlu Şir Şemseddin, Deli Karçar, Düğünde Ok Atarlar",grup,comma_list+long_phrase+role_phrase,high,NONE,TRUE,Matched 3 trigger(s),1,1,
+kazan_kardesi_kara_gone_kiyan_selcuk_oglu_deli_dundar_gaflet_koca_oglu_sir_semseddin_beyrek_kazilik_koca_oglu_bey_yigenek_dor_boyun_oksayan_deli_dundar_bin_kavim_baslari_duger_bin_bugduz_baslari_emen_dokuz_koca_baslari_aruz_kazanin_beyleri,"Kazan Kardeşi Kara Göne, Kıyan Selçuk Oğlu Deli Dündar, Gaflet Koca Oğlu Şir Şemseddin, Beyrek, Kazılık Koca Oğlu Bey Yigenek, Dör Boyun Okşayan Deli Dündar, Bin Kavim Başları Düger, Bin Bügdüz Başları Emen, Dokuz Koca Başları Aruz, Kazan'ın Beyleri",grup,comma_list+long_phrase+role_phrase,high,NONE,TRUE,Matched 3 trigger(s),1,1,
+uruz_kara_gone_ve_at_agizli_aruz,"Uruz, Kara Göne ve At Ağızlı Aruz",grup,comma_list+long_phrase+ve_conjunction,high,NONE,TRUE,Matched 3 trigger(s),0,1,
+uruzun_sag_yaninda_yer_gosterdi_cubbe_giydirdi,"Uruz'un Sağ Yanında Yer Gösterdi, Cübbe Giydirdi",kişi,comma_list+long_phrase+possible_verb,high,NONE,TRUE,Matched 3 trigger(s),1,1,
+600_kafir,600 Kafir,kişi,near_duplicate,medium,NONE,TRUE,Near-duplicate (similarity=0.941) with another node,7,3,Similar to: 60_kafir
+60_kafir,60 Kafir,kişi,near_duplicate,medium,NONE,TRUE,Near-duplicate (similarity=0.933) with another node,1,1,Similar to: 6_kafir
+6_kafir,6 Kafir,kişi,near_duplicate,medium,NONE,TRUE,Near-duplicate (similarity=0.933) with another node,1,1,Similar to: 60_kafir
+aruz_ve_dis_oguz_beyleri,Aruz ve Dış Oğuz Beyleri,grup,role_phrase+ve_conjunction,medium,NONE,TRUE,Matched 2 trigger(s),2,1,
+bamsi_ve_bamsinin_40_yigidi,Bamsı ve Bamsının 40 Yiğidi,grup,possible_verb+ve_conjunction,medium,NONE,TRUE,Matched 2 trigger(s),1,1,
+beyrek_in_40_yoldaslari,Beyrek'in 40 Yoldaşları,grup,near_duplicate,medium,NONE,TRUE,Near-duplicate (similarity=0.930) with another node,1,1,Similar to: beyrekin_yoldaslari
+beyrekin_kayin_babasi_kara_gone,"Beyrek'in Kayın Babası, Kara Göne",kişi,comma_list+role_phrase,medium,NONE,TRUE,Matched 2 trigger(s),1,1,
+beyrekin_yedi_kiz_kardesi,Beyrek'in Yedi Kız Kardeşi,kişi,possible_verb+role_phrase,medium,NONE,TRUE,Matched 2 trigger(s),1,1,
+beyrekin_yoldaslari,Beyrek'in Yoldaşları,grup,near_duplicate,medium,NONE,TRUE,Near-duplicate (similarity=0.930) with another node,1,1,Similar to: beyrek_in_40_yoldaslari
+bogacuk_melik,Boğaçuk Melik,kişi,near_duplicate,medium,NONE,TRUE,Near-duplicate (similarity=0.923) with another node,1,1,Similar to: bugacuk_melik
+bugacuk_melik,Buğaçuk Melik,kişi,near_duplicate,medium,NONE,TRUE,Near-duplicate (similarity=0.923) with another node,1,1,Similar to: bogacuk_melik
+egrek,Egrek,kişi,near_duplicate,medium,NONE,TRUE,Near-duplicate (similarity=0.909) with another node,19,1,Similar to: segrek
+kan_turali_ve_selcen_hatun,Kan Turalı ve Selcen Hatun,grup,role_phrase+ve_conjunction,medium,NONE,TRUE,Matched 2 trigger(s),2,1,
+kan_turaliyi_gorunce_ona_tutuluyor_keske_babam_beni_buna_verse,Kan Turalıyı Görünce Ona Tutuluyor Keşke Babam Beni Buna Verse,kişi,long_phrase+possible_verb,medium,NONE,TRUE,Matched 2 trigger(s),1,1,
+kara_gone_deli_dundar_kara_budak,"Kara Göne, Deli Dündar, Kara Budak",kişi,comma_list+long_phrase,medium,NONE,TRUE,Matched 2 trigger(s),1,1,
+kazan_uruz_ve_askerler,"Kazan, Uruz ve Askerler",grup,comma_list+ve_conjunction,medium,NONE,TRUE,Matched 2 trigger(s),0,1,
+kazan_uruz_ve_askerleri,"Kazan, Uruz ve Askerleri",grup,comma_list+ve_conjunction,medium,NONE,TRUE,Matched 2 trigger(s),1,1,
+kazan_ve_bayindir_han,Kazan ve Bayındır Han,grup,role_phrase+ve_conjunction,medium,NONE,TRUE,Matched 2 trigger(s),1,1,
+kazanin_adami,Kazan'ın Adamı,grup,near_duplicate,medium,NONE,TRUE,Near-duplicate (similarity=0.903) with another node,1,1,Similar to: kazanin_adamlari
+kazanin_adamlari,Kazan'ın Adamları,grup,near_duplicate,medium,NONE,TRUE,Near-duplicate (similarity=0.903) with another node,2,1,Similar to: kazanin_adami
+kiyan_selcik,Kıyan Selçık,kişi,near_duplicate,medium,NONE,TRUE,Near-duplicate (similarity=0.917) with another node,1,1,Similar to: kiyan_selcuk
+kiyan_selcuk,Kıyan Selçuk,kişi,near_duplicate,medium,NONE,TRUE,Near-duplicate (similarity=0.917) with another node,1,2,Similar to: kiyan_selcik
+pay_pure,Pay Püre,kişi,near_duplicate,medium,NONE,TRUE,Near-duplicate (similarity=0.933) with another node,6,1,Similar to: paypure
+paypure,Paypüre,kişi,near_duplicate,medium,NONE,TRUE,Near-duplicate (similarity=0.933) with another node,1,1,Similar to: pay_pure
+segrek,Segrek,kişi,near_duplicate,medium,NONE,TRUE,Near-duplicate (similarity=0.909) with another node,23,1,Similar to: egrek
+yigenek_ve_sancak_beyleri,Yigenek ve Sancak Beyleri,grup,role_phrase+ve_conjunction,medium,NONE,TRUE,Matched 2 trigger(s),1,1,
+16_asker_ve_uruz,16 Asker ve Uruz,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),0,1,
+anne_ve_babasi,Anne ve Babası,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),3,3,
+bamsinin_40_yigidi,Bamsı'nın 40 Yiğidi,grup,possible_verb,low,NONE,TRUE,Matched 1 trigger(s),0,1,
+bamsinin_haberi_gelince_siyah_giyme_yas_tutma,Bamsı'nın Haberi Gelince Siyah Giyme Yas Tutma,kişi,long_phrase,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+begilin_hismi_ve_kavmi,Begilin Hısmı ve Kavmi,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+beyler_bamsi_beyrek_boyu,Beyler (Bamsı Beyrek Boyu),grup,role_phrase,low,NONE,TRUE,Matched 1 trigger(s),5,1,
+beyler_ev_yagmasi_boyu,Beyler (Ev Yağması Boyu),grup,role_phrase,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+beyler_uruz_kurtarma_boyu,Beyler (Uruz Kurtarma Boyu),grup,role_phrase,low,NONE,TRUE,Matched 1 trigger(s),4,1,
+beyler_uruz_tutsak_boyu,Beyler (Uruz Tutsak Boyu),grup,role_phrase,low,NONE,TRUE,Matched 1 trigger(s),2,1,
+beyler_ve_beyrek,Beyler ve Beyrek,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+beyrek_solen_yemegini_doktu,Beyrek Şölen Yemeğini Döktü,kişi,role_phrase,low,NONE,TRUE,Matched 1 trigger(s),0,1,
+beyrekin_40_yigidi,Beyrek'in 40 Yiğidi,grup,possible_verb,low,NONE,TRUE,Matched 1 trigger(s),3,2,
+beyrekin_buyuk_kiz_kardesi,Beyrek'in Büyük Kız Kardeşi,kişi,role_phrase,low,NONE,TRUE,Matched 1 trigger(s),2,1,
+beyrekin_kucuk_kiz_kardesi,Beyrek'in Küçük Kız Kardeşi,kişi,role_phrase,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+bogac_ve_bogacin_40_adami,Boğaç ve Boğaç'ın 40 Adamı,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+cekisen_oksuzle_diger_cocugu_ayirig_tokat_atti,Çekişen Öksüzle Diğer Çocuğu Ayırığ Tokat Attı,kişi,long_phrase,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+cilasun_yigitler_ve_kara_budak,Cilasun Yiğitler ve Kara Budak,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+cilasun_yigitleri_ve_deli_dundar,Cilasun Yiğitleri ve Deli Dündar,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+dadi_ve_diger_kizlar,Dadı ve Diğer Kızlar,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+demir_donlu_mamak,Demir Donlu Mamak,kişi,possible_verb,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+dirse_hanin_40_adami,Dirse Han'ın 40 Adamı,grup,role_phrase,low,NONE,TRUE,Matched 1 trigger(s),9,1,
+egrek_ve_300_akinci,Egrek ve 300 Akıncı,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+egrek_ve_segrek,Egrek ve Segrek,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+egreke_yol_gosterdi,Egreke Yol Gösterdi,kişi,possible_verb,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+ic_oguz_ve_kazan,Iç Oğuz ve Kazan,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+kafirler_bamsi_beyrek_boyu,Kafirler (Bamsı Beyrek Boyu),grup,role_phrase,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+kan_turali_ve_40_adami,Kan Turalı ve 40 Adamı,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),0,1,
+kan_turali_ve_adamlari,Kan Turalı ve Adamları,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+kara_gone_ve_askerler,Kara Göne ve Askerler,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),0,1,
+kara_gone_ve_askerleri,Kara Göne ve Askerleri,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),2,1,
+kayin_ata_kayin_anasi,Kayın Ata - Kayın Anası,kişi,hyphenated,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+kazan_ve_askerleri,Kazan ve Askerleri,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+kazan_ve_beyler,Kazan ve Beyler,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+kazan_ve_karacuk_coban,Kazan ve Karaçuk Çoban,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+kazilik_koca_oglu_bey_yigenek,Kazılık Koca Oğlu Bey Yigenek,kişi,role_phrase,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+kilbas_ve_kara_gone,Kılbaş ve Kara Göne,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),2,1,
+oglu_ve_40_adami,Oğlu ve 40 Adamı,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+pay_pure_beyin_ordusu,Pay Püre Bey'in Ordusu,grup,role_phrase,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+saht_oldu,Saht Oldu,kişi,possible_verb,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+sokli_melik_ve_adamlari,Şökli Melik ve Adamları,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+tekfur_ve_100_kafir,Tekfur ve 100 Kafir,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+tekfur_ve_sokli_melik,Tekfur ve Şökli Melik,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+uruz_ve_300_asker,Uruz ve 300 Asker,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+uruz_ve_uruzun_40_askeri,Uruz ve Uruzun 40 Askeri,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+usun_koca_ve_karisi,Uşun Koca ve Karısı,grup,ve_conjunction,low,NONE,TRUE,Matched 1 trigger(s),2,1,
+yedi_basli_ejderha,Yedi Başlı Ejderha,mitolojik/ilahi,possible_verb,low,NONE,TRUE,Matched 1 trigger(s),4,1,
+yedi_kafir_beyi,Yedi Kafir Beyi,kişi,possible_verb,low,NONE,TRUE,Matched 1 trigger(s),1,1,
+yedi_yigit,Yedi Yiğit,grup,possible_verb,low,NONE,TRUE,Matched 1 trigger(s),1,1,

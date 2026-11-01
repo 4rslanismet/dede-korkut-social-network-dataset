@@ -1,0 +1,85 @@
+﻿node_id,corpus_order,story_id,degree_in_story,cumulative_degree_corpus_order,canonical_name
+salur_kazan,1,S01,0,0,Salur Kazan
+salur_kazan,2,S02,0,0,Salur Kazan
+salur_kazan,3,S03,20,20,Salur Kazan
+salur_kazan,4,S04,15,35,Salur Kazan
+salur_kazan,5,S05,22,57,Salur Kazan
+salur_kazan,6,S06,0,57,Salur Kazan
+salur_kazan,7,S07,0,57,Salur Kazan
+salur_kazan,8,S08,0,57,Salur Kazan
+salur_kazan,9,S09,3,60,Salur Kazan
+salur_kazan,10,S10,3,63,Salur Kazan
+salur_kazan,11,S11,4,67,Salur Kazan
+salur_kazan,12,S12,42,109,Salur Kazan
+salur_kazan,13,S13,13,122,Salur Kazan
+salur_kazan,14,S14,34,156,Salur Kazan
+bamsi_beyrek,1,S01,0,0,Bamsı Beyrek
+bamsi_beyrek,2,S02,0,0,Bamsı Beyrek
+bamsi_beyrek,3,S03,1,1,Bamsı Beyrek
+bamsi_beyrek,4,S04,48,49,Bamsı Beyrek
+bamsi_beyrek,5,S05,0,49,Bamsı Beyrek
+bamsi_beyrek,6,S06,0,49,Bamsı Beyrek
+bamsi_beyrek,7,S07,0,49,Bamsı Beyrek
+bamsi_beyrek,8,S08,0,49,Bamsı Beyrek
+bamsi_beyrek,9,S09,0,49,Bamsı Beyrek
+bamsi_beyrek,10,S10,0,49,Bamsı Beyrek
+bamsi_beyrek,11,S11,0,49,Bamsı Beyrek
+bamsi_beyrek,12,S12,6,55,Bamsı Beyrek
+bamsi_beyrek,13,S13,9,64,Bamsı Beyrek
+bamsi_beyrek,14,S14,0,64,Bamsı Beyrek
+bayindir_han,1,S01,0,0,Bayındır Han
+bayindir_han,2,S02,1,1,Bayındır Han
+bayindir_han,3,S03,1,2,Bayındır Han
+bayindir_han,4,S04,7,9,Bayındır Han
+bayindir_han,5,S05,0,9,Bayındır Han
+bayindir_han,6,S06,0,9,Bayındır Han
+bayindir_han,7,S07,0,9,Bayındır Han
+bayindir_han,8,S08,5,14,Bayındır Han
+bayindir_han,9,S09,3,17,Bayındır Han
+bayindir_han,10,S10,14,31,Bayındır Han
+bayindir_han,11,S11,0,31,Bayındır Han
+bayindir_han,12,S12,0,31,Bayındır Han
+bayindir_han,13,S13,0,31,Bayındır Han
+bayindir_han,14,S14,5,36,Bayındır Han
+uruz,1,S01,0,0,Uruz
+uruz,2,S02,0,0,Uruz
+uruz,3,S03,3,3,Uruz
+uruz,4,S04,1,4,Uruz
+uruz,5,S05,13,17,Uruz
+uruz,6,S06,0,17,Uruz
+uruz,7,S07,0,17,Uruz
+uruz,8,S08,0,17,Uruz
+uruz,9,S09,0,17,Uruz
+uruz,10,S10,0,17,Uruz
+uruz,11,S11,0,17,Uruz
+uruz,12,S12,12,29,Uruz
+uruz,13,S13,0,29,Uruz
+uruz,14,S14,0,29,Uruz
+tepegoz,1,S01,0,0,Tepegöz
+tepegoz,2,S02,0,0,Tepegöz
+tepegoz,3,S03,0,0,Tepegöz
+tepegoz,4,S04,0,0,Tepegöz
+tepegoz,5,S05,0,0,Tepegöz
+tepegoz,6,S06,0,0,Tepegöz
+tepegoz,7,S07,0,0,Tepegöz
+tepegoz,8,S08,0,0,Tepegöz
+tepegoz,9,S09,28,28,Tepegöz
+tepegoz,10,S10,0,28,Tepegöz
+tepegoz,11,S11,0,28,Tepegöz
+tepegoz,12,S12,0,28,Tepegöz
+tepegoz,13,S13,0,28,Tepegöz
+tepegoz,14,S14,0,28,Tepegöz
+basat,1,S01,0,0,Basat
+basat,2,S02,0,0,Basat
+basat,3,S03,0,0,Basat
+basat,4,S04,0,0,Basat
+basat,5,S05,0,0,Basat
+basat,6,S06,0,0,Basat
+basat,7,S07,0,0,Basat
+basat,8,S08,0,0,Basat
+basat,9,S09,26,26,Basat
+basat,10,S10,0,26,Basat
+basat,11,S11,0,26,Basat
+basat,12,S12,0,26,Basat
+basat,13,S13,1,27,Basat
+basat,14,S14,0,27,Basat

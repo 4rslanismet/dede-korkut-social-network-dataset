@@ -1,0 +1,46 @@
+claim_id,claim,evidence_type,evidence_source,status,confidence,notes
+C01,"332 canonical nodes (187 kişi, 124 grup, 21 other)",count,data/processed/nodes.csv,VERIFIED,high,independently counted from source
+C02,628 event-level relations,count,data/processed/relations_event_level.csv,VERIFIED,high,independently counted
+C03,376 aggregated undirected pairs,count,data/processed/relations_aggregated.csv,VERIFIED,high,independently counted
+C04,14 stories (13 boy + 1 girizgah),count,data/processed/stories.csv,VERIFIED,high,independently counted
+C05,85 narrative events,count,data/final/olaylar_temiz.csv,VERIFIED,high,independently counted
+C06,17 relation types mapping to 6 families,count,data/processed/relation_taxonomy.csv,VERIFIED,high,independently counted
+C07,7 relation layers,count,data/processed/relations_event_level.csv,VERIFIED,high,distinct iliski_katmani values counted
+C08,12 network model variants (G0-G11),count,src/networks.py::NETWORK_DEFINITIONS,VERIFIED,high,all 12 build and export correctly
+C09,G0 has 311 nodes and 376 edges,metric,outputs/networks/network_summary.json,VERIFIED,high,independently built and counted
+C10,G2 (core social) has 309 nodes and 374 edges,metric,outputs/networks/network_summary.json,VERIFIED,high,independently built and counted
+C11,G9 is directed with 221 nodes and 324 edges,metric,outputs/networks/network_summary.json,VERIFIED,high,nx.is_directed() confirmed True
+C12,G0 G10 G11 share identical topology,metric,src/networks.py,VERIFIED,high,same edge set; G10 preserves weights; G11 forces all to 1
+C13,Weight semantics: distance = 1/strength for shortest-path metrics,code_review,src/networks.py::strength_to_distance,VERIFIED,high,code and tests confirm; non-positive strength raises ValueError
+C14,Self-loop DKR0220 (bamsi_beyrek) propagates to 7 of 12 networks,count,independent verification,VERIFIED,high,verified which 7 variants include it
+C15,Single entity merge: begil_in_adamlari → begilin_adamlari,code_review,src/build_canonical.py,VERIFIED,high,only merge applied; reduces 333→332 nodes
+C16,53 provenance gaps (8.4% of event-level relations),count,data/processed/provenance.csv,VERIFIED,high,unmatched_provenance_gap count
+C17,Source edition is UNRESOLVED,provenance_audit,validation/source_edition_metadata_required.md,VERIFIED,high,XLSX schema mismatch confirms non-reproducibility
+C18,5 story-level rows not in final edges,provenance_audit,reports/REBUILD_V2_02_PROVENANCE_AUDIT.md,VERIFIED,high,DKR0122/0167/0252/0345/0708 identified
+C19,Modularity significantly higher than null in 7/9 networks (BH-FDR),null_model,outputs/statistics/null_model_fdr_corrected.csv,VERIFIED,high,1000 degree-preserving randomizations; z-scores 2.5-7.0
+C20,Clustering significantly higher than null in 4/9 networks (BH-FDR),null_model,outputs/statistics/null_model_fdr_corrected.csv,VERIFIED,high,G0/G1/G2/G4 significant
+C21,Degree assortativity NOT significant in any network,null_model,outputs/statistics/null_model_fdr_corrected.csv,VERIFIED,high,0/9 significant after FDR correction
+C22,Transitivity significant in 1/9 networks (G1 only),null_model,outputs/statistics/null_model_fdr_corrected.csv,VERIFIED,high,only G1_person_only
+C23,"Sensitivity: actor-type inclusion, edge weighting, and group inclusion change rankings noticeably (ρ < 0.95)",sensitivity,outputs/statistics/sensitivity_analysis_results.json,VERIFIED,high,Spearman ρ 0.85-0.96 for noticeable pairs
+C24,"Sensitivity: girizgah, core-social filtering, inference policy are negligible (ρ ≥ 0.98)",sensitivity,outputs/statistics/sensitivity_analysis_results.json,VERIFIED,high,all ρ ≥ 0.98
+C25,Leiden modularity 0.695 with 33 communities on G2 (res=1.0),community,outputs/statistics/community_summary_G2_core_social.json,VERIFIED,high,pipeline-generated
+C26,Louvain modularity 0.711 with 34 communities on G2,community,outputs/statistics/community_summary_G2_core_social.json,VERIFIED,high,pipeline-generated
+C27,Leiden-Louvain ARI = 0.899 (high agreement),community,outputs/statistics/community_summary_G2_core_social.json,VERIFIED,high,adjusted Rand index
+C28,Signed network: only 13 triangles (below 15-triangle threshold),signed,outputs/statistics/signed_structural_balance.json,VERIFIED,high,too few for meaningful structural balance analysis
+C29,Directed triad census computed for G9,directed,outputs/statistics/directed_triad_census_G9.json,VERIFIED,high,all 16 MAN triad types enumerated
+C30,Story similarity: actor Jaccard median 0.030 and max 0.153,story_similarity,outputs/results_registry.json,VERIFIED,high,28 of 91 pairs share no actor
+C31,S03-S05 is leading pair by actor Jaccard (0.153),story_similarity,outputs/results_registry.json,VERIFIED,high,11 shared actors
+C32,Discrete story clustering NOT robustly supported,cluster_validity,outputs/statistics/story_similarity_cluster_validity.json,VERIFIED,high,no k passes pre-set validity rule (sil>0.50 AND ARI≥0.75 AND perm p<0.05)
+C33,Robustness: betweenness-targeted removal fragments network fastest,robustness,outputs/statistics/robustness_summary_G0_full.json,VERIFIED,high,giant component below 50% at ~1.9% node removal
+C34,Robustness: random removal fragments at ~25% removal,robustness,outputs/statistics/robustness_summary_G0_full.json,VERIFIED,high,100 random trials averaged
+C35,Narrative order windowing for 13/14 stories (S01 excluded),narrative,outputs/tables/narrative_order_windows.csv,VERIFIED,high,S01 has only 1 row with satir_no
+C36,Bipartite actor-story network: 311 actors × 14 stories with 399 incidences,bipartite,outputs/matrices/actor_story_incidence.csv,VERIFIED,high,degree-inflation caveat documented
+C37,Pipeline: 27 stages all PASS,pipeline,run_pipeline.py,VERIFIED,high,full pipeline run completed successfully
+C38,Test suite: 70/70 tests pass,tests,pytest output,VERIFIED,high,153s runtime
+C39,90 entity-review candidates (expanded from existing 46),entity_resolution,validation/entity_review_candidates_v2.csv,VERIFIED,high,includes near-duplicate typos
+C40,Inter-annotator agreement: PENDING HUMAN CODER,limitation,validation/source_edition_metadata_required.md,VERIFIED,high,no second-coder data exists; sample built but no comparison possible
+C41,RQ1 fully answered (confirmatory),rq_evaluation,thesis/research_questions.md,VERIFIED,high,null-model validated community structure
+C42,RQ4 fully answered (confirmatory) — central finding,rq_evaluation,thesis/research_questions.md,VERIFIED,high,modularity > null in 7/9 networks
+C43,RQ6 partially answered / exploratory,rq_evaluation,thesis/research_questions.md,VERIFIED,high,pairwise similarity quantified but discrete clusters not supported
+C44,Website: 360 HTML files validated with no broken links,site_validation,outputs/validation/site_validation_report.json,VERIFIED,high,validate_site stage PASS
+C45,Hash manifest covers all output files,manifest,outputs/manifest_sha256.csv,VERIFIED,high,pipeline-generated SHA-256 hashes

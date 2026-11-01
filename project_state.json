@@ -1,0 +1,34 @@
+{
+  "project": "Dede Korkut Narrative Network Dataset",
+  "repository": "4rslanismet/dede-korkut-social-network-dataset",
+  "branch": "claude-complete-rebuild-v2",
+  "head": "e6377bb",
+  "base": "main at 149df2a",
+  "status": "REBUILD_V2_COMPLETE",
+  "working_tree": "clean",
+  "commits": [
+    {"sha": "8c34189", "desc": "Phase 0: CLAUDE.md, AI disclosure, baseline hashes"},
+    {"sha": "5dd2522", "desc": "Phase 1: Independent repository audit"},
+    {"sha": "30b35de", "desc": "Phase 2-3: Provenance audit, entity review, canonical data diff"},
+    {"sha": "e6377bb", "desc": "Phase 4-8: Analysis verification, claim-evidence matrix, final reports"}
+  ],
+  "verification": {
+    "pipeline_stages": "27/27 PASS",
+    "tests": "70/70 pass",
+    "network_models": "12/12 verified",
+    "null_models": "12/36 significant (BH-FDR)",
+    "website": "360 HTML files validated",
+    "source_hashes": "23 files match baseline",
+    "claims_traced": 45,
+    "entity_candidates": 90
+  },
+  "not_done": ["merge_to_main", "push", "deploy_pages", "tag_release"],
+  "publication_blockers": [
+    "source_edition_metadata",
+    "inter_annotator_agreement",
+    "citation_cff_author_metadata",
+    "entity_review_90_candidates"
+  ],
+  "spec_sections_completed": 48,
+  "last_updated": "2026-11-02"
+}

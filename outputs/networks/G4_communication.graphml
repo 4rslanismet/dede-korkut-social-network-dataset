@@ -1,0 +1,674 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d5" for="edge" attr.name="interaction_count" attr.type="long" />
+  <key id="d4" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d3" for="node" attr.name="story_count" attr.type="long" />
+  <key id="d2" for="node" attr.name="node_type" attr.type="string" />
+  <key id="d1" for="node" attr.name="canonical_name" attr.type="string" />
+  <key id="d0" for="graph" attr.name="name" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="adsiz_kisi_uruz_kurtarma_boyu">
+      <data key="d1">Adsız Kişi (Uruz Kurtarma Boyu)</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="anne_ve_babasi">
+      <data key="d1">Anne ve Babası</data>
+      <data key="d2">grup</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="at_agizli_aruz">
+      <data key="d1">At Ağızlı Aruz</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="azrail">
+      <data key="d1">Azrail</data>
+      <data key="d2">mitolojik/ilahi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="agac">
+      <data key="d1">Ağaç</data>
+      <data key="d2">nesne/doğa</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="bamsi_beyrek">
+      <data key="d1">Bamsı Beyrek</data>
+      <data key="d2">kişi</data>
+      <data key="d3">4</data>
+    </node>
+    <node id="banu_cicek">
+      <data key="d1">Banu Çiçek</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="basat">
+      <data key="d1">Basat</data>
+      <data key="d2">kişi</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="bayindir_han">
+      <data key="d1">Bayındır Han</data>
+      <data key="d2">kişi</data>
+      <data key="d3">7</data>
+    </node>
+    <node id="bayindir_hanin_adamlari">
+      <data key="d1">Bayındır Han'ın Adamları</data>
+      <data key="d2">grup</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="begil">
+      <data key="d1">Begil</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="begilin_karisi">
+      <data key="d1">Begilin Karısı</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="beyler_bamsi_beyrek_boyu">
+      <data key="d1">Beyler (Bamsı Beyrek Boyu)</data>
+      <data key="d2">grup</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="beyler_uruz_tutsak_boyu">
+      <data key="d1">Beyler (Uruz Tutsak Boyu)</data>
+      <data key="d2">grup</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="beyrekin_buyuk_kiz_kardesi">
+      <data key="d1">Beyrek'in Büyük Kız Kardeşi</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="beyrekin_kucuk_kiz_kardesi">
+      <data key="d1">Beyrek'in Küçük Kız Kardeşi</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="beyrekin_yoldaslari">
+      <data key="d1">Beyrek'in Yoldaşları</data>
+      <data key="d2">grup</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="bezirganlar">
+      <data key="d1">Bezirganlar</data>
+      <data key="d2">grup</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="bogac">
+      <data key="d1">Boğaç</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="burla_hatun">
+      <data key="d1">Burla Hatun</data>
+      <data key="d2">kişi</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="dadi_ve_diger_kizlar">
+      <data key="d1">Dadı ve Diğer Kızlar</data>
+      <data key="d2">grup</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="dede_korkut">
+      <data key="d1">Dede Korkut</data>
+      <data key="d2">kişi</data>
+      <data key="d3">5</data>
+    </node>
+    <node id="deli_dumrul">
+      <data key="d1">Deli Dumrul</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="deli_durmrul">
+      <data key="d1">Deli Durmrul</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="deli_karcar">
+      <data key="d1">Deli Karçar</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="dirse_han">
+      <data key="d1">Dirse Han</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="dirse_hanin_40_adami">
+      <data key="d1">Dirse Han'ın 40 Adamı</data>
+      <data key="d2">grup</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="dirse_hanin_karisi">
+      <data key="d1">Dirse Han'ın Karısı</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="duha_koca">
+      <data key="d1">Duha Koca</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="dumrul">
+      <data key="d1">Dumrul</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="dumrulun_40_adami">
+      <data key="d1">Dumrul'un 40 Adamı</data>
+      <data key="d2">grup</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="dumrulun_annesi">
+      <data key="d1">Dumrul'un Annesi</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="dumrulun_karisi">
+      <data key="d1">Dumrul'un Karısı</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="duzen_oglu_alp_rustem">
+      <data key="d1">Düzen Oğlu Alp Rüstem</data>
+      <data key="d2">kişi</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="dis_oguz">
+      <data key="d1">Dış Oğuz</data>
+      <data key="d2">grup</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="emen">
+      <data key="d1">Emen</data>
+      <data key="d2">kişi</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="emren">
+      <data key="d1">Emren</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="eylik_koca_donebilmez_dulek_evren">
+      <data key="d1">Eylik Koca Dönebilmez Dülek Evren</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="hizir">
+      <data key="d1">Hızır</data>
+      <data key="d2">mitolojik/ilahi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="kafir_beyinin_kizi">
+      <data key="d1">Kafir Beyi'nin Kızı</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="kafirler_uruz_kurtarma_boyu">
+      <data key="d1">Kafirler (Uruz Kurtarma Boyu)</data>
+      <data key="d2">grup</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="kan_turali">
+      <data key="d1">Kan Turalı</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="kanli_koca">
+      <data key="d1">Kanlı Koca</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="kara_budak">
+      <data key="d1">Kara Budak</data>
+      <data key="d2">kişi</data>
+      <data key="d3">5</data>
+    </node>
+    <node id="kara_gone">
+      <data key="d1">Kara Göne</data>
+      <data key="d2">kişi</data>
+      <data key="d3">4</data>
+    </node>
+    <node id="kara_gone_oglu_kara_budak">
+      <data key="d1">Kara Göne Oğlu Kara Budak</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="kara_gone_ve_askerleri">
+      <data key="d1">Kara Göne ve Askerleri</data>
+      <data key="d2">grup</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="karacuk_coban">
+      <data key="d1">Karaçuk Çoban</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="karacuk_cobanin_kara_kopegi">
+      <data key="d1">Karaçuk Çoban'ın Kara Köpeği</data>
+      <data key="d2">hayvan</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="kurt">
+      <data key="d1">Kurt</data>
+      <data key="d2">hayvan</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="kisirca_yenge">
+      <data key="d1">Kısırca Yenge</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="kiyan_selcuk_oglu_deli_dundar">
+      <data key="d1">Kıyan Selçuk Oğlu Deli Dündar</data>
+      <data key="d2">kişi</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="lala_kilbas">
+      <data key="d1">Lala Kılbaş</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="oba">
+      <data key="d1">Oba</data>
+      <data key="d2">grup</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="oguz_han">
+      <data key="d1">Oğuz Han</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="oguz_hanin_likcisi">
+      <data key="d1">Oğuz Han'ın Lıkçısı</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="pay_pure">
+      <data key="d1">Pay Püre</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="pay_pure_bey">
+      <data key="d1">Pay Püre Bey</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="peri_kizi">
+      <data key="d1">Peri Kızı</data>
+      <data key="d2">mitolojik/ilahi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="salur_kazan">
+      <data key="d1">Salur Kazan</data>
+      <data key="d2">kişi</data>
+      <data key="d3">9</data>
+    </node>
+    <node id="sari_coban">
+      <data key="d1">Sarı Çoban</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="selcen_hatun">
+      <data key="d1">Selcen Hatun</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="serhat_beylerinden_ulak">
+      <data key="d1">Serhat Beylerinden Ulak</data>
+      <data key="d2">grup</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="su">
+      <data key="d1">Su</data>
+      <data key="d2">nesne/doğa</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="tanri">
+      <data key="d1">Tanrı</data>
+      <data key="d2">mitolojik/ilahi</data>
+      <data key="d3">4</data>
+    </node>
+    <node id="tekfur_kan_turali_boyu">
+      <data key="d1">Tekfur (Kan Turalı Boyu)</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="uruz">
+      <data key="d1">Uruz</data>
+      <data key="d2">kişi</data>
+      <data key="d3">4</data>
+    </node>
+    <node id="yalanci_oglu_yaltacuk">
+      <data key="d1">Yalançı Oğlu Yaltaçuk</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="yigenek">
+      <data key="d1">Yigenek</data>
+      <data key="d2">kişi</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="yurt">
+      <data key="d1">Yurt</data>
+      <data key="d2">nesne/doğa</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="cobanlar">
+      <data key="d1">Çobanlar</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="ic_oguz">
+      <data key="d1">İç Oğuz</data>
+      <data key="d2">grup</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="sir_semseddin">
+      <data key="d1">Şir Şemseddin</data>
+      <data key="d2">kişi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="sokli_melik">
+      <data key="d1">Şökli Melik</data>
+      <data key="d2">kişi</data>
+      <data key="d3">2</data>
+    </node>
+    <edge source="adsiz_kisi_uruz_kurtarma_boyu" target="uruz">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="anne_ve_babasi" target="basat">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="at_agizli_aruz" target="salur_kazan">
+      <data key="d4">3.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="azrail" target="dumrul">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="agac" target="uruz">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bamsi_beyrek" target="bamsi_beyrek">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bamsi_beyrek" target="banu_cicek">
+      <data key="d4">3.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bamsi_beyrek" target="beyler_bamsi_beyrek_boyu">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bamsi_beyrek" target="beyrekin_buyuk_kiz_kardesi">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bamsi_beyrek" target="beyrekin_kucuk_kiz_kardesi">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bamsi_beyrek" target="beyrekin_yoldaslari">
+      <data key="d4">3.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bamsi_beyrek" target="bezirganlar">
+      <data key="d4">5.0</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="bamsi_beyrek" target="burla_hatun">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bamsi_beyrek" target="cobanlar">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bamsi_beyrek" target="kafir_beyinin_kizi">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bamsi_beyrek" target="kara_budak">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bamsi_beyrek" target="kisirca_yenge">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bamsi_beyrek" target="pay_pure">
+      <data key="d4">3.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bamsi_beyrek" target="pay_pure_bey">
+      <data key="d4">3.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bamsi_beyrek" target="salur_kazan">
+      <data key="d4">6.0</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="bamsi_beyrek" target="sir_semseddin">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bamsi_beyrek" target="uruz">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bamsi_beyrek" target="yigenek">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="banu_cicek" target="dadi_ve_diger_kizlar">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bayindir_han" target="kara_budak">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bayindir_han" target="salur_kazan">
+      <data key="d4">3.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bayindir_han" target="yalanci_oglu_yaltacuk">
+      <data key="d4">3.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bayindir_hanin_adamlari" target="dirse_han">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="begil" target="begilin_karisi">
+      <data key="d4">4.0</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="begil" target="emren">
+      <data key="d4">4.0</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="beyler_uruz_tutsak_boyu" target="salur_kazan">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bezirganlar" target="pay_pure">
+      <data key="d4">3.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bogac" target="dirse_han">
+      <data key="d4">3.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bogac" target="dirse_hanin_karisi">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="bogac" target="hizir">
+      <data key="d4">3.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="burla_hatun" target="salur_kazan">
+      <data key="d4">4.0</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="burla_hatun" target="uruz">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="dede_korkut" target="deli_karcar">
+      <data key="d4">16.0</data>
+      <data key="d5">6</data>
+    </edge>
+    <edge source="dede_korkut" target="pay_pure">
+      <data key="d4">6.0</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="dede_korkut" target="salur_kazan">
+      <data key="d4">3.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="deli_dumrul" target="oba">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="deli_dumrul" target="tanri">
+      <data key="d4">3.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="deli_durmrul" target="dumrulun_40_adami">
+      <data key="d4">3.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="dirse_han" target="dirse_hanin_40_adami">
+      <data key="d4">3.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="dirse_han" target="dirse_hanin_karisi">
+      <data key="d4">6.0</data>
+      <data key="d5">3</data>
+    </edge>
+    <edge source="duha_koca" target="dumrul">
+      <data key="d4">5.0</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="dumrul" target="dumrulun_annesi">
+      <data key="d4">5.0</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="dumrul" target="dumrulun_karisi">
+      <data key="d4">5.0</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="duzen_oglu_alp_rustem" target="salur_kazan">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="dis_oguz" target="salur_kazan">
+      <data key="d4">3.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="emen" target="yigenek">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="eylik_koca_donebilmez_dulek_evren" target="salur_kazan">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="kafirler_uruz_kurtarma_boyu" target="kara_gone_ve_askerleri">
+      <data key="d4">3.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="kan_turali" target="kanli_koca">
+      <data key="d4">6.0</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="kan_turali" target="selcen_hatun">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="kan_turali" target="tekfur_kan_turali_boyu">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="kara_gone" target="salur_kazan">
+      <data key="d4">5.0</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="kara_gone_oglu_kara_budak" target="salur_kazan">
+      <data key="d4">3.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="karacuk_coban" target="salur_kazan">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="karacuk_coban" target="sokli_melik">
+      <data key="d4">3.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="karacuk_cobanin_kara_kopegi" target="salur_kazan">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="kurt" target="salur_kazan">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="kiyan_selcuk_oglu_deli_dundar" target="salur_kazan">
+      <data key="d4">3.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="lala_kilbas" target="salur_kazan">
+      <data key="d4">8.0</data>
+      <data key="d5">3</data>
+    </edge>
+    <edge source="oguz_han" target="oguz_hanin_likcisi">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="pay_pure" target="salur_kazan">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="peri_kizi" target="sari_coban">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="salur_kazan" target="ic_oguz">
+      <data key="d4">3.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="salur_kazan" target="serhat_beylerinden_ulak">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="salur_kazan" target="sokli_melik">
+      <data key="d4">3.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="salur_kazan" target="su">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="salur_kazan" target="uruz">
+      <data key="d4">7.0</data>
+      <data key="d5">3</data>
+    </edge>
+    <edge source="salur_kazan" target="yurt">
+      <data key="d4">2.0</data>
+      <data key="d5">1</data>
+    </edge>
+    <data key="d0">G4_communication</data>
+  </graph>
+</graphml>

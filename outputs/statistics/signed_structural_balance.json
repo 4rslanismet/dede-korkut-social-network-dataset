@@ -1,0 +1,6 @@
+{
+  "n_triangles_in_signed_subgraph": 13,
+  "threshold_for_claim": 15,
+  "status": "not_applicable",
+  "reason": "Only 13 triangles exist among edges with a definite (pozitif/negatif) polarity — below the documented threshold of 15 needed to say anything statistically meaningful about structural balance. Reporting a balance ratio on this few triangles would overstate what a sparse literary network supports."
+}

@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d2" for="edge" attr.name="interaction_count" attr.type="long" />
+  <key id="d1" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d0" for="graph" attr.name="name" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="40_ince_belli_kiz" />
+    <node id="dirse_hanin_karisi" />
+    <node id="bayindir_han" />
+    <node id="kam_gan" />
+    <node id="bayindir_hanin_adamlari" />
+    <node id="dirse_han" />
+    <node id="bogac" />
+    <node id="bogacin_40_adami" />
+    <node id="hekimler" />
+    <node id="hizir" />
+    <node id="bogac_han" />
+    <node id="dirse_hanin_40_adami" />
+    <node id="bogac_ve_bogacin_40_adami" />
+    <node id="dire" />
+    <node id="oglu_ve_40_adami" />
+    <edge source="40_ince_belli_kiz" target="dirse_hanin_karisi">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="dirse_hanin_karisi" target="bogac">
+      <data key="d1">5.0</data>
+      <data key="d2">2</data>
+    </edge>
+    <edge source="dirse_hanin_karisi" target="dirse_han">
+      <data key="d1">6.0</data>
+      <data key="d2">3</data>
+    </edge>
+    <edge source="dirse_hanin_karisi" target="dirse_hanin_40_adami">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="bayindir_han" target="kam_gan">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="bayindir_hanin_adamlari" target="dirse_han">
+      <data key="d1">2.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="dirse_han" target="bogac">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="dirse_han" target="bogac_han">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="dirse_han" target="dirse_hanin_40_adami">
+      <data key="d1">17.0</data>
+      <data key="d2">5</data>
+    </edge>
+    <edge source="dirse_han" target="oglu_ve_40_adami">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="bogac" target="bogacin_40_adami">
+      <data key="d1">2.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="bogac" target="hekimler">
+      <data key="d1">4.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="bogac" target="hizir">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="bogac_han" target="dirse_hanin_40_adami">
+      <data key="d1">4.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="dirse_hanin_40_adami" target="bogac_ve_bogacin_40_adami">
+      <data key="d1">5.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <edge source="dirse_hanin_40_adami" target="dire">
+      <data key="d1">3.0</data>
+      <data key="d2">1</data>
+    </edge>
+    <data key="d0">S02</data>
+  </graph>
+</graphml>

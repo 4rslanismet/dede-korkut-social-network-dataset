@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Similarity — Dede Korkut Narrative Networks</title>
+<meta name="description" content="Story similarity: actor overlap, relation-profile, and layer-composition measures.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap brand-row">
+    <div>
+      <a class="brand" href="index.html">Dede Korkut Narrative Networks</a><br>
+      <span class="subtitle">A reproducible multilayer network analysis of characters and relations in the Book of Dede Korkut</span>
+    </div>
+  </div>
+  <nav class="main-nav"><div class="wrap"><a href="index.html">Home</a>
+<a href="dataset.html">Dataset</a>
+<a href="methodology.html">Methodology</a>
+<a href="explorer.html">Network Explorer</a>
+<a href="stories.html">Stories</a>
+<a href="characters.html">Characters</a>
+<a href="layers.html">Layers</a>
+<a href="communities.html">Communities</a>
+<a href="similarity.html" class="active">Similarity</a>
+<a href="analysis.html">Analysis</a>
+<a href="evidence.html">Evidence</a>
+<a href="downloads.html">Downloads</a>
+<a href="reproduce.html">Reproduce</a>
+<a href="about.html">About</a></div></nav>
+</header>
+<main class="wrap">
+
+<h1>Story Similarity</h1>
+<p class="lede">5 similarity measures across all 91 story pairs: actor Jaccard, actor weighted
+Jaccard, actor cosine (all three based on shared characters), relation-profile similarity, and
+layer-composition similarity (both based on narrative-relational content, independent of which
+specific actors appear). <strong>Exploratory / descriptive.</strong> Story-level similarity can be
+quantified and visualized, but evidence for a robust discrete clustering structure is limited (see
+below). See <a href="methodology.html">Methodology</a> and
+<a href="decision_log.md">decision_log.md</a> (DEC-014, DEC-015) for the exact definitions, the
+hierarchical-clustering feature-space choice, and the audit that narrowed the claims.</p>
+
+<h2>How to read these numbers</h2>
+<ul>
+<li><strong>Overlap is low.</strong> Actor Jaccard has a median of 0.030 and a maximum of
+0.153; 28 of 91 pairs share no actor. &ldquo;Top&rdquo; below means <em>relatively most
+overlapping among the evaluated stories</em>, not strongly similar.</li>
+<li><strong>The top pair depends on the metric.</strong> The pair with the highest actor Jaccard (S03&ndash;S05) ranks
+1st on weighted Jaccard, 6th on actor cosine,
+6th on relation-profile and 7th on layer-composition
+cosine (of 91 pairs); the top pair per metric is Jaccard S03&ndash;S05; weighted Jaccard S03&ndash;S05; actor cosine S12&ndash;S14; relation-profile S11&ndash;S13; layer-composition S11&ndash;S13.</li>
+<li><strong>Cosine values are high by construction</strong> (non-negative counts over a few categories).
+A permutation baseline (relations reassigned across stories) reaches nearly the same top values, so
+relation-profile and layer-composition similarities near 0.9 are not evidence of specific affinity.</li>
+<li><strong>Clusters are not established.</strong> A Ward dendrogram always exists. Silhouette 0.37&ndash;0.56,
+bootstrap adjusted Rand index 0.54&ndash;0.79 and disagreement between linkage methods at k=4&ndash;5 do not
+support a robust discrete grouping (<a href="downloads/outputs/statistics/story_similarity_cluster_validity.json">validity audit</a>).
+Themes such as captivity are not coded variables, so they are not a finding of this analysis.</li>
+</ul>
+
+<h2>Actor Jaccard heatmap</h2>
+<figure>
+  <img src="figures/similarity/F10_story_similarity_heatmap.png" alt="Story similarity heatmap">
+  <figcaption>Grey diagonal = self-similarity (trivially 1.0). Darker = more shared actors.</figcaption>
+</figure>
+
+<h2>Story actor-overlap network</h2>
+<figure>
+  <img src="figures/similarity/F11_story_similarity_network.png" alt="Story actor-overlap network">
+  <figcaption>Top 15 of 91 pairs by actor Jaccard. Edge darkness/thickness = degree of actor overlap
+  (low in absolute terms; not a cluster structure).</figcaption>
+</figure>
+
+<h2>Top 10 most-overlapping story pairs (by shared actors)</h2>
+<div class="table-wrap"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>story_a</th>
+      <th>story_b</th>
+      <th>actor_jaccard</th>
+      <th>actor_weighted_jaccard</th>
+      <th>actor_cosine</th>
+      <th>relation_profile_similarity</th>
+      <th>layer_composition_similarity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>S03</td>
+      <td>S05</td>
+      <td>0.1528</td>
+      <td>0.2215</td>
+      <td>0.6759</td>
+      <td>0.9414</td>
+      <td>0.9647</td>
+    </tr>
+    <tr>
+      <td>S08</td>
+      <td>S10</td>
+      <td>0.1333</td>
+      <td>0.0710</td>
+      <td>0.1438</td>
+      <td>0.6685</td>
+      <td>0.7712</td>
+    </tr>
+    <tr>
+      <td>S08</td>
+      <td>S14</td>
+      <td>0.0833</td>
+      <td>0.0811</td>
+      <td>0.0653</td>
+      <td>0.4642</td>
+      <td>0.6427</td>
+    </tr>
+    <tr>
+      <td>S10</td>
+      <td>S14</td>
+      <td>0.0833</td>
+      <td>0.0615</td>
+      <td>0.1342</td>
+      <td>0.2944</td>
+      <td>0.5756</td>
+    </tr>
+    <tr>
+      <td>S03</td>
+      <td>S08</td>
+      <td>0.0806</td>
+      <td>0.0345</td>
+      <td>0.0236</td>
+      <td>0.7462</td>
+      <td>0.7564</td>
+    </tr>
+    <tr>
+      <td>S03</td>
+      <td>S04</td>
+      <td>0.0727</td>
+      <td>0.0785</td>
+      <td>0.2459</td>
+      <td>0.7240</td>
+      <td>0.7810</td>
+    </tr>
+    <tr>
+      <td>S10</td>
+      <td>S12</td>
+      <td>0.0690</td>
+      <td>0.0244</td>
+      <td>0.0746</td>
+      <td>0.9528</td>
+      <td>0.9688</td>
+    </tr>
+    <tr>
+      <td>S09</td>
+      <td>S13</td>
+      <td>0.0690</td>
+      <td>0.0558</td>
+      <td>0.1492</td>
+      <td>0.8516</td>
+      <td>0.8651</td>
+    </tr>
+    <tr>
+      <td>S10</td>
+      <td>S11</td>
+      <td>0.0667</td>
+      <td>0.0273</td>
+      <td>0.0126</td>
+      <td>0.9245</td>
+      <td>0.9175</td>
+    </tr>
+    <tr>
+      <td>S03</td>
+      <td>S14</td>
+      <td>0.0625</td>
+      <td>0.1523</td>
+      <td>0.7181</td>
+      <td>0.5814</td>
+      <td>0.7741</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<h2>Full pairwise table</h2>
+<p>All 91 pairs, all 5 metrics: <a href="downloads/outputs/tables/publication/T08_story_similarity.csv">T08_story_similarity.csv</a>.</p>
+
+<div class="disclaimer">RQ6 status: <strong>partially answered / exploratory</strong>. These similarity values
+are descriptive only — no significance test has been applied to them (unlike the community and
+modularity findings on the <a href="analysis.html">Analysis</a> page), and the cluster-validity
+checks do not support a robust discrete clustering. Any thematic reading of a similar pair is
+qualitative interpretation, not a network-analysis result.</div>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Network metrics are structural representations derived from the encoded dataset and should not be interpreted as complete literary judgments about character importance.</p>
+    <p>Built entirely from files in this repository — no analysis result on this site is hand-typed. See <a href="reproduce.html">Reproduce</a>.</p>
+  </div>
+</footer>
+</body>
+</html>
