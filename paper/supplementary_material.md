@@ -79,7 +79,14 @@ and `paper/figures/F17_centrality_rank_stability.png`.
   website) remain awaiting manual review; none has been split or merged (`docs/decision_log.md`
   DEC-013 and DEC-018).
 
-## S8. Interactive Companion
+## S8. Technical Results Package
+
+`paper/technical_results_package.md` — a single-document compilation of all publication-ready
+tables: 12-model comparison, null-model network×metric significance matrix, sensitivity tier
+summary, robustness threshold crossings, story-similarity cluster validity, and open limitations.
+Every number traces to a pipeline output file cited inline.
+
+## S9. Interactive Companion
 
 All results in this supplement are also browsable interactively at the project's GitHub Pages
 site (`docs/`), including a Cytoscape.js network explorer and a profile page for every one of the

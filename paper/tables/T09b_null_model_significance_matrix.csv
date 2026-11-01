@@ -1,0 +1,10 @@
+network,modularity_q,modularity_sig,clustering_q,clustering_sig,transitivity_q,transitivity_sig,assortativity_q,assortativity_sig
+G0_full,0.012,True,0.018,True,0.356,False,0.089,False
+G1_person_only,0.022,True,0.024,True,0.027,True,0.749,False
+G2_core_social,0.012,True,0.012,True,0.293,False,0.149,False
+G3_kinship,0.673,False,1.000,False,1.000,False,1.000,False
+G4_communication,0.036,True,0.048,True,0.162,False,0.293,False
+G5_cooperation_support,0.673,False,1.000,False,0.755,False,1.000,False
+G6_conflict,0.027,True,0.963,False,1.000,False,0.149,False
+G7_positive,0.032,True,0.572,False,1.000,False,0.567,False
+G8_negative,0.036,True,0.963,False,1.000,False,0.220,False
