@@ -1,7 +1,8 @@
 # Technical Results Package
 
 Publication-ready reference tables and statistical summaries. Every number traces to
-a pipeline output file cited inline. No number is hand-typed.
+a pipeline output file cited inline. Tables were compiled by hand from those sources;
+rounding is to 3 decimal places unless otherwise noted.
 
 Evidence class labels: **[C]** confirmatory, **[D]** descriptive, **[E]** exploratory,
 **[N]** negative result.
@@ -58,7 +59,7 @@ Method: 1,000 degree-preserving randomizations (double_edge_swap), BH-FDR α = 0
 
 | Network | Modularity | Clustering | Transitivity | Assortativity |
 |---|---|---|---|---|
-| G0 | **q=0.012** | **q=0.012** | q=0.356 | q=0.089 |
+| G0 | **q=0.012** | **q=0.018** | q=0.356 | q=0.089 |
 | G1 | **q=0.022** | **q=0.024** | **q=0.027** | q=0.749 |
 | G2 | **q=0.012** | **q=0.012** | q=0.293 | q=0.149 |
 | G3 | q=0.673 | q=1.000 | q=1.000 | q=1.000 |
